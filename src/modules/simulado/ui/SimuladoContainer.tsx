@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { bundledQuestionBank } from "../application/questionBank";
+import { exportAttemptToCsv, importAttemptFromCsv } from "../application/simuladoCsv";
 import {
   createAttempt,
   createReinforcementAttempt,
@@ -9,6 +10,7 @@ import {
   updateRemainingTime,
 } from "../application/simuladoService";
 import type { AnswerSubmission, SimuladoAttempt, SimuladoFilters } from "../domain/simuladoTypes";
+import { downloadCsvFile } from "./browserDownload";
 import { browserAttemptStorage } from "./browserStorage";
 import { QuestionRunner } from "./QuestionRunner";
 import { SimuladoResults } from "./SimuladoResults";
@@ -113,6 +115,20 @@ export function SimuladoContainer() {
     setCurrentIndex(0);
   };
 
+  const handleExportProgress = () => {
+    if (!attempt) return;
+    const csv = exportAttemptToCsv(attempt);
+    downloadCsvFile(`simulado-progresso-${attempt.id}.csv`, csv);
+  };
+
+  const handleImportProgress = (csvText: string) => {
+    const imported = importAttemptFromCsv(csvText, bundledQuestionBank);
+    browserAttemptStorage.save(imported);
+    setAttempt(imported);
+    const firstUnanswered = imported.questions.findIndex((q) => !imported.answers[q.question.id]);
+    setCurrentIndex(firstUnanswered >= 0 ? firstUnanswered : 0);
+  };
+
   const currentItem = attempt?.questions[currentIndex];
 
   const paletteItems = attempt?.questions.map((q, idx) => {
@@ -134,12 +150,14 @@ export function SimuladoContainer() {
           onStart={handleStart}
           hasSavedAttempt={hasSavedAttempt}
           onResumeSaved={handleResumeSaved}
+          onImportProgress={handleImportProgress}
         />
       ) : attempt.isCompleted ? (
         <SimuladoResults
           attempt={attempt}
           onRetryMissed={handleRetryMissed}
           onRestartNew={handleRestartNew}
+          onExportProgress={handleExportProgress}
         />
       ) : currentItem ? (
         <QuestionRunner
@@ -161,6 +179,7 @@ export function SimuladoContainer() {
           onTickRemainingSeconds={handleTickRemainingSeconds}
           onFinish={handleFinish}
           isLastQuestion={currentIndex === attempt.questions.length - 1}
+          onExportProgress={handleExportProgress}
         />
       ) : null}
     </div>

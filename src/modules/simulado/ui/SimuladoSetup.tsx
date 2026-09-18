@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Question } from "../../content/domain/contentSchemas";
 import type { SimuladoFilters } from "../domain/simuladoTypes";
 
@@ -7,6 +7,7 @@ type SimuladoSetupProps = {
   readonly onStart: (filters: SimuladoFilters) => void;
   readonly hasSavedAttempt: boolean;
   readonly onResumeSaved: () => void;
+  readonly onImportProgress: (csvText: string) => void;
 };
 
 export function SimuladoSetup({
@@ -14,8 +15,11 @@ export function SimuladoSetup({
   onStart,
   hasSavedAttempt,
   onResumeSaved,
+  onImportProgress,
 }: SimuladoSetupProps) {
   const [timeLimitMinutes, setTimeLimitMinutes] = useState<number>(180);
+  const [importError, setImportError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const questionCount = bank.length;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,6 +32,24 @@ export function SimuladoSetup({
       mode: "EXAM",
       timeLimitMinutes,
     });
+  };
+
+  const handleImportClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    setImportError(null);
+    try {
+      const csvText = await file.text();
+      onImportProgress(csvText);
+    } catch (err) {
+      setImportError(err instanceof Error ? err.message : "Não foi possível importar o arquivo.");
+    }
   };
 
   return (
@@ -69,6 +91,17 @@ export function SimuladoSetup({
         </div>
 
         <div className="sim-setup-footer">
+          <button type="button" className="button button--secondary" onClick={handleImportClick}>
+            Importar progresso (.csv)
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".csv,text/csv"
+            hidden
+            aria-label="Arquivo CSV de progresso"
+            onChange={handleFileChange}
+          />
           <button
             className="button button--primary sim-start-btn"
             type="submit"
@@ -78,6 +111,12 @@ export function SimuladoSetup({
           </button>
         </div>
       </form>
+
+      {importError ? (
+        <p className="sim-import-error" role="alert">
+          {importError}
+        </p>
+      ) : null}
     </section>
   );
 }

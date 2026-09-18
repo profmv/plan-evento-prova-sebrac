@@ -34,6 +34,7 @@ type QuestionRunnerProps = {
   readonly onTickRemainingSeconds?: ((seconds: number) => void) | undefined;
   readonly onFinish?: (() => void) | undefined;
   readonly isLastQuestion: boolean;
+  readonly onExportProgress?: (() => void) | undefined;
 };
 
 const OPTION_LETTERS = ["A", "B", "C", "D", "E", "F"];
@@ -68,6 +69,7 @@ export function QuestionRunner({
   onTickRemainingSeconds,
   onFinish,
   isLastQuestion,
+  onExportProgress,
 }: QuestionRunnerProps) {
   const { question, presentedOptions } = item;
 
@@ -208,6 +210,12 @@ export function QuestionRunner({
               <span aria-hidden="true">{isFlagged ? "★" : "☆"}</span>
               <span>{isFlagged ? "Marcada para revisão" : "Marcar para revisão"}</span>
             </button>
+
+            {onExportProgress ? (
+              <button type="button" className="sim-flag-btn" onClick={onExportProgress}>
+                Exportar progresso (.csv)
+              </button>
+            ) : null}
 
             {paletteItems && paletteItems.length > 0 ? (
               <button

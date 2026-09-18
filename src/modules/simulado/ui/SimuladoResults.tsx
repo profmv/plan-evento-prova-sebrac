@@ -7,6 +7,7 @@ type SimuladoResultsProps = {
   readonly attempt: SimuladoAttempt;
   readonly onRetryMissed: () => void;
   readonly onRestartNew: () => void;
+  readonly onExportProgress?: (() => void) | undefined;
 };
 
 const AXIS_TITLES: Record<AxisId, string> = {
@@ -15,7 +16,12 @@ const AXIS_TITLES: Record<AxisId, string> = {
   development: "Desenvolvimento de Aplicativos",
 };
 
-export function SimuladoResults({ attempt, onRetryMissed, onRestartNew }: SimuladoResultsProps) {
+export function SimuladoResults({
+  attempt,
+  onRetryMissed,
+  onRestartNew,
+  onExportProgress,
+}: SimuladoResultsProps) {
   const [showCertificate, setShowCertificate] = useState(false);
   const summary = attempt.summary;
 
@@ -135,6 +141,12 @@ export function SimuladoResults({ attempt, onRetryMissed, onRestartNew }: Simula
         >
           Emitir Certificado Simbólico
         </button>
+
+        {onExportProgress ? (
+          <button className="button button--secondary" type="button" onClick={onExportProgress}>
+            Exportar resultado (.csv)
+          </button>
+        ) : null}
 
         <button className="text-button" type="button" onClick={onRestartNew}>
           Configurar novo simulado
