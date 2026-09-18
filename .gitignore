@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+artifacts/*
+!artifacts/.gitkeep
+playwright-report/
+test-results/
+*.tsbuildinfo
+*.log

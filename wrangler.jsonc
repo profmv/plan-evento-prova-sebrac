@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "recap-senac-2026",
+  "compatibility_date": "2026-09-18",
+  "pages_build_output_dir": "./dist",
+  "vars": {
+    "APP_ENV": "local",
+    "APP_VERSION": "0.1.0"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "recap-senac-2026",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

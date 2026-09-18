@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "courseId": "tecnico-em-informatica-mf2023",
+  "title": "Técnico em Informática",
+  "totalWorkloadHours": 1200,
+  "axes": [
+    {
+      "id": "support",
+      "title": "Suporte e manutenção",
+      "qualificationTitle": "Assistente de Suporte e Manutenção de Computadores",
+      "workloadHours": 272,
+      "unitIds": ["UC01", "UC02", "UC03", "UC04"]
+    },
+    {
+      "id": "networks",
+      "title": "Redes e servidores",
+      "qualificationTitle": "Assistente de Operação de Redes de Computadores",
+      "workloadHours": 308,
+      "unitIds": ["UC05", "UC06", "UC07", "UC08"]
+    },
+    {
+      "id": "development",
+      "title": "Desenvolvimento de aplicativos",
+      "qualificationTitle": "Assistente de Desenvolvimento de Aplicativos Computacionais",
+      "workloadHours": 620,
+      "unitIds": ["UC09", "UC10", "UC11", "UC12", "UC13", "UC14", "UC15", "UC16"]
+    }
+  ],
+  "units": [
+    {
+      "id": "UC01",
+      "number": 1,
+      "title": "Planejar e executar a montagem de computadores",
+      "workloadHours": 84,
+      "axisId": "support",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC04"]
+    },
+    {
+      "id": "UC02",
+      "number": 2,
+      "title": "Planejar e executar a instalação de hardware e software para computadores",
+      "workloadHours": 96,
+      "axisId": "support",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC04"]
+    },
+    {
+      "id": "UC03",
+      "number": 3,
+      "title": "Planejar e executar a manutenção de computadores",
+      "workloadHours": 72,
+      "axisId": "support",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC04"]
+    },
+    {
+      "id": "UC04",
+      "number": 4,
+      "title": "Projeto Integrador Assistente de Suporte e Manutenção de Computadores",
+      "workloadHours": 20,
+      "axisId": "support",
+      "kind": "INTEGRATING_PROJECT",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC01", "UC02", "UC03"]
+    },
+    {
+      "id": "UC05",
+      "number": 5,
+      "title": "Planejar e executar a instalação de redes locais de computadores",
+      "workloadHours": 96,
+      "axisId": "networks",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC08"]
+    },
+    {
+      "id": "UC06",
+      "number": 6,
+      "title": "Planejar e executar a manutenção de redes locais de computadores",
+      "workloadHours": 96,
+      "axisId": "networks",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC08"]
+    },
+    {
+      "id": "UC07",
+      "number": 7,
+      "title": "Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais - servidores",
+      "workloadHours": 96,
+      "axisId": "networks",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC08"]
+    },
+    {
+      "id": "UC08",
+      "number": 8,
+      "title": "Projeto Integrador Assistente de Operação de Redes de Computadores",
+      "workloadHours": 20,
+      "axisId": "networks",
+      "kind": "INTEGRATING_PROJECT",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC05", "UC06", "UC07"]
+    },
+    {
+      "id": "UC09",
+      "number": 9,
+      "title": "Desenvolver algoritmos",
+      "workloadHours": 108,
+      "axisId": "development",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC16"]
+    },
+    {
+      "id": "UC10",
+      "number": 10,
+      "title": "Desenvolver banco de dados",
+      "workloadHours": 72,
+      "axisId": "development",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": ["UC09"],
+      "corequisiteUnitIds": ["UC16"]
+    },
+    {
+      "id": "UC11",
+      "number": 11,
+      "title": "Executar teste e implantação de aplicativos computacionais",
+      "workloadHours": 60,
+      "axisId": "development",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC16"]
+    },
+    {
+      "id": "UC12",
+      "number": 12,
+      "title": "Executar os processos de codificação, manutenção e documentação de aplicativos computacionais para desktop",
+      "workloadHours": 96,
+      "axisId": "development",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": ["UC09"],
+      "corequisiteUnitIds": ["UC16"]
+    },
+    {
+      "id": "UC13",
+      "number": 13,
+      "title": "Executar os processos de codificação, manutenção e documentação de aplicativos computacionais para internet",
+      "workloadHours": 96,
+      "axisId": "development",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": ["UC09"],
+      "corequisiteUnitIds": ["UC16"]
+    },
+    {
+      "id": "UC14",
+      "number": 14,
+      "title": "Manipular e otimizar imagens vetoriais, bitmaps gráficos e elementos visuais de navegação para web",
+      "workloadHours": 48,
+      "axisId": "development",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC16"]
+    },
+    {
+      "id": "UC15",
+      "number": 15,
+      "title": "Desenvolver e organizar elementos estruturais de sites",
+      "workloadHours": 108,
+      "axisId": "development",
+      "kind": "COMPETENCY",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC16"]
+    },
+    {
+      "id": "UC16",
+      "number": 16,
+      "title": "Projeto Integrador Assistente de Desenvolvimento de Aplicativos Computacionais",
+      "workloadHours": 32,
+      "axisId": "development",
+      "kind": "INTEGRATING_PROJECT",
+      "prerequisiteUnitIds": [],
+      "corequisiteUnitIds": ["UC09", "UC10", "UC11", "UC12", "UC13", "UC14", "UC15"]
+    }
+  ],
+  "source": {
+    "document": "docs/02_PlanoCurso/PCN-Tecnico-em-informatica-MF2023.pdf",
+    "pages": [7, 8, 31]
+  }
+}
