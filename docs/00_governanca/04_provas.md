@@ -141,3 +141,25 @@ Esta prova deve ser repetida após qualquer alteração nas transições, no con
 - `.github/workflows/deploy-pages.yml`
 
 **Limites:** o modo publicado no GitHub Pages serve ao portal estático e ao simulado formativo; operações colaborativas com persistência D1 de sala de aula usam o runtime local via `iniciar.bat`.
+
+## PROVA-012 - Sincronização remota e validação da exportação/importação CSV
+
+**Estado:** [OK]
+
+**Afirmação:** as alterações remotas incorporadas via pull (commit `39ebfdc`, cobrindo exportação e importação de progresso do simulado em formato CSV) integraram-se perfeitamente com a renomeação do simulado, o banco expandido de 225 questões e o pipeline de build/testes.
+
+**Procedimento:** executado `git pull origin master` (fast-forward) seguido de `npm.cmd run validate` (`lint`, `typecheck`, `content:validate`, `test`, `build`).
+
+**Resultado:** em 2026-09-18, `npm.cmd run validate` concluiu com código de saída 0: 65 arquivos verificados no Biome (0 erros), compilação TypeScript sem falhas, 225 questões curriculares aprovadas nas 16 UCs, 51 testes unitários e de fluxo aprovados em 10 arquivos do Vitest (incluindo testes de CSV) e build de produção Vite/PWA gerado com sucesso.
+
+**Evidências de implementação:**
+- `src/modules/simulado/application/simuladoCsv.ts`
+- `src/modules/simulado/application/simuladoCsv.test.ts`
+- `src/modules/simulado/ui/SimuladoCsvFlow.test.tsx`
+- `src/modules/simulado/ui/browserDownload.ts`
+- `src/modules/simulado/ui/SimuladoSetup.tsx`
+- `src/modules/simulado/ui/SimuladoResults.tsx`
+- `src/modules/simulado/ui/QuestionRunner.tsx`
+- `src/modules/simulado/ui/SimuladoContainer.tsx`
+
+**Limites:** a funcionalidade de CSV atua no escopo offline/local do navegador do estudante sem dependência de serviço externo.
