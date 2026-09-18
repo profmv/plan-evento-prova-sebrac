@@ -9,6 +9,7 @@ export type SessionSummary = {
   readonly displayName: string;
   readonly state: SessionState;
   readonly rankingVisible: boolean;
+  readonly journeyRound: number;
   readonly expiresAt: string | null;
   readonly teams: readonly PublicTeam[];
 };
@@ -19,6 +20,7 @@ export type CreateSessionRecord = {
   readonly displayName: string;
   readonly state: "LOBBY";
   readonly rankingVisible: true;
+  readonly journeyRound: 1;
   readonly expiresAt: string | null;
   readonly createdAt: string;
   readonly teams: readonly (PublicTeam & {
@@ -53,6 +55,17 @@ export type AddScoreEventRecord = {
   readonly createdAt: string;
 };
 
+export type UpdateSessionRecord = {
+  readonly sessionId: string;
+  readonly previousState: SessionState;
+  readonly state: SessionState;
+  readonly rankingVisible: boolean;
+  readonly journeyRound: number;
+  readonly actorId: string;
+  readonly requestId: string;
+  readonly updatedAt: string;
+};
+
 export type StoredScoreEvent = {
   readonly id: string;
   readonly teamId: string;
@@ -66,6 +79,7 @@ export interface RecapRepository {
   createSession(record: CreateSessionRecord): Promise<boolean>;
   findSessionByCode(publicCode: string): Promise<SessionSummary | null>;
   findSessionById(sessionId: string): Promise<SessionSummary | null>;
+  updateSession(record: UpdateSessionRecord): Promise<boolean>;
   createParticipant(record: CreateParticipantRecord): Promise<void>;
   findScoreEvent(sessionId: string, idempotencyKey: string): Promise<StoredScoreEvent | null>;
   addScoreEvent(record: AddScoreEventRecord): Promise<void>;

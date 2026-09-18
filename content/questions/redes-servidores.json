@@ -1,0 +1,148 @@
+[
+  {
+    "id": "q-net-001-padrao-crimpagem-t568a-b",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na terminação de cabos de par trançado (UTP) com conectores RJ-45, qual é a sequência inicial dos 3 primeiros pinos segundo o padrão TIA/EIA-568B?",
+    "options": [
+      {
+        "id": "opt-568b-branco-laranja",
+        "text": "1: Branco do Laranja, 2: Laranja, 3: Branco do Verde."
+      },
+      {
+        "id": "opt-568a-branco-verde",
+        "text": "1: Branco do Verde, 2: Verde, 3: Branco do Laranja."
+      },
+      {
+        "id": "opt-invertido-azul",
+        "text": "1: Branco do Azul, 2: Azul, 3: Branco do Marrom."
+      },
+      {
+        "id": "opt-marrom-primeiro",
+        "text": "1: Branco do Marrom, 2: Marrom, 3: Verde."
+      }
+    ],
+    "correctOptionId": "opt-568b-branco-laranja",
+    "explanation": "No padrão TIA/EIA-568B, a sequência completa dos condutores é: Branco do Laranja, Laranja, Branco do Verde, Azul, Branco do Azul, Verde, Branco do Marrom e Marrom. Os 3 primeiros são Branco do Laranja, Laranja e Branco do Verde.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "cabeamento", "rj45", "padrao-568b"]
+  },
+  {
+    "id": "q-net-002-vlan-segmentacao-camada2",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "A criação de VLANs (Virtual Local Area Networks) em switches gerenciáveis divide um único domínio de broadcast físico em múltiplos domínios de broadcast lógicos isolados.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Cada VLAN atua como uma sub-rede lógica independente na Camada 2 (Enlace), contendo o tráfego de broadcast dentro de seus limites e exigindo roteamento (Camada 3) para comunicação entre VLANs distintas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "vlan", "switches", "camada-2"]
+  },
+  {
+    "id": "q-net-003-calculo-mascara-sub-rede",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Uma sub-rede possui o prefixo CIDR 192.168.10.0/26. Quantos endereços IP válidos e atribuíveis a computadores (hosts) estão disponíveis nessa sub-rede?",
+    "options": [
+      {
+        "id": "opt-62-hosts",
+        "text": "62 hosts utilizáveis (64 no bloco menos 2 reservados para rede e broadcast)."
+      },
+      {
+        "id": "opt-64-hosts",
+        "text": "64 hosts utilizáveis, sem descontar endereço de rede ou broadcast."
+      },
+      {
+        "id": "opt-30-hosts",
+        "text": "30 hosts utilizáveis, correspondendo a uma máscara /27."
+      },
+      {
+        "id": "opt-126-hosts",
+        "text": "126 hosts utilizáveis, correspondendo a uma máscara /25."
+      }
+    ],
+    "correctOptionId": "opt-62-hosts",
+    "explanation": "Com /26, restam 6 bits para host (32 - 26 = 6). O número total de combinações é 2^6 = 64. Subtraindo o endereço de rede (primeiro) e o de broadcast (último), sobram exatamente 62 hosts úteis.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "sub-rede", "cidr", "ipv4"]
+  },
+  {
+    "id": "q-net-004-dhcp-processo-dora",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual é a ordem cronológica correta das quatro mensagens trocadas entre cliente e servidor durante a concessão de endereço IP dinâmico via protocolo DHCP (processo DORA)?",
+    "options": [
+      {
+        "id": "opt-dora-correto",
+        "text": "Discover, Offer, Request e Acknowledgment."
+      },
+      {
+        "id": "opt-dora-invertido",
+        "text": "Discover, Request, Offer e Acknowledgment."
+      },
+      {
+        "id": "opt-dora-incompleto",
+        "text": "Offer, Discover, Request e Release."
+      },
+      {
+        "id": "opt-dora-dns",
+        "text": "Query, Response, Request e Acknowledgment."
+      }
+    ],
+    "correctOptionId": "opt-dora-correto",
+    "explanation": "O processo DORA é composto por: 1. DHCP Discover (cliente busca servidor), 2. DHCP Offer (servidor oferece IP), 3. DHCP Request (cliente solicita o IP oferecido) e 4. DHCP ACK (servidor confirma a concessão).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "dhcp", "dora", "protocolos"]
+  },
+  {
+    "id": "q-net-005-porta-padrao-ssh",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "Qual é o número da porta TCP padrão utilizada pelo serviço OpenSSH para administração remota segura de servidores Linux?",
+    "acceptedAnswers": ["22", "tcp 22", "porta 22"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "A porta padrão do protocolo Secure Shell (SSH) é a TCP 22. O SSH substituiu protocolos inseguros como Telnet (porta 23), oferecendo autenticação criptografada e canais seguros para linha de comando e transferência de arquivos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "ssh", "linux", "portas-de-rede"]
+  }
+]

@@ -1,0 +1,867 @@
+/* Simulado Module Styles - Recap SENAC 2026 */
+
+.sim-container {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  width: 100%;
+}
+
+/* Setup Panel */
+.sim-setup-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.sim-setup-header {
+  margin-bottom: 2rem;
+}
+
+.sim-setup-header h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 0.5rem 0 1rem;
+  color: var(--primary);
+}
+
+.sim-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 48rem;
+}
+
+.sim-resume-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.sim-resume-banner__info strong {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.sim-resume-banner__info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.sim-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sim-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sim-form-group strong {
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.sim-form-group small {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+}
+
+.sim-form-group select,
+.sim-form-group input {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease;
+}
+
+.sim-form-group select:focus,
+.sim-form-group input:focus {
+  border-color: var(--primary);
+}
+
+.sim-setup-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.sim-setup-badge {
+  display: flex;
+  flex-direction: column;
+}
+
+.sim-setup-badge span {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.sim-setup-badge strong {
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+
+.sim-start-btn {
+  padding: 0.85rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Question Banner */
+.sim-banner {
+  position: relative;
+  width: 100%;
+  height: 12.5rem;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+  background: #0f1c24;
+}
+
+.sim-banner__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: brightness(0.85) contrast(1.1);
+  transform: scale(1.02);
+}
+
+.sim-banner__fallback-pattern {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #173f5f 0%, #0b1d2d 100%);
+  opacity: 0.9;
+}
+
+.sim-banner__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 28, 36, 0.4) 0%,
+    rgba(15, 28, 36, 0.75) 55%,
+    rgba(15, 28, 36, 0.96) 100%
+  );
+}
+
+.sim-banner__content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  color: #ffffff;
+}
+
+.sim-banner__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sim-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sim-chip--axis {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sim-chip--uc {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.sim-chip--difficulty {
+  background: rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+}
+
+.sim-banner__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.sim-banner__counter strong {
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.sim-banner__source {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Progress Bar */
+.sim-progress-bar {
+  width: 100%;
+  height: 0.4rem;
+  background: var(--line);
+  position: relative;
+}
+
+.sim-progress-bar__fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+/* Question Runner */
+.sim-runner {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.sim-runner__body {
+  padding: 1.75rem 2rem 2.25rem;
+}
+
+.sim-runner__timer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.sim-timer-tag {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  background: var(--surface-muted);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.sim-prompt {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 1.5rem;
+  font-weight: 600;
+}
+
+/* Options Grid */
+.sim-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.sim-option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sim-option-card:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.sim-option-card__letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--surface-muted);
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.sim-option-card__text {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  padding-top: 0.1rem;
+}
+
+.sim-option-card--selected {
+  border-color: var(--primary);
+  background: #f0f7fc;
+  box-shadow: 0 0 0 1.5px var(--primary);
+}
+
+.sim-option-card--selected .sim-option-card__letter {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.sim-option-card--correct {
+  border-color: var(--success);
+  background: var(--success-soft);
+  box-shadow: 0 0 0 1.5px var(--success);
+}
+
+.sim-option-card--correct .sim-option-card__letter {
+  background: var(--success);
+  color: #ffffff;
+  border-color: var(--success);
+}
+
+.sim-option-card--wrong {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.sim-option-card--wrong .sim-option-card__letter {
+  background: var(--danger);
+  color: #ffffff;
+  border-color: var(--danger);
+}
+
+/* True / False Grid */
+.sim-tf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.sim-tf-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.75rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sim-tf-card:hover:not(:disabled) {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.sim-tf-card__icon {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.sim-tf-card--selected {
+  border-color: var(--primary);
+  background: #f0f7fc;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+/* Short Answer */
+.sim-short-answer-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.sim-short-answer-box input {
+  padding: 0.9rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 1.05rem;
+}
+
+.sim-short-answer-box input:focus {
+  border-color: var(--primary);
+}
+
+/* Instant Feedback Card */
+.sim-feedback-card {
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sim-feedback-card--success {
+  background: var(--success-soft);
+  border: 1px solid var(--success);
+}
+
+.sim-feedback-card--incorrect {
+  background: var(--danger-soft);
+  border: 1px solid var(--danger);
+}
+
+.sim-feedback-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.sim-feedback-card--success .sim-feedback-tag {
+  color: var(--success);
+}
+
+.sim-feedback-card--incorrect .sim-feedback-tag {
+  color: var(--danger);
+}
+
+.sim-feedback-card__explanation {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.sim-feedback-card__expected {
+  margin: 0.5rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Runner Actions */
+.sim-runner__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+
+/* Results Panel */
+.sim-results-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.sim-results-header {
+  margin-bottom: 2rem;
+}
+
+.sim-results-header h1 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin: 0.5rem 0 0.5rem;
+}
+
+.sim-score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.sim-score-card {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-muted);
+  display: flex;
+  flex-direction: column;
+}
+
+.sim-score-card--main {
+  background: #f0f7fc;
+  border-color: var(--primary);
+}
+
+.sim-score-card__label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.4rem;
+}
+
+.sim-score-card__number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.sim-score-badge {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.sim-score-card__sub {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* Axis Breakdown */
+.sim-axis-breakdown {
+  margin-bottom: 2.25rem;
+}
+
+.sim-axis-breakdown h2 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.sim-axis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.sim-axis-card {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.sim-axis-card__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+
+.sim-axis-card__bar {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--line);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.sim-axis-card__bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 9999px;
+}
+
+/* Results Actions */
+.sim-results-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+
+.sim-retry-missed-btn {
+  background: var(--accent);
+}
+
+.sim-retry-missed-btn:hover {
+  background: #b24e0b;
+}
+
+/* Review Section */
+.sim-review-section h2 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+}
+
+.sim-review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sim-review-card {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.sim-review-card--correct {
+  border-left: 4px solid var(--success);
+}
+
+.sim-review-card--incorrect {
+  border-left: 4px solid var(--danger);
+}
+
+.sim-review-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sim-review-card__index {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.sim-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.sim-tag--success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.sim-tag--danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.sim-tag--neutral {
+  background: var(--surface-muted);
+  color: var(--ink-soft);
+}
+
+.sim-review-card__prompt {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 0.25rem 0 0.75rem;
+}
+
+.sim-review-card__answers {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+}
+
+.sim-review-card__answers p {
+  margin: 0.2rem 0;
+}
+
+.sim-review-card__expected-text {
+  color: var(--success);
+}
+
+.sim-review-card__explanation {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  background: var(--surface-muted);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.sim-review-card__explanation strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--primary);
+}
+
+.sim-review-card__explanation p {
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Certificate Modal */
+.sim-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 28, 36, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.sim-modal-card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  max-width: 48rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem 2rem 2.5rem;
+}
+
+.sim-modal-actions-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sim-certificate {
+  background: #fffdfa;
+  border: 8px solid #c75b12;
+  box-shadow: inset 0 0 0 3px #173f5f;
+  padding: 2.5rem;
+  text-align: center;
+  color: #14222d;
+}
+
+.sim-certificate__border {
+  border: 1px dashed #c75b12;
+  padding: 2rem 1.5rem;
+}
+
+.sim-certificate__badge {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: #173f5f;
+  border: 2px solid #173f5f;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.sim-certificate__title {
+  font-size: 1.8rem;
+  color: #173f5f;
+  margin: 0.5rem 0 1.5rem;
+  font-family: Georgia, serif;
+}
+
+.sim-certificate__recipient-edit {
+  margin: 1rem 0 1.5rem;
+}
+
+.sim-certificate__input-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #c75b12;
+  border: none;
+  border-bottom: 2px solid #c75b12;
+  background: transparent;
+  width: 80%;
+  max-width: 25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.sim-certificate__input-name:focus {
+  outline: none;
+  background: #fff4ec;
+}
+
+.sim-certificate__text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+  color: #334155;
+}
+
+.sim-certificate__footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5rem;
+}
+
+.sim-certificate__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.sim-certificate__disclaimer {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #certificate-print-area,
+  #certificate-print-area * {
+    visibility: visible;
+  }
+  #certificate-print-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+  .sim-modal-card .sim-modal-actions-top {
+    display: none;
+  }
+}

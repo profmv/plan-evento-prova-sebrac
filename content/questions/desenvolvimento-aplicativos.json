@@ -1,0 +1,148 @@
+[
+  {
+    "id": "q-dev-001-complexidade-algoritmo-busca",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma lista de elementos previamente ordenada com 1.024 posições, qual é o número máximo de comparações necessárias para localizar um valor ou confirmar sua ausência utilizando o algoritmo de Busca Binária?",
+    "options": [
+      {
+        "id": "opt-11-comparacoes",
+        "text": "11 comparações (complexidade logarítmica O(log2 N))."
+      },
+      {
+        "id": "opt-1024-comparacoes",
+        "text": "1.024 comparações (complexidade linear O(N))."
+      },
+      {
+        "id": "opt-512-comparacoes",
+        "text": "512 comparações (metade dos elementos da lista)."
+      },
+      {
+        "id": "opt-1-comparacao",
+        "text": "Apenas 1 comparação direta usando indexação hash."
+      }
+    ],
+    "correctOptionId": "opt-11-comparacoes",
+    "explanation": "A busca binária divide o espaço de busca pela metade a cada passo (O(log2 N)). Para N = 1024 (2^10), log2(1024) = 10. Com a verificação de fronteira, no máximo 11 passos determinam a localização do elemento.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "busca-binaria", "complexidade", "logica"]
+  },
+  {
+    "id": "q-dev-002-sql-chave-estrangeira-integridade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Em um modelo relacional SQL, a restrição de Chave Estrangeira (FOREIGN KEY) tem como finalidade garantir a integridade referencial, impedindo a inserção de registros filhos que apontem para registros pais inexistentes.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A chave estrangeira estabelece um vínculo referencial entre duas tabelas, assegurando que qualquer valor na coluna filha corresponda a uma chave primária existente na tabela referenciada.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "sql", "integridade-referencial", "foreign-key"]
+  },
+  {
+    "id": "q-dev-003-sql-group-by-having",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em consultas SQL envolvendo funções agregadoras (como COUNT, SUM, AVG) e agrupamento, qual cláusula deve ser utilizada para filtrar o resultado das agregações após a aplicação do GROUP BY?",
+    "options": [
+      {
+        "id": "opt-having",
+        "text": "HAVING"
+      },
+      {
+        "id": "opt-where",
+        "text": "WHERE"
+      },
+      {
+        "id": "opt-order-by",
+        "text": "ORDER BY"
+      },
+      {
+        "id": "opt-limit",
+        "text": "LIMIT"
+      }
+    ],
+    "correctOptionId": "opt-having",
+    "explanation": "A cláusula WHERE filtra registros individuais antes que o agrupamento ocorra. Para filtrar dados já agregados por grupos (ex: HAVING COUNT(*) > 5), a cláusula obrigatória é a HAVING.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["sql", "banco-de-dados", "group-by", "having"]
+  },
+  {
+    "id": "q-dev-004-http-metodos-idempotencia",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "De acordo com a especificação do protocolo HTTP/1.1 (RFC 7231), qual dos métodos a seguir NÃO é considerado idempotente por definição normativa?",
+    "options": [
+      {
+        "id": "opt-post",
+        "text": "POST"
+      },
+      {
+        "id": "opt-get",
+        "text": "GET"
+      },
+      {
+        "id": "opt-put",
+        "text": "PUT"
+      },
+      {
+        "id": "opt-delete",
+        "text": "DELETE"
+      }
+    ],
+    "correctOptionId": "opt-post",
+    "explanation": "Métodos idempotentes produzem o mesmo efeito de estado no servidor mesmo se executados múltiplas vezes consecutivas (GET, PUT, DELETE). O método POST tipicamente cria novos recursos subordinados a cada envio, portanto não é inerentemente idempotente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["web", "http", "api-rest", "idempotencia"]
+  },
+  {
+    "id": "q-dev-005-css-flexbox-eixo-principal",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "No CSS Flexbox, quando flex-direction está configurado como row (padrão), qual propriedade CSS é utilizada para alinhar os itens ao longo do eixo principal (main axis)?",
+    "acceptedAnswers": ["justify-content", "justifycontent"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "A propriedade justify-content controla a distribuição de espaço e o alinhamento dos flex items ao longo do main axis (horizontal quando row). Para alinhar no eixo transversal (cross axis), utiliza-se align-items.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["css", "flexbox", "web-design", "layouts"]
+  }
+]

@@ -223,5 +223,7 @@ export const activitySchema = z.object({
 export type CourseTaxonomy = z.infer<typeof courseTaxonomySchema>;
 export type CourseAxis = z.infer<typeof courseAxisSchema>;
 export type CourseUnit = z.infer<typeof courseUnitSchema>;
+export type AxisId = z.infer<typeof axisIdSchema>;
+export type Difficulty = z.infer<typeof difficultySchema>;
 export type Question = z.infer<typeof questionSchema>;
 export type Activity = z.infer<typeof activitySchema>;

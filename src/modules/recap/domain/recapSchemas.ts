@@ -53,10 +53,17 @@ export const updateSessionCommandSchema = z
   .object({
     state: z.enum(["LOBBY", "ACTIVE", "PAUSED", "CLOSED"]).optional(),
     rankingVisible: z.boolean().optional(),
+    journeyRound: z.number().int().min(1).max(3).optional(),
   })
-  .refine((command) => command.state !== undefined || command.rankingVisible !== undefined, {
-    message: "Informe ao menos uma alteração para a sessão.",
-  });
+  .refine(
+    (command) =>
+      command.state !== undefined ||
+      command.rankingVisible !== undefined ||
+      command.journeyRound !== undefined,
+    {
+      message: "Informe ao menos uma alteração para a sessão.",
+    },
+  );
 
 export type CreateSessionCommand = z.infer<typeof createSessionCommandSchema>;
 export type JoinSessionCommand = z.infer<typeof joinSessionCommandSchema>;

@@ -253,6 +253,10 @@ Impacto considera a consequência mais grave entre aprendizagem, operação, pri
 
 **Tratamento:** definir perfil de exportação, minimizar colunas, exigir autorização de professor, evitar nomes por padrão e impedir cache público. **Gatilho:** arquivo inclui segredo, identificador desnecessário ou resposta individual não autorizada. **Contingência:** revogar acesso, substituir arquivo e registrar incidente. **Prova:** testes de contrato, inspeção de amostra e busca por campos proibidos.
 
+### RISCO-021 - Template processual obrigatório indisponível
+
+**Estado:** [UNVERIFIED]. **Probabilidade:** média. **Impacto:** médio. **Tratamento:** procurar o resolvedor e o template somente nos caminhos obrigatórios definidos pelo contrato; enquanto estiverem indisponíveis, aplicar o contrato do projeto, registrar a limitação e não declarar conformidade com o template ausente. **Gatilho:** uma nova unidade exigir o template ou o resolvedor continuar ausente. **Contingência:** restaurar os arquivos prescritos ou fornecer o caminho oficial antes da próxima revisão processual. **Prova:** verificação de existência em `C:\Repo\codex-workspace\utils\resolve_workspace.ps1`, `.codex-workspace\utils\resolve_workspace.ps1` e nos dois caminhos possíveis de `prompt_processual_template.md`, executada em 2026-09-18, sem correspondências.
+
 ## 7. Risco de prazo e controle do caminho crítico
 
 ### RISCO-008 - Prazo reduzir a verificação

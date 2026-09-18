@@ -2,7 +2,11 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 
+const isGitHubPagesBuild = process.env.GITHUB_ACTIONS === "true";
+const basePath = isGitHubPagesBuild ? "/plan-evento-prova-sebrac/" : "/";
+
 export default defineConfig({
+  base: basePath,
   plugins: [
     react(),
     VitePWA({
@@ -13,13 +17,13 @@ export default defineConfig({
         short_name: "Recap 2026",
         description: "Portal de revisão gamificada para o curso Técnico em Informática.",
         lang: "pt-BR",
-        start_url: "/",
+        start_url: basePath,
         display: "standalone",
         background_color: "#f5f7fb",
         theme_color: "#173f5f",
         icons: [
           {
-            src: "/favicon.svg",
+            src: `${basePath}favicon.svg`,
             sizes: "any",
             type: "image/svg+xml",
             purpose: "any",

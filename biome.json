@@ -8,6 +8,8 @@
       "!coverage",
       "!.wrangler",
       "!artifacts",
+      "!test-results",
+      "!playwright-report",
       "!docs/02_PlanoCurso"
     ]
   },

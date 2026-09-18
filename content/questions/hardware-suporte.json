@@ -1,0 +1,148 @@
+[
+  {
+    "id": "q-sup-001-montagem-ram-dual-channel",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao instalar dois módulos idênticos de memória RAM DDR4 em uma placa-mãe com 4 slots para habilitar o modo Dual Channel, qual é a prática recomendada de instalação?",
+    "options": [
+      {
+        "id": "opt-slots-alternados",
+        "text": "Instalar os módulos nos slots indicados pelo manual da placa-mãe, normalmente slots alternados como A2 e B2."
+      },
+      {
+        "id": "opt-slots-adjacentes",
+        "text": "Instalar os módulos obrigatoriamente nos slots 1 e 2 adjacentes, independentemente das cores dos slots."
+      },
+      {
+        "id": "opt-qualquer-slot",
+        "text": "Instalar em quaisquer dois slots aleatórios, pois a controladora sempre ativa Dual Channel automaticamente."
+      },
+      {
+        "id": "opt-apenas-um-modulo",
+        "text": "Utilizar apenas um módulo por placa para evitar conflito de latência e consumo elétrico."
+      }
+    ],
+    "correctOptionId": "opt-slots-alternados",
+    "explanation": "Para habilitar o modo Dual Channel em placas-mãe de 4 slots, os módulos devem ser posicionados em canais distintos (ex: A2 e B2 ou conforme serigrafia do fabricante), dobrando a largura de banda da comunicação com o processador.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "memoria-ram", "dual-channel", "montagem"]
+  },
+  {
+    "id": "q-sup-002-pasta-termica-aplicacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "A pasta térmica tem como função preencher as microfissuras e imperfeições microscópicas entre a superfície do processador (IHS) e a base do cooler para otimizar a condução de calor.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O ar é um isolante térmico ruim. A pasta térmica possui condutividade muito superior ao ar e elimina as bolsas de ar microscópicas entre o IHS da CPU e o dissipador do cooler.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "refrigeracao", "pasta-termica", "processador"]
+  },
+  {
+    "id": "q-sup-003-uefi-secure-boot",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante a instalação de um sistema operacional moderno de 64 bits, qual recurso da interface UEFI garante que apenas carregadores de inicialização (bootloaders) assinados digitalmente e confiáveis sejam executados durante o POST?",
+    "options": [
+      {
+        "id": "opt-secure-boot",
+        "text": "Secure Boot (Inicialização Segura)"
+      },
+      {
+        "id": "opt-csm-legacy",
+        "text": "CSM (Compatibility Support Module)"
+      },
+      {
+        "id": "opt-overclock-xmp",
+        "text": "XMP (Extreme Memory Profile)"
+      },
+      {
+        "id": "opt-wake-on-lan",
+        "text": "Wake-on-LAN"
+      }
+    ],
+    "correctOptionId": "opt-secure-boot",
+    "explanation": "O Secure Boot é um padrão de segurança do firmware UEFI projetado para impedir que malwares e rootkits infectem a fase de boot, permitindo apenas a execução de binários assinados por chaves criptográficas reconhecidas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["uefi", "secure-boot", "sistemas-operacionais", "seguranca"]
+  },
+  {
+    "id": "q-sup-004-smart-disco-diagnostico",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao diagnosticar um computador com lentidão severa e travamentos esporádicos, o técnico consulta os atributos S.M.A.R.T. da unidade de armazenamento. Qual indicador aponta setores defeituosos que foram remarcados e substituídos por setores de reserva?",
+    "options": [
+      {
+        "id": "opt-reallocated-sectors",
+        "text": "Reallocated Sectors Count (Contagem de Setores Realocados)"
+      },
+      {
+        "id": "opt-power-on-hours",
+        "text": "Power-On Hours (Horas em Funcionamento)"
+      },
+      {
+        "id": "opt-spin-up-time",
+        "text": "Spin-Up Time (Tempo de Rotação Inicial)"
+      },
+      {
+        "id": "opt-drive-temperature",
+        "text": "Drive Temperature (Temperatura da Unidade)"
+      }
+    ],
+    "correctOptionId": "opt-reallocated-sectors",
+    "explanation": "O atributo Reallocated Sectors Count indica quando o disco detectou setores com falha de leitura/escrita e os substituiu por setores da área de reserva. Um número crescente deste atributo é forte indício de degradação física do disco.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "smart", "diagnostico", "disco-rigido"]
+  },
+  {
+    "id": "q-sup-005-comando-verificacao-memoria",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "ADVANCED",
+    "type": "SHORT_ANSWER",
+    "prompt": "No Windows 10/11, qual comando executado via Executar (Win+R) abre a ferramenta nativa de Diagnóstico de Memória do Windows para testar módulos RAM em busca de falhas?",
+    "acceptedAnswers": ["mdsched.exe", "mdsched"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O comando mdsched (Memory Diagnostic Scheduler) agenda o teste nativo de memória RAM do Windows na reinicialização do sistema, detectando erros de integridade física sem necessidade de pendrive inicializável de terceiros.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["diagnostico", "windows", "memoria-ram", "comandos"]
+  }
+]

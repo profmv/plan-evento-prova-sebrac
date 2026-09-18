@@ -1,0 +1,467 @@
+[
+  {
+    "id": "uc01-mapa-de-componentes",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "QUIZ",
+    "title": "Mapa de componentes do computador",
+    "summary": "A equipe associa componentes de um computador às suas funções e justifica uma escolha de montagem.",
+    "estimatedMinutes": 15,
+    "instructions": [
+      "Identifique processador, memória, armazenamento, fonte e placa-mãe em um diagrama.",
+      "Associe cada componente à sua função principal.",
+      "Explique uma compatibilidade necessária entre dois componentes."
+    ],
+    "materials": ["Diagrama impresso ou projetado de um computador."],
+    "expectedEvidence": "Mapa preenchido e uma justificativa técnica de compatibilidade.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Identifica os componentes.",
+        "Relaciona componentes e funções.",
+        "Justifica uma compatibilidade de montagem."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC01 - Planejar e executar a montagem de computadores."
+    }
+  },
+  {
+    "id": "uc02-plano-de-instalacao",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "FOUNDATION",
+    "type": "PROBLEM",
+    "title": "Plano de instalação de estação",
+    "summary": "A equipe organiza uma sequência segura para instalar hardware e software em uma estação de trabalho.",
+    "estimatedMinutes": 15,
+    "instructions": [
+      "Receba o cenário de uma estação nova.",
+      "Ordene as etapas de instalação de hardware, sistema e aplicações.",
+      "Indique uma verificação ao final da instalação."
+    ],
+    "materials": ["Cartões com etapas de instalação."],
+    "expectedEvidence": "Sequência de instalação e verificação final justificadas.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Ordena etapas de forma coerente.",
+        "Considera hardware e software.",
+        "Define uma verificação final."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC02 - Planejar e executar a instalação de hardware e software para computadores."
+    }
+  },
+  {
+    "id": "uc03-diagnostico-de-manutencao",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PROBLEM",
+    "title": "Diagnóstico de manutenção",
+    "summary": "A equipe analisa sintomas de uma estação que não inicia e propõe verificações antes de substituir componentes.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Leia os sintomas apresentados pelo professor.",
+      "Liste verificações em ordem de menor risco.",
+      "Registre uma hipótese e a evidência que a confirmaria ou descartaria."
+    ],
+    "materials": ["Cartão de incidente técnico."],
+    "expectedEvidence": "Roteiro de diagnóstico com hipótese e evidência.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Prioriza verificações seguras.",
+        "Formula hipótese verificável.",
+        "Evita substituição sem diagnóstico."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC03 - Planejar e executar a manutenção de computadores."
+    }
+  },
+  {
+    "id": "uc04-atendimento-integrador",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PRESENTATION",
+    "title": "Atendimento técnico integrador",
+    "summary": "A equipe apresenta uma solução de suporte para um pedido de laboratório, integrando montagem, instalação e manutenção.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Analise um pedido técnico do laboratório.",
+      "Defina as ações de suporte necessárias.",
+      "Apresente a solução, riscos e verificação de entrega."
+    ],
+    "materials": ["Cartão de pedido técnico."],
+    "expectedEvidence": "Apresentação breve com plano de atendimento e verificação.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Integra ações de suporte.",
+        "Explica riscos técnicos.",
+        "Define verificação de entrega."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC04 - Projeto Integrador Assistente de Suporte e Manutenção de Computadores."
+    }
+  },
+  {
+    "id": "uc05-topologia-local",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "PROJECT",
+    "title": "Topologia de rede local",
+    "summary": "A equipe desenha uma topologia simples para conectar estações, switch e acesso à rede do laboratório.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Desenhe os equipamentos do cenário.",
+      "Indique as conexões necessárias.",
+      "Explique uma decisão de organização da rede."
+    ],
+    "materials": ["Folha, régua e cartões de equipamentos."],
+    "expectedEvidence": "Diagrama de topologia com explicação de uma decisão.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Representa equipamentos necessários.",
+        "Indica conexões coerentes.",
+        "Explica uma decisão de instalação."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC05 - Planejar e executar a instalação de redes locais de computadores."
+    }
+  },
+  {
+    "id": "uc06-incidente-de-rede",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PROBLEM",
+    "title": "Incidente de rede local",
+    "summary": "A equipe define um roteiro para investigar uma estação sem conectividade em uma rede local.",
+    "estimatedMinutes": 15,
+    "instructions": [
+      "Leia o relato do incidente.",
+      "Liste verificações físicas e lógicas em ordem.",
+      "Defina o resultado esperado de cada verificação."
+    ],
+    "materials": ["Cartão de incidente de rede."],
+    "expectedEvidence": "Roteiro de manutenção com verificações e resultados esperados.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Inclui verificação física.",
+        "Inclui verificação lógica.",
+        "Define resultados esperados."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC06 - Planejar e executar a manutenção de redes locais de computadores."
+    }
+  },
+  {
+    "id": "uc07-plano-de-servidor",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PROBLEM",
+    "title": "Plano de servidor local",
+    "summary": "A equipe descreve passos para configurar e monitorar um servidor de rede local no cenário apresentado.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Leia a necessidade do laboratório.",
+      "Liste configurações essenciais do servidor.",
+      "Defina dois itens que devem ser monitorados."
+    ],
+    "materials": ["Cenário de serviços de rede."],
+    "expectedEvidence": "Plano de configuração e lista de monitoramento.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Relaciona configuração ao cenário.",
+        "Indica monitoramento.",
+        "Explica a finalidade dos controles."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC07 - Planejar e executar a instalação, a configuração e o monitoramento de sistemas operacionais de redes locais - servidores."
+    }
+  },
+  {
+    "id": "uc08-projeto-de-redes",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PRESENTATION",
+    "title": "Proposta integradora de rede",
+    "summary": "A equipe apresenta uma proposta de rede local que reúne instalação, manutenção e operação de servidor.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Reúna decisões de topologia, manutenção e serviço.",
+      "Prepare uma apresentação de três minutos.",
+      "Explique como a proposta seria verificada."
+    ],
+    "materials": ["Diagrama e cartões de cenário."],
+    "expectedEvidence": "Proposta apresentada com critérios de verificação.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Integra instalação e operação.",
+        "Justifica decisões.",
+        "Define verificação da proposta."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC08 - Projeto Integrador Assistente de Operação de Redes de Computadores."
+    }
+  },
+  {
+    "id": "uc09-algoritmo-de-atendimento",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "FOUNDATION",
+    "type": "PROBLEM",
+    "title": "Algoritmo de atendimento",
+    "summary": "A equipe descreve em pseudocódigo o atendimento de uma solicitação simples de suporte.",
+    "estimatedMinutes": 15,
+    "instructions": [
+      "Leia a regra de negócio informada pelo professor.",
+      "Escreva os passos em pseudocódigo.",
+      "Inclua uma decisão condicional e um resultado para cada caminho."
+    ],
+    "materials": ["Cartão de regra de negócio."],
+    "expectedEvidence": "Pseudocódigo com sequência e decisão condicional.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Organiza passos em sequência.",
+        "Usa decisão condicional.",
+        "Cobre os resultados previstos."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC09 - Desenvolver algoritmos."
+    }
+  },
+  {
+    "id": "uc11-caso-de-teste",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PROBLEM",
+    "title": "Caso de teste de aplicativo",
+    "summary": "A equipe cria casos de teste para uma tela de cadastro antes da implantação de um aplicativo.",
+    "estimatedMinutes": 15,
+    "instructions": [
+      "Leia os campos e regras de uma tela de cadastro.",
+      "Defina um caso válido e dois inválidos.",
+      "Informe resultado esperado para cada caso."
+    ],
+    "materials": ["Descrição de tela de cadastro."],
+    "expectedEvidence": "Três casos de teste com resultado esperado.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Inclui caso válido.",
+        "Inclui casos inválidos.",
+        "Define resultados verificáveis."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC11 - Executar teste e implantação de aplicativos computacionais."
+    }
+  },
+  {
+    "id": "uc12-correcao-desktop",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PROBLEM",
+    "title": "Correção e documentação desktop",
+    "summary": "A equipe analisa um defeito descrito em aplicativo desktop e registra uma proposta de correção e documentação.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Leia a descrição do defeito.",
+      "Descreva uma hipótese de correção.",
+      "Escreva uma nota curta para a documentação de manutenção."
+    ],
+    "materials": ["Relato de defeito de aplicativo desktop."],
+    "expectedEvidence": "Hipótese de correção e nota de documentação.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Relaciona defeito e hipótese.",
+        "Propõe verificação da correção.",
+        "Documenta a alteração de forma clara."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC12 - Executar os processos de codificação, manutenção e documentação de aplicativos computacionais para desktop."
+    }
+  },
+  {
+    "id": "uc13-pagina-web-acessivel",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "FOUNDATION",
+    "type": "PROJECT",
+    "title": "Página web acessível",
+    "summary": "A equipe propõe a estrutura de uma página web com conteúdo, navegação e ações identificáveis.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Esboce uma página para o cenário recebido.",
+      "Identifique título, navegação, conteúdo principal e ação.",
+      "Explique como um usuário entende cada controle."
+    ],
+    "materials": ["Folha ou editor de texto."],
+    "expectedEvidence": "Esboço estrutural de página e explicação dos controles.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Organiza estrutura de página.",
+        "Identifica navegação e ação.",
+        "Explica os controles com texto claro."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC13 - Executar os processos de codificação, manutenção e documentação de aplicativos computacionais para internet."
+    }
+  },
+  {
+    "id": "uc14-escolha-de-ativo-visual",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "QUIZ",
+    "title": "Escolha de ativo visual",
+    "summary": "A equipe compara opções visuais e justifica o uso de elemento vetorial ou bitmap em uma página web.",
+    "estimatedMinutes": 15,
+    "instructions": [
+      "Observe os ativos fornecidos.",
+      "Classifique cada um como vetor ou bitmap.",
+      "Escolha um ativo para o cenário e justifique."
+    ],
+    "materials": ["Conjunto de exemplos visuais."],
+    "expectedEvidence": "Classificação dos ativos e justificativa de escolha.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Distingue vetor e bitmap.",
+        "Relaciona escolha ao cenário.",
+        "Justifica a decisão visual."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC14 - Manipular e otimizar imagens vetoriais, bitmaps gráficos e elementos visuais de navegação para web."
+    }
+  },
+  {
+    "id": "uc15-estrutura-de-site",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "FOUNDATION",
+    "type": "PROJECT",
+    "title": "Estrutura de site",
+    "summary": "A equipe organiza os elementos estruturais de um site para responder à necessidade de uma organização fictícia.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Leia o objetivo do site.",
+      "Desenhe a estrutura de páginas e seções.",
+      "Explique o caminho principal de navegação."
+    ],
+    "materials": ["Cartão de objetivo de site."],
+    "expectedEvidence": "Mapa de páginas e caminho principal de navegação.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Organiza páginas e seções.",
+        "Define navegação principal.",
+        "Relaciona estrutura ao objetivo do site."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC15 - Desenvolver e organizar elementos estruturais de sites."
+    }
+  },
+  {
+    "id": "uc16-proposta-de-aplicativo",
+    "version": 1,
+    "status": "IN_REVIEW",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "INTERMEDIATE",
+    "type": "PRESENTATION",
+    "title": "Proposta integradora de aplicativo",
+    "summary": "A equipe apresenta uma solução de aplicativo que reúne algoritmo, dados, interface, teste e documentação.",
+    "estimatedMinutes": 20,
+    "instructions": [
+      "Escolha uma necessidade do cenário.",
+      "Descreva algoritmo, dados, interface e teste previstos.",
+      "Apresente a proposta em três minutos."
+    ],
+    "materials": ["Cartão de cenário integrador."],
+    "expectedEvidence": "Apresentação com componentes da solução e plano de verificação.",
+    "scoring": {
+      "maxPoints": 20,
+      "criteria": [
+        "Integra componentes da solução.",
+        "Relaciona proposta à necessidade.",
+        "Define uma forma de teste ou verificação."
+      ]
+    },
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC16 - Projeto Integrador Assistente de Desenvolvimento de Aplicativos Computacionais."
+    }
+  }
+]

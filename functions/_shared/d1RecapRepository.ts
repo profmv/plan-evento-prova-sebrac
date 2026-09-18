@@ -6,6 +6,7 @@ import type {
   SessionState,
   SessionSummary,
   StoredScoreEvent,
+  UpdateSessionRecord,
 } from "../../src/modules/recap/application/ports";
 import type { TeamScoreProjection } from "../../src/modules/recap/domain/ranking";
 
@@ -15,6 +16,7 @@ type SessionRow = {
   display_name: string;
   state: SessionState;
   ranking_visible: number;
+  journey_round: number;
   expires_at: string | null;
 };
 
@@ -40,8 +42,8 @@ export class D1RecapRepository implements RecapRepository {
       this.database
         .prepare(
           `INSERT INTO sessions
-           (id, public_code, display_name, state, ranking_visible, expires_at, created_at, updated_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+           (id, public_code, display_name, state, ranking_visible, journey_round, expires_at, created_at, updated_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         )
         .bind(
           record.id,
@@ -49,6 +51,7 @@ export class D1RecapRepository implements RecapRepository {
           record.displayName,
           record.state,
           record.rankingVisible ? 1 : 0,
+          record.journeyRound,
           record.expiresAt,
           record.createdAt,
           record.createdAt,
@@ -103,7 +106,7 @@ export class D1RecapRepository implements RecapRepository {
   async findSessionByCode(publicCode: string): Promise<SessionSummary | null> {
     const row = await this.database
       .prepare(
-        `SELECT id, public_code, display_name, state, ranking_visible, expires_at
+        `SELECT id, public_code, display_name, state, ranking_visible, journey_round, expires_at
          FROM sessions WHERE public_code = ? LIMIT 1`,
       )
       .bind(publicCode)
@@ -114,12 +117,51 @@ export class D1RecapRepository implements RecapRepository {
   async findSessionById(sessionId: string): Promise<SessionSummary | null> {
     const row = await this.database
       .prepare(
-        `SELECT id, public_code, display_name, state, ranking_visible, expires_at
+        `SELECT id, public_code, display_name, state, ranking_visible, journey_round, expires_at
          FROM sessions WHERE id = ? LIMIT 1`,
       )
       .bind(sessionId)
       .first<SessionRow>();
     return row ? this.hydrateSession(row) : null;
+  }
+
+  async updateSession(record: UpdateSessionRecord): Promise<boolean> {
+    const result = await this.database.batch([
+      this.database
+        .prepare(
+          `UPDATE sessions
+           SET state = ?, ranking_visible = ?, journey_round = ?, updated_at = ?
+           WHERE id = ? AND state = ?`,
+        )
+        .bind(
+          record.state,
+          record.rankingVisible ? 1 : 0,
+          record.journeyRound,
+          record.updatedAt,
+          record.sessionId,
+          record.previousState,
+        ),
+      this.database
+        .prepare(
+          `INSERT INTO admin_audit_events
+           (id, session_id, actor_id, action, target_type, target_id, request_id, created_at)
+           SELECT ?, id, ?, 'SESSION_UPDATED', 'SESSION', id, ?, ?
+           FROM sessions
+           WHERE id = ? AND state = ? AND ranking_visible = ? AND journey_round = ? AND updated_at = ?`,
+        )
+        .bind(
+          crypto.randomUUID(),
+          record.actorId,
+          record.requestId,
+          record.updatedAt,
+          record.sessionId,
+          record.state,
+          record.rankingVisible ? 1 : 0,
+          record.journeyRound,
+          record.updatedAt,
+        ),
+    ]);
+    return result[0]?.meta.changes === 1;
   }
 
   async createParticipant(record: CreateParticipantRecord): Promise<void> {
@@ -251,6 +293,7 @@ export class D1RecapRepository implements RecapRepository {
       displayName: row.display_name,
       state: row.state,
       rankingVisible: row.ranking_visible === 1,
+      journeyRound: row.journey_round,
       expiresAt: row.expires_at,
       teams: result.results.map((team) => ({
         id: team.id,

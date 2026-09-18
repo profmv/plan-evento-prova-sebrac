@@ -3,6 +3,7 @@ import {
   type AddScoreEventCommand,
   type JoinSessionCommand,
   normalizeTeamName,
+  type UpdateSessionCommand,
 } from "../domain/recapSchemas";
 import type {
   AddScoreEventRecord,
@@ -11,7 +12,9 @@ import type {
   RecapClock,
   RecapCrypto,
   RecapRepository,
+  SessionState,
   SessionSummary,
+  UpdateSessionRecord,
 } from "./ports";
 
 const publicCodeAlphabet = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
@@ -61,6 +64,7 @@ export function createRecapService(dependencies: RecapServiceDependencies) {
           displayName: input.command.displayName,
           state: "LOBBY",
           rankingVisible: true,
+          journeyRound: 1,
           expiresAt,
           createdAt: now.toISOString(),
           teams: input.command.teams.map((team) => ({
@@ -82,6 +86,7 @@ export function createRecapService(dependencies: RecapServiceDependencies) {
             displayName: record.displayName,
             state: record.state,
             rankingVisible: record.rankingVisible,
+            journeyRound: record.journeyRound,
             expiresAt: record.expiresAt,
             teams: record.teams.map(({ id, displayName, colorToken }) => ({
               id,
@@ -105,6 +110,52 @@ export function createRecapService(dependencies: RecapServiceDependencies) {
         throw new RecapApplicationError("SESSION_NOT_FOUND", "Sessão não encontrada.", 404);
       }
       return session;
+    },
+
+    async updateSession(input: {
+      readonly sessionId: string;
+      readonly command: UpdateSessionCommand;
+      readonly actorId: string;
+      readonly requestId: string;
+    }) {
+      const session = await repository.findSessionById(input.sessionId);
+      if (!session) {
+        throw new RecapApplicationError("SESSION_NOT_FOUND", "Sessão não encontrada.", 404);
+      }
+
+      const state = input.command.state ?? session.state;
+      const rankingVisible = input.command.rankingVisible ?? session.rankingVisible;
+      const journeyRound = input.command.journeyRound ?? session.journeyRound;
+      if (state !== session.state) {
+        assertSessionTransition(session.state, state);
+      }
+      if (
+        state === session.state &&
+        rankingVisible === session.rankingVisible &&
+        journeyRound === session.journeyRound
+      ) {
+        return session;
+      }
+
+      const record: UpdateSessionRecord = {
+        sessionId: session.id,
+        previousState: session.state,
+        state,
+        rankingVisible,
+        journeyRound,
+        actorId: input.actorId,
+        requestId: input.requestId,
+        updatedAt: clock.now().toISOString(),
+      };
+      if (!(await repository.updateSession(record))) {
+        throw new RecapApplicationError(
+          "SESSION_UPDATE_CONFLICT",
+          "A sessão foi alterada por outra operação. Atualize os dados e tente novamente.",
+          409,
+        );
+      }
+
+      return { ...session, state, rankingVisible, journeyRound } satisfies SessionSummary;
     },
 
     async joinSession(command: JoinSessionCommand) {
@@ -230,6 +281,32 @@ export function createRecapService(dependencies: RecapServiceDependencies) {
       return rankTeams(await repository.getRanking(sessionId));
     },
   };
+}
+
+const allowedSessionTransitions: Record<SessionState, readonly SessionState[]> = {
+  DRAFT: ["LOBBY", "CLOSED"],
+  LOBBY: ["ACTIVE", "CLOSED"],
+  ACTIVE: ["PAUSED", "CLOSED"],
+  PAUSED: ["ACTIVE", "CLOSED"],
+  CLOSED: [],
+};
+
+function assertSessionTransition(current: SessionState, next: SessionState): void {
+  if (allowedSessionTransitions[current].includes(next)) {
+    return;
+  }
+  if (current === "CLOSED") {
+    throw new RecapApplicationError(
+      "SESSION_CLOSED",
+      "A sessão encerrada não pode ser reaberta.",
+      409,
+    );
+  }
+  throw new RecapApplicationError(
+    "INVALID_SESSION_TRANSITION",
+    `A transição de ${current} para ${next} não é permitida.`,
+    409,
+  );
 }
 
 function generatePublicCode(crypto: RecapCrypto, length: number): string {

@@ -1,0 +1,36 @@
+{
+  "id": "uc10-consulta-inventario",
+  "version": 1,
+  "status": "IN_REVIEW",
+  "axisId": "development",
+  "unitIds": ["UC10"],
+  "difficulty": "FOUNDATION",
+  "type": "PROBLEM",
+  "title": "Consulta de inventário do laboratório",
+  "summary": "A equipe interpreta um cenário de inventário e apresenta uma consulta SQL que responde a uma necessidade operacional do laboratório.",
+  "estimatedMinutes": 20,
+  "instructions": [
+    "Considere uma tabela de equipamentos com os campos id, patrimonio, categoria, sala e situacao.",
+    "Elabore uma consulta SQL que liste patrimônio e sala dos computadores com situacao igual a MANUTENCAO.",
+    "Explique em uma frase por que o filtro de situacao é necessário para a resposta.",
+    "Apresente a consulta e a explicação para validação do professor."
+  ],
+  "materials": [
+    "Quadro, editor de texto ou folha de resposta.",
+    "Referência local de comandos SQL disponível para a turma."
+  ],
+  "expectedEvidence": "Consulta SQL legível com SELECT, campos solicitados, tabela correta e condição WHERE para MANUTENCAO, acompanhada de explicação breve.",
+  "scoring": {
+    "maxPoints": 20,
+    "criteria": [
+      "A consulta seleciona patrimonio e sala.",
+      "A consulta usa a tabela de equipamentos declarada no enunciado.",
+      "A consulta filtra a situacao MANUTENCAO.",
+      "A explicação relaciona o filtro à identificação dos equipamentos que exigem ação."
+    ]
+  },
+  "source": {
+    "kind": "COURSE_PLAN",
+    "reference": "PCN-Tecnico-em-informatica-MF2023.pdf; UC10 - Desenvolver banco de dados."
+  }
+}

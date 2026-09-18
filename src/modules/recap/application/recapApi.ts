@@ -1,4 +1,9 @@
-import type { RankingEntry } from "../domain/recapSchemas";
+import type { RankingEntry, UpdateSessionCommand } from "../domain/recapSchemas";
+import type {
+  ActivitySubmission,
+  CreateSubmissionCommand,
+  ReviewSubmissionCommand,
+} from "../domain/submissionSchemas";
 import type { SessionSummary } from "./ports";
 
 type ApiEnvelope<T> = { readonly data: T; readonly requestId: string };
@@ -86,4 +91,77 @@ export function joinSession(input: {
 
 export function loadRanking(sessionId: string): Promise<readonly RankingEntry[]> {
   return request(`/sessions/${encodeURIComponent(sessionId)}/ranking`);
+}
+
+export function updateSession(
+  adminSecret: string,
+  sessionId: string,
+  command: UpdateSessionCommand,
+): Promise<SessionSummary> {
+  return request(`/sessions/${encodeURIComponent(sessionId)}`, {
+    method: "PATCH",
+    headers: {
+      authorization: `Bearer ${adminSecret}`,
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(command),
+  });
+}
+
+export function addScoreEvent(input: {
+  readonly adminSecret: string;
+  readonly sessionId: string;
+  readonly teamId: string;
+  readonly points: number;
+  readonly reason: string;
+}): Promise<{ readonly applied: boolean }> {
+  return request(`/sessions/${encodeURIComponent(input.sessionId)}/score-events`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${input.adminSecret}`,
+      "content-type": "application/json",
+      "idempotency-key": crypto.randomUUID(),
+    },
+    body: JSON.stringify({
+      teamId: input.teamId,
+      points: input.points,
+      reason: input.reason,
+    }),
+  });
+}
+
+export function submitActivity(input: {
+  readonly sessionId: string;
+  readonly participantToken: string;
+  readonly command: CreateSubmissionCommand;
+}): Promise<ActivitySubmission> {
+  return request(`/sessions/${encodeURIComponent(input.sessionId)}/submissions`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-participant-token": input.participantToken,
+    },
+    body: JSON.stringify(input.command),
+  });
+}
+
+export function loadSubmissions(
+  adminSecret: string,
+  sessionId: string,
+): Promise<readonly ActivitySubmission[]> {
+  return request(`/sessions/${encodeURIComponent(sessionId)}/submissions`, {
+    headers: { authorization: `Bearer ${adminSecret}` },
+  });
+}
+
+export function reviewSubmission(input: {
+  readonly adminSecret: string;
+  readonly submissionId: string;
+  readonly command: ReviewSubmissionCommand;
+}): Promise<ActivitySubmission> {
+  return request(`/submissions/${encodeURIComponent(input.submissionId)}/feedback`, {
+    method: "PATCH",
+    headers: { authorization: `Bearer ${input.adminSecret}`, "content-type": "application/json" },
+    body: JSON.stringify(input.command),
+  });
 }
