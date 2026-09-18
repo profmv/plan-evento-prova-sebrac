@@ -5,6 +5,7 @@ import {
   evaluateAnswer,
   filterQuestions,
   preparePresentedQuestions,
+  toggleFlagQuestion,
 } from "../domain/simuladoEngine";
 import type { AnswerSubmission, SimuladoAttempt, SimuladoFilters } from "../domain/simuladoTypes";
 import { bundledQuestionBank } from "./questionBank";
@@ -40,6 +41,11 @@ export function createAttempt(
     answers: {},
     evaluations: {},
     isCompleted: false,
+    flaggedQuestionIds: [],
+    remainingSeconds:
+      filters.timeLimitMinutes && filters.timeLimitMinutes > 0
+        ? filters.timeLimitMinutes * 60
+        : undefined,
   };
 
   storage?.save(attempt);
@@ -120,4 +126,31 @@ export function createReinforcementAttempt(
 
   storage?.save(newAttempt);
   return newAttempt;
+}
+
+export function toggleAttemptFlag(
+  attempt: SimuladoAttempt,
+  questionId: string,
+  storage?: AttemptStorage,
+): SimuladoAttempt {
+  const updatedFlags = toggleFlagQuestion(attempt.flaggedQuestionIds, questionId);
+  const updatedAttempt: SimuladoAttempt = {
+    ...attempt,
+    flaggedQuestionIds: updatedFlags,
+  };
+  storage?.save(updatedAttempt);
+  return updatedAttempt;
+}
+
+export function updateRemainingTime(
+  attempt: SimuladoAttempt,
+  seconds: number,
+  storage?: AttemptStorage,
+): SimuladoAttempt {
+  const updatedAttempt: SimuladoAttempt = {
+    ...attempt,
+    remainingSeconds: seconds,
+  };
+  storage?.save(updatedAttempt);
+  return updatedAttempt;
 }

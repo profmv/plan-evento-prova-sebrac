@@ -7,6 +7,14 @@ import type {
 } from "../domain/simuladoTypes";
 import { QuestionBanner } from "./QuestionBanner";
 
+export type QuestionPaletteItem = {
+  readonly index: number;
+  readonly questionId: string;
+  readonly isAnswered: boolean;
+  readonly isFlagged: boolean;
+  readonly isCurrent: boolean;
+};
+
 type QuestionRunnerProps = {
   readonly item: PresentedQuestion;
   readonly currentIndex: number;
@@ -14,13 +22,32 @@ type QuestionRunnerProps = {
   readonly mode: SimuladoMode;
   readonly existingAnswer?: AnswerSubmission | undefined;
   readonly existingEvaluation?: EvaluationResult | undefined;
+  readonly isFlagged?: boolean | undefined;
+  readonly timeLimitMinutes?: number | undefined;
+  readonly remainingSeconds?: number | undefined;
+  readonly paletteItems?: readonly QuestionPaletteItem[] | undefined;
   readonly onAnswer: (submission: AnswerSubmission) => void;
   readonly onNext: () => void;
   readonly onPrevious: () => void;
+  readonly onJumpToQuestion?: ((index: number) => void) | undefined;
+  readonly onToggleFlag?: (() => void) | undefined;
+  readonly onTickRemainingSeconds?: ((seconds: number) => void) | undefined;
+  readonly onFinish?: (() => void) | undefined;
   readonly isLastQuestion: boolean;
 };
 
 const OPTION_LETTERS = ["A", "B", "C", "D", "E", "F"];
+
+function formatCountdown(totalSec: number): string {
+  const safeSec = Math.max(0, totalSec);
+  const h = Math.floor(safeSec / 3600);
+  const m = Math.floor((safeSec % 3600) / 60);
+  const s = safeSec % 60;
+  if (h > 0) {
+    return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  }
+  return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+}
 
 export function QuestionRunner({
   item,
@@ -29,9 +56,17 @@ export function QuestionRunner({
   mode,
   existingAnswer,
   existingEvaluation,
+  isFlagged = false,
+  timeLimitMinutes,
+  remainingSeconds: initialRemainingSeconds,
+  paletteItems,
   onAnswer,
   onNext,
   onPrevious,
+  onJumpToQuestion,
+  onToggleFlag,
+  onTickRemainingSeconds,
+  onFinish,
   isLastQuestion,
 }: QuestionRunnerProps) {
   const { question, presentedOptions } = item;
@@ -44,6 +79,14 @@ export function QuestionRunner({
   );
   const [textAnswer, setTextAnswer] = useState<string>(existingAnswer?.textAnswer ?? "");
   const [seconds, setSeconds] = useState<number>(existingAnswer?.timeSpentSeconds ?? 0);
+  const [isPaletteOpen, setIsPaletteOpen] = useState<boolean>(false);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState<boolean>(false);
+
+  // Global countdown state
+  const hasCountdown = Boolean(timeLimitMinutes && timeLimitMinutes > 0);
+  const [countdown, setCountdown] = useState<number>(
+    initialRemainingSeconds ?? (timeLimitMinutes ? timeLimitMinutes * 60 : 0),
+  );
 
   // Sync state when question changes
   useEffect(() => {
@@ -53,7 +96,7 @@ export function QuestionRunner({
     setSeconds(existingAnswer?.timeSpentSeconds ?? 0);
   }, [existingAnswer]);
 
-  // Question timer
+  // Per-question elapsed timer
   useEffect(() => {
     if (existingEvaluation) return;
     const interval = setInterval(() => {
@@ -61,6 +104,26 @@ export function QuestionRunner({
     }, 1000);
     return () => clearInterval(interval);
   }, [existingEvaluation]);
+
+  // Global countdown timer
+  useEffect(() => {
+    if (!hasCountdown) return;
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        const next = prev - 1;
+        onTickRemainingSeconds?.(Math.max(0, next));
+        if (next <= 0) {
+          clearInterval(interval);
+          onFinish?.();
+          return 0;
+        }
+        return next;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [hasCountdown, onFinish, onTickRemainingSeconds]);
 
   const hasAnswered = existingEvaluation !== undefined;
 
@@ -78,7 +141,30 @@ export function QuestionRunner({
     });
   };
 
+  const answeredCount = paletteItems?.filter((p) => p.isAnswered).length ?? 0;
+  const unansweredCount = totalQuestions - answeredCount;
+  const flaggedCount = paletteItems?.filter((p) => p.isFlagged).length ?? 0;
+
+  const handleFinishAttempt = () => {
+    if (unansweredCount > 0 || flaggedCount > 0) {
+      setIsConfirmModalOpen(true);
+    } else if (onFinish) {
+      onFinish();
+    } else {
+      onNext();
+    }
+  };
+
   const progressPercent = Math.round(((currentIndex + 1) / totalQuestions) * 100);
+
+  let countdownUrgencyClass = "sim-countdown--normal";
+  if (hasCountdown) {
+    if (countdown <= 300) {
+      countdownUrgencyClass = "sim-countdown--critical";
+    } else if (countdown <= 900) {
+      countdownUrgencyClass = "sim-countdown--warning";
+    }
+  }
 
   return (
     <article className="sim-runner" aria-labelledby="question-prompt">
@@ -100,11 +186,98 @@ export function QuestionRunner({
       </div>
 
       <div className="sim-runner__body">
-        <div className="sim-runner__timer" aria-live="polite">
-          <span className="sim-timer-tag">
-            Tempo nesta questão: <strong>{seconds}s</strong>
-          </span>
+        <div className="sim-runner__meta-bar">
+          <div className="sim-runner__timers" aria-live="polite">
+            <span className="sim-timer-tag">
+              Tempo nesta questão: <strong>{seconds}s</strong>
+            </span>
+            {hasCountdown ? (
+              <span className={`sim-timer-tag sim-timer-countdown ${countdownUrgencyClass}`}>
+                Tempo restante: <strong>{formatCountdown(countdown)}</strong>
+              </span>
+            ) : null}
+          </div>
+
+          <div className="sim-runner__quick-tools">
+            <button
+              type="button"
+              className={`sim-flag-btn ${isFlagged ? "sim-flag-btn--active" : ""}`}
+              onClick={onToggleFlag}
+              title="Marcar questão para revisar antes da entrega final"
+            >
+              <span aria-hidden="true">{isFlagged ? "★" : "☆"}</span>
+              <span>{isFlagged ? "Marcada para revisão" : "Marcar para revisão"}</span>
+            </button>
+
+            {paletteItems && paletteItems.length > 0 ? (
+              <button
+                type="button"
+                aria-expanded={isPaletteOpen}
+                className="sim-palette-toggle-btn"
+                onClick={() => setIsPaletteOpen((prev) => !prev)}
+              >
+                <span>
+                  Paleta ({answeredCount}/{totalQuestions})
+                </span>
+                <span aria-hidden="true">{isPaletteOpen ? "▲" : "▼"}</span>
+              </button>
+            ) : null}
+          </div>
         </div>
+
+        {isPaletteOpen && paletteItems ? (
+          <aside
+            className="sim-palette-drawer"
+            aria-label="Navegação rápida pelas questões do exame"
+          >
+            <div className="sim-palette-drawer__header">
+              <strong>Mapa de Questões da Prova</strong>
+              <small>Clique em qualquer número para ir direto à questão</small>
+            </div>
+            <div className="sim-palette-drawer__grid">
+              {paletteItems.map((p) => {
+                let statusClass = "";
+                if (p.isCurrent) statusClass = "sim-palette-item--current";
+                else if (p.isAnswered) statusClass = "sim-palette-item--answered";
+                else statusClass = "sim-palette-item--unanswered";
+
+                return (
+                  <button
+                    key={p.questionId}
+                    type="button"
+                    className={`sim-palette-item ${statusClass} ${p.isFlagged ? "sim-palette-item--flagged" : ""}`}
+                    onClick={() => {
+                      onJumpToQuestion?.(p.index);
+                      setIsPaletteOpen(false);
+                    }}
+                    aria-label={`Questão ${p.index + 1}${p.isCurrent ? ", atual" : ""}${p.isAnswered ? ", respondida" : ", em branco"}${p.isFlagged ? ", marcada para revisão" : ""}`}
+                  >
+                    <span>{p.index + 1}</span>
+                    {p.isFlagged ? (
+                      <span className="sim-palette-item__flag-dot" aria-hidden="true">
+                        ★
+                      </span>
+                    ) : null}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="sim-palette-drawer__legend">
+              <span>
+                <span className="legend-dot legend-dot--current" /> Atual
+              </span>
+              <span>
+                <span className="legend-dot legend-dot--answered" /> Respondida
+              </span>
+              <span>
+                <span className="legend-dot legend-dot--unanswered" /> Em branco
+              </span>
+              <span>
+                <span className="legend-dot legend-dot--flagged" /> Revisar
+              </span>
+            </div>
+          </aside>
+        ) : null}
 
         <h2 id="question-prompt" className="sim-prompt">
           {question.prompt}
@@ -249,12 +422,88 @@ export function QuestionRunner({
               Confirmar resposta
             </button>
           ) : (
-            <button className="button button--primary" type="button" onClick={onNext}>
+            <button
+              className="button button--primary"
+              type="button"
+              onClick={isLastQuestion ? handleFinishAttempt : onNext}
+            >
               {isLastQuestion ? "Finalizar simulado" : "Próxima questão"}
             </button>
           )}
+
+          {mode === "EXAM" && !isLastQuestion ? (
+            <button
+              className="button button--secondary sim-finish-shortcut"
+              type="button"
+              onClick={handleFinishAttempt}
+            >
+              Finalizar exame agora
+            </button>
+          ) : null}
         </footer>
       </div>
+
+      {isConfirmModalOpen ? (
+        <div
+          className="sim-modal-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="confirm-finish-title"
+        >
+          <div className="sim-modal-card">
+            <h3 id="confirm-finish-title">Confirmar Entrega da Prova</h3>
+            <p className="sim-modal-desc">
+              Revise a situação das suas questões antes de finalizar o exame e gerar a pontuação.
+            </p>
+            <div className="sim-modal-stats">
+              <div className="sim-modal-stat-row">
+                <span>Respondidas:</span>
+                <strong>
+                  {answeredCount} de {totalQuestions}
+                </strong>
+              </div>
+              {unansweredCount > 0 ? (
+                <div className="sim-modal-stat-row sim-modal-stat-row--warn">
+                  <span>Em branco / Sem resposta:</span>
+                  <strong>{unansweredCount} questão(ões)</strong>
+                </div>
+              ) : null}
+              {flaggedCount > 0 ? (
+                <div className="sim-modal-stat-row sim-modal-stat-row--flag">
+                  <span>Marcadas para revisão:</span>
+                  <strong>{flaggedCount} questão(ões)</strong>
+                </div>
+              ) : null}
+            </div>
+            <div className="sim-modal-actions">
+              <button
+                type="button"
+                className="button button--secondary"
+                onClick={() => {
+                  setIsConfirmModalOpen(false);
+                  setIsPaletteOpen(true);
+                }}
+              >
+                Voltar e revisar pendências
+              </button>
+              <button
+                type="button"
+                className="button button--primary"
+                onClick={() => {
+                  setIsConfirmModalOpen(false);
+                  if (onFinish) {
+                    onFinish();
+                  } else {
+                    onNext();
+                  }
+                }}
+              >
+                Confirmar entrega final
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </article>
   );
 }

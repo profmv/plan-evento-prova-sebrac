@@ -19,6 +19,7 @@ export function SimuladoSetup({
   const [axisId, setAxisId] = useState<"all" | AxisId>("all");
   const [difficulty, setDifficulty] = useState<"all" | Difficulty>("all");
   const [questionCount, setQuestionCount] = useState<number>(10);
+  const [timeLimitMinutes, setTimeLimitMinutes] = useState<number>(0);
   const [mode, setMode] = useState<SimuladoMode>("INSTANT_FEEDBACK");
 
   const matchingQuestions = filterQuestions(bank, { axisId, difficulty });
@@ -33,6 +34,7 @@ export function SimuladoSetup({
       difficulty,
       questionCount: effectiveCount,
       mode,
+      timeLimitMinutes: timeLimitMinutes > 0 ? timeLimitMinutes : undefined,
     });
   };
 
@@ -107,7 +109,27 @@ export function SimuladoSetup({
             >
               <option value={5}>5 questões (Rápido ~ 8 min)</option>
               <option value={10}>10 questões (Padrão ~ 15 min)</option>
-              <option value={15}>15 questões (Completo ~ 25 min)</option>
+              <option value={15}>15 questões (Completo M1 ~ 25 min)</option>
+              <option value={30}>30 questões (Intensivo ~ 45 min)</option>
+              <option value={60}>60 questões (Simulado Extensivo ~ 2h)</option>
+              <option value={90}>90 questões (Maratona Completa ~ 3h)</option>
+            </select>
+          </div>
+
+          <div className="sim-form-group">
+            <label htmlFor="select-time-limit">
+              <strong>Duração do Exame</strong>
+              <small>Controle de tempo com alertas</small>
+            </label>
+            <select
+              id="select-time-limit"
+              value={timeLimitMinutes}
+              onChange={(e) => setTimeLimitMinutes(Number(e.target.value))}
+            >
+              <option value={0}>Sem limite (Cronômetro progressivo)</option>
+              <option value={60}>60 minutos (Treino rápido)</option>
+              <option value={120}>120 minutos (Simulado padrão)</option>
+              <option value={180}>180 minutos (Exame Completo 3 Horas)</option>
             </select>
           </div>
 

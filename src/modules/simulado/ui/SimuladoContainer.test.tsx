@@ -69,4 +69,52 @@ describe("SimuladoContainer", () => {
 
     expect(screen.getByText("Pergunta recuperada de teste.")).toBeInTheDocument();
   });
+
+  it("supports marking questions for review and navigating via question palette", async () => {
+    const user = userEvent.setup();
+    render(<SimuladoContainer />);
+
+    const startBtn = screen.getByRole("button", { name: /iniciar simulado/i });
+    await user.click(startBtn);
+
+    // Toggle flag on current question
+    const flagBtn = screen.getByRole("button", { name: /marcar para revisão/i });
+    await user.click(flagBtn);
+    expect(screen.getByRole("button", { name: /marcada para revisão/i })).toBeInTheDocument();
+
+    // Verify flag was persisted to storage
+    const saved = browserAttemptStorage.load();
+    expect(saved?.flaggedQuestionIds).toHaveLength(1);
+
+    // Open palette drawer
+    const paletteToggle = screen.getByRole("button", { name: /paleta/i });
+    await user.click(paletteToggle);
+
+    expect(screen.getByText(/mapa de questões da prova/i)).toBeInTheDocument();
+    const questionItems = screen.getAllByRole("button", { name: /questão \d+/i });
+    expect(questionItems.length).toBeGreaterThanOrEqual(5);
+
+    // Jump to question 2
+    const secondQuestion = questionItems[1];
+    expect(secondQuestion).toBeDefined();
+    if (secondQuestion) {
+      await user.click(secondQuestion);
+    }
+    expect(screen.getByRole("progressbar", { name: /questão 2 de 10/i })).toBeInTheDocument();
+  });
+
+  it("renders countdown timer and handles time limit configuration", async () => {
+    const user = userEvent.setup();
+    render(<SimuladoContainer />);
+
+    const timeLimitSelect = screen.getByLabelText(/duração do exame/i);
+    await user.selectOptions(timeLimitSelect, "180");
+
+    const startBtn = screen.getByRole("button", { name: /iniciar simulado/i });
+    await user.click(startBtn);
+
+    expect(screen.getByText(/tempo restante:/i)).toBeInTheDocument();
+    // 180 min formatted as 03:00:00 or 02:59:59
+    expect(screen.getByText(/0[23]:[0-5]\d:[0-5]\d/)).toBeInTheDocument();
+  });
 });

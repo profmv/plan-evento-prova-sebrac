@@ -144,5 +144,633 @@
       "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
     },
     "tags": ["css", "flexbox", "web-design", "layouts"]
+  },
+  {
+    "id": "q-dev-006-estrutura-dados-pilha-fila-lifo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em estruturas de dados lineares, qual é a principal diferença conceitual entre o mecanismo de acesso de uma Pilha (Stack) e o de uma Fila (Queue)?",
+    "options": [
+      {
+        "id": "opt-pilha-lifo-fila-fifo",
+        "text": "A Pilha opera no modelo LIFO (o último a entrar é o primeiro a sair), enquanto a Fila opera no modelo FIFO (o primeiro a entrar é o primeiro a sair)."
+      },
+      {
+        "id": "opt-pilha-fifo-fila-lifo",
+        "text": "A Pilha opera no modelo FIFO (o primeiro a entrar é o primeiro a sair), enquanto a Fila opera no modelo LIFO (o último a entrar é o primeiro a sair)."
+      },
+      {
+        "id": "opt-pilha-aleatoria-fila-ordenada",
+        "text": "A Pilha permite acesso aleatório a qualquer posição por índice, enquanto a Fila exige ordenação prévia dos elementos."
+      },
+      {
+        "id": "opt-ambas-lifo",
+        "text": "Ambas operam exclusivamente no modelo LIFO, diferenciando-se apenas pela alocação contígua ou encadeada de memória."
+      }
+    ],
+    "correctOptionId": "opt-pilha-lifo-fila-fifo",
+    "explanation": "Na Pilha, as operações de inserção (push) e remoção (pop) ocorrem na mesma extremidade (topo), configurando o princípio LIFO (Last-In, First-Out). Na Fila, as inserções (enqueue) ocorrem no final e as remoções (dequeue) no início, configurando FIFO (First-In, First-Out), análogo a uma fila de banco do mundo real.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "estruturas-de-dados", "pilha", "fila", "lifo-fifo"]
+  },
+  {
+    "id": "q-dev-007-complexidade-ordenacao-quicksort-bolha",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao ordenar um vetor contendo 100.000 elementos distribuídos de forma aleatória, qual é a complexidade assintótica média esperada do algoritmo QuickSort em comparação ao algoritmo Bubble Sort (Método da Bolha)?",
+    "options": [
+      {
+        "id": "opt-quicksort-nlogn-bolha-n2",
+        "text": "QuickSort tem complexidade média O(N log N), enquanto o Bubble Sort tem complexidade média O(N²)."
+      },
+      {
+        "id": "opt-ambos-n2",
+        "text": "Ambos os algoritmos possuem complexidade temporal idêntica de O(N²) em qualquer cenário."
+      },
+      {
+        "id": "opt-quicksort-linear-bolha-log",
+        "text": "QuickSort opera em tempo estritamente linear O(N), e o Bubble Sort opera em O(log N)."
+      },
+      {
+        "id": "opt-quicksort-n2-bolha-nlogn",
+        "text": "QuickSort opera em O(N²), sendo mais lento que o Bubble Sort que opera em O(N log N)."
+      }
+    ],
+    "correctOptionId": "opt-quicksort-nlogn-bolha-n2",
+    "explanation": "O QuickSort utiliza a técnica de divisão e conquista para particionar o vetor ao redor de um pivô, atingindo complexidade temporal média de O(N log N). Em contrapartida, o Bubble Sort compara repetidamente elementos adjacentes por meio de laços aninhados, resultando em complexidade O(N²), o que o torna impraticável para volumes volumosos como 100.000 registros.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "ordenacao", "quicksort", "bubble-sort", "complexidade"]
+  },
+  {
+    "id": "q-dev-008-sql-juncao-inner-left-join",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Considere duas tabelas em um banco de dados relacional: 'clientes' (tabela da esquerda) e 'pedidos' (tabela da direita). Qual é o resultado produzido por uma consulta que utiliza a junção 'clientes LEFT JOIN pedidos ON clientes.id = pedidos.cliente_id'?",
+    "options": [
+      {
+        "id": "opt-todos-clientes-com-sem-pedidos",
+        "text": "Retorna todos os clientes cadastrados, incluindo valores NULL para os campos de pedidos caso o cliente ainda não possua compras registradas."
+      },
+      {
+        "id": "opt-apenas-clientes-com-pedidos",
+        "text": "Retorna exclusivamente os clientes que possuem ao menos um pedido correspondente na tabela de pedidos."
+      },
+      {
+        "id": "opt-apenas-pedidos-sem-clientes",
+        "text": "Retorna apenas pedidos órfãos que não possuem nenhum cliente associado cadastrado."
+      },
+      {
+        "id": "opt-produto-cartesiano-todas-linhas",
+        "text": "Gera um produto cartesiano irrestrito multiplicando todas as linhas da tabela clientes por todas as linhas de pedidos."
+      }
+    ],
+    "correctOptionId": "opt-todos-clientes-com-sem-pedidos",
+    "explanation": "A cláusula LEFT JOIN preserva integralmente todos os registros da tabela situada à esquerda ('clientes'). Para clientes sem registros correspondentes na tabela à direita ('pedidos'), as colunas provenientes de pedidos são preenchidas com valores NULL. O retorno exclusivo de registros com correspondência em ambas ocorreria caso fosse utilizado INNER JOIN.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "sql", "left-join", "joins", "modelagem-relacional"]
+  },
+  {
+    "id": "q-dev-009-testes-unitarios-isolamento-mocks",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante o desenvolvimento de testes unitários automatizados para uma classe de regras de negócio, por que se recomenda utilizar dublês de teste (como Mocks ou Stubs) no lugar de conexões reais com o banco de dados em produção?",
+    "options": [
+      {
+        "id": "opt-isolamento-rapidez-determinismo",
+        "text": "Para isolar a unidade sob teste, garantir execução rápida e determinística e evitar dependência de infraestrutura externa instável."
+      },
+      {
+        "id": "opt-substituir-testes-integracao",
+        "text": "Porque os mocks tornam os testes de integração e testes ponta a ponta totalmente desnecessários no ciclo de vida."
+      },
+      {
+        "id": "opt-compilar-mais-rapido",
+        "text": "Para que o compilador da linguagem consiga gerar o binário de produção sem validar os tipos dos métodos."
+      },
+      {
+        "id": "opt-aumentar-cobertura-sem-executar",
+        "text": "Para inflar metricamente a cobertura de código sem de fato executar nenhum comando ou verificação lógica."
+      }
+    ],
+    "correctOptionId": "opt-isolamento-rapidez-determinismo",
+    "explanation": "Testes unitários devem testar a menor unidade lógica isoladamente. O uso de dublês de teste (mocks/stubs) simula o comportamento de dependências externas (como bancos de dados e APIs remotas), permitindo testes rápidos, repetíveis, sem efeitos colaterais na persistência real e focados unicamente nas regras da classe.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["testes-de-software", "testes-unitarios", "mocks", "qualidade-de-software"]
+  },
+  {
+    "id": "q-dev-010-cicd-pipeline-integracao-continua",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "A Prática de Integração Contínua (CI - Continuous Integration) consiste em integrar alterações de código frequentemente em um repositório compartilhado, disparando pipelines automatizados de compilação, verificação estática e testes a cada envio.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O objetivo da Integração Contínua é detectar falhas de integração, bugs de regressão e quebras de build o mais cedo possível no ciclo de desenvolvimento, através de automação acionada a cada commit ou pull request.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["ci-cd", "integracao-continua", "devops", "automacao-testes"]
+  },
+  {
+    "id": "q-dev-011-versionamento-semantico-semver",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "De acordo com a especificação de Versionamento Semântico (SemVer 2.0.0, formato MAJOR.MINOR.PATCH), quando o desenvolvedor deve obrigatoriamente incrementar o número da versão MAJOR (exemplo: de 1.4.2 para 2.0.0)?",
+    "options": [
+      {
+        "id": "opt-breaking-changes-incompatibilidade",
+        "text": "Quando introduzir alterações ou quebras de compatibilidade retroativa (breaking changes) na API pública do software."
+      },
+      {
+        "id": "opt-apenas-correcoes-bugs",
+        "text": "Sempre que publicar correções pontuais de defeitos (bug fixes) mantendo a compatibilidade da API."
+      },
+      {
+        "id": "opt-novas-funcionalidades-compativeis",
+        "text": "Quando adicionar novas funcionalidades que preservem integralmente a compatibilidade retroativa."
+      },
+      {
+        "id": "opt-reformatar-codigo",
+        "text": "Apenas quando reformatar o código-fonte ou atualizar comentários da documentação interna."
+      }
+    ],
+    "correctOptionId": "opt-breaking-changes-incompatibilidade",
+    "explanation": "No SemVer, incrementa-se PATCH para correções de bugs retrocompatíveis, MINOR para acréscimo de novas funcionalidades sem quebrar compatibilidade, e MAJOR obrigatoriamente quando são introduzidas alterações que quebram a compatibilidade com versões anteriores (breaking changes).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["versionamento-semantico", "semver", "implantacao", "governanca-software"]
+  },
+  {
+    "id": "q-dev-012-arquitetura-desktop-mvc",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No desenvolvimento de sistemas desktop utilizando o padrão arquitetural MVC (Model-View-Controller), qual é a responsabilidade exclusiva atribuída à camada Model?",
+    "options": [
+      {
+        "id": "opt-regras-dados-estado",
+        "text": "Gerenciar os dados, o estado e as regras de negócio da aplicação, desconhecendo os detalhes da interface gráfica do usuário."
+      },
+      {
+        "id": "opt-desenhar-janelas-botoes",
+        "text": "Renderizar janelas, botões e capturar cliques de periféricos diretamente do hardware."
+      },
+      {
+        "id": "opt-interceptar-rotas-http",
+        "text": "Atuar como servidor web escutando requisições HTTP e roteando endpoints para páginas HTML."
+      },
+      {
+        "id": "opt-gerenciar-driver-impressora",
+        "text": "Controlar a comunicação direta de baixo nível com impressoras e placas de vídeo físicas."
+      }
+    ],
+    "correctOptionId": "opt-regras-dados-estado",
+    "explanation": "No MVC, o Model encapsula a lógica de negócio, estruturas de dados e regras de persistência. A View cuida da apresentação e exibição visual, enquanto o Controller intermedeia a entrada do usuário na View e invoca as operações apropriadas no Model.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "padroes-arquiteturais", "mvc", "desenvolvimento-desktop"]
+  },
+  {
+    "id": "q-dev-013-desktop-ui-thread-bloqueio",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Em aplicações desktop com interface gráfica, executar rotinas de I/O síncronas de longa duração (como download de grandes arquivos ou consultas pesadas de banco) diretamente na UI Thread (Thread Principal) provoca o congelamento da interface para o usuário.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A UI Thread processa o loop de eventos (redesenho de tela, cliques, teclado). Se uma operação pesada e síncrona bloqueia essa thread, o sistema operacional para de receber confirmação de resposta da interface, causando o estado 'Não Respondendo' (congelamento).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "concorrencia", "ui-thread", "event-loop"]
+  },
+  {
+    "id": "q-dev-014-desktop-persistencia-try-catch-finally",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao manipular arquivos locais ou conexões de bancos de dados embutidos (como SQLite) em uma aplicação desktop, qual bloco estruturado garante a liberação de recursos (ex: fechamento de conexão ou arquivo), mesmo que ocorra uma exceção durante o processamento?",
+    "options": [
+      {
+        "id": "opt-finally-ou-try-with-resources",
+        "text": "O bloco 'finally' (ou construções equivalentes como 'using' e 'try-with-resources')."
+      },
+      {
+        "id": "opt-apenas-catch",
+        "text": "Exclusivamente o bloco 'catch', que executa mesmo quando nenhuma falha é disparada."
+      },
+      {
+        "id": "opt-bloco-switch",
+        "text": "A instrução 'switch-case' com cláusula 'default'."
+      },
+      {
+        "id": "opt-declaracao-goto",
+        "text": "O comando incondicional de desvio 'goto' direcionado ao topo do arquivo."
+      }
+    ],
+    "correctOptionId": "opt-finally-ou-try-with-resources",
+    "explanation": "O bloco 'finally' sempre é executado após os blocos 'try' e 'catch', independentemente de ter ocorrido erro ou não, sendo o local ideal para fechar fluxos de arquivos, conexões e liberar handles de memória. Em linguagens modernas, 'try-with-resources' ou 'using' implementam esse padrão automaticamente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "tratamento-de-erros", "excecoes", "persistencia"]
+  },
+  {
+    "id": "q-dev-015-api-rest-codigos-status-http",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em conformidade com as boas práticas de arquitetura REST, quando um endpoint recebe uma requisição HTTP POST para cadastrar um novo cliente e a operação é concluída com sucesso no banco, qual código de status HTTP deve ser retornado pelo servidor?",
+    "options": [
+      {
+        "id": "opt-status-201-created",
+        "text": "201 Created"
+      },
+      {
+        "id": "opt-status-200-ok-apenas",
+        "text": "204 No Content"
+      },
+      {
+        "id": "opt-status-301-moved",
+        "text": "301 Moved Permanently"
+      },
+      {
+        "id": "opt-status-400-bad-request",
+        "text": "400 Bad Request"
+      }
+    ],
+    "correctOptionId": "opt-status-201-created",
+    "explanation": "O código HTTP 201 (Created) indica expressamente que a requisição foi bem-sucedida e resultou na criação de um ou mais novos recursos no servidor, frequentemente acompanhado do cabeçalho 'Location' apontando para o URI do novo recurso. O código 204 indica sucesso sem corpo retornado, e 200 é genérico.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["web", "api-rest", "http", "status-codes"]
+  },
+  {
+    "id": "q-dev-016-autenticacao-jwt-estrutura",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um token JWT (JSON Web Token), amplamente empregado na autenticação de APIs RESTful para arquiteturas stateless, é estruturado por três partes codificadas em Base64Url e delimitadas por pontos. Quais são essas três partes constituintes?",
+    "options": [
+      {
+        "id": "opt-header-payload-signature",
+        "text": "Header (Cabeçalho), Payload (Carga Útil) e Signature (Assinatura)."
+      },
+      {
+        "id": "opt-username-password-salt",
+        "text": "Username (Usuário), Password (Senha) e Salt (Tempero criptográfico)."
+      },
+      {
+        "id": "opt-client-server-session",
+        "text": "Client (Cliente), Server (Servidor) e SessionId (Identificador de Sessão)."
+      },
+      {
+        "id": "opt-request-response-cookie",
+        "text": "Request (Requisição), Response (Resposta) e Cookie (Armazenamento)."
+      }
+    ],
+    "correctOptionId": "opt-header-payload-signature",
+    "explanation": "A estrutura de um JWT é formada por: Header (define tipo e algoritmo de hash), Payload (contém as claims/declarações do usuário e validade) e Signature (gerada pela chave secreta do servidor para assegurar que os dados não foram forjados ou adulterados pelo cliente).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["web", "autenticacao", "jwt", "seguranca-web"]
+  },
+  {
+    "id": "q-dev-017-imagem-vetorial-svg-vs-bitmap",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual é a principal vantagem técnica da utilização de gráficos vetoriais no formato SVG (Scalable Vector Graphics) em relação a imagens bitmap (rasterizadas como JPEG ou PNG) em interfaces web responsivas?",
+    "options": [
+      {
+        "id": "opt-escalabilidade-sem-perda",
+        "text": "O SVG pode ser redimensionado para qualquer resolução ou tela de alta densidade sem perda de nitidez, pois é baseado em instruções matemáticas XML."
+      },
+      {
+        "id": "opt-tamanho-menor-fotografia",
+        "text": "O SVG é o formato mais indicado para fotografias ricas em milhões de cores e gradientes complexos de luz natural."
+      },
+      {
+        "id": "opt-criptografia-automatica",
+        "text": "O SVG impede que o usuário inspecione o código-fonte da página, criptografando nativamente todos os elementos visuais."
+      },
+      {
+        "id": "opt-incompatibilidade-css",
+        "text": "O SVG não aceita estilização via CSS, garantindo que o design permaneça inalterável em qualquer navegador."
+      }
+    ],
+    "correctOptionId": "opt-escalabilidade-sem-perda",
+    "explanation": "O SVG é um formato vetorial baseado em XML composto por pontos, retas e curvas calculados geometricamente. Ao ser ampliado em telas de alta densidade (Retina/DPI), ele não sofre pixelização, diferentemente de formatos rasterizados (JPEG/PNG) que dependem de uma grade fixa de pixels.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web", "design", "svg", "imagens-vetoriais", "otimizacao-visual"]
+  },
+  {
+    "id": "q-dev-018-otimizacao-web-formato-webp",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "O formato de imagem WebP permite tanto compressão com perdas (lossy) quanto sem perdas (lossless), além de suportar canal de transparência alfa com tamanho de arquivo substancialmente menor que PNG e JPEG equivalentes.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Desenvolvido para otimizar o carregamento na web, o WebP oferece taxas de compressão tipicamente 25% a 35% mais eficientes que JPEG e PNG tradicionais, mantendo suporte a transparência e animações, reduzindo o tráfego de rede.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["otimizacao-web", "imagens-digitais", "webp", "performance-web"]
+  },
+  {
+    "id": "q-dev-019-design-responsivo-densidade-picture-srcset",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em páginas web modernas, qual elemento e atributos combinados do HTML5 permitem ao desenvolvedor fornecer múltiplos arquivos de imagem alternativos para que o navegador baixe automaticamente a versão ideal com base nas dimensões da tela (media queries) ou na densidade de pixels do dispositivo?",
+    "options": [
+      {
+        "id": "opt-picture-source-srcset",
+        "text": "O elemento <picture> com tags filhas <source> utilizando os atributos 'srcset' e 'media'."
+      },
+      {
+        "id": "opt-canvas-draw-image",
+        "text": "O elemento <canvas> manipulado obrigatoriamente por loops síncronos de JavaScript no evento onload."
+      },
+      {
+        "id": "opt-iframe-sandbox",
+        "text": "A tag<iframe> vinculada ao atributo sandbox com valor 'scale-down'."
+      },
+      {
+        "id": "opt-meta-viewport-content",
+        "text": "Apenas a metatag <meta name='viewport'> sem necessidade de tags de imagem no corpo da página."
+      }
+    ],
+    "correctOptionId": "opt-picture-source-srcset",
+    "explanation": "O elemento <picture> em conjunto com `<source srcset='...' media='...'>` e a tag `<img>` de fallback fornece design responsivo de imagens (art direction e seleção por resolução), permitindo que o navegador selecione e baixe unicamente a imagem mais adequada ao viewport e densidade de tela do cliente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["html5", "design-responsivo", "srcset", "picture", "otimizacao-web"]
+  },
+  {
+    "id": "q-dev-020-html5-semantico-acessibilidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Por que se recomenda estruturar uma página web utilizando elementos semânticos do HTML5 (como <header>, <nav>, <main>, <article>, <section> e <footer>) em vez de utilizar exclusivamente contêineres genéricos <div>?",
+    "options": [
+      {
+        "id": "opt-semantica-acessibilidade-seo",
+        "text": "Porque elementos semânticos fornecem significado estrutural à árvore do documento, facilitando a navegação por leitores de tela para pessoas com deficiência e a indexação por motores de busca (SEO)."
+      },
+      {
+        "id": "opt-dispensa-css",
+        "text": "Porque elementos semânticos aplicam automaticamente todas as cores, fontes e animações finais sem precisar de arquivos CSS."
+      },
+      {
+        "id": "opt-aumenta-velocidade-cpu",
+        "text": "Porque o processador do computador cliente consome metade da memória RAM ao interpretar tags semânticas em relação a divs."
+      },
+      {
+        "id": "opt-evita-compilacao-js",
+        "text": "Porque o navegador desativa a necessidade de interpretar JavaScript quando encontra tags semânticas."
+      }
+    ],
+    "correctOptionId": "opt-semantica-acessibilidade-seo",
+    "explanation": "Elementos semânticos definem o propósito e a hierarquia do conteúdo na página. Isso permite que softwares de acessibilidade (leitores de tela) ofereçam atalhos de navegação por marcos estruturais (landmarks) para usuários com deficiência visual, além de enriquecer a compreensão semântica por robôs de busca.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["html5", "semantica-web", "acessibilidade-digital", "wcag"]
+  },
+  {
+    "id": "q-dev-021-css-box-model-border-box",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um elemento HTML possui regras CSS definindo: 'width: 300px;', 'padding: 20px;' e 'border: 5px solid black;'. Se a propriedade 'box-sizing: border-box;' estiver aplicada a esse elemento, qual será a largura total ocupada por ele na renderização?",
+    "options": [
+      {
+        "id": "opt-300px",
+        "text": "300px (o padding e a borda são acomodados dentro da largura declarada de 300px)."
+      },
+      {
+        "id": "opt-350px",
+        "text": "350px (somam-se 300px de conteúdo mais 40px de padding horizontal e 10px de borda horizontal)."
+      },
+      {
+        "id": "opt-325px",
+        "text": "325px (soma-se a largura apenas com o padding de um dos lados e a borda)."
+      },
+      {
+        "id": "opt-250px",
+        "text": "250px (o padding e a borda são subtraídos duas vezes da largura declarada)."
+      }
+    ],
+    "correctOptionId": "opt-300px",
+    "explanation": "Com 'box-sizing: border-box', as propriedades de padding e border são absorvidas dentro do valor de 'width' declarado, mantendo a largura total do elemento exatamente em 300px. No modelo tradicional 'content-box', a largura final seria 300 + 40 (padding) + 10 (borda) = 350px.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["css", "box-model", "border-box", "web-layout"]
+  },
+  {
+    "id": "q-dev-022-git-ramificacao-conflito-merge",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No controle de versões com Git durante o trabalho em equipe, quando ocorre um 'conflito de merge' (Merge Conflict) ao tentar integrar uma branch de funcionalidade (feature branch) à branch principal (main)?",
+    "options": [
+      {
+        "id": "opt-mesmas-linhas-modificadas",
+        "text": "Quando ambas as branches contêm alterações divergentes nas mesmas linhas de um mesmo arquivo desde o ancestral comum."
+      },
+      {
+        "id": "opt-nomes-ramos-diferentes",
+        "text": "Sempre que os desenvolvedores nomearem as branches com prefixos diferentes como feature/ e bugfix/."
+      },
+      {
+        "id": "opt-commits-sem-mensagem",
+        "text": "Apenas quando um dos commits for criado sem mensagem de descrição através da flag -m."
+      },
+      {
+        "id": "opt-mais-de-dez-arquivos",
+        "text": "Automaticamente sempre que um pull request tentar integrar mais de 10 arquivos simultaneamente."
+      }
+    ],
+    "correctOptionId": "opt-mesmas-linhas-modificadas",
+    "explanation": "Um conflito de merge surge quando o Git não consegue reconciliar automaticamente alterações em um mesmo trecho de código, porque desenvolvedores editaram as mesmas linhas (ou um excluiu um arquivo enquanto outro o editou) em branches paralelas, exigindo intervenção humana para decidir qual versão manter.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["git", "controle-de-versao", "merge-conflict", "trabalho-em-equipe"]
+  },
+  {
+    "id": "q-dev-023-scrum-papeis-cerimonias-sprint",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No framework ágil Scrum, amplamente empregado na gestão de projetos de software integradores, qual é a principal responsabilidade do papel de Product Owner (PO)?",
+    "options": [
+      {
+        "id": "opt-gerenciar-product-backlog",
+        "text": "Definir e priorizar os itens do Product Backlog com base no valor de negócio para o cliente e stakeholders."
+      },
+      {
+        "id": "opt-liderar-reunioes-tecnicas-arquitetura",
+        "text": "Escrever todo o código de baixo nível do backend e gerenciar a infraestrutura de servidores em produção."
+      },
+      {
+        "id": "opt-remover-impedimentos-como-scrum-master",
+        "text": "Garantir a adesão estrita aos ritos do Scrum e atuar como facilitador removendo impedimentos da equipe."
+      },
+      {
+        "id": "opt-atribuir-tarefas-diarias-desenvolvedores",
+        "text": "Agir como chefe tradicional distribuindo microtarefas diárias individualmente para cada programador."
+      }
+    ],
+    "correctOptionId": "opt-gerenciar-product-backlog",
+    "explanation": "O Product Owner é o responsável por maximizar o valor do produto entregue pelo time, tendo como atribuição primária criar, clarear e priorizar os itens do Product Backlog. A facilitação do processo é atribuição do Scrum Master, e a forma de implementar é decidida pelo Time de Desenvolvimento (auto-organizado).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["metodologias-ageis", "scrum", "product-owner", "gestao-de-projetos"]
+  },
+  {
+    "id": "q-dev-024-kanban-limite-trabalho-progresso-wip",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "No método Kanban, a definição explícita de Limites de Trabalho em Progresso (WIP Limits - Work In Progress) visa reduzir a alternância de contexto (multitarefa), expor gargalos no fluxo de entrega e estimular a equipe a 'parar de começar e começar a terminar'.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Limitar o WIP em cada coluna do quadro Kanban impede que os membros da equipe fiquem sobrecarregados com múltiplas tarefas simultâneas inacabadas. Quando uma coluna atinge seu limite, a equipe foca em destravar os itens existentes antes de puxar novos trabalhos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["kanban", "metodologias-ageis", "wip-limit", "fluxo-de-trabalho"]
+  },
+  {
+    "id": "q-dev-025-git-commit-semantico-rastreabilidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na engenharia de software colaborativa, o uso de convenções de Commits Semânticos (como Conventional Commits, ex: 'feat: adicionar validação de CPF', 'fix: corrigir cálculo de desconto') tem como objetivo primário:",
+    "options": [
+      {
+        "id": "opt-rastreabilidade-historico-automacao",
+        "text": "Padronizar o histórico do repositório, facilitar a auditoria de código e permitir a geração automatizada de changelogs e versões de release."
+      },
+      {
+        "id": "opt-aumentar-velocidade-push",
+        "text": "Reduzir o tempo de transferência dos pacotes de rede durante a execução do comando git push origin main."
+      },
+      {
+        "id": "opt-desativar-revisao-pull-request",
+        "text": "Ignorar a exigência de testes unitários e dispensar a revisão de código por pares no pull request."
+      },
+      {
+        "id": "opt-comprimir-repositorio",
+        "text": "Comprimir o banco de dados interno do Git em formato ZIP para economizar espaço em disco."
+      }
+    ],
+    "correctOptionId": "opt-rastreabilidade-historico-automacao",
+    "explanation": "A convenção de Commits Semânticos estabelece uma estrutura uniforme com prefixos padronizados (feat, fix, refactor, docs, chore, etc.). Isso confere alta legibilidade ao histórico de alterações, viabiliza rastreabilidade direta com cartões de tarefas e automatiza ferramentas de CI/CD para geração de changelogs e bump semântico de versões.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["git", "commits-semanticos", "engenharia-de-software", "boas-praticas"]
   }
 ]

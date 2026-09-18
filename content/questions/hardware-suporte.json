@@ -144,5 +144,447 @@
       "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
     },
     "tags": ["diagnostico", "windows", "memoria-ram", "comandos"]
+  },
+  {
+    "id": "q-sup-006-dimensionamento-fonte-tdp",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante o planejamento da montagem de uma estação de trabalho para modelagem 3D contendo uma CPU com TDP de 125W e uma placa de vídeo dedicada com consumo de pico de 300W, qual é o critério técnico correto para dimensionar a fonte de alimentação (PSU)?",
+    "options": [
+      {
+        "id": "opt-soma-com-margem-eficiencia",
+        "text": "Somar a demanda de todos os componentes com margem de segurança de 20% a 30% e selecionar fonte com potência adequada e certificação de eficiência 80 Plus."
+      },
+      {
+        "id": "opt-apenas-tdp-cpu",
+        "text": "Adotar uma fonte cuja potência total nominal seja igual ao TDP declarado da CPU, pois a GPU consome apenas energia do barramento PCIe."
+      },
+      {
+        "id": "opt-potencia-minima-sem-margem",
+        "text": "Calcular o consumo estrito dos componentes em repouso (idle) sem margem de segurança, pois o consumo de pico nunca é atingido em uso prático."
+      },
+      {
+        "id": "opt-fonte-generica-watts-pmpo",
+        "text": "Utilizar qualquer fonte genérica baseada na especificação de potência PMPO, que reflete a capacidade contínua em regime severo de trabalho."
+      }
+    ],
+    "correctOptionId": "opt-soma-com-margem-eficiencia",
+    "explanation": "O dimensionamento correto exige a soma do consumo elétrico real de todos os componentes (CPU, GPU, placa-mãe, discos e ventoinhas), adicionando uma margem de segurança de 20% a 30% para operação na faixa de maior eficiência (cerca de 50% de carga) e certificação 80 Plus comprovada. TDP não é consumo total elétrico, e medições PMPO são irreais para dimensionamento de fontes ATX.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "fonte-de-alimentacao", "tdp", "dimensionamento"]
+  },
+  {
+    "id": "q-sup-007-barramento-pcie-largura-banda",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um técnico precisa instalar uma placa de captura de vídeo de alto desempenho com interface PCIe 4.0 x4 em uma placa-mãe que possui apenas um slot PCIe 4.0 x16 físico vago. O que ocorre física e operacionalmente ao conectar a placa a esse slot?",
+    "options": [
+      {
+        "id": "opt-funciona-compatibilidade-mecanica",
+        "text": "A placa funcionará perfeitamente operando na largura de banda x4, pois o barramento PCIe possui compatibilidade mecânica e lógica retroativa para slots maiores (down-plugging)."
+      },
+      {
+        "id": "opt-queima-componente-tensao",
+        "text": "A placa sofrerá sobretensão imediata, pois slots x16 fornecem quatro vezes a voltagem elétrica nominal suportada por conectores x4."
+      },
+      {
+        "id": "opt-incompatibilidade-bloqueio-post",
+        "text": "A placa-mãe emitirá códigos de erro no POST e se recusará a inicializar devido à disparidade de pistas entre slot e conector."
+      },
+      {
+        "id": "opt-obrigatorio-adaptador-passivo",
+        "text": "A conexão física é impedida por travas mecânicas no padrão ATX, exigindo obrigatoriamente um adaptador extensor (riser card)."
+      }
+    ],
+    "correctOptionId": "opt-funciona-compatibilidade-mecanica",
+    "explanation": "O padrão PCI Express suporta down-plugging: uma placa com menos vias (como x4 ou x1) pode ser instalada em um slot de tamanho físico maior (como x16). A negociação de barramento reconhece que apenas 4 pistas elétricas estão presentes e a placa opera normalmente sem danos ou incompatibilidades.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "pcie", "barramento", "montagem"]
+  },
+  {
+    "id": "q-sup-008-protecao-esd-pulseira-antiestatica",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "A pulseira antiestática utilizada por técnicos durante a montagem de microcomputadores deve ser conectada a um ponto de aterramento comum ou chassi metálico não pintado para equalizar o potencial elétrico e drenar cargas eletrostáticas acumuladas no corpo humano através de um resistor de proteção de 1 megaohm.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A pulseira de proteção contra Descarga Eletrostática (ESD) drena com segurança as cargas eletrostáticas do operador para o aterramento. O resistor integrado de 1 megaohm é crucial para segurança do técnico, evitando choque elétrico caso encoste acidentalmente em uma tensão viva da rede elétrica.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "esd", "seguranca", "montagem"]
+  },
+  {
+    "id": "q-sup-009-tabela-particao-gpt-mbr",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao preparar um disco rígido ou SSD com capacidade de 4 TB para receber a instalação de um sistema operacional moderno em modo UEFI nativo, qual esquema de particionamento deve ser obrigatoriamente selecionado?",
+    "options": [
+      {
+        "id": "opt-gpt-guid",
+        "text": "GPT (GUID Partition Table), pois suporta volumes superiores a 2 TB e oferece suporte nativo ao boot UEFI."
+      },
+      {
+        "id": "opt-mbr-legado",
+        "text": "MBR (Master Boot Record), pois é o único padrão que suporta discos acima de 2 TB sem drivers adicionais."
+      },
+      {
+        "id": "opt-fat32-bruto",
+        "text": "FAT32 puro, por ser a única tabela de partição reconhecida por placas-mãe padrão IBM PC."
+      },
+      {
+        "id": "opt-vfat-csm",
+        "text": "VFAT estendido com módulo CSM obrigatório, limitando o particionamento a quatro discos virtuais."
+      }
+    ],
+    "correctOptionId": "opt-gpt-guid",
+    "explanation": "O padrão MBR tem limitação arquitetural de endereçamento LBA de 32 bits com setores de 512 bytes, limitando discos a 2 TB e 4 partições primárias. O padrão GPT utiliza endereçamento de 64 bits, suporta unidades de até 9,4 ZB, permite até 128 partições primárias no Windows e é requisito para inicialização UEFI nativa.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "gpt", "mbr", "uefi", "armazenamento"]
+  },
+  {
+    "id": "q-sup-010-ferramenta-generalizacao-sysprep",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um técnico preparou uma máquina-modelo com Windows 11, instalou os softwares da empresa e planeja capturar essa imagem para clonagem em 50 computadores novos. Qual comando deve ser executado para remover os identificadores de segurança (SIDs) exclusivos e informações específicas de hardware antes da captura?",
+    "options": [
+      {
+        "id": "opt-sysprep-generalize-oobe",
+        "text": "sysprep.exe /generalize /oobe /shutdown"
+      },
+      {
+        "id": "opt-sfc-scannow-reboot",
+        "text": "sfc.exe /scannow /purgecache /reboot"
+      },
+      {
+        "id": "opt-dism-cleanup-mount",
+        "text": "dism.exe /online /cleanup-image /restorehealth"
+      },
+      {
+        "id": "opt-diskpart-clean-all",
+        "text": "diskpart.exe /clean /all /format"
+      }
+    ],
+    "correctOptionId": "opt-sysprep-generalize-oobe",
+    "explanation": "A ferramenta Sysprep com o parâmetro /generalize remove informações específicas do sistema operacional instalado (incluindo o SID da máquina e drivers específicos de hardware), preparando a imagem para distribuição em massa. O parâmetro /oobe configura o próximo boot para a experiência inicial de configuração do usuário (Out-of-Box Experience).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "sysprep", "clonagem", "windows", "implantacao"]
+  },
+  {
+    "id": "q-sup-011-assinatura-digital-drivers-whql",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Em sistemas operacionais Windows de 64 bits (x64), o recurso Kernel Mode Code Signing (KMCS) exige por padrão que todos os drivers em modo kernel sejam assinados digitalmente com certificado reconhecido (como certificação WHQL) para que possam ser carregados pelo sistema operacional.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. No modo x64 do Windows, a imposição de assinatura de código de driver em modo kernel impede a execução de drivers não assinados ou modificados, aumentando drasticamente a estabilidade do sistema e prevenindo infecções por rootkits.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["drivers", "windows", "seguranca", "sistemas-operacionais"]
+  },
+  {
+    "id": "q-sup-012-diagnostico-multimetro-fonte-atx",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao realizar o teste de bancada de uma fonte de alimentação ATX desplugada da placa-mãe, o técnico faz o jumper entre o fio verde (PS_ON#) e um fio preto (GND). Ao aferir as tensões com um multímetro digital na escala de corrente contínua (DCV), quais são as tensões nominais esperadas nos fios amarelo, vermelho e laranja, respectivamente?",
+    "options": [
+      {
+        "id": "opt-12v-5v-33v",
+        "text": "+12V (amarelo), +5V (vermelho) e +3,3V (laranja)."
+      },
+      {
+        "id": "opt-5v-12v-33v",
+        "text": "+5V (amarelo), +12V (vermelho) e +3,3V (laranja)."
+      },
+      {
+        "id": "opt-12v-negativo-laranja",
+        "text": "+12V (amarelo), -12V (vermelho) e +5V (laranja)."
+      },
+      {
+        "id": "opt-24v-12v-5v",
+        "text": "+24V (amarelo), +12V (vermelho) e +5V (laranja)."
+      }
+    ],
+    "correctOptionId": "opt-12v-5v-33v",
+    "explanation": "Na especificação padrão ATX, a codificação de cores padroniza: fios amarelos fornecem +12V (alimentação de motores e conversores de CPU/GPU), fios vermelhos fornecem +5V (circuitos lógicos e portas USB), fios laranjas fornecem +3,3V (barramentos e chips de memória/placa) e fios pretos representam o terra (GND/0V).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "diagnostico", "multimetro", "fonte-atx"]
+  },
+  {
+    "id": "q-sup-013-codigos-post-bipes-diagnostico",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante a inicialização de um microcomputador desktop, o sistema liga as ventoinhas, não exibe vídeo no monitor e emite uma sequência contínua e repetitiva de bipes longos através do alto-falante onboard (buzzer). Qual é o diagnóstico mais provável para essa falha detectada pelo POST?",
+    "options": [
+      {
+        "id": "opt-falha-memoria-ram",
+        "text": "Módulos de memória RAM ausentes, mal encaixados ou com defeito elétrico."
+      },
+      {
+        "id": "opt-falha-disco-sem-so",
+        "text": "Disco rígido sem setor de inicialização ou partição ativa configurada."
+      },
+      {
+        "id": "opt-falha-cabo-rede",
+        "text": "Cabo de rede desconectado da porta Ethernet integrada."
+      },
+      {
+        "id": "opt-falha-pilha-cmos",
+        "text": "Pilha de lítio CR2032 do CMOS com carga esgotada."
+      }
+    ],
+    "correctOptionId": "opt-falha-memoria-ram",
+    "explanation": "Na maioria das BIOS/UEFI tradicionais (como AMI e Award), uma sequência ininterrupta de bipes longos no momento do POST indica incapacidade de comunicação com a memória RAM (módulo ausente, mal encaixado, sujo ou defeituoso). Falhas de disco ou pilha CMOS ocorrem após a inicialização do vídeo na tela.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "post", "bipes", "diagnostico", "hardware"]
+  },
+  {
+    "id": "q-sup-014-pasta-termica-conducao-eletrica",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Compostos térmicos à base de metal líquido oferecem condutividade térmica superior às pastas cerâmicas tradicionais, mas exigem cautela extrema na aplicação porque são eletricamente condutivos e podem provocar curto-circuito irreparável se escorrerem para capacitores ou trilhas da placa-mãe.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O metal líquido (composto principalmente de gálio e índio) possui condutividade térmica muito alta, mas conduz corrente elétrica e reage quimicamente com dissipadores de alumínio, exigindo isolamento elétrico dos capacitores ao redor da matriz do processador.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "refrigeracao", "pasta-termica", "seguranca"]
+  },
+  {
+    "id": "q-sup-015-utilitario-chkdsk-reparacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "ADVANCED",
+    "type": "SHORT_ANSWER",
+    "prompt": "No prompt de comando com privilégios administrativos do Windows, qual utilitário de linha de comando é utilizado com os parâmetros /f e /r para verificar erros lógicos no sistema de arquivos e localizar setores defeituosos para tentar a recuperação de dados legíveis?",
+    "acceptedAnswers": ["chkdsk", "chkdsk.exe"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O comando chkdsk (Check Disk) analisa a estrutura do sistema de arquivos NTFS/FAT. O parâmetro /f corrige erros encontrados no volume, enquanto /r localiza setores defeituosos (bad blocks lógicos) e recupera as informações legíveis que estavam armazenadas nesses clusters.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "diagnostico", "windows", "chkdsk", "armazenamento"]
+  },
+  {
+    "id": "q-sup-016-itil-help-desk-gestao-incidentes",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "De acordo com as boas práticas da biblioteca ITIL aplicadas a centrais de suporte (Service Desk), qual é a definição e o objetivo principal do processo de Gerenciamento de Incidentes?",
+    "options": [
+      {
+        "id": "opt-restaurar-operacao-rapido",
+        "text": "Restaurar a operação normal dos serviços de TI o mais rápido possível e minimizar o impacto negativo nos negócios."
+      },
+      {
+        "id": "opt-identificar-causa-raiz-definitiva",
+        "text": "Identificar a causa raiz definitiva de todas as falhas estruturais de hardware antes de liberar o equipamento."
+      },
+      {
+        "id": "opt-planejar-novos-projetos-infra",
+        "text": "Elaborar o orçamento anual de compras e planejar a expansão predial dos servidores."
+      },
+      {
+        "id": "opt-avaliar-desempenho-financeiro",
+        "text": "Auditar as contas dos usuários para aplicar penalidades financeiras por mau uso de computadores."
+      }
+    ],
+    "correctOptionId": "opt-restaurar-operacao-rapido",
+    "explanation": "No modelo ITIL, um incidente é qualquer interrupção não planejada ou degradação da qualidade de um serviço de TI. O objetivo do Gerenciamento de Incidentes é restaurar a operação normal do serviço no menor tempo possível (muitas vezes aplicando soluções de contorno), enquanto o Gerenciamento de Problemas é o responsável por investigar a causa raiz profunda.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["itil", "help-desk", "gestao-de-incidentes", "suporte"]
+  },
+  {
+    "id": "q-sup-017-acordo-nivel-servico-sla",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um sistema de bilhetagem de suporte técnico (help desk), um chamado aberto por um usuário da contabilidade possui um SLA (Service Level Agreement) definido com 'Tempo de Resposta de 1 hora' e 'Tempo de Solução de 8 horas'. Qual é o significado exato dessa cláusula de SLA?",
+    "options": [
+      {
+        "id": "opt-primeiro-atendimento-vs-resolucao",
+        "text": "O suporte tem até 1 hora para efetuar o primeiro contato/triagem formal e até 8 horas para concluir o restabelecimento do serviço solicitado."
+      },
+      {
+        "id": "opt-tempo-de-fabricante",
+        "text": "O usuário deve aguardar 1 hora antes de abrir o chamado e o computador ficará desligado por 8 horas para manutenção."
+      },
+      {
+        "id": "opt-tempo-total-9-horas",
+        "text": "O chamado deve ser atendido e resolvido simultaneamente dentro de 1 hora, sob pena de multa nas 8 horas seguintes."
+      },
+      {
+        "id": "opt-limite-deslocamento-fisico",
+        "text": "O técnico tem até 1 hora para se deslocar até a máquina do usuário e no máximo 8 minutos de atendimento presencial."
+      }
+    ],
+    "correctOptionId": "opt-primeiro-atendimento-vs-resolucao",
+    "explanation": "O SLA define métricas contratuais de serviço acordadas entre a TI e os usuários/clientes. O tempo de resposta (response time) é o prazo máximo para acolhimento e início do tratamento do chamado. O tempo de resolução (resolution time) é o limite estipulado para a entrega da solução funcional do problema.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["sla", "help-desk", "atendimento", "itil", "gestao"]
+  },
+  {
+    "id": "q-sup-018-escalonamento-chamados-niveis",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Quando um atendente de Nível 1 (N1 / Service Desk) não consegue solucionar um problema de travamento intermitente de placa-mãe por meio de procedimentos padrão de triagem e encaminha o tíquete para técnicos de suporte de campo (Nível 2 / Field Support), que tipo de escalonamento foi realizado segundo as práticas de suporte?",
+    "options": [
+      {
+        "id": "opt-escalonamento-funcional",
+        "text": "Escalonamento funcional (técnico), transferindo o chamado para um grupo com competência e recursos técnicos adequados."
+      },
+      {
+        "id": "opt-escalonamento-hierarquico",
+        "text": "Escalonamento hierárquico, acionando a diretoria executiva para aprovar a compra emergencial de um novo computador."
+      },
+      {
+        "id": "opt-escalonamento-reverso",
+        "text": "Escalonamento reverso, devolvendo a responsabilidade do diagnóstico para o usuário solicitante."
+      },
+      {
+        "id": "opt-escalonamento-financeiro",
+        "text": "Escalonamento financeiro, debitando o custo da hora técnica diretamente no centro de custos do setor."
+      }
+    ],
+    "correctOptionId": "opt-escalonamento-funcional",
+    "explanation": "O escalonamento funcional (ou técnico) ocorre quando um chamado é transferido horizontalmente ou verticalmente para uma equipe com maior especialização técnica (do N1 para o N2 ou N3). O escalonamento hierárquico envolve gestores para decisões organizacionais ou quando prazos de SLA estão na iminência de estourar.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["suporte", "help-desk", "escalonamento", "itil"]
+  },
+  {
+    "id": "q-sup-019-comunicacao-assertiva-registro-chamado",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "No registro de um chamado de suporte técnico, o analista deve redigir um histórico factual, claro e detalhado dos testes realizados e das evidências coletadas, evitando termos pejorativos, acusações de imperícia contra o usuário ou jargões herméticos que prejudiquem a continuidade por outros membros da equipe.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A documentação assertiva e profissional de tíquetes é requisito essencial de atendimento. O registro serve de base para a base de conhecimento (KCS), continuidade do atendimento por outros turnos e auditoria de qualidade do serviço prestado.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["comunicacao", "atendimento", "help-desk", "documentacao"]
+  },
+  {
+    "id": "q-sup-020-termo-entrega-ordem-servico",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao concluir uma manutenção corretiva física no computador de um cliente ou departamento interno, qual documento formal deve conter a discriminação dos serviços realizados, peças substituídas, testes de funcionamento executados e a assinatura do cliente atestando o recebimento em perfeito estado?",
+    "options": [
+      {
+        "id": "opt-ordem-servico-aceite",
+        "text": "Ordem de Serviço (OS) com Termo de Encerramento e Aceite de Entrega."
+      },
+      {
+        "id": "opt-nota-fiscal-avulsa",
+        "text": "Nota fiscal de remessa para conserto sem discriminação de laudo técnico."
+      },
+      {
+        "id": "opt-manual-fabricante-hardware",
+        "text": "Manual do proprietário da placa-mãe com anotações de bancada a lápis."
+      },
+      {
+        "id": "opt-termo-confidencialidade-nda",
+        "text": "Acordo de Não Divulgação (NDA) de dados de propriedade industrial."
+      }
+    ],
+    "correctOptionId": "opt-ordem-servico-aceite",
+    "explanation": "A Ordem de Serviço (OS) com termo de entrega e aceite valida formalmente a conclusão do trabalho perante o solicitante, delimitando o escopo atendido, garantias das peças aplicadas e prevenindo contestações posteriores sobre a integridade do equipamento entregue.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["ordem-de-servico", "atendimento", "documentacao", "suporte"]
   }
 ]

@@ -7,6 +7,7 @@ export type SimuladoFilters = {
   readonly difficulty: "all" | Difficulty;
   readonly questionCount: number;
   readonly mode: SimuladoMode;
+  readonly timeLimitMinutes?: number | undefined;
 };
 
 export type PresentedOption = {
@@ -64,4 +65,6 @@ export type SimuladoAttempt = {
   readonly evaluations: Readonly<Record<string, EvaluationResult>>;
   readonly isCompleted: boolean;
   readonly summary?: SimuladoSummary | undefined;
+  readonly flaggedQuestionIds?: readonly string[] | undefined;
+  readonly remainingSeconds?: number | undefined;
 };

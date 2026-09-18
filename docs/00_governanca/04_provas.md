@@ -95,3 +95,28 @@ Esta prova deve ser repetida após qualquer alteração nas transições, no con
 - `content/questions/desenvolvimento-aplicativos.json`
 
 **Limites:** [UNVERIFIED] o banco completo de 300 questões (100 por eixo) ainda será expandido no marco subsequente; o teste com 18 alunos simultâneos em rede física permanece pendente da aplicação em sala de aula.
+
+## PROVA-011 - Simulado extensivo de 3 horas, suite de ergonomia e cobertura das 16 UCs
+
+**Estado:** [OK]
+
+**Afirmação:** o módulo `simulado` foi adaptado para a realização de provas extensivas de 3 horas. Foram implementados: cronômetro regressivo global configurável (60m, 120m, 180m) com alertas de urgência visual (< 15m e < 5m), paleta/matriz navegável de questões com salto direto e indicação de estado (atual, respondida, em branco, marcada para revisão), sistema de sinalização para revisão com persistência no localStorage, modal de confirmação pré-entrega com balanço de pendências e expansão curricular completa cobrindo 100% das 16 Unidades Curriculares (UC01 a UC16) com 65 questões aprovadas.
+
+**Procedimento:** foram executados `npm.cmd run lint`, `npm.cmd run typecheck`, `npm.cmd run content:validate`, `npm.cmd run test` e `npm.cmd run build` via pipeline automatizado `npm.cmd run validate`.
+
+**Resultado:** em 2026-09-18, todos os comandos concluíram com código 0. A validação de conteúdo aprovou 65 questões distribuídas pelas 16 UCs do curso (suporte=20, redes=20, desenvolvimento=25). O Vitest executou 31 testes em 8 arquivos sem falhas, cobrindo a navegação por paleta, persistência de marcações para revisão e configuração de tempo limite. O Playwright executou o acesso direto à página publicada e o início da primeira questão. O build de produção Vite/PWA gerou o pacote estático completo em `dist/`.
+
+**Evidências de implementação:**
+- `src/modules/simulado/domain/simuladoTypes.ts`
+- `src/modules/simulado/domain/simuladoEngine.ts`
+- `src/modules/simulado/application/simuladoService.ts`
+- `src/modules/simulado/ui/QuestionRunner.tsx`
+- `src/modules/simulado/ui/SimuladoContainer.tsx`
+- `src/modules/simulado/ui/SimuladoSetup.tsx`
+- `src/modules/simulado/ui/SimuladoContainer.test.tsx`
+- `src/modules/simulado/ui/simulado.css`
+- `content/questions/hardware-suporte.json`
+- `content/questions/redes-servidores.json`
+- `content/questions/desenvolvimento-aplicativos.json`
+
+**Limites:** [UNVERIFIED] o ensaio simultâneo com 18 alunos conectados à rede Wi-Fi física da sala de aula permanece pendente da aplicação prática.

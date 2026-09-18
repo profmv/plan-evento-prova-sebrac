@@ -144,5 +144,465 @@
       "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
     },
     "tags": ["servidores", "ssh", "linux", "portas-de-rede"]
+  },
+  {
+    "id": "q-net-006-fibra-optica-monomodo-multimodo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na infraestrutura de cabeamento estruturado de um campus universitário, um técnico precisa escolher entre fibra óptica monomodo (SMF) e multimodo (MMF) para interligar prédios distantes a 3 km. Qual é a escolha correta e a sua justificativa técnica?",
+    "options": [
+      {
+        "id": "opt-monomodo-longa-distancia",
+        "text": "Fibra monomodo (SMF), pois seu núcleo estreito (~9 µm) transmite um único feixe de luz laser com dispersão modal desprezível, ideal para longas distâncias."
+      },
+      {
+        "id": "opt-multimodo-distancia-infinita",
+        "text": "Fibra multimodo (MMF), pois seu núcleo amplo (~50 ou 62,5 µm) permite que a luz viaje sem perda de intensidade por dezenas de quilômetros."
+      },
+      {
+        "id": "opt-cabo-coaxial-giga",
+        "text": "Cabo coaxial RG-6, por ser imune a intempéries e dispensar conversores de mídia ópticos."
+      },
+      {
+        "id": "opt-utp-cat6a-aereo",
+        "text": "Cabo UTP Cat6a comum, pois a norma TIA-568 permite enlaces de cobre de até 5 km quando instalados por dutos aéreos."
+      }
+    ],
+    "correctOptionId": "opt-monomodo-longa-distancia",
+    "explanation": "A fibra monomodo (Single-Mode Fiber) possui núcleo de diâmetro reduzido (cerca de 9 mícrons), evitando a dispersão modal e operando com fontes de luz laser em comprimentos de onda de 1310 nm ou 1550 nm, sendo o padrão para distâncias superiores a centenas de metros e backbones externos. A fibra multimodo é limitada a enlaces menores (geralmente até 550 metros em 10 Gbps).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "fibra-optica", "cabeamento-estruturado", "infraestrutura"]
+  },
+  {
+    "id": "q-net-007-cabeamento-patch-panel-organizacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma sala de telecomunicações (TR) projetada conforme as normas ANSI/TIA-568, qual é a finalidade técnica de terminar os cabos horizontais vindos das tomadas das estações de trabalho diretamente em um Patch Panel em vez de conectá-los diretamente às portas dos switches?",
+    "options": [
+      {
+        "id": "opt-protecao-portas-flexibilidade",
+        "text": "Proteger as portas do switch contra desgaste mecânico, permitir manobras flexíveis com patch cords e manter o cabeamento fixo organizado."
+      },
+      {
+        "id": "opt-aumento-voltagem-poe",
+        "text": "Aumentar a voltagem PoE fornecida pelo cabeamento para alimentar computadores de alta potência."
+      },
+      {
+        "id": "opt-conversao-analise-pacotes",
+        "text": "Converter fisicamente o sinal Ethernet analógico para o formato de fibra óptica em tempo real."
+      },
+      {
+        "id": "opt-filtro-hardware-mac",
+        "text": "Bloquear automaticamente endereços MAC não autorizados através de resistores embutidos nas portas RJ-45 fêmeas."
+      }
+    ],
+    "correctOptionId": "opt-protecao-portas-flexibilidade",
+    "explanation": "O Patch Panel faz parte do subsistema de cabeamento horizontal permanente. Os cabos rígidos das paredes e calhas são conectorizados em blocos 110 IDC no painel. O uso de patch cords flexíveis do painel para o switch protege as portas do equipamento ativo contra quebras mecânicas por manuseio contínuo e facilita mudanças e testes na rede.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "cabeamento-estruturado", "patch-panel", "infraestrutura"]
+  },
+  {
+    "id": "q-net-008-tronco-vlan-dot1q-tagging",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um enlace troncal (trunk) configurado entre dois switches gerenciáveis segundo o protocolo IEEE 802.1Q, como o switch de destino identifica a qual VLAN pertence cada quadro Ethernet trafegado?",
+    "options": [
+      {
+        "id": "opt-cabecalho-tag-4bytes",
+        "text": "Através da inserção de uma etiqueta (tag 802.1Q) de 4 bytes no cabeçalho do quadro Ethernet contendo o VLAN ID (VID)."
+      },
+      {
+        "id": "opt-criptografia-payload",
+        "text": "Através de um túnel SSH permanente que criptografa o payload do quadro de acordo com a porta de saída."
+      },
+      {
+        "id": "opt-endereco-ip-origem",
+        "text": "Analisando a máscara de sub-rede IP do pacote dentro da camada de aplicação do modelo TCP/IP."
+      },
+      {
+        "id": "opt-cor-cabo-conexao",
+        "text": "Utilizando cabos de rede de cores diferentes para cada canal elétrico físico de multiplexação."
+      }
+    ],
+    "correctOptionId": "opt-cabecalho-tag-4bytes",
+    "explanation": "O padrão IEEE 802.1Q insere uma tag de 4 bytes entre o campo Source MAC e o campo EtherType original do quadro Ethernet. Essa tag contém o TPID (0x8100), prioridade 802.1p e o campo VID (VLAN Identifier de 12 bits), permitindo identificar até 4.094 VLANs trafegando simultaneamente pelo mesmo enlace físico.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "vlan", "trunk", "ieee-802-1q", "switches"]
+  },
+  {
+    "id": "q-net-009-calculo-sub-rede-ponto-a-ponto",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Para interligar dois roteadores por meio de uma conexão ponto a ponto dedicada sem desperdiçar endereços IPv4 públicos, qual máscara de sub-rede CIDR fornece exatamente o número de endereços úteis necessários para as duas interfaces?",
+    "options": [
+      {
+        "id": "opt-barra-30-dois-hosts",
+        "text": "Máscara /30 (255.255.255.252), que disponibiliza 4 endereços no bloco, sendo exatamente 2 úteis para as interfaces dos roteadores."
+      },
+      {
+        "id": "opt-barra-31-quatro-hosts",
+        "text": "Máscara /31, que disponibiliza 6 endereços úteis após descontar gateway e broadcast."
+      },
+      {
+        "id": "opt-barra-29-oito-hosts",
+        "text": "Máscara /29 (255.255.255.248), pois é o menor prefixo permitido pelo protocolo TCP/IP."
+      },
+      {
+        "id": "opt-barra-28-dezesseis-hosts",
+        "text": "Máscara /28 (255.255.255.240), que reserva 14 hosts úteis para conexões seriais."
+      }
+    ],
+    "correctOptionId": "opt-barra-30-dois-hosts",
+    "explanation": "Uma sub-rede /30 possui 2 bits de host (32 - 30 = 2), gerando um bloco de 2^2 = 4 endereços totais. Descontando o identificador de rede e o endereço de broadcast, sobram exatamente 2 endereços IP utilizáveis (2^2 - 2 = 2), tamanho perfeito para configurar as duas pontas de um enlace ponto a ponto clássico.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "sub-rede", "cidr", "roteamento", "ipv4"]
+  },
+  {
+    "id": "q-net-010-gateway-padrao-funcao-tabela",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Quando um computador com endereço IP 192.168.1.50/24 tenta enviar um pacote de dados para o servidor web no IP 200.180.5.10, qual endereço de rede local ele consulta para encaminhar esse pacote para fora de sua rede local?",
+    "options": [
+      {
+        "id": "opt-gateway-padrao",
+        "text": "O endereço do Gateway Padrão (Default Gateway), que é a interface do roteador local configurada nessa sub-rede."
+      },
+      {
+        "id": "opt-endereco-broadcast",
+        "text": "O endereço de Broadcast local (192.168.1.255) para que todos os computadores recebam o tráfego."
+      },
+      {
+        "id": "opt-servidor-dhcp",
+        "text": "O servidor DHCP para solicitar uma nova concessão de rota pública."
+      },
+      {
+        "id": "opt-loopback-local",
+        "text": "O endereço de loopback 127.0.0.1 para resolução interna de empacotamento."
+      }
+    ],
+    "correctOptionId": "opt-gateway-padrao",
+    "explanation": "O host compara o IP de destino com sua própria máscara de sub-rede (/24). Ao verificar que o destino (200.180.5.10) pertence a outra rede remota, o host envia os quadros na Camada 2 diretamente para o MAC do Gateway Padrão (Default Gateway), que é o roteador encarregado de encaminhar os pacotes rumo à rede externa.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "gateway", "roteamento", "tcp-ip"]
+  },
+  {
+    "id": "q-net-011-tabela-mac-vs-tabela-roteamento",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Um switch de Camada 2 utiliza sua tabela de endereços MAC (tabela CAM) para encaminhar quadros Ethernet com base no endereço físico de destino, enquanto um roteador de Camada 3 utiliza sua tabela de roteamento para encaminhar pacotes com base nos prefixos de endereços lógicos IP de destino.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O switch opera no modelo OSI na Camada 2 (Enlace), aprendendo os endereços MAC de origem e comutando com base no MAC de destino. O roteador opera na Camada 3 (Rede), determinando a melhor rota para pacotes IP examinando as entradas de sua tabela de roteamento.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "switches", "roteadores", "camada-2", "camada-3"]
+  },
+  {
+    "id": "q-net-012-comando-diagnostico-rota-tracert",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "No sistema operacional Windows, qual comando de linha de comando é utilizado para rastrear o caminho percorrido por pacotes até um destino remoto, exibindo cada roteador intermediário (salto/hop) e o tempo de resposta através de mensagens ICMP e manipulação do campo TTL?",
+    "acceptedAnswers": ["tracert", "tracert.exe"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O comando tracert (Traceroute no Linux) envia pacotes com valores crescentes de TTL (Time-To-Live) no cabeçalho IP, iniciando em 1. Cada roteador intermediário descarta o pacote ao zerar o TTL e retorna uma mensagem ICMP Time Exceeded, permitindo identificar e medir a latência de cada salto até o destino.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "diagnostico", "tracert", "icmp", "comandos"]
+  },
+  {
+    "id": "q-net-013-dns-registros-recurso-a-cname-mx",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma zona DNS corporativa, o administrador de sistemas precisa criar: 1. Uma entrada que aponte o nome do domínio principal para um endereço IPv4; 2. Um alias para o serviço web; 3. Um registro que direcione o fluxo de e-mails para os servidores de correio. Quais tipos de registros de recurso (Resource Records) atendem respectivamente a essas três necessidades?",
+    "options": [
+      {
+        "id": "opt-a-cname-mx",
+        "text": "Registro A (endereço IPv4), Registro CNAME (alias canônico) e Registro MX (Mail Exchanger)."
+      },
+      {
+        "id": "opt-cname-ptr-soa",
+        "text": "Registro CNAME, Registro PTR e Registro SOA."
+      },
+      {
+        "id": "opt-aaaa-txt-ns",
+        "text": "Registro AAAA, Registro TXT e Registro NS."
+      },
+      {
+        "id": "opt-mx-a-srv",
+        "text": "Registro MX, Registro A e Registro SRV."
+      }
+    ],
+    "correctOptionId": "opt-a-cname-mx",
+    "explanation": "No padrão DNS (RFC 1035): o registro 'A' mapeia um nome FQDN para um endereço IPv4; o registro 'CNAME' cria um apelido (alias) apontando para outro FQDN; e o registro 'MX' define a ordem de prioridade e os servidores responsáveis por receber e-mails pelo domínio.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "dns", "protocolos", "gerenciamento"]
+  },
+  {
+    "id": "q-net-014-active-directory-controlador-dominio",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma infraestrutura de rede corporativa baseada em Windows Server, qual serviço de função é responsável por armazenar o banco de dados centralizado de identidades de usuários, computadores e grupos, além de gerenciar a autenticação via protocolo Kerberos e a aplicação de políticas de grupo (GPOs)?",
+    "options": [
+      {
+        "id": "opt-ad-ds",
+        "text": "AD DS (Active Directory Domain Services / Serviços de Domínio Active Directory)."
+      },
+      {
+        "id": "opt-wsus",
+        "text": "WSUS (Windows Server Update Services)."
+      },
+      {
+        "id": "opt-iis",
+        "text": "IIS (Internet Information Services)."
+      },
+      {
+        "id": "opt-wds",
+        "text": "WDS (Windows Deployment Services)."
+      }
+    ],
+    "correctOptionId": "opt-ad-ds",
+    "explanation": "O Active Directory Domain Services (AD DS) transforma o Windows Server em um Controlador de Domínio (Domain Controller). Ele centraliza a gestão de identidades no banco de dados ntds.dit, oferece serviços de diretório via LDAP, autenticação segura via Kerberos e governança de configurações e segurança de endpoints através de GPOs.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "active-directory", "windows-server", "seguranca"]
+  },
+  {
+    "id": "q-net-015-servidor-web-nginx-reverse-proxy",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "ADVANCED",
+    "type": "TRUE_FALSE",
+    "prompt": "O servidor web Nginx pode atuar como Proxy Reverso (Reverse Proxy), posicionando-se à frente dos servidores de aplicação para realizar o roteamento de requisições HTTP/HTTPS, balanceamento de carga e terminação criptográfica SSL/TLS, protegendo a infraestrutura interna e otimizando o desempenho.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O Nginx é amplamente utilizado como proxy reverso e balanceador de carga. Ele recebe as requisições dos clientes externos, decodifica o tráfego TLS/HTTPS, distribui as chamadas entre múltiplos servidores backend de aplicação e aplica cache de conteúdo estático, desacoplando os servidores de aplicação da exposição direta à Internet.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "nginx", "proxy-reverso", "web"]
+  },
+  {
+    "id": "q-net-016-triade-seguranca-cia-criterios",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "A segurança da informação é fundamentada na Tríade CIA (Confidencialidade, Integridade e Disponibilidade). Qual das seguintes situações representa uma violação direta do pilar da DISPONIBILIDADE?",
+    "options": [
+      {
+        "id": "opt-ataque-ddos-indisponibilidade",
+        "text": "Um ataque distribuído de negação de serviço (DDoS) que satura a largura de banda do link de internet da empresa, tornando o portal de serviços inacessível aos clientes legítimos."
+      },
+      {
+        "id": "opt-interceptacao-senha-texto-puro",
+        "text": "A interceptação de pacotes de dados em texto claro contendo senhas de usuários por meio de um sniffer na rede local."
+      },
+      {
+        "id": "opt-alteracao-nao-autorizada-banco",
+        "text": "A alteração não autorizada de saldos bancários em uma tabela de banco de dados por um invasor que explorou injeção de SQL."
+      },
+      {
+        "id": "opt-leitura-indevida-pasta-compartilhada",
+        "text": "O acesso indevido de um estagiário a planilhas confidenciais de folha de pagamento por falha nas permissões NTFS."
+      }
+    ],
+    "correctOptionId": "opt-ataque-ddos-indisponibilidade",
+    "explanation": "A Disponibilidade garante que os recursos, dados e serviços estejam acessíveis e operacionais para os usuários autorizados sempre que necessário. O ataque de DDoS impede o acesso legítimo por saturação ou esgotamento de recursos. A interceptação e a leitura indevida violam a Confidencialidade, enquanto a modificação de dados viola a Integridade.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["seguranca-da-informacao", "triade-cia", "ddos", "politica-de-seguranca"]
+  },
+  {
+    "id": "q-net-017-regra-backup-tres-dois-um",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na elaboração de uma política corporativa de backup e recuperação de desastres para os servidores de rede, a regra de ouro 3-2-1 estabelece qual das seguintes distribuições de cópias de segurança?",
+    "options": [
+      {
+        "id": "opt-3-copias-2-midias-1-fora",
+        "text": "Manter pelo menos 3 cópias dos dados, armazenadas em pelo menos 2 tipos de mídias distintas, com pelo menos 1 cópia mantida fora do local (off-site ou nuvem)."
+      },
+      {
+        "id": "opt-3-dias-2-semanas-1-mes",
+        "text": "Realizar backups a cada 3 dias, armazenar por 2 semanas e manter 1 cópia anual em fita magnética."
+      },
+      {
+        "id": "opt-3-senhas-2-tecnicos-1-gerente",
+        "text": "Exigir 3 senhas de acesso, 2 técnicos autorizados e 1 validação gerencial a cada restauração."
+      },
+      {
+        "id": "opt-3-discos-2-servidores-1-switch",
+        "text": "Utilizar 3 discos rígidos em RAID 0, 2 servidores em cluster e 1 switch redundante."
+      }
+    ],
+    "correctOptionId": "opt-3-copias-2-midias-1-fora",
+    "explanation": "A estratégia 3-2-1 é a melhor prática consagrada para mitigação de perda de dados: 3 cópias totais (1 original + 2 backups), em 2 tecnologias ou mídias diferentes (ex: NAS local e fita/disco externo) e 1 cópia geográfica distante (off-site ou cloud) para proteção contra desastres físicos, roubo ou infecção por ransomware na rede local.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["backup", "seguranca-da-informacao", "continuidade", "desastre"]
+  },
+  {
+    "id": "q-net-018-firewall-iptables-cadeias-padrao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um servidor Linux configurado como firewall de borda da rede local utilizando iptables (tabela filter), qual cadeia (chain) padrão é responsável por processar e filtrar os pacotes de rede que atravessam o servidor com destino a outros computadores da rede interna?",
+    "options": [
+      {
+        "id": "opt-chain-forward",
+        "text": "FORWARD"
+      },
+      {
+        "id": "opt-chain-input",
+        "text": "INPUT"
+      },
+      {
+        "id": "opt-chain-output",
+        "text": "OUTPUT"
+      },
+      {
+        "id": "opt-chain-prerouting",
+        "text": "PREROUTING"
+      }
+    ],
+    "correctOptionId": "opt-chain-forward",
+    "explanation": "Na tabela padrão filter do Netfilter/iptables: INPUT filtra pacotes endereçados ao próprio firewall local; OUTPUT filtra pacotes originados localmente pelo próprio firewall; e FORWARD filtra pacotes que chegam por uma interface de rede e são roteados através do firewall com destino a outra máquina (tráfego de trânsito entre redes).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["firewall", "iptables", "linux", "seguranca", "roteamento"]
+  },
+  {
+    "id": "q-net-019-vpn-tunelamento-criptografia-ipsec",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Uma VPN (Virtual Private Network) do tipo Site-to-Site utilizando o protocolo IPsec estabelece um túnel criptografado sobre uma rede pública desprotegida (como a Internet), garantindo que todo o tráfego trocado entre a matriz e a filial mantenha confidencialidade, integridade e autenticidade da origem dos pacotes.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O IPsec fornece segurança na camada de rede (Camada 3) por meio dos protocolos ESP (Encapsulating Security Payload) e AH (Authentication Header), criptografando os dados transmitidos e autenticando os nós da comunicação para criar conexões seguras e transparentes entre filiais e matriz.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["vpn", "ipsec", "criptografia", "seguranca-da-informacao"]
+  },
+  {
+    "id": "q-net-020-politica-seguranca-privilegio-minimo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao estruturar a política de segurança de acesso aos recursos de rede, o administrador define que cada usuário ou sistema deve receber estritamente apenas os privilégios e permissões indispensáveis para executar suas atividades laborais. Qual princípio clássico de segurança da informação foi implementado?",
+    "options": [
+      {
+        "id": "opt-principio-menor-privilegio",
+        "text": "Princípio do Menor Privilégio (Principle of Least Privilege)."
+      },
+      {
+        "id": "opt-seguranca-por-obscuridade",
+        "text": "Segurança por Obscuridade (Security through Obscurity)."
+      },
+      {
+        "id": "opt-defesa-em-profundidade",
+        "text": "Princípio do Acesso Universal Irrestrito (Open by Default)."
+      },
+      {
+        "id": "opt-nao-repudio-irrevogavel",
+        "text": "Princípio do Não Repúdio e Auditoria Contínua."
+      }
+    ],
+    "correctOptionId": "opt-principio-menor-privilegio",
+    "explanation": "O Princípio do Menor Privilégio determina que qualquer entidade (usuário, processo ou programa) deve ter acesso unicamente às informações e recursos necessários para seu propósito legítimo, reduzindo a superfície de ataque e contendo os danos causados caso uma conta seja comprometida ou infectada por malware.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["politica-de-seguranca", "seguranca-da-informacao", "privilegio-minimo", "governanca"]
   }
 ]

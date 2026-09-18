@@ -227,3 +227,16 @@ export function buildReinforcementQuestions(
   const eligibleQuestions = allOriginalQuestions.filter((q) => missedMap.has(q.id));
   return preparePresentedQuestions(eligibleQuestions, eligibleQuestions.length, randomFn);
 }
+
+export function toggleFlagQuestion(
+  currentFlagged: readonly string[] | undefined,
+  questionId: string,
+): readonly string[] {
+  const flags = new Set(currentFlagged ?? []);
+  if (flags.has(questionId)) {
+    flags.delete(questionId);
+  } else {
+    flags.add(questionId);
+  }
+  return Array.from(flags);
+}

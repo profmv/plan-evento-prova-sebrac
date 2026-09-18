@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-test("starts a formative simulation from the public portal", async ({ page }) => {
+test("starts the formative simulation directly from the published page", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Simulado", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "Simulado Formativo de Conhecimentos Gerais" }),
   ).toBeVisible();
