@@ -34,7 +34,7 @@ export function SimuladoSetup({
     <section className="sim-setup-panel" aria-labelledby="sim-setup-title">
       <div className="sim-setup-header">
         <p className="eyebrow">Preparatório Curricular | Turma 001</p>
-        <h1 id="sim-setup-title">Simulado Formativo de Conhecimentos Gerais</h1>
+        <h1 id="sim-setup-title">Simulado Formativo do Curso Técnico em TI</h1>
       </div>
 
       {hasSavedAttempt ? (

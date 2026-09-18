@@ -54,23 +54,22 @@
     <script src="scripts/codemirrorsql.js"></script>
     <script src="scripts/autorefresh.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="../../js/minigame-bridge.js"></script>
     <script>
         window.onload = () => loadData('sql-murder-mystery.db');
     </script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F4WPDMPL5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8F4WPDMPL5');
-</script>
-    <title>The SQL Murder Mystery</title>
+    <title>O Mistério do Assassinato em SQL - Recap SENAC 2026</title>
 </head>
 
 <body>
+    <div style="background: #1e293b; color: #f8fafc; padding: 0.6rem 1rem; border-bottom: 2px solid #38bdf8; display: flex; justify-content: space-between; align-items: center; font-family: system-ui, sans-serif; font-size: 0.85rem; z-index: 99999; position: relative;">
+        <div>
+            <strong style="color: #38bdf8;">O Mistério do Assassinato em SQL (Desafio 20 min):</strong> Execute as queries SQL nas caixas abaixo para investigar testemunhas, cruzamentos e álibis.
+        </div>
+        <button type="button" onclick="if(window.MinigameBridge){MinigameBridge.completeGame('sql-mysteries', {details: 'Investigou o banco de dados e solucionou o caso no SQL Murder Mystery'}); alert('Medalha emitida com sucesso!');}" style="background: #22c55e; color: #020617; border: none; font-weight: bold; padding: 0.35rem 0.75rem; border-radius: 4px; cursor: pointer;">
+            Concluir Investigação & Emitir Medalha
+        </button>
+    </div>
     <nav id="navbar-product-top" class="navbar navbar-dark">
         <ul>
             <li class="logo">
@@ -104,50 +103,36 @@
 
     <header class="header-product">
         <h1 class="product-logo product-logo-large">
-            SQL Murder Mystery
+            O Mistério do Assassinato em SQL
         </h1>
-        <h2 class="product-tagline">Can you find out whodunnit?</h2>
+        <h2 class="product-tagline">Você consegue descobrir quem foi o assassino?</h2>
     </header>
 
     <div class="container">
 
         <div id="intro" class="grid">
             <div class="grid-item">
-                <img src="174092-clue-illustration.png" class="img-rounded" alt="A decorative illustration of a detective looking at an evidence board.">
+                <img src="174092-clue-illustration.png" class="img-rounded" alt="Ilustração decorativa de um detetive analisando um quadro de evidências.">
                 <p>
-                    There's been a Murder in SQL City! The SQL Murder Mystery is designed to be both a self-directed lesson to learn SQL concepts and commands and a fun game for experienced SQL users to solve an intriguing crime.
+                    Ocorreu um assassinato em SQL City! O SQL Murder Mystery foi projetado como uma lição prática e envolvente para dominar conceitos e comandos SQL através da resolução de um caso intrigante.
                 </p>
             </div>
         </div>
 
         <div class="grid">
             <div class="grid-item">
-                <h2>New to SQL?</h2>
+                <h2 id="experienced">Início da Investigação Criminal</h2>
                 <p>
-                    This exercise is meant more as a way to practice SQL skills than a full tutorial. If you've never used SQL at all, <a href="walkthrough.html">try the walkthrough</a>. If you really want to learn a lot about SQL, you may prefer a complete
-                    tutorial like <a href="https://selectstarsql.com/">Select Star SQL.</a>
-
-                </p>
-                <p>If you're comfortable with SQL, you can <a href="#experienced">dive in below</a>!</p>
-            </div>
-        </div>
-
-
-        <div class="grid">
-            <div class="grid-item">
-                <h2 id="experienced">Experienced SQL sleuths start here</h2>
-                <p>
-                    A crime has taken place and the detective needs your help. The detective gave you the crime scene report, but you somehow lost it. You vaguely remember that the crime was a <strong>​murder​</strong> that occurred sometime on ​<strong>Jan.15, 2018​</strong>                    and that it took place in ​<strong>SQL City​</strong>. Start by retrieving the corresponding crime scene report from the police department’s database.
+                    Um crime aconteceu e a delegacia precisa da sua ajuda técnica. Você recebeu o relatório da cena do crime, mas perdeu os papéis. Você se lembra vagamente de que o crime foi um <strong>homicídio (murder)</strong> que ocorreu em <strong>15 de janeiro de 2018 (20180115)</strong> na cidade de <strong>SQL City</strong>. Comece recuperando o relatório correspondente no banco de dados da polícia.
                 </p>
 
-                <h3>Exploring the Database Structure</h3>
+                <h3>Explorando a Estrutura do Banco de Dados</h3>
 
                 <p>
-                    Experienced SQL users can often use database queries to infer the structure of a database. But each database system has different ways of managing this information. The SQL Murder Mystery is built using SQLite. Use this SQL command to find the tables
-                    in the Murder Mystery database.
+                    Detetives e analistas experientes utilizam consultas de metadados para entender as tabelas do sistema. O banco do mistério utiliza SQLite. Execute este comando para listar as tabelas:
                 </p>
 
-                <sql-exercise data-question="Run this query to find the names of the tables in this database." data-comment="This command is specific to SQLite. For other databases, you'll have to learn their specific syntax." data-default-text="SELECT name 
+                <sql-exercise data-question="Execute esta consulta para encontrar os nomes das tabelas do banco de dados." data-comment="Comando específico do SQLite (sqlite_master)." data-default-text="SELECT name 
   FROM sqlite_master
  where type = 'table'"></sql-exercise>
 

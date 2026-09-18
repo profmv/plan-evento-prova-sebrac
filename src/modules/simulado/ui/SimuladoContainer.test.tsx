@@ -14,7 +14,7 @@ describe("SimuladoContainer", () => {
     render(<SimuladoContainer />);
 
     expect(
-      screen.getByRole("heading", { name: /simulado formativo de conhecimentos gerais/i }),
+      screen.getByRole("heading", { name: /simulado formativo do curso técnico em ti/i }),
     ).toBeInTheDocument();
     expect(screen.getByLabelText(/duração do exame/i)).toHaveValue("180");
     expect(screen.queryByLabelText(/eixo curricular/i)).not.toBeInTheDocument();

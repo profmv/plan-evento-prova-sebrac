@@ -1,22 +1,18 @@
-
-# Illusions are strong here.
-# It is difficult to tell what is a doorway and what is an object.
+# Ilusões são fortes por aqui.
+# É difícil distinguir o que é uma porta e o que é um objeto.
 #
-# The magic spell you use to look can be augmented.
+# O feitiço que você usa para olhar ao redor pode ser aprimorado.
 #
-# From now on, cast your spell like this:
+# De agora em diante, lance sua magia assim:
 #
 # ls -F
 #
-# Directories (the rooms of these catacombs) end with a / symbol.
+# Diretórios (as salas destas catacumbas) terminam com o símbolo /
 #
-# Encounters (programs) end with a * symbol.
+# Encontros e programas executáveis terminam com o símbolo *
 #
-# You can avoid having to type `ls -F` every time by running the
-# following:
+# Você pode evitar digitar `ls -F` todas as vezes criando um atalho:
 #
 # alias ls='ls -F'
 #
-# This is known as a shell or command alias.  With this alias,
-# typing simply ls by itself will run ls -F. Try it out!
-#
+# Isso é conhecido como um alias do shell. Experimente!

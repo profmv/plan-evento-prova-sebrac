@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Simulador 3D de Montagem de PC - Recap SENAC 2026</title>
+    <link rel="icon" href="data:,">
+    <style>
+        body, html { width: 100%; height: 100%; margin: 0; overflow: hidden; font-family: system-ui, sans-serif; }
+    </style>
+    <script src="../../js/minigame-bridge.js"></script>
+    <script defer="defer" src="main.bundle.js"></script>
+</head>
+<body>
+    <div style="background: #1e293b; color: #f8fafc; padding: 0.6rem 1rem; border-bottom: 2px solid #38bdf8; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; z-index: 99999; position: relative;">
+        <div>
+            <strong style="color: #38bdf8;">Simulador 3D de Montagem de PC (Desafio 20 min):</strong> Explore o gabinete 3D com o mouse, examine os componentes de hardware e realize o procedimento de instalação das peças.
+        </div>
+        <button type="button" onclick="if(window.MinigameBridge){MinigameBridge.completeGame('pc-hardware', {details: 'Concluiu a montagem de hardware no simulador 3D'}); alert('Medalha emitida com sucesso!');}" style="background: #22c55e; color: #020617; border: none; font-weight: bold; padding: 0.35rem 0.75rem; border-radius: 4px; cursor: pointer;">
+            Concluir Montagem 3D & Emitir Medalha
+        </button>
+    </div>
+</body>
+</html>

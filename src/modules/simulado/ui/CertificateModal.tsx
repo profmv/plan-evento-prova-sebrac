@@ -61,7 +61,7 @@ export function CertificateModal({ summary, attemptId, onClose }: CertificateMod
                 />
               </div>
               <p className="sim-certificate__text">
-                concluiu o <strong>Simulado Formativo de Conhecimentos Gerais</strong> preparatório
+                concluiu o <strong>Simulado Formativo do Curso Técnico em TI</strong> preparatório
                 para a avaliação de encerramento do curso <strong>Técnico em Informática</strong>,
                 atingindo o aproveitamento de <strong>{summary.scorePercentage}%</strong> com{" "}
                 <strong>{summary.correctCount}</strong> acertos em {summary.totalQuestions} questões

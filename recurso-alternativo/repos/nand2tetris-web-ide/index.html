@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>NAND2Tetris Web IDE - Recap SENAC 2026</title>
+    <meta name="description" content="NAND2Tetris Web IDE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./logo_192.png" />
+    <meta name="theme-color" content="rgb(16, 149, 193)" />
+    <link rel="stylesheet" href="./root.css" />
+    <meta name="version" content="2026.19.0" />
+    <script src="../../js/minigame-bridge.js"></script>
+    <script type="module" crossorigin src="./assets/index-Dx4IQRAd.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Dtk7hOrO.css">
+  </head>
+  <body class="flex" style="flex-direction: column; min-height: 100vh; margin: 0;">
+    <div style="background: #1e293b; color: #f8fafc; padding: 0.6rem 1rem; border-bottom: 2px solid #818cf8; display: flex; justify-content: space-between; align-items: center; font-family: system-ui, sans-serif; font-size: 0.85rem; z-index: 99999; position: relative;">
+      <div>
+        <strong style="color: #818cf8;">Nand2Tetris Web IDE (Desafio 20 min):</strong> Use o simulador de circuitos integrados e chips de hardware (Hardware Simulator) para testar portas lógicas e circuitos HDL.
+      </div>
+      <button type="button" onclick="if(window.MinigameBridge){MinigameBridge.completeGame('logic-gates', {details: 'Simulou circuitos lógicos no Nand2Tetris Web IDE oficial'}); alert('Medalha emitida com sucesso!');}" style="background: #22c55e; color: #020617; border: none; font-weight: bold; padding: 0.35rem 0.75rem; border-radius: 4px; cursor: pointer;">
+        Concluir Missão & Emitir Medalha
+      </button>
+    </div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" class="flex-1 flex" style="flex: 1; display: flex;"></div>
+  </body>
+</html>

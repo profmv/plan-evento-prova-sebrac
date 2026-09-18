@@ -18,20 +18,20 @@
             category: "Hardware & Suporte",
             timeLimit: "20 min",
             curriculum: "UC01 / UC02: Montagem, barramentos, soquetes, memória e diagnóstico POST",
-            description: "Encaixe processador, cooler, memórias RAM dual-channel, placa-mãe, SSD NVMe e fonte de alimentação. Conecte os cabos e teste o boot da BIOS em até 20 minutos.",
-            url: "minigames/pc-montagem/index.html",
+            description: "Simulador 3D do PC Builder. Explore componentes reais, placa-mãe, soquete, cooler, memórias RAM dual-channel, GPU e fonte no ambiente 3D interativo.",
+            url: "repos/ji-ba-pccweb/index.html",
             medalTitle: "Técnico Especialista em Hardware"
         },
         {
             id: "logic-gates",
             axis: "Eixo 1: Suporte e Manutenção",
             axisId: "eixo-1",
-            title: "Laboratório: Do NAND ao Somador",
+            title: "Laboratório Nand2Tetris Web IDE",
             category: "Arquitetura Digital",
             timeLimit: "20 min",
             curriculum: "UC01 / UC03: Circuitos combinacionais, álgebra booleana e arquitetura de computadores",
-            description: "Baseado no Nand2Tetris. Construa as portas fundamentais (NOT, AND, OR, XOR) a partir de blocos NAND e finalize com um Meio Somador funcional.",
-            url: "minigames/logica-nand/index.html",
+            description: "Web IDE oficial do Nand2Tetris. Utilize o Hardware Simulator para testar chips HDL, portas lógicas (NAND, NOT, AND, OR) e a ULA.",
+            url: "repos/nand2tetris-web-ide/index.html",
             medalTitle: "Arquiteto de Circuitos Digitais"
         },
 
@@ -71,7 +71,7 @@
             timeLimit: "20 min",
             curriculum: "UC09 / UC10: Modelagem relacional, consultas SQL, junções JOIN, filtros WHERE e agregação",
             description: "Um crime ocorreu em SQL City! Investigue relatórios policiais, interrogue testemunhas e cruze registros de eventos e academias via SQL para capturar o culpado.",
-            url: "repos/sql-mysteries/index-ptbr.html",
+            url: "repos/sql-mysteries/index.html",
             medalTitle: "Detetive Investigador de Dados SQL"
         },
         {
