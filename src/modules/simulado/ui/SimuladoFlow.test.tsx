@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it } from "vitest";
+import { bundledQuestionBank } from "../application/questionBank";
+import { createAttempt } from "../application/simuladoService";
 import { browserAttemptStorage } from "./browserStorage";
 import { SimuladoContainer } from "./SimuladoContainer";
 
@@ -11,20 +13,19 @@ describe("Simulado Complete Practice Flow", () => {
 
   it("completes full student journey: setup -> answer questions -> results -> certificate -> retry missed", async () => {
     const user = userEvent.setup();
+    createAttempt(
+      {
+        axisId: "all",
+        difficulty: "all",
+        questionCount: 5,
+        mode: "INSTANT_FEEDBACK",
+      },
+      bundledQuestionBank,
+      browserAttemptStorage,
+    );
     const { unmount } = render(<SimuladoContainer />);
 
-    // 1. Setup screen
-    expect(
-      screen.getByRole("heading", { name: /simulado formativo de conhecimentos gerais/i }),
-    ).toBeInTheDocument();
-
-    const countSelect = screen.getByLabelText(/quantidade de questões/i);
-    await user.selectOptions(countSelect, "5");
-
-    const startBtn = screen.getByRole("button", { name: /iniciar simulado/i });
-    await user.click(startBtn);
-
-    // 2. Question Runner - Question 1
+    // 1. Question Runner - Question 1
     expect(screen.getByLabelText(/banner contextual/i)).toBeInTheDocument();
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
 
@@ -63,7 +64,7 @@ describe("Simulado Complete Practice Flow", () => {
       }
     }
 
-    // 3. Results Screen
+    // 2. Results Screen
     expect(screen.getByRole("heading", { name: /resultado do simulado/i })).toBeInTheDocument();
     expect(screen.getByText(/aproveitamento geral/i)).toBeInTheDocument();
     expect(screen.getByText(/aproveitamento por eixo curricular/i)).toBeInTheDocument();
@@ -71,7 +72,7 @@ describe("Simulado Complete Practice Flow", () => {
       screen.getByRole("heading", { name: /gabarito comentado e diagnóstico/i }),
     ).toBeInTheDocument();
 
-    // 4. Certificate Modal
+    // 3. Certificate Modal
     const certBtn = screen.getByRole("button", { name: /emitir certificado simbólico/i });
     await user.click(certBtn);
 
@@ -93,7 +94,7 @@ describe("Simulado Complete Practice Flow", () => {
       screen.queryByRole("heading", { name: /certificado simbólico de desempenho/i }),
     ).not.toBeInTheDocument();
 
-    // 5. Test Recovery across reload
+    // 4. Test Recovery across reload
     // If student refreshes the browser now, the results remain intact
     unmount();
     render(<SimuladoContainer />);

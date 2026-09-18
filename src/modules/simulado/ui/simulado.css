@@ -66,6 +66,10 @@
   margin-bottom: 2rem;
 }
 
+.sim-form-grid--single {
+  grid-template-columns: minmax(18rem, 28rem);
+}
+
 .sim-form-group {
   display: flex;
   flex-direction: column;
@@ -102,7 +106,7 @@
 
 .sim-setup-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;

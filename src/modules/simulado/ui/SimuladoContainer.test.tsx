@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it } from "vitest";
+import { bundledQuestionBank } from "../application/questionBank";
 import { browserAttemptStorage } from "./browserStorage";
 import { SimuladoContainer } from "./SimuladoContainer";
 
@@ -15,21 +16,29 @@ describe("SimuladoContainer", () => {
     expect(
       screen.getByRole("heading", { name: /simulado formativo de conhecimentos gerais/i }),
     ).toBeInTheDocument();
-    expect(screen.getByLabelText(/eixo curricular/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /iniciar simulado/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/duração do exame/i)).toHaveValue("180");
+    expect(screen.queryByLabelText(/eixo curricular/i)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/nível de dificuldade/i)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/quantidade de questões/i)).not.toBeInTheDocument();
+    expect(screen.queryByLabelText(/dinâmica de feedback/i)).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /iniciar prova completa/i })).toBeInTheDocument();
   });
 
   it("starts the simulado and shows question banner and options", async () => {
     const user = userEvent.setup();
     render(<SimuladoContainer />);
 
-    const startBtn = screen.getByRole("button", { name: /iniciar simulado/i });
+    const startBtn = screen.getByRole("button", { name: /iniciar prova completa/i });
     await user.click(startBtn);
 
     // Question runner should be visible
     expect(screen.getByLabelText(/banner contextual/i)).toBeInTheDocument();
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /confirmar resposta/i })).toBeInTheDocument();
+    const saved = browserAttemptStorage.load();
+    expect(saved?.filters.mode).toBe("EXAM");
+    expect(saved?.filters.questionCount).toBe(bundledQuestionBank.length);
+    expect(saved?.questions).toHaveLength(bundledQuestionBank.length);
   });
 
   it("recovers an in-progress attempt directly from storage on page reload", () => {
@@ -74,7 +83,7 @@ describe("SimuladoContainer", () => {
     const user = userEvent.setup();
     render(<SimuladoContainer />);
 
-    const startBtn = screen.getByRole("button", { name: /iniciar simulado/i });
+    const startBtn = screen.getByRole("button", { name: /iniciar prova completa/i });
     await user.click(startBtn);
 
     // Toggle flag on current question
@@ -100,7 +109,7 @@ describe("SimuladoContainer", () => {
     if (secondQuestion) {
       await user.click(secondQuestion);
     }
-    expect(screen.getByRole("progressbar", { name: /questão 2 de 10/i })).toBeInTheDocument();
+    expect(screen.getByRole("progressbar", { name: /questão 2 de 65/i })).toBeInTheDocument();
   });
 
   it("renders countdown timer and handles time limit configuration", async () => {
@@ -110,7 +119,7 @@ describe("SimuladoContainer", () => {
     const timeLimitSelect = screen.getByLabelText(/duração do exame/i);
     await user.selectOptions(timeLimitSelect, "180");
 
-    const startBtn = screen.getByRole("button", { name: /iniciar simulado/i });
+    const startBtn = screen.getByRole("button", { name: /iniciar prova completa/i });
     await user.click(startBtn);
 
     expect(screen.getByText(/tempo restante:/i)).toBeInTheDocument();
