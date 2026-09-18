@@ -1,0 +1,41 @@
+{
+  "name": "@nand2tetris/simulator",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "author": "David Souther <davidsouther@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://davidsouther.github.io/nand2tetris",
+  "type": "module",
+  "exports": {
+    "./*.js": {
+      "types": "./build/*.d.ts",
+      "default": "./build/*.js"
+    },
+    "./*": {
+      "types": "./build/*.d.ts",
+      "default": "./build/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "build/*"
+      ]
+    }
+  },
+  "dependencies": {
+    "@davidsouther/jiffies": "2.2.5",
+    "@nand2tetris/projects": "file:../projects",
+    "@nand2tetris/runner": "file:../runner",
+    "ohm-js": "^17.5.0",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.5"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  }
+}

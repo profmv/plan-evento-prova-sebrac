@@ -1,0 +1,66 @@
+:root[data-theme="light"] {
+  --diff-highlight-error-line-bg-color: #ffebe9;
+  --diff-highlight-error-cell-bg-color: #ffc1c0;
+  --diff-highlight-correct-line-bg-color: #dafbe1;
+  --diff-highlight-correct-cell-bg-color: #aceebb;
+}
+:root[data-theme="dark"] {
+  --diff-highlight-error-line-bg-color: #390504;
+  --diff-highlight-error-cell-bg-color: #842019;
+  --diff-highlight-correct-line-bg-color: #0d2705;
+  --diff-highlight-correct-cell-bg-color: #285d17;
+}
+
+.Editor {
+  width: 100%;
+
+  &:not(.dynamic-height) {
+    height: 100%;
+  }
+
+  .monaco-editor {
+    // Magic
+    position: absolute;
+  }
+
+  .highlight {
+    background-color: var(--mark-background-color);
+  }
+
+  .error-highlight {
+    background-color: var(--mark-error-color);
+  }
+
+  .diff-highlight-error-line {
+    background-color: var(--diff-highlight-error-line-bg-color);
+  }
+
+  .diff-highlight-error-cell {
+    background-color: var(--diff-highlight-error-cell-bg-color);
+  }
+
+  .diff-highlight-correct-line {
+    background-color: var(--diff-highlight-correct-line-bg-color);
+  }
+
+  .diff-highlight-correct-cell {
+    background-color: var(--diff-highlight-correct-cell-bg-color);
+  }
+
+  textarea {
+    flex: 1;
+  }
+
+  position: relative; // For ".overlay", below.
+  &:has(.overlay) {
+    // Available in chrome 105
+    position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--form-element-disabled-background-color);
+    opacity: var(--form-element-disabled-opacity);
+  }
+}

@@ -1,0 +1,45 @@
+import * as monaco from "monaco-editor";
+import { base } from "./base";
+
+export const JackLanguage: monaco.languages.IMonarchLanguage = {
+  keywords: [
+    "class",
+    "int",
+    "char",
+    "boolean",
+    "void",
+    "let",
+    "function",
+    "method",
+    "constructor",
+    "var",
+    "if",
+    "do",
+    "while",
+    "else",
+    "return",
+    "true",
+    "false",
+    "null",
+    "this",
+    "field",
+    "static",
+  ],
+  tokenizer: {
+    root: [
+      [
+        /[a-zA-Z_][a-zA-Z0-9_]*/,
+        {
+          cases: {
+            "@keywords": "keyword",
+            "@default": "identifier",
+          },
+        },
+      ],
+      [/\d+/, "number"],
+      [/"[^"\n]*"/, "string"],
+      { include: "@whitespace" },
+    ],
+    ...base.tokenizer,
+  },
+};

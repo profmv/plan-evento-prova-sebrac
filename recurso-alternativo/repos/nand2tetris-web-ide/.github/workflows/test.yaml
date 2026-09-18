@@ -1,0 +1,34 @@
+name: Run Workspace Tests
+
+on:
+  pull_request:
+    branches: ["main", "release/**"]
+
+jobs:
+  all:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+          cache: npm
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Install
+        run: npm ci
+
+      - name: CI
+        run: |
+          npm run check
+          npm run build
+          npm run test
+        env:
+          CI: true

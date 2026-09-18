@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minigame: Do NAND ao Somador - Recap SENAC 2026</title>
+    <script src="../../js/minigame-bridge.js"></script>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #1e293b;
+            --accent: #818cf8;
+            --success: #34d399;
+            --error: #f43f5e;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+        body { background: var(--bg); color: var(--text); padding: 1.5rem; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+        h1 { font-size: 1.4rem; color: var(--accent); }
+        .timer-box { font-size: 1.1rem; font-weight: 700; color: #fbbf24; background: #020617; padding: 0.4rem 0.8rem; border-radius: 6px; border: 1px solid #475569; }
+
+        .container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+        .challenge-card { background: var(--panel); border: 1px solid #334155; border-radius: 12px; padding: 1.5rem; }
+        .challenge-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .challenge-title { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
+        .challenge-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5; }
+
+        .circuit-simulator { background: #020617; border: 1px solid #475569; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .inputs-row { display: flex; gap: 2rem; align-items: center; margin-bottom: 1.5rem; }
+        .switch-control { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; }
+        .toggle-btn { background: #334155; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold; }
+        .toggle-btn.active { background: var(--success); color: #020617; }
+
+        .truth-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+        .truth-table th, .truth-table td { border: 1px solid #334155; padding: 0.6rem 1rem; text-align: center; }
+        .truth-table th { background: #1e293b; color: var(--text-muted); }
+        .row-pass { background: rgba(52, 211, 153, 0.15); color: var(--success); font-weight: bold; }
+        .row-fail { background: rgba(244, 63, 94, 0.15); color: var(--error); }
+
+        .nav-buttons { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+        .btn-action { background: var(--accent); color: #020617; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 700; cursor: pointer; }
+        .btn-action:disabled { opacity: 0.4; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Laboratório Digital: Do NAND ao Somador</h1>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">UC01 / UC03: Álgebra Booleana, Portas Lógicas e Meio Somador (Half-Adder)</p>
+        </div>
+        <div class="timer-box">Tempo Restante: <span id="timer">20:00</span></div>
+    </header>
+
+    <main class="container">
+        <div class="challenge-card">
+            <div class="challenge-header">
+                <span class="challenge-title" id="stage-title">Fase 1: Construindo a Porta NOT com NAND</span>
+                <span id="stage-counter" style="font-weight: bold; color: var(--accent);">Fase 1 / 4</span>
+            </div>
+            <p class="challenge-desc" id="stage-desc">
+                Na computação digital, toda a CPU pode ser construída com portas NAND. Uma porta NOT inverte o bit de entrada (0 vira 1, e 1 vira 0). Teste as entradas para validar a tabela-verdade.
+            </p>
+
+            <div class="circuit-simulator">
+                <div class="inputs-row" id="inputs-container"></div>
+                <div id="outputs-container" style="font-size: 1.1rem; font-weight: 700;"></div>
+            </div>
+
+            <h4>Tabela-Verdade da Fase:</h4>
+            <table class="truth-table" id="truth-table">
+                <thead id="table-head"></thead>
+                <tbody id="table-body"></tbody>
+            </table>
+
+            <div class="nav-buttons">
+                <span id="validation-msg" style="font-weight: 700; color: var(--text-muted);">Alternar os botões para testar todas as combinações</span>
+                <button type="button" class="btn-action" id="btn-next-stage" disabled>Próxima Fase</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const STAGES = [
+            {
+                title: "Fase 1: Porta NOT a partir de NAND",
+                desc: "A porta NOT inverte o sinal: NOT(A) = NAND(A, A). Se a entrada for 0, a saída é 1. Se for 1, a saída é 0. Alterne a entrada A para testar.",
+                inputs: ["A"],
+                outputs: ["Saída (NOT)"],
+                eval: (inputs) => [inputs.A === 0 ? 1 : 0],
+                table: [
+                    { in: [0], out: [1] },
+                    { in: [1], out: [0] }
+                ]
+            },
+            {
+                title: "Fase 2: Porta AND a partir de NAND",
+                desc: "A porta AND resulta em 1 somente quando A e B são 1: AND(A, B) = NOT(NAND(A, B)). Teste todas as 4 combinações.",
+                inputs: ["A", "B"],
+                outputs: ["Saída (AND)"],
+                eval: (inputs) => [inputs.A === 1 && inputs.B === 1 ? 1 : 0],
+                table: [
+                    { in: [0, 0], out: [0] },
+                    { in: [0, 1], out: [0] },
+                    { in: [1, 0], out: [0] },
+                    { in: [1, 1], out: [1] }
+                ]
+            },
+            {
+                title: "Fase 3: Porta OR a partir de NAND",
+                desc: "Pelas Leis de De Morgan: OR(A, B) = NAND(NOT(A), NOT(B)). A saída é 1 se pelo menos uma entrada for 1.",
+                inputs: ["A", "B"],
+                outputs: ["Saída (OR)"],
+                eval: (inputs) => [inputs.A === 1 || inputs.B === 1 ? 1 : 0],
+                table: [
+                    { in: [0, 0], out: [0] },
+                    { in: [0, 1], out: [1] },
+                    { in: [1, 0], out: [1] },
+                    { in: [1, 1], out: [1] }
+                ]
+            },
+            {
+                title: "Fase 4: O Meio Somador (Half-Adder)",
+                desc: "A base da ULA (Unidade Lógica e Aritmética): soma 2 bits binários gerando Soma (XOR) e Transporte/Carry (AND). Complete a tabela!",
+                inputs: ["A", "B"],
+                outputs: ["Soma (Sum)", "Transporte (Carry)"],
+                eval: (inputs) => [
+                    inputs.A ^ inputs.B, // XOR
+                    inputs.A & inputs.B  // AND
+                ],
+                table: [
+                    { in: [0, 0], out: [0, 0] },
+                    { in: [0, 1], out: [1, 0] },
+                    { in: [1, 0], out: [1, 0] },
+                    { in: [1, 1], out: [0, 1] }
+                ]
+            }
+        ];
+
+        let currentStageIdx = 0;
+        let currentInputs = { A: 0, B: 0 };
+        let testedCombinations = new Set();
+        let timerSeconds = 20 * 60;
+
+        function init() {
+            startTimer();
+            loadStage(0);
+            document.getElementById("btn-next-stage").addEventListener("click", nextStage);
+        }
+
+        function startTimer() {
+            setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    const m = String(Math.floor(timerSeconds / 60)).padStart(2, "0");
+                    const s = String(timerSeconds % 60).padStart(2, "0");
+                    document.getElementById("timer").textContent = `${m}:${s}`;
+                }
+            }, 1000);
+        }
+
+        function loadStage(idx) {
+            currentStageIdx = idx;
+            const stage = STAGES[idx];
+            testedCombinations.clear();
+
+            document.getElementById("stage-title").textContent = stage.title;
+            document.getElementById("stage-counter").textContent = `Fase ${idx + 1} / ${STAGES.length}`;
+            document.getElementById("stage-desc").textContent = stage.desc;
+            document.getElementById("btn-next-stage").disabled = true;
+            document.getElementById("validation-msg").textContent = "Alternar as chaves para verificar a tabela-verdade";
+            document.getElementById("validation-msg").style.color = "var(--text-muted)";
+
+            // Render inputs
+            const inputsRow = document.getElementById("inputs-container");
+            inputsRow.innerHTML = "";
+            stage.inputs.forEach(inputName => {
+                currentInputs[inputName] = 0;
+                const div = document.createElement("div");
+                div.className = "switch-control";
+                div.innerHTML = `
+                    <span>Entrada ${inputName}:</span>
+                    <button type="button" class="toggle-btn" id="btn-input-${inputName}">0</button>
+                `;
+                inputsRow.appendChild(div);
+
+                div.querySelector("button").addEventListener("click", function() {
+                    currentInputs[inputName] = currentInputs[inputName] === 1 ? 0 : 1;
+                    this.textContent = currentInputs[inputName];
+                    this.classList.toggle("active", currentInputs[inputName] === 1);
+                    evaluateCircuit();
+                });
+            });
+
+            // Build Table headers
+            const thead = document.getElementById("table-head");
+            thead.innerHTML = `
+                <tr>
+                    ${stage.inputs.map(i => `<th>${i}</th>`).join("")}
+                    ${stage.outputs.map(o => `<th>${o}</th>`).join("")}
+                    <th>Status</th>
+                </tr>
+            `;
+
+            renderTableRows();
+            evaluateCircuit();
+        }
+
+        function evaluateCircuit() {
+            const stage = STAGES[currentStageIdx];
+            const currentOut = stage.eval(currentInputs);
+            const inValues = stage.inputs.map(i => currentInputs[i]);
+
+            // Update live output text
+            const outContainer = document.getElementById("outputs-container");
+            outContainer.innerHTML = stage.outputs.map((name, idx) => `
+                <span>${name}: <strong style="color: ${currentOut[idx] === 1 ? 'var(--success)' : '#ef4444'}">${currentOut[idx]}</strong></span>
+            `).join(" | ");
+
+            // Record combination
+            const key = inValues.join(",");
+            testedCombinations.add(key);
+
+            renderTableRows();
+
+            // Check if all combinations tested
+            if (testedCombinations.size >= stage.table.length) {
+                document.getElementById("btn-next-stage").disabled = false;
+                document.getElementById("validation-msg").textContent = "Tabela-verdade 100% comprovada!";
+                document.getElementById("validation-msg").style.color = "var(--success)";
+            }
+        }
+
+        function renderTableRows() {
+            const stage = STAGES[currentStageIdx];
+            const tbody = document.getElementById("table-body");
+            tbody.innerHTML = "";
+
+            stage.table.forEach(row => {
+                const key = row.in.join(",");
+                const tested = testedCombinations.has(key);
+                const tr = document.createElement("tr");
+                tr.className = tested ? "row-pass" : "row-fail";
+                tr.innerHTML = `
+                    ${row.in.map(v => `<td>${v}</td>`).join("")}
+                    ${row.out.map(v => `<td>${v}</td>`).join("")}
+                    <td>${tested ? "VERIFICADO" : "PENDENTE"}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function nextStage() {
+            if (currentStageIdx < STAGES.length - 1) {
+                loadStage(currentStageIdx + 1);
+            } else {
+                if (window.MinigameBridge) {
+                    MinigameBridge.completeGame("logic-gates", {
+                        details: "Construiu e validou todas as portas lógicas e o Meio Somador"
+                    });
+                }
+                alert("Parabéns! Você construiu o Half-Adder e dominou a base da ULA! Medalha concedida com sucesso.");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+</body>
+</html>

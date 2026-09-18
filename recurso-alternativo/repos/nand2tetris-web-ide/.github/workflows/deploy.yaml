@@ -1,0 +1,50 @@
+name: Deploy to gh-pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - simulator
+      - web
+
+jobs:
+  deploy:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm install
+
+      - name: build & release
+        run: |
+          git config --global user.name "$USER_NAME"
+          git config --global user.email "$USER_EMAIL"
+
+          VERSION="$(node scripts/stamp.cjs)"
+
+          npm version $VERSION --include-workspace-root --no-git-tag-version
+          git commit --all --message "Release $VERSION"
+
+          npm run build
+
+          git tag "$VERSION" HEAD
+          git push origin "$VERSION"
+          git push origin
+        env:
+          USER_NAME: "github-actions"
+          USER_EMAIL: "github-actions@noreply.github.com"
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web/build

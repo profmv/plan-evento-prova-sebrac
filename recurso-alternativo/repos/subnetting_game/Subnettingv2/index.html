@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Architect v2 - Advanced Subnetting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Network Architect <span class="version-badge">v2</span></h1>
+
+        <div class="difficulty-selection">
+            <span>Choose Difficulty:</span>
+            <button id="beginner" class="difficulty-btn">Beginner</button>
+            <button id="intermediate" class="difficulty-btn">Intermediate</button>
+            <button id="advanced" class="difficulty-btn">Advanced</button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-text">Round Progress: 0% (Question 0 of 20)</div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="game-panel">
+            <div class="scenario-box" id="scenario-text">
+                Select a difficulty level above to begin. This CCNA-aligned challenge covers subnetting, VLSM, route summarization, wildcard masks, and more. Each question tests a different networking skill.
+            </div>
+
+            <div class="question-type-badge" id="question-type-badge" style="display:none;">
+                <span id="question-type-label"></span>
+            </div>
+
+            <div class="ip-note" id="ip-note" style="display:none;">
+                The IP shown may NOT be the network address. Apply the subnet mask to find the true network boundary.
+            </div>
+
+            <div class="address-block">
+                <h2 id="address-label">Given IP: <span id="main-address">N/A</span></h2>
+                <div id="address-display" class="address-display">
+                    <div id="address-visualization" class="address-visualization"></div>
+                </div>
+            </div>
+
+            <div class="game-grid">
+                <div class="request-panel">
+                    <h3>Current Request:</h3>
+                    <p id="start-message">Select difficulty level to start.</p>
+                    <p id="required-hosts-row">Required Hosts: <span id="required-hosts">N/A</span></p>
+                    <p id="subnet-mask-row">Subnet Mask: <span id="subnet-mask">N/A</span></p>
+                    <button id="show-hint" class="hint-btn">Show Hint (Level 1)</button>
+                    <div id="hint-content" class="hint-content">
+                        <p id="subnet-hint">Calculate the subnet that can accommodate the required hosts.</p>
+                    </div>
+                </div>
+
+                <div class="allocate-panel" id="answer-area">
+                    <h3 id="answer-panel-title">Your Answer</h3>
+                    <div id="dynamic-inputs">
+                        <div class="input-group">
+                            <label for="network-ip">Network IP:</label>
+                            <input type="text" id="network-ip" placeholder="e.g., 172.16.40.0">
+                        </div>
+                        <div class="input-group">
+                            <label for="first-usable">First Usable IP:</label>
+                            <input type="text" id="first-usable" placeholder="e.g., 172.16.40.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="last-usable">Last Usable IP:</label>
+                            <input type="text" id="last-usable" placeholder="e.g., 172.16.47.254">
+                        </div>
+                        <div class="input-group">
+                            <label for="broadcast-ip">Broadcast IP:</label>
+                            <input type="text" id="broadcast-ip" placeholder="e.g., 172.16.47.255">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="validation-message" class="validation-message" style="display:none;"></div>
+
+                <div id="flag-container" class="flag-container">
+                    <div class="flag-content">
+                        <h3>Congratulations!</h3>
+                        <p>You've conquered the CCNA Challenge!</p>
+                        <div id="flag-display" class="flag"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="feedback-detail" class="feedback-detail" style="display:none;"></div>
+
+            <div class="allocate-action">
+                <button id="allocate-btn" class="action-btn">Submit Answer</button>
+                <button id="next-question-btn" class="next-btn" style="display:none;">Next Question &rarr;</button>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="show-cidr" class="reference-btn">Show CIDR Chart Reference</button>
+            <button id="show-help" class="help-btn">Subnetting Help</button>
+        </div>
+
+        <div id="cidr-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>CIDR Chart Reference</h2>
+                <table id="cidr-table">
+                    <thead>
+                        <tr>
+                            <th>Prefix</th>
+                            <th>Subnet Mask</th>
+                            <th>Wildcard</th>
+                            <th>Usable IPs</th>
+                            <th>Netmask Bits</th>
+                            <th>Host Bits</th>
+                            <th>Possible Subnets</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="help-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-help">&times;</span>
+                <h2>CCNA Subnetting Help (v2)</h2>
+                <div class="help-content">
+                    <h3>CCNA Topics Covered</h3>
+                    <p>This game tests six key subnetting skills from the CCNA 200-301 exam:</p>
+                    <table class="help-table">
+                        <tr><th>Question Type</th><th>Skill Tested</th><th>Difficulty</th></tr>
+                        <tr><td>Subnet Calculation</td><td>Given IP/CIDR, find network, broadcast, usable range</td><td>All levels</td></tr>
+                        <tr><td>CIDR &harr; Mask Conversion</td><td>Convert between /prefix and dotted-decimal mask</td><td>Beginner+</td></tr>
+                        <tr><td>Same Subnet?</td><td>Determine if two IPs are on the same subnet</td><td>Beginner+</td></tr>
+                        <tr><td>Wildcard Mask</td><td>Calculate wildcard masks for ACLs and OSPF</td><td>Beginner+</td></tr>
+                        <tr><td>Route Summarization</td><td>Find summary route for contiguous networks</td><td>Intermediate+</td></tr>
+                        <tr><td>VLSM Design</td><td>Allocate variable-length subnets from a block</td><td>Advanced</td></tr>
+                    </table>
+
+                    <h3>1. Subnet Calculation (Cross-Octet)</h3>
+                    <p>The IP shown may be <strong>any host within the subnet</strong>, not the network address. You must apply the mask to find where the subnet starts.</p>
+                    <ol>
+                        <li><strong>Identify the "interesting" octet</strong> &mdash; where the CIDR boundary falls.</li>
+                        <li><strong>Calculate block size</strong> in that octet: 2<sup>(8 - bits used in that octet)</sup>.</li>
+                        <li><strong>Round down</strong> the octet value to the nearest multiple of the block size &rarr; Network IP.</li>
+                        <li><strong>Add block size - 1</strong> in that octet, set lower octets to 255 &rarr; Broadcast.</li>
+                        <li>First usable = Network + 1, Last usable = Broadcast - 1.</li>
+                    </ol>
+                    <div class="worked-example">
+                        <p><strong>Example:</strong> 172.16.45.137/21</p>
+                        <p>/21 &rarr; 5 bits in 3rd octet &rarr; block size = 2<sup>3</sup> = 8</p>
+                        <p>45 &div; 8 = 5.6 &rarr; round down to 5 &times; 8 = <strong>40</strong></p>
+                        <p>Network: 172.16.40.0 | Broadcast: 172.16.47.255 | Usable: 2046</p>
+                    </div>
+
+                    <h3>2. CIDR &harr; Mask Conversion</h3>
+                    <p>Convert between CIDR prefix and dotted-decimal subnet mask.</p>
+                    <ul>
+                        <li>/24 = 255.255.255.0 (24 ones, 8 zeros)</li>
+                        <li>/20 = 255.255.240.0 (20 ones, 12 zeros)</li>
+                        <li>/27 = 255.255.255.224 (27 ones, 5 zeros)</li>
+                    </ul>
+                    <p><strong>Quick method:</strong> For the "interesting" octet, calculate 256 - 2<sup>(8 - bits in that octet)</sup>.</p>
+
+                    <h3>3. Same Subnet Determination</h3>
+                    <p>AND each IP with the subnet mask. If both results match, the hosts are on the same subnet.</p>
+                    <div class="worked-example">
+                        <p><strong>Are 192.168.1.100 and 192.168.1.200 on the same /26?</strong></p>
+                        <p>/26 mask = 255.255.255.192, block size = 64</p>
+                        <p>100 &div; 64 = 1.56 &rarr; network at .64 | 200 &div; 64 = 3.12 &rarr; network at .192</p>
+                        <p><strong>Different subnets!</strong> (.64 vs .192)</p>
+                    </div>
+
+                    <h3>4. Wildcard Masks</h3>
+                    <p>Wildcard mask = 255.255.255.255 - subnet mask. Used in ACLs and OSPF area configuration.</p>
+                    <ul>
+                        <li>Subnet 255.255.255.0 &rarr; Wildcard 0.0.0.255</li>
+                        <li>Subnet 255.255.240.0 &rarr; Wildcard 0.0.15.255</li>
+                        <li>Subnet 255.255.255.252 &rarr; Wildcard 0.0.0.3</li>
+                    </ul>
+
+                    <h3>5. Route Summarization (Supernetting)</h3>
+                    <p>Find the single summary route that covers all given networks. Convert to binary, find common prefix bits, and create the summary.</p>
+                    <div class="worked-example">
+                        <p><strong>Summarize:</strong> 192.168.0.0/24, 192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24</p>
+                        <p>Binary 3rd octet: 000000<strong>00</strong>, 000000<strong>01</strong>, 000000<strong>10</strong>, 000000<strong>11</strong></p>
+                        <p>Common bits: first 6 bits match &rarr; /22</p>
+                        <p><strong>Summary: 192.168.0.0/22</strong></p>
+                    </div>
+
+                    <h3>6. VLSM Design</h3>
+                    <p>Allocate subnets of different sizes from one block. <strong>Always allocate largest subnet first</strong> to avoid address waste.</p>
+                    <div class="worked-example">
+                        <p><strong>Given 10.0.0.0/24, allocate:</strong> Dept A (100 hosts), Dept B (50 hosts), Dept C (25 hosts)</p>
+                        <p>Dept A: 100 hosts &rarr; /25 (126 usable) &rarr; 10.0.0.0/25</p>
+                        <p>Dept B: 50 hosts &rarr; /26 (62 usable) &rarr; 10.0.0.128/26</p>
+                        <p>Dept C: 25 hosts &rarr; /27 (30 usable) &rarr; 10.0.0.192/27</p>
+                    </div>
+
+                    <h3>Tips for Success</h3>
+                    <ul>
+                        <li>Read the question type badge carefully &mdash; each type requires different answers.</li>
+                        <li>For subnet calculations, always find the "interesting" octet first.</li>
+                        <li>For VLSM, sort departments by size (largest first) before allocating.</li>
+                        <li>For summarization, convert the changing octet to binary and find where bits diverge.</li>
+                        <li>Use the hint system: Level 1 guides thinking, Level 2 shows steps, Level 3 reveals answers.</li>
+                        <li>Press <kbd>Enter</kbd> to submit your answer quickly.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

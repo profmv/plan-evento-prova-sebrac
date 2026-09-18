@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masmorra do Terminal Linux (Bashcrawl) - Recap SENAC 2026</title>
+    <script src="../../js/minigame-bridge.js"></script>
+    <style>
+        :root {
+            --bg: #090d16;
+            --term-bg: #020617;
+            --accent: #38bdf8;
+            --green: #22c55e;
+            --amber: #f59e0b;
+            --text: #e2e8f0;
+            --text-dim: #64748b;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Courier New", Courier, monospace; }
+        body { background: var(--bg); color: var(--text); padding: 1.5rem; min-height: 100vh; display: flex; flex-direction: column; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; margin-bottom: 1rem; font-family: system-ui, sans-serif; }
+        h1 { font-size: 1.3rem; color: var(--accent); }
+        .timer-box { font-size: 1rem; font-weight: 700; color: var(--amber); background: #0f172a; padding: 0.3rem 0.6rem; border-radius: 4px; border: 1px solid #334155; }
+
+        .terminal-window { background: var(--term-bg); border: 1px solid #334155; border-radius: 8px; flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-height: 500px; }
+        .terminal-header { background: #1e293b; padding: 0.5rem 1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-dim); }
+        .circle { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .c-red { background: #ef4444; } .c-yellow { background: #eab308; } .c-green { background: #22c55e; }
+
+        .terminal-body { padding: 1rem; flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; }
+        .output-history { line-height: 1.5; font-size: 0.95rem; white-space: pre-wrap; word-break: break-all; }
+        .prompt-line { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+        .prompt-label { color: var(--green); font-weight: bold; flex-shrink: 0; }
+        .prompt-input { background: transparent; border: none; outline: none; color: var(--text); font-family: inherit; font-size: 0.95rem; width: 100%; }
+
+        .sidebar-hints { background: #0f172a; border: 1px solid #1e293b; border-radius: 6px; padding: 0.75rem 1rem; margin-top: 1rem; font-family: system-ui, sans-serif; font-size: 0.825rem; color: var(--text-dim); }
+        .sidebar-hints strong { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Masmorra do Terminal Linux (Bashcrawl PT-BR)</h1>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">UC05 / UC06: Comandos de navegação, manipulação de arquivos e permissões no GNU/Linux</p>
+        </div>
+        <div class="timer-box">Tempo Restante: <span id="timer">20:00</span></div>
+    </header>
+
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <span class="circle c-red"></span>
+            <span class="circle c-yellow"></span>
+            <span class="circle c-green"></span>
+            <span style="margin-left: 0.5rem;">bash - 80x24 - dungeon-crawler</span>
+        </div>
+        <div class="terminal-body" id="term-body">
+            <div class="output-history" id="output">=== BASHCRAWL: AVENTURA NO TERMINAL LINUX ===
+Você acorda na entrada úmida de uma masmorra misteriosa.
+O vento sopra e você tem apenas seu teclado e seus conhecimentos do shell Linux.
+
+Dica: Digite 'help' para ver comandos, ou 'ls' para inspecionar os arredores.
+Digite 'cat pergaminho.txt' para ler o pergaminho caído no chão.
+------------------------------------------------------------------------</div>
+            <div class="prompt-line">
+                <span class="prompt-label" id="prompt-str">aluno@senac:~/masmorra/entrada$</span>
+                <input type="text" id="cmd-input" class="prompt-input" autocomplete="off" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-hints">
+        <strong>Guia Rápido de Sobrevivência Linux:</strong>
+        <code>pwd</code> (onde estou) |
+        <code>ls</code> (listar arquivos) |
+        <code>ls -a</code> (revelar arquivos ocultos) |
+        <code>cd &lt;pasta&gt;</code> (entrar) |
+        <code>cd ..</code> (voltar) |
+        <code>cat &lt;arquivo&gt;</code> (ler) |
+        <code>chmod +x &lt;script&gt;</code> (dar permissão de execução) |
+        <code>./feitiço.sh</code> (executar feitiço)
+    </div>
+
+    <script>
+        // Virtual File System matching Bashcrawl
+        const VFS = {
+            "entrada": {
+                name: "entrada",
+                parent: null,
+                dirs: ["adega", ".cripta_secreta"],
+                files: {
+                    "pergaminho.txt": "PERGAMINHO ANTIGO:\n\"Para avançar nas profundezas, aprenda a observar.\nO comando 'ls' mostra os caminhos visíveis.\nO comando 'cd adega' leva você até a adega subterrânea.\nCuidado: há salas ocultas que começam com ponto! Use 'ls -a' para revelá-las.\"",
+                    "tocha.txt": "Uma tocha acesa com chamas azuis que ilumina o caminho."
+                }
+            },
+            "entrada/adega": {
+                name: "adega",
+                parent: "entrada",
+                dirs: [],
+                files: {
+                    "barril.txt": "Um velho barril de carvalho cheio de água benta.",
+                    "feitiço.sh": "#!/bin/bash\necho 'Lançando feitiço de luz radiante! O goblin foi derrotado!'",
+                    "monstro_goblin.txt": "Um goblin feroz bloqueia o retorno! Você precisa de permissão de execução no 'feitiço.sh' para derrotá-lo!\nUse: chmod +x feitiço.sh e depois execute: ./feitiço.sh"
+                },
+                permissions: { "feitiço.sh": 644 },
+                goblinDefeated: false
+            },
+            "entrada/.cripta_secreta": {
+                name: ".cripta_secreta",
+                parent: "entrada",
+                dirs: ["camara_do_tesouro"],
+                files: {
+                    "runa_antiga.txt": "A runa brilha revelando a entrada para a câmara do tesouro final!"
+                }
+            },
+            "entrada/.cripta_secreta/camara_do_tesouro": {
+                name: "camara_do_tesouro",
+                parent: "entrada/.cripta_secreta",
+                dirs: [],
+                files: {
+                    "bau_do_tesouro.txt": "PARABÉNS, GUERREIRO DO SHELL!\nVocê usou 'ls -a', navegou por diretórios ocultos e dominou as permissões POSIX.\nO tesouro é a sabedoria eterna da administração de sistemas GNU/Linux!"
+                }
+            }
+        };
+
+        let currentPath = "entrada";
+        let timerSeconds = 20 * 60;
+
+        function init() {
+            startTimer();
+            const input = document.getElementById("cmd-input");
+            input.addEventListener("keydown", function(e) {
+                if (e.key === "Enter") {
+                    const cmd = input.value.trim();
+                    input.value = "";
+                    executeCommand(cmd);
+                }
+            });
+
+            document.addEventListener("click", () => input.focus());
+        }
+
+        function startTimer() {
+            setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    const m = String(Math.floor(timerSeconds / 60)).padStart(2, "0");
+                    const s = String(timerSeconds % 60).padStart(2, "0");
+                    document.getElementById("timer").textContent = `${m}:${s}`;
+                }
+            }, 1000);
+        }
+
+        function print(text) {
+            const out = document.getElementById("output");
+            out.textContent += "\n" + text;
+            const body = document.getElementById("term-body");
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function executeCommand(raw) {
+            if (!raw) return;
+            print(`aluno@senac:~/masmorra/${currentPath}$ ${raw}`);
+            const parts = raw.split(/\s+/);
+            const cmd = parts[0].toLowerCase();
+            const arg = parts[1];
+
+            const node = VFS[currentPath];
+
+            switch(cmd) {
+                case "pwd":
+                    print(`/home/aluno/masmorra/${currentPath}`);
+                    break;
+
+                case "ls":
+                    const showAll = parts.includes("-a") || parts.includes("-la") || parts.includes("-al");
+                    let items = [];
+                    node.dirs.forEach(d => {
+                        if (showAll || !d.startsWith(".")) items.push(`[DIR]  ${d}/`);
+                    });
+                    for (const f in node.files) {
+                        const perm = node.permissions && node.permissions[f] === 755 ? "* " : "  ";
+                        if (showAll || !f.startsWith(".")) items.push(`[FILE] ${perm}${f}`);
+                    }
+                    print(items.join("\n") || "(diretório vazio)");
+                    break;
+
+                case "cd":
+                    if (!arg || arg === "~") {
+                        currentPath = "entrada";
+                    } else if (arg === "..") {
+                        if (node.parent) {
+                            currentPath = node.parent;
+                        } else {
+                            print("Você já está na raiz da masmorra.");
+                        }
+                    } else {
+                        const cleanArg = arg.replace(/\/$/, "");
+                        if (node.dirs.includes(cleanArg)) {
+                            const newPath = currentPath + "/" + cleanArg;
+                            if (VFS[newPath]) {
+                                currentPath = newPath;
+                            }
+                        } else {
+                            print(`bash: cd: ${arg}: Arquivo ou diretório inexistente`);
+                        }
+                    }
+                    document.getElementById("prompt-str").textContent = `aluno@senac:~/masmorra/${currentPath}$`;
+                    break;
+
+                case "cat":
+                    if (!arg) {
+                        print("Uso: cat <nome_do_arquivo>");
+                    } else if (node.files[arg]) {
+                        print(node.files[arg]);
+                        if (arg === "bau_do_tesouro.txt") {
+                            triggerVictory();
+                        }
+                    } else {
+                        print(`cat: ${arg}: Arquivo não encontrado.`);
+                    }
+                    break;
+
+                case "chmod":
+                    if (arg === "+x" && parts[2]) {
+                        const target = parts[2];
+                        if (node.files[target]) {
+                            if (!node.permissions) node.permissions = {};
+                            node.permissions[target] = 755;
+                            print(`Permissões atualizadas: ${target} agora possui permissão de execução (+x).`);
+                        } else {
+                            print(`chmod: não foi possível acessar '${target}': Arquivo inexistente`);
+                        }
+                    } else {
+                        print("Uso: chmod +x <arquivo.sh>");
+                    }
+                    break;
+
+                case "./feitiço.sh":
+                case "./feitico.sh":
+                    if (node.files["feitiço.sh"]) {
+                        if (node.permissions && node.permissions["feitiço.sh"] === 755) {
+                            print("LANÇANDO FEITIÇO: Uma luz mágica explode na sala!\nO goblin foi transformado em pó!");
+                            node.goblinDefeated = true;
+                            node.files["monstro_goblin.txt"] = "Restos de cinzas do goblin derrotado.";
+                        } else {
+                            print("bash: ./feitiço.sh: Permissão negada (Permission denied). Dica: use chmod +x feitiço.sh");
+                        }
+                    } else {
+                        print("bash: ./feitiço.sh: Arquivo não encontrado");
+                    }
+                    break;
+
+                case "clear":
+                    document.getElementById("output").textContent = "";
+                    break;
+
+                case "help":
+                    print("Comandos disponíveis: pwd, ls, ls -a, cd <dir>, cd .., cat <arquivo>, chmod +x <script>, ./<script>, clear");
+                    break;
+
+                default:
+                    print(`bash: comando não encontrado: ${cmd}. Digite 'help' para ajuda.`);
+            }
+        }
+
+        function triggerVictory() {
+            print("\n*** VITÓRIA CONQUISTADA! VOCÊ CONCLUIU O BASHCRAWL! ***");
+            if (window.MinigameBridge) {
+                MinigameBridge.completeGame("bashcrawl", {
+                    score: 100,
+                    details: "Derrotou monstros e encontrou a câmara do tesouro via comandos shell"
+                });
+            }
+            alert("Parabéns! Masmorra concluída com maestria em comandos Linux. Sua medalha foi emitida no portal!");
+        }
+
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+</body>
+</html>

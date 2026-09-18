@@ -1,0 +1,36 @@
+name: Build vscode extension
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - simulator
+      - extension
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm install
+
+      - name: CD
+        run: |
+          npm run build
+          npm run -w extension package
+
+      - name: Upload extension
+        uses: actions/upload-artifact@v3
+        with:
+          name: nand2tetris-vscode
+          path: |
+            extension/nand2tetris-vscode-*.vsix

@@ -10,7 +10,9 @@
       "!artifacts",
       "!test-results",
       "!playwright-report",
-      "!docs/02_PlanoCurso"
+      "!docs/02_PlanoCurso",
+      "!recurso-alternativo",
+      "!.impeccable"
     ]
   },
   "formatter": {

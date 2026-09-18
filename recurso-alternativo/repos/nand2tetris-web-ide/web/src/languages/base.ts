@@ -1,0 +1,23 @@
+import type * as monaco from "monaco-editor";
+export const base: monaco.languages.IMonarchLanguage = {
+  tokenizer: {
+    comment: [
+      [/[^/*]+/, "comment"],
+      [/\/\*/, "comment", "@push"], // nested comment
+      ["\\*/", "comment", "@pop"],
+      [/[/*]/, "comment"],
+    ],
+
+    string: [
+      [/[^\\"]+/, "string"],
+      [/\\./, "string.escape.invalid"],
+      [/"/, { token: "string.quote", bracket: "@close", next: "@pop" }],
+    ],
+
+    whitespace: [
+      [/[ \t\r\n]+/, "white"],
+      [/\/\*/, "comment", "@comment"],
+      [/\/\/.*$/, "comment"],
+    ],
+  },
+};

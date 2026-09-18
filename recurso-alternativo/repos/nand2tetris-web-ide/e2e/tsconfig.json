@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": ".",
+    "tsBuildInfoFile": "build/.tsbuildinfo",
+    "moduleResolution": "nodenext",
+    "module": "nodenext",
+    "types": ["node"],
+  },
+  "include": ["fixtures", "src", "tests"]
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": "src",
+    "tsBuildInfoFile": "build/.tsbuildinfo",
+    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "types": ["wicg-file-system-access", "vitest/globals"]
+  },
+  "include": ["src"]
+}

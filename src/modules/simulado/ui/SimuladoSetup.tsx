@@ -1,7 +1,6 @@
 import { useState } from "react";
-import type { AxisId, Difficulty, Question } from "../../content/domain/contentSchemas";
-import { filterQuestions } from "../domain/simuladoEngine";
-import type { SimuladoFilters, SimuladoMode } from "../domain/simuladoTypes";
+import type { Question } from "../../content/domain/contentSchemas";
+import type { SimuladoFilters } from "../domain/simuladoTypes";
 
 type SimuladoSetupProps = {
   readonly bank: readonly Question[];
@@ -16,25 +15,18 @@ export function SimuladoSetup({
   hasSavedAttempt,
   onResumeSaved,
 }: SimuladoSetupProps) {
-  const [axisId, setAxisId] = useState<"all" | AxisId>("all");
-  const [difficulty, setDifficulty] = useState<"all" | Difficulty>("all");
-  const [questionCount, setQuestionCount] = useState<number>(10);
-  const [timeLimitMinutes, setTimeLimitMinutes] = useState<number>(0);
-  const [mode, setMode] = useState<SimuladoMode>("INSTANT_FEEDBACK");
-
-  const matchingQuestions = filterQuestions(bank, { axisId, difficulty });
-  const maxAvailable = matchingQuestions.length;
-  const effectiveCount = Math.min(questionCount, maxAvailable);
+  const [timeLimitMinutes, setTimeLimitMinutes] = useState<number>(180);
+  const questionCount = bank.length;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (maxAvailable === 0) return;
+    if (questionCount === 0) return;
     onStart({
-      axisId,
-      difficulty,
-      questionCount: effectiveCount,
-      mode,
-      timeLimitMinutes: timeLimitMinutes > 0 ? timeLimitMinutes : undefined,
+      axisId: "all",
+      difficulty: "all",
+      questionCount,
+      mode: "EXAM",
+      timeLimitMinutes,
     });
   };
 
@@ -43,10 +35,6 @@ export function SimuladoSetup({
       <div className="sim-setup-header">
         <p className="eyebrow">Preparatório Curricular | Turma 001</p>
         <h1 id="sim-setup-title">Simulado Formativo de Conhecimentos Gerais</h1>
-        <p className="sim-lead">
-          Treine para a avaliação geral com questões selecionadas aleatoriamente, justificativas
-          técnicas aprofundadas e opção de refazer apenas os erros para fixação imediata.
-        </p>
       </div>
 
       {hasSavedAttempt ? (

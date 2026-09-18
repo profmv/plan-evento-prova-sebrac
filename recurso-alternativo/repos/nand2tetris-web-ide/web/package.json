@@ -1,0 +1,90 @@
+{
+  "name": "@nand2tetris/web",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "author": "David Souther <davidsouther@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://nand2tetris.github.io/web-ide",
+  "optionalDependencies": {
+    "@rollup/rollup-darwin-arm64": "4.60.2",
+    "@rollup/rollup-linux-x64-gnu": "4.60.2"
+  },
+  "devDependencies": {
+    "@davidsouther/jiffies": "2.2.5",
+    "@lingui/cli": "^5.0.0",
+    "@lingui/macro": "^5.0.0",
+    "@lingui/react": "^5.0.0",
+    "@lingui/swc-plugin": "^6.0.0",
+    "@lingui/vite-plugin": "^5.0.0",
+    "@monaco-editor/react": "^4.6.0",
+    "@nand2tetris/components": "file:../components",
+    "@nand2tetris/projects": "file:../projects",
+    "@nand2tetris/simulator": "file:../simulator",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/error-cause": "^1.0.4",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react-swc": "^4.0.0",
+    "@vitest/coverage-v8": "^4.1.5",
+    "immer": "^11.1.4",
+    "jszip": "^3.10.1",
+    "make-plural": "^7.5.0",
+    "ohm-js": "^17.5.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-ga4": "^3.0.1",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.14.2",
+    "remark-gfm": "^4.0.0",
+    "rxjs": "^7.8.1",
+    "sass": "^1.99.0",
+    "source-map-explorer": "^2.5.3",
+    "vite": "^7.3.2",
+    "vitest": "^4.1.5"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "postbuild": "node ./scripts/predeploy.js",
+    "test": "vitest run",
+    "prebuild": "npm run extract && npm run lingui",
+    "extract": "lingui extract",
+    "lingui": "lingui compile --namespace es"
+  },
+  "browserslist": {
+    "production": [
+      ">1%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "lingui": {
+    "locales": [
+      "en",
+      "en-PL"
+    ],
+    "sourceLocale": "en",
+    "pseudoLocale": "en-PL",
+    "fallbackLocales": {
+      "en-PL": "en"
+    },
+    "catalogs": [
+      {
+        "path": "src/locales/{locale}/messages",
+        "include": [
+          "src",
+          "public"
+        ]
+      }
+    ],
+    "format": "po"
+  }
+}

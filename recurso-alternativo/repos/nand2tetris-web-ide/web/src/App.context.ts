@@ -1,0 +1,114 @@
+import { FileSystem } from "@davidsouther/jiffies/lib/esm/fs.js";
+import { useDialog } from "@nand2tetris/components/dialog.js";
+import { createContext, useCallback, useEffect, useState } from "react";
+import { useFilePicker } from "./shell/file_select";
+import { useTracking } from "./tracking";
+
+export type Theme = "light" | "dark" | "system";
+
+const THEME_KEY = "/theme";
+
+const isTheme = (v: unknown): v is Theme =>
+  v === "light" || v === "dark" || v === "system";
+
+function readStoredTheme(): Theme {
+  const stored = localStorage.getItem(THEME_KEY);
+  return isTheme(stored) ? stored : "system";
+}
+
+function writeStoredTheme(theme: Theme): void {
+  localStorage.setItem(THEME_KEY, theme);
+}
+
+export function useMonaco() {
+  const canUseMonaco = true;
+  const monacoParam = new URLSearchParams(window.location.search).get("monaco");
+  const [wantsMonaco, setWantsMonaco] = useState(
+    canUseMonaco && monacoParam !== "0",
+  );
+  const toggleMonaco = useCallback(
+    (pleaseUseMonaco: boolean) => {
+      if (canUseMonaco && pleaseUseMonaco) {
+        setWantsMonaco(true);
+      } else {
+        setWantsMonaco(false);
+      }
+    },
+    [canUseMonaco],
+  );
+
+  return {
+    canUse: canUseMonaco,
+    wants: wantsMonaco,
+    toggle: toggleMonaco,
+  };
+}
+
+export function useAppContext(_fs: FileSystem = new FileSystem()) {
+  const [theme, setTheme] = useState<Theme>(readStoredTheme);
+
+  useEffect(() => {
+    writeStoredTheme(theme);
+  }, [theme]);
+
+  return {
+    monaco: useMonaco(),
+    settings: useDialog(),
+    filePicker: useFilePicker(),
+    tracking: useTracking(),
+    theme,
+    setTheme,
+  };
+}
+
+export const AppContext = createContext<ReturnType<typeof useAppContext>>({
+  monaco: {
+    canUse: true,
+    wants: true,
+    toggle() {
+      return undefined;
+    },
+  },
+  filePicker: {
+    close() {
+      return undefined;
+    },
+    open() {
+      return undefined;
+    },
+    select(options: FilePickerOptions) {
+      return Promise.reject("");
+    },
+    isOpen: false,
+    suffix: undefined,
+  } as ReturnType<typeof useFilePicker>,
+  settings: {
+    close() {
+      return undefined;
+    },
+    open() {
+      return undefined;
+    },
+    isOpen: false,
+  },
+  tracking: {
+    canTrack: false,
+    haveAsked: false,
+    accept() {
+      return undefined;
+    },
+    reject() {
+      return undefined;
+    },
+    trackEvent() {
+      return undefined;
+    },
+    trackPage() {
+      return undefined;
+    },
+  },
+  theme: "system",
+  setTheme() {
+    return undefined;
+  },
+});

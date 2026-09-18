@@ -1,0 +1,12 @@
+..
+build
+node_modules
+src
+tsconfig*
+views
+!out
+out/**/*.map
+!fileicons
+!languages
+!LICENSE
+!package.json

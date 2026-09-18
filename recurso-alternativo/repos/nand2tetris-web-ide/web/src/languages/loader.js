@@ -1,0 +1,42 @@
+import { AsmLanguage } from "./asm";
+import { CmpLanguage } from "./cmp";
+import { JackLanguage } from "./jack";
+import { HdlLanguage, HdlSnippets } from "./hdl";
+import { TstLanguage } from "./tst";
+import { VmLanguage } from "./vm";
+
+const LANGUAGES = {
+  hdl: HdlLanguage,
+  cmp: CmpLanguage,
+  tst: TstLanguage,
+  vm: VmLanguage,
+  asm: AsmLanguage,
+  jack: JackLanguage,
+};
+
+const SNIPPETS = {
+  hdl: HdlSnippets,
+};
+
+let lock = false;
+export async function registerLanguages() {
+  if (lock) return;
+  lock = true;
+  const { loader } = await import("@monaco-editor/react");
+  const { languages } = await loader.init();
+  for (const [id, language] of Object.entries(LANGUAGES)) {
+    languages.register({ id });
+    languages.setMonarchTokensProvider(id, language);
+
+    if (SNIPPETS[id]) {
+      languages.registerCompletionItemProvider(id, SNIPPETS[id]);
+    }
+  }
+  lock = false;
+}
+
+export async function reloadHdlLanguage() {
+  const { loader } = await import("@monaco-editor/react");
+  const { languages } = await loader.init();
+  languages.setMonarchTokensProvider("hdl", HdlLanguage);
+}
