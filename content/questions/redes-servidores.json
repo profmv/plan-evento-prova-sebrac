@@ -604,5 +604,1233 @@
       "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
     },
     "tags": ["politica-de-seguranca", "seguranca-da-informacao", "privilegio-minimo", "governanca"]
+  },
+  {
+    "id": "q-net-021-categorias-cabeamento-cat6-cat6a-largura-banda",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na especificação de cabeamento estruturado em par trançado de cobre, qual é a principal vantagem técnica do cabo Categoria 6A (Cat6a) em relação ao cabo Categoria 6 (Cat6) convencional em redes Ethernet de 10 Gbps (10GBASE-T)?",
+    "options": [
+      {
+        "id": "opt-cat6a-100m-500mhz",
+        "text": "O cabo Cat6a opera em frequências de até 500 MHz e garante suporte a 10 Gbps na distância máxima de canal de 100 metros, enquanto o Cat6 comum opera até 250 MHz e atinge 10 Gbps apenas em distâncias limitadas (até ~55 metros)."
+      },
+      {
+        "id": "opt-cat6a-dispensa-conectores",
+        "text": "O cabo Cat6a dispensa conectores RJ-45, utilizando conexões por indução eletromagnética sem contato metálico."
+      },
+      {
+        "id": "opt-cat6a-apenas-monomodo",
+        "text": "O cabo Cat6a é fabricado com filamentos de vidro monomodo em vez de condutores de cobre."
+      },
+      {
+        "id": "opt-cat6a-voltagem-1000v",
+        "text": "O cabo Cat6a suporta condução elétrica de alta tensão de até 1.000 Volts para alimentar nobreaks de grande porte."
+      }
+    ],
+    "correctOptionId": "opt-cat6a-100m-500mhz",
+    "explanation": "O cabo Cat6a (Category 6 Augmented) é certificado para operar até 500 MHz (o dobro dos 250 MHz do Cat6) e possui espaçamento e blindagem superiores contra diafonia externa (Alien Crosstalk / AXT), viabilizando taxas de 10 Gbps (10GBASE-T) no canal completo de 100 metros.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "cabeamento-estruturado", "cat6", "cat6a", "10gbps"]
+  },
+  {
+    "id": "q-net-022-poe-padroes-802-3af-at-bt",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "A tecnologia PoE (Power over Ethernet) permite trafegar dados e energia elétrica no mesmo cabo de par trançado. Ao planejar a instalação de pontos de acesso Wi-Fi 6 de alto desempenho e câmeras PTZ motorizadas que demandam até 25 Watts de potência contínua, qual padrão IEEE 802.3 deve ser fornecido pelas portas dos switches?",
+    "options": [
+      {
+        "id": "opt-poe-plus-802-3at",
+        "text": "IEEE 802.3at (PoE+), que fornece até 30 Watts por porta na saída do switch (PSE)."
+      },
+      {
+        "id": "opt-poe-antigo-802-3af",
+        "text": "IEEE 802.3af (PoE legado), limitado a no máximo 15,4 Watts na saída da porta."
+      },
+      {
+        "id": "opt-ethernet-802-3u",
+        "text": "IEEE 802.3u (Fast Ethernet), que fornece energia exclusivamente em corrente alternada."
+      },
+      {
+        "id": "opt-vlan-802-1q",
+        "text": "IEEE 802.1Q, que adiciona voltagem nos bits de prioridade da tag Ethernet."
+      }
+    ],
+    "correctOptionId": "opt-poe-plus-802-3at",
+    "explanation": "O padrão IEEE 802.3at (PoE+) fornece até 30,0 W de potência contínua na porta do equipamento fornecedor (PSE) e assegura pelo menos 25,5 W disponíveis no dispositivo alimentado (PD), sendo o padrão adequado para câmeras PTZ, telefones IP com vídeo e APs Wi-Fi 6 que excedem os 15,4 W do padrão 802.3af original.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "poe", "802-3at", "switches", "infraestrutura"]
+  },
+  {
+    "id": "q-net-023-raio-de-curvatura-cabo-par-trancado",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante a passagem de cabos de rede de par trançado (UTP) por eletrodutos e calhas em uma infraestrutura predial, qual é a recomendação da norma ANSI/TIA-568 para o raio mínimo de curvatura dos cabos para evitar alteração na geometria dos pares e perda de desempenho?",
+    "options": [
+      {
+        "id": "opt-raio-minimo-4x-diametro",
+        "text": "O raio de curvatura não deve ser inferior a 4 vezes o diâmetro externo do cabo sob condições sem tensão mecânica de tração."
+      },
+      {
+        "id": "opt-dobrar-90-graus-vincado",
+        "text": "O cabo deve ser dobrado em ângulo vivo de 90 graus com alicate de bico para compactar a fiação."
+      },
+      {
+        "id": "opt-raio-minimo-50x-diametro",
+        "text": "O raio deve ter no mínimo 5 metros independentemente da espessura do cabo de rede."
+      },
+      {
+        "id": "opt-sem-qualquer-restricao",
+        "text": "Não há restrição de raio de curvatura, pois condutores de cobre mantêm a mesma condutância em qualquer ângulo de dobra."
+      }
+    ],
+    "correctOptionId": "opt-raio-minimo-4x-diametro",
+    "explanation": "A norma ANSI/TIA-568 estipula que o raio mínimo de curvatura para cabos UTP de 4 pares sem blindagem durante o repouso deve ser de pelo menos 4 vezes o diâmetro externo do cabo (e cerca de 8 vezes durante a tração). Curvaturas acentuadas distorcem o passo de torção dos pares, aumentando a diafonia (crosstalk) e as perdas de retorno.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "cabeamento-estruturado", "normas", "tia-568", "infraestrutura"]
+  },
+  {
+    "id": "q-net-024-organizacao-racks-unidades-u",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na montagem de equipamentos em racks padronizados de 19 polegadas em data centers ou salas de telecomunicações, o espaço vertical ocupado pelos equipamentos é medido em unidades 'U' (Rack Units). Qual é a medida equivalente a 1U de altura?",
+    "options": [
+      {
+        "id": "opt-1u-1-75-polegadas-44-45mm",
+        "text": "1,75 polegadas (aproximadamente 44,45 mm)."
+      },
+      {
+        "id": "opt-1u-1-polegada-25-4mm",
+        "text": "1,00 polegada (25,40 mm)."
+      },
+      {
+        "id": "opt-1u-3-polegadas-76-2mm",
+        "text": "3,00 polegadas (76,20 mm)."
+      },
+      {
+        "id": "opt-1u-10-centimetros",
+        "text": "10 centímetros (100 mm)."
+      },
+      {
+        "id": "opt-1u-19-polegadas-482mm",
+        "text": "19 polegadas (482,6 mm)."
+      }
+    ],
+    "correctOptionId": "opt-1u-1-75-polegadas-44-45mm",
+    "explanation": "A especificação EIA-310-D define o padrão de rack de 19 polegadas (largura entre trilhos) e estipula a unidade vertical de montagem 1U como exatamente 1,75 polegadas (44,45 mm), correspondendo a um padrão de três furos de fixação para porcas-gaiola.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "rack", "infraestrutura", "eia-310", "data-center"]
+  },
+  {
+    "id": "q-net-025-vlan-acesso-vs-tronco-portas",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um switch corporativo gerenciável com suporte a VLANs (IEEE 802.1Q), qual é a diferença operacional entre uma porta configurada em modo ACESSO (Access Port) e uma porta configurada em modo TRONCO (Trunk Port)?",
+    "options": [
+      {
+        "id": "opt-acesso-uma-vlan-sem-tag-tronco-multiplas-com-tag",
+        "text": "A porta de acesso pertence a uma única VLAN e encaminha quadros comuns sem etiqueta (untagged) para estações finais; a porta de tronco transporta tráfego de múltiplas VLANs adicionando etiquetas 802.1Q (tagged) entre switches ou roteadores."
+      },
+      {
+        "id": "opt-acesso-criptografada-tronco-aberta",
+        "text": "A porta de acesso utiliza criptografia de hardware permanente; a porta de tronco opera em modo aberto sem autenticação."
+      },
+      {
+        "id": "opt-acesso-exclusiva-servidores-tronco-impressoras",
+        "text": "A porta de acesso só aceita servidores físicos Linux; a porta de tronco só aceita impressoras de rede."
+      },
+      {
+        "id": "opt-acesso-fibra-optica-tronco-cobre",
+        "text": "A porta de acesso é obrigatoriamente óptica; a porta de tronco deve ser obrigatoriamente metálica em par trançado."
+      }
+    ],
+    "correctOptionId": "opt-acesso-uma-vlan-sem-tag-tronco-multiplas-com-tag",
+    "explanation": "Portas em modo de Acesso conectam dispositivos de ponta (estações de trabalho, impressoras, servidores) que desconhecem VLANs, recebendo e enviando quadros nativos sem tag. Portas de Tronco interligam dispositivos de rede (switches a switches ou switches a roteadores), multiplexando o tráfego de várias VLANs distintas através de tags IEEE 802.1Q.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "vlan", "switches", "camada-2", "802-1q"]
+  },
+  {
+    "id": "q-net-026-fibra-optica-conector-lc-sc",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na conectorização de cordões e distribuidores ópticos (DIO), quais são os dois tipos de conectores de fibra óptica amplamente utilizados em equipamentos de rede modernos, sendo um de corpo quadrado de encaixe push-pull com ferrolho de 2,5 mm e outro compacto de alta densidade com ferrolho de 1,25 mm utilizado em transceivers SFP?",
+    "options": [
+      {
+        "id": "opt-sc-e-lc",
+        "text": "Conector SC (Subscriber Connector) e Conector LC (Lucent Connector)."
+      },
+      {
+        "id": "opt-bnc-e-rj45",
+        "text": "Conector BNC e Conector RJ-45."
+      },
+      {
+        "id": "opt-usb-c-e-thunderbolt",
+        "text": "Conector USB-C e Conector Thunderbolt."
+      },
+      {
+        "id": "opt-vga-e-hdmi",
+        "text": "Conector VGA e Conector HDMI."
+      }
+    ],
+    "correctOptionId": "opt-sc-e-lc",
+    "explanation": "O conector SC possui ferrolho cerâmico de 2,5 mm e trava tipo push-pull, muito comum em DIOs e redes legadas/GPON. O conector LC é um modelo Small Form Factor (SFF) com ferrolho de 1,25 mm e trava tipo RJ-45, sendo o padrão da indústria para conexões de alta densidade em portas SFP/SFP+ de switches modernos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "fibra-optica", "conectores", "lc", "sc", "infraestrutura"]
+  },
+  {
+    "id": "q-net-027-testador-certificador-fluke-medicoes",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na homologação de um sistema de cabeamento estruturado recém-instalado, a equipe técnica utiliza um certificador de cabos de nível profissional (como Fluke DSX). Além de checar o mapa de fios (continuidade de pinagem), quais grandezas elétricas e de transmissão esse equipamento analisa para emitir o laudo de conformidade com a norma?",
+    "options": [
+      {
+        "id": "opt-atenuacao-next-perda-retorno",
+        "text": "Atenuação (Insertion Loss), Paradiafonia (NEXT/FEXT), Perda de Retorno (Return Loss), Atraso de Propagação (Propagation Delay) e Comprimento real do canal."
+      },
+      {
+        "id": "opt-tensao-tomada-abnt",
+        "text": "Exclusivamente a voltagem da rede elétrica da tomada ABNT 110V/220V."
+      },
+      {
+        "id": "opt-velocidade-download-provedor",
+        "text": "O download em megabytes por segundo de arquivos torrent a partir da Internet pública."
+      },
+      {
+        "id": "opt-temperatura-gpu-switch",
+        "text": "A temperatura do processador gráfico integrado no switch do andar."
+      }
+    ],
+    "correctOptionId": "opt-atenuacao-next-perda-retorno",
+    "explanation": "Um certificador de cabos de rede avalia os parâmetros de RF essenciais estipulados pelas normas TIA/ISO: perda por inserção (atenuação), diafonia nas extremidades próxima e remota (NEXT, FEXT), perda por reflexão de impedância (Return Loss), comprimento por TDR e distorção de propagação (Delay Skew).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "certificacao", "cabeamento-estruturado", "tia-568", "diagnostico"]
+  },
+  {
+    "id": "q-net-028-poe-injeta-tensao-dispositivo-nao-poe",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Ao conectar um computador ou notebook convencional (cujas placas de rede não suportam PoE) em uma porta de um switch PoE compatível com as normas IEEE 802.3af/at, o computador será danificado eletricamente pela injeção da voltagem de 48V.",
+    "correctAnswer": false,
+    "explanation": "Falso. Os padrões oficiais IEEE 802.3af/at/bt utilizam PoE ativo com mecanismo inteligente de detecção. O switch injeta uma tensão de prova insignificante (baixa voltagem) para verificar se o dispositivo conectado possui um resistor de assinatura de 25 kΩ. Se não for detectado dispositivo compatível com PoE, o switch desativa o envio de energia e opera normalmente como uma porta Ethernet padrão de dados.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "poe", "switches", "seguranca-eletrica", "protocolos"]
+  },
+  {
+    "id": "q-net-029-norma-limite-canal-cabeamento-horizontal",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Segundo a norma internacional ANSI/TIA-568, o comprimento total máximo permitido para um canal de cabeamento estruturado horizontal em cabo de par trançado de cobre (incluindo até 90 metros de cabo rígido de link permanente e a soma de até 10 metros de patch cords flexíveis) é de exatamente 100 metros.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O canal completo de cabeamento horizontal em cobre é limitado a 100 metros: até 90 metros de cabo sólido horizontal instalado em tubulações e bandejamentos (Permanent Link), mais até 10 metros somados de cabos flexíveis de manobra (patch cords de estação e de rack), respeitando as margens de atenuação e propagação de sinal.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "cabeamento-estruturado", "normas", "tia-568", "infraestrutura"]
+  },
+  {
+    "id": "q-net-030-sigla-cabos-rede-nao-blindados-utp",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC05"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "Qual é a sigla em inglês comumente utilizada para designar cabos de rede de par trançado sem nenhum tipo de blindagem metálica externa nos pares ou na capa?",
+    "acceptedAnswers": ["utp"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "A sigla UTP significa Unshielded Twisted Pair (Par Trançado Sem Blindagem). É o padrão de cabo de rede de cobre mais popular e econômico para redes locais internas (LANs).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC05"
+    },
+    "tags": ["redes", "cabeamento-estruturado", "utp", "conectores"]
+  },
+  {
+    "id": "q-net-031-calculo-sub-rede-barra-27",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Uma empresa precisa dividir o bloco IPv4 privado 192.168.1.0/24 em sub-redes com máscara de tamanho fixo /27 (255.255.255.224). Quantos endereços IP úteis atribuíveis a hosts estão disponíveis em cada uma dessas sub-redes e qual é o endereço de broadcast da primeira sub-rede (192.168.1.0/27)?",
+    "options": [
+      {
+        "id": "opt-30-hosts-broadcast-31",
+        "text": "30 hosts utilizáveis por sub-rede e o endereço de broadcast da primeira sub-rede é 192.168.1.31."
+      },
+      {
+        "id": "opt-32-hosts-broadcast-32",
+        "text": "32 hosts utilizáveis por sub-rede e o endereço de broadcast da primeira sub-rede é 192.168.1.32."
+      },
+      {
+        "id": "opt-14-hosts-broadcast-15",
+        "text": "14 hosts utilizáveis por sub-rede e o endereço de broadcast da primeira sub-rede é 192.168.1.15."
+      },
+      {
+        "id": "opt-62-hosts-broadcast-63",
+        "text": "62 hosts utilizáveis por sub-rede e o endereço de broadcast da primeira sub-rede é 192.168.1.63."
+      }
+    ],
+    "correctOptionId": "opt-30-hosts-broadcast-31",
+    "explanation": "Com o prefixo /27, sobram 5 bits para endereço de host (32 - 27 = 5). O tamanho total do bloco é 2^5 = 32 endereços. Descontando o identificador de sub-rede (.0) e o endereço de broadcast (.31), restam 30 endereços IP utilizáveis (192.168.1.1 a 192.168.1.30).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "sub-rede", "cidr", "ipv4", "calculo-de-rede"]
+  },
+  {
+    "id": "q-net-032-calculo-sub-rede-barra-29",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao alocar um bloco de endereçamento IPv4 para um enlace de interconexão com prefixo CIDR 10.50.0.64/29, quais são respectivamente o primeiro endereço IP de host atribuível, o último endereço de host atribuível e o endereço de broadcast dessa sub-rede?",
+    "options": [
+      {
+        "id": "opt-primeiro-65-ultimo-70-bcast-71",
+        "text": "Primeiro: 10.50.0.65; Último: 10.50.0.70; Broadcast: 10.50.0.71."
+      },
+      {
+        "id": "opt-primeiro-64-ultimo-71-bcast-72",
+        "text": "Primeiro: 10.50.0.64; Último: 10.50.0.71; Broadcast: 10.50.0.72."
+      },
+      {
+        "id": "opt-primeiro-65-ultimo-72-bcast-73",
+        "text": "Primeiro: 10.50.0.65; Último: 10.50.0.72; Broadcast: 10.50.0.73."
+      },
+      {
+        "id": "opt-primeiro-66-ultimo-70-bcast-71",
+        "text": "Primeiro: 10.50.0.66; Último: 10.50.0.70; Broadcast: 10.50.0.71."
+      }
+    ],
+    "correctOptionId": "opt-primeiro-65-ultimo-70-bcast-71",
+    "explanation": "Um bloco /29 possui máscara 255.255.255.248 e 3 bits de host, totalizando 2^3 = 8 endereços no intervalo de 10.50.0.64 a 10.50.0.71. O primeiro é a rede (10.50.0.64), o primeiro host válido é 10.50.0.65, o último host válido é 10.50.0.70 e o último endereço é o broadcast (10.50.0.71).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "sub-rede", "cidr", "ipv4", "roteamento"]
+  },
+  {
+    "id": "q-net-033-rota-estatica-padrao-default-route",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na tabela de roteamento de um roteador de borda ou computador, como é configurada a rota estática padrão (Default Route / Gateway of Last Resort), utilizada para encaminhar pacotes quando nenhuma rota mais específica coincidir com o IP de destino?",
+    "options": [
+      {
+        "id": "opt-rota-0-0-0-0-barra-0",
+        "text": "Endereço de rede 0.0.0.0 com máscara 0.0.0.0 (notação CIDR 0.0.0.0/0) apontando para o próximo salto."
+      },
+      {
+        "id": "opt-rota-255-255-255-255",
+        "text": "Endereço de rede 255.255.255.255 com máscara /32 apontando para a interface local."
+      },
+      {
+        "id": "opt-rota-127-0-0-1",
+        "text": "Endereço de loopback 127.0.0.1 com máscara /8 apontando para a memória RAM."
+      },
+      {
+        "id": "opt-rota-192-168-1-1",
+        "text": "Endereço de broadcast da rede privada com máscara /24 apontando para o switch."
+      }
+    ],
+    "correctOptionId": "opt-rota-0-0-0-0-barra-0",
+    "explanation": "A rota padrão (0.0.0.0/0) tem comprimento de prefixo 0, o que significa que ela casa com absolutamente qualquer endereço IP de destino. Quando o roteador consulta a tabela e não encontra rotas mais específicas, encaminha o pacote para o gateway indicado pela rota 0.0.0.0/0.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "roteamento", "rota-estatica", "default-gateway", "cidr"]
+  },
+  {
+    "id": "q-net-034-switch-camada-3-intervlan-svi",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em redes locais de médio e grande porte, a comunicação entre diferentes VLANs pode ser realizada em um switch de Camada 3 (Switch Multicamada / L3) sem necessidade de enviar o tráfego a um roteador externo (Router-on-a-Stick). Como é chamada a interface lógica de Camada 3 configurada no switch L3 para atuar como gateway padrão de cada VLAN?",
+    "options": [
+      {
+        "id": "opt-svi-interface-vlan",
+        "text": "SVI (Switched Virtual Interface / Interface Virtual Comutada, configurada via 'interface vlan X')."
+      },
+      {
+        "id": "opt-loopback-dinamica",
+        "text": "Interface Loopback Dinâmica em anel de token."
+      },
+      {
+        "id": "opt-porta-span-mirroring",
+        "text": "Porta SPAN (Switched Port Analyzer) de espelhamento passivo."
+      },
+      {
+        "id": "opt-subinterface-serial",
+        "text": "Subinterface serial síncrona V.35."
+      }
+    ],
+    "correctOptionId": "opt-svi-interface-vlan",
+    "explanation": "A SVI (Switched Virtual Interface) é uma interface lógica de Camada 3 vinculada a uma VLAN específica dentro do switch L3. Ao atribuir um endereço IP a essa SVI, ela atua como o Default Gateway para todos os hosts pertencentes àquela VLAN, realizando o roteamento intervlan em hardware (ASIC wire-speed).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "switch-l3", "intervlan", "svi", "roteamento"]
+  },
+  {
+    "id": "q-net-035-analise-tabela-roteamento-longest-prefix",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "A tabela de roteamento de um roteador contém três rotas ativas: 1. 10.0.0.0/8 via Gateway A; 2. 10.1.0.0/16 via Gateway B; 3. 10.1.5.0/24 via Gateway C. Ao receber um pacote com destino ao endereço IP 10.1.5.50, para qual gateway o roteador encaminhará o pacote e qual é a regra do protocolo IP que rege essa decisão?",
+    "options": [
+      {
+        "id": "opt-gateway-c-longest-prefix",
+        "text": "Para o Gateway C, com base no princípio do Longest Prefix Match (Correspondência de Prefixo Mais Longo/Mais Específico, /24)."
+      },
+      {
+        "id": "opt-gateway-a-menor-mascara",
+        "text": "Para o Gateway A, porque menores prefixos (/8) têm prioridade absoluta de processamento."
+      },
+      {
+        "id": "opt-gateway-b-intermediario",
+        "text": "Para o Gateway B, por ser o valor médio de prefixo na tabela."
+      },
+      {
+        "id": "opt-descarte-pacote-ambiguidade",
+        "text": "O pacote será descartado imediatamente devido ao conflito entre as três rotas sobrepostas."
+      }
+    ],
+    "correctOptionId": "opt-gateway-c-longest-prefix",
+    "explanation": "O algoritmo fundamental de encaminhamento IP utiliza a regra do Longest Prefix Match (maior número de bits coincidentes na máscara de sub-rede). Como /24 (24 bits) é mais específico que /16 e /8, o pacote destinado a 10.1.5.50 é direcionado exclusivamente pela rota 10.1.5.0/24 via Gateway C.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "roteamento", "longest-prefix-match", "tabela-de-roteamento", "ip"]
+  },
+  {
+    "id": "q-net-036-distancia-administrativa-rotas",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em roteadores, quando existem rotas concorrentes aprendidas por fontes distintas para o mesmo destino exato de sub-rede, qual critério métrico prioritário define qual rota será inserida na tabela de roteamento principal?",
+    "options": [
+      {
+        "id": "opt-distancia-administrativa",
+        "text": "A menor Distância Administrativa (Administrative Distance - AD), que indica o grau de confiabilidade da fonte de roteamento."
+      },
+      {
+        "id": "opt-maior-numero-saltos",
+        "text": "A rota com o maior número de saltos (hops) acumulados."
+      },
+      {
+        "id": "opt-ordem-alfabetica-protocolo",
+        "text": "A ordem alfabética do nome do protocolo de roteamento."
+      },
+      {
+        "id": "opt-maior-atraso-latencia",
+        "text": "A rota que apresentar a maior latência média de transmissão."
+      }
+    ],
+    "correctOptionId": "opt-distancia-administrativa",
+    "explanation": "A Distância Administrativa (AD) é o valor numérico que define a prioridade e a confiabilidade de uma fonte de rotas. Rotas diretamente conectadas têm AD 0, rotas estáticas têm AD 1, e protocolos de roteamento dinâmico possuem valores superiores (ex: OSPF tem AD 110). O roteador sempre elege a rota com o menor valor de AD.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "roteamento", "distancia-administrativa", "metricas"]
+  },
+  {
+    "id": "q-net-037-comando-ping-ttl-excedido",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao executar o comando `ping` para testar a conectividade com um servidor remoto, o técnico recebe a mensagem de erro repetida: 'Resposta de 192.168.50.2: TTL expirado no trânsito' (TTL expired in transit). Qual falha de infraestrutura de rede normalmente provoca esse sintoma?",
+    "options": [
+      {
+        "id": "opt-loop-de-roteamento",
+        "text": "A existência de um loop de roteamento (routing loop) entre dois ou mais roteadores na rede."
+      },
+      {
+        "id": "opt-cabo-desconectado-placa",
+        "text": "A desconexão física do cabo de rede da placa de rede local."
+      },
+      {
+        "id": "opt-servidor-desligado-eletricamente",
+        "text": "O desligamento elétrico do servidor de destino."
+      },
+      {
+        "id": "opt-memoria-ram-esgotada-cliente",
+        "text": "O esgotamento de memória RAM do computador que executou o comando ping."
+      }
+    ],
+    "correctOptionId": "opt-loop-de-roteamento",
+    "explanation": "O campo TTL (Time To Live) no cabeçalho IP é decrementado em 1 por cada roteador que repassa o pacote. Se houver um loop de roteamento (por rotas mal configuradas), o pacote fica girando entre os roteadores até que o TTL chegue a zero, momento em que o roteador descarta o pacote e retorna a mensagem ICMP Time Exceeded.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "ping", "icmp", "ttl", "roteamento", "diagnostico"]
+  },
+  {
+    "id": "q-net-038-protocolo-arp-resolucao-mac",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "O protocolo ARP (Address Resolution Protocol) é responsável por mapear um endereço lógico da camada de rede (IPv4) para o respectivo endereço físico de hardware (endereço MAC) da placa de rede dentro de um mesmo segmento de rede local.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Na camada de enlace de dados (Camada 2), a entrega de quadros Ethernet depende do endereço físico MAC de destino. O protocolo ARP descobre esse endereço enviando uma requisição em broadcast ('Quem tem o IP X.X.X.X?') e gravando a resposta unicast na tabela de cache ARP local.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "arp", "camada-2", "enderecamento-mac", "protocolos"]
+  },
+  {
+    "id": "q-net-039-arp-spoofing-ataque-mitm",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Como o protocolo ARP padrão não possui mecanismo nativo de autenticação, um invasor na rede local pode enviar mensagens gratuitous ARP forjadas para envenenar o cache ARP de outras máquinas e interceptar seu tráfego (ataque ARP Spoofing / Man-in-the-Middle).",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O ataque de ARP Poisoning / ARP Spoofing explora a confiança implícita do protocolo ARP. O atacante envia anúncios ARP falsificados alegando que o endereço IP do roteador (Default Gateway) pertence ao seu próprio endereço MAC, fazendo com que todo o tráfego da vítima seja desviado através da máquina do invasor.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "arp-spoofing", "seguranca-em-redes", "mitm", "vulnerabilidade"]
+  },
+  {
+    "id": "q-net-040-comando-exibicao-tabela-rotas-windows",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC06"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "No Prompt de Comando ou PowerShell do Windows, qual comando clássico é utilizado para exibir na tela a tabela completa de rotas IPv4 ativas, incluindo as rotas de rede, gateway padrão e interfaces locais?",
+    "acceptedAnswers": ["route print", "netstat -r"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O comando `route print` (ou alternativamente `netstat -r`) exibe a lista de interfaces de rede, a tabela de roteamento IPv4 e IPv6 do sistema com destinos de rede, máscaras, gateways e métricas de salto associadas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC06"
+    },
+    "tags": ["redes", "roteamento", "windows", "comandos", "route-print"]
+  },
+  {
+    "id": "q-net-041-dns-zona-reversa-registro-ptr",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No gerenciamento de servidores DNS, qual é o tipo de registro de recurso (Resource Record) configurado na zona reversa (`in-addr.arpa`) para realizar a resolução inversa, mapeando um endereço IPv4 para seu respectivo nome FQDN de domínio?",
+    "options": [
+      {
+        "id": "opt-registro-ptr",
+        "text": "Registro PTR (Pointer Record)."
+      },
+      {
+        "id": "opt-registro-a",
+        "text": "Registro A (Address Record)."
+      },
+      {
+        "id": "opt-registro-cname",
+        "text": "Registro CNAME (Canonical Name)."
+      },
+      {
+        "id": "opt-registro-mx",
+        "text": "Registro MX (Mail Exchanger)."
+      }
+    ],
+    "correctOptionId": "opt-registro-ptr",
+    "explanation": "O registro PTR (Pointer) é o componente fundamental de zonas DNS reversas. Ele associa um endereço IP (invertido sob o domínio in-addr.arpa, ex: 50.1.168.192.in-addr.arpa) ao nome de host FQDN correspondente, sendo amplamente exigido por servidores de e-mail para checagem anti-spam.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "dns", "ptr", "resolucao-reversa", "gerenciamento"]
+  },
+  {
+    "id": "q-net-042-dhcp-escopos-reservas-mac",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um servidor DHCP que distribui endereços dinâmicos para computadores de uma empresa, qual configuração é necessária para garantir que uma impressora de rede de alta capacidade receba sempre o mesmo endereço IP específico (ex: 192.168.1.200) mantendo a facilidade de gerenciamento centralizado?",
+    "options": [
+      {
+        "id": "opt-reserva-dhcp-mac",
+        "text": "Criar uma Reserva DHCP vinculando o endereço IP desejado ao endereço físico MAC da placa de rede da impressora."
+      },
+      {
+        "id": "opt-excluir-impressora-do-dominio",
+        "text": "Excluir o computador de impressão do domínio Active Directory."
+      },
+      {
+        "id": "opt-desativar-o-servico-dhcp",
+        "text": "Desativar o serviço DHCP do servidor e reiniciar o roteador."
+      },
+      {
+        "id": "opt-configurar-vlan-exclusiva-sem-ip",
+        "text": "Isolar a impressora em uma VLAN sem endereçamento IP atribuído."
+      }
+    ],
+    "correctOptionId": "opt-reserva-dhcp-mac",
+    "explanation": "Uma Reserva DHCP (DHCP Reservation) no servidor vincula de forma estática um endereço IP fixo do escopo ao endereço MAC da interface do dispositivo. Assim, a impressora continua solicitando IP via protocolo DHCP (recebendo máscaras, gateways e DNS atualizados), mas o servidor sempre entrega o mesmo IP reservado.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "dhcp", "reserva-dhcp", "mac", "redes"]
+  },
+  {
+    "id": "q-net-043-active-directory-gpo-aplicacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No Microsoft Active Directory Domain Services (AD DS), qual é a ordem cronológica padrão de processamento e aplicação de Políticas de Grupo (GPOs), conhecida pela regra mnemônica LSDOU?",
+    "options": [
+      {
+        "id": "opt-lsdou-local-site-dominio-ou",
+        "text": "Local -> Site -> Domínio -> Unidade Organizacional (OU)."
+      },
+      {
+        "id": "opt-ordem-inversa-ou-dominio",
+        "text": "Unidade Organizacional (OU) -> Domínio -> Site -> Local."
+      },
+      {
+        "id": "opt-ordem-alfabetica-gpo",
+        "text": "Ordem alfabética do nome da diretiva no painel de controle."
+      },
+      {
+        "id": "opt-ordem-aleatoria-servidor",
+        "text": "Ordem aleatória definida pelo horário de logon do usuário."
+      }
+    ],
+    "correctOptionId": "opt-lsdou-local-site-dominio-ou",
+    "explanation": "O Windows processa GPOs na sequência LSDOU: 1. Política Local da máquina, 2. Políticas de Site do Active Directory, 3. Políticas de Domínio, 4. Políticas de Unidades Organizacionais (OUs), das mais altas para as sub-OUs aninhadas. Por padrão, configurações aplicadas por último (níveis mais próximos do objeto) sobrescrevem as anteriores.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "active-directory", "gpo", "windows-server", "seguranca"]
+  },
+  {
+    "id": "q-net-044-samba-compartilhamento-linux-smb",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em servidores baseados em Linux, qual pacote de software de rede é instalado para compartilhar arquivos e impressoras de forma transparente com clientes Windows e estações Linux através dos protocolos SMB/CIFS?",
+    "options": [
+      {
+        "id": "opt-samba-smb-service",
+        "text": "Samba (serviço smbd/nmbd)."
+      },
+      {
+        "id": "opt-postfix-smtp",
+        "text": "Postfix (servidor SMTP)."
+      },
+      {
+        "id": "opt-squid-proxy",
+        "text": "Squid (servidor proxy web)."
+      },
+      {
+        "id": "opt-bind9-named",
+        "text": "BIND9 (servidor DNS)."
+      }
+    ],
+    "correctOptionId": "opt-samba-smb-service",
+    "explanation": "O software Samba é a suíte de interoperabilidade que implementa os protocolos SMB/CIFS e Active Directory em sistemas operacionais Unix/Linux, permitindo que servidores Linux compartilhem diretórios com controle de permissões e integrem-se a ambientes de rede corporativa heterogêneos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "linux", "samba", "smb", "compartilhamento"]
+  },
+  {
+    "id": "q-net-045-ssh-autenticacao-chave-publica",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Para gerenciar remotamente servidores Linux com alta segurança via OpenSSH sem utilizar senhas vulneráveis a força bruta, qual arquivo no diretório do usuário remoto deve receber a chave criptográfica PÚBLICA do administrador?",
+    "options": [
+      {
+        "id": "opt-authorized-keys",
+        "text": "~/.ssh/authorized_keys"
+      },
+      {
+        "id": "opt-id-rsa-privada",
+        "text": "~/.ssh/id_rsa"
+      },
+      {
+        "id": "opt-known-hosts",
+        "text": "~/.ssh/known_hosts"
+      },
+      {
+        "id": "opt-sshd-config",
+        "text": "/etc/ssh/ssh_host_rsa_key"
+      }
+    ],
+    "correctOptionId": "opt-authorized-keys",
+    "explanation": "Na autenticação assimétrica SSH, a chave pública do cliente deve ser adicionada ao arquivo `~/.ssh/authorized_keys` na conta do usuário no servidor de destino. A chave privada correspondente permanece guardada exclusivamente na máquina do administrador com permissões restritas (chmod 600).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "ssh", "linux", "seguranca", "criptografia"]
+  },
+  {
+    "id": "q-net-046-apache-virtual-hosts-baseados-em-nome",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No servidor web Apache HTTP Server (httpd), qual recurso de configuração permite hospedar e responder por múltiplos websites com nomes de domínio distintos (ex: `empresa.com.br` e `loja.empresa.com.br`) utilizando um único endereço IP público na mesma porta TCP 80/443?",
+    "options": [
+      {
+        "id": "opt-virtual-hosts-baseados-em-nome",
+        "text": "Virtual Hosts (Hosts Virtuais baseados em nome, analisando o cabeçalho HTTP 'Host:')."
+      },
+      {
+        "id": "opt-mod-rewrite-binario",
+        "text": "Mod Rewrite Binário em anel de segurança zero."
+      },
+      {
+        "id": "opt-cluster-dns-round-robin",
+        "text": "Divisão física de placas de rede por cabo de par trançado."
+      },
+      {
+        "id": "opt-balanceador-nat-estatico",
+        "text": "Túneis GRE com roteamento de portas físicas por usuário."
+      }
+    ],
+    "correctOptionId": "opt-virtual-hosts-baseados-em-nome",
+    "explanation": "O recurso VirtualHost baseado em nome do Apache analisa o cabeçalho 'Host:' enviado pelo navegador na requisição HTTP/1.1 para direcionar o tráfego ao diretório de arquivos correto (`DocumentRoot`), permitindo hospedar dezenas de domínios diferentes sob o mesmo endereço IP.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "apache", "web", "virtual-host", "http"]
+  },
+  {
+    "id": "q-net-047-permissao-arquivos-linux-chmod-octal",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um servidor Linux, o administrador executa o comando `chmod 755 script.sh`. Quais permissões foram concedidas respectivamente ao usuário Proprietário (User), ao Grupo (Group) e aos Outros usuários (Others)?",
+    "options": [
+      {
+        "id": "opt-rwx-rx-rx",
+        "text": "Proprietário: Leitura, Escrita e Execução (rwx); Grupo: Leitura e Execução (r-x); Outros: Leitura e Execução (r-x)."
+      },
+      {
+        "id": "opt-rwx-rwx-rwx",
+        "text": "Permissão total de leitura, escrita e execução para todos os usuários indistintamente."
+      },
+      {
+        "id": "opt-r-w-x-para-todos",
+        "text": "Apenas leitura para o proprietário, apenas escrita para o grupo e apenas execução para os outros."
+      },
+      {
+        "id": "opt-sem-acesso-bloqueio",
+        "text": "Bloqueio completo de acesso para usuários que não pertençam ao grupo de administradores."
+      }
+    ],
+    "correctOptionId": "opt-rwx-rx-rx",
+    "explanation": "Na notação octal de permissões do Linux: 4 = leitura (r), 2 = escrita (w) e 1 = execução (x). Assim, 7 (4+2+1) concede rwx ao proprietário; 5 (4+1) concede r-x ao grupo; e 5 (4+1) concede r-x aos demais usuários.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "linux", "permissoes", "chmod", "seguranca"]
+  },
+  {
+    "id": "q-net-048-certificado-tls-https-porta-443",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "O protocolo HTTPS utiliza criptografia TLS (Transport Layer Security) sobre a porta TCP 443 para garantir a confidencialidade e a integridade do tráfego entre o cliente e o servidor web, além de autenticar a identidade do site por meio de um certificado digital emitido por uma Autoridade Certificadora (CA).",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O HTTPS combina o protocolo HTTP com a camada de transporte criptografada TLS na porta 443. Os dados trafegados (senhas, cookies, dados pessoais) são cifrados contra interceptações na rede e a autenticidade do servidor é verificada pela cadeia de certificados da autoridade certificadora.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "https", "tls", "seguranca", "web"]
+  },
+  {
+    "id": "q-net-049-servico-systemd-gerenciamento-linux",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Em servidores Linux modernos equipados com o init system `systemd`, o comando `systemctl enable --now nginx` configura o servidor web Nginx para iniciar automaticamente no boot da máquina e simultaneamente inicia sua execução em tempo real no momento presente.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A opção `enable` cria os links simbólicos necessários nos alvos (targets) do systemd para que o serviço seja inicializado com o sistema operacional, e o modificador `--now` comanda o início imediato do serviço sem necessidade de executar um `systemctl start` adicional.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "linux", "systemd", "systemctl", "gerenciamento"]
+  },
+  {
+    "id": "q-net-050-comando-linux-teste-resolucao-dns",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC07"],
+    "difficulty": "INTERMEDIATE",
+    "type": "SHORT_ANSWER",
+    "prompt": "No terminal Linux, qual ferramenta de linha de comando poderosa e flexível (parte do pacote bind-utils/dnsutils) é amplamente utilizada por administradores para realizar consultas detalhadas a servidores de nomes DNS e exibir registros de recursos completos?",
+    "acceptedAnswers": ["dig", "nslookup"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O comando `dig` (Domain Information Groper) é o utilitário padrão para diagnóstico DNS no Linux, permitindo consultar tipos específicos de registros (A, MX, TXT, PTR, NS) e inspecionar os cabeçalhos de resposta de servidores DNS de forma transparente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC07"
+    },
+    "tags": ["servidores", "dns", "linux", "dig", "diagnostico"]
+  },
+  {
+    "id": "q-net-051-firewall-stateful-inspection-conexao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual é a principal vantagem de segurança e desempenho oferecida por um Firewall com Inspeção de Estados (Stateful Inspection / Stateful Firewall) em comparação a um Firewall de Filtragem de Pacotes sem Estado (Stateless Packet Filter)?",
+    "options": [
+      {
+        "id": "opt-stateful-rastreia-conexoes-ativas",
+        "text": "O firewall stateful mantém uma tabela de rastreamento de conexões ativas, permitindo automaticamente os pacotes de retorno pertencentes a fluxos legítimos iniciados pela rede interna sem necessidade de abrir portas fixas de entrada."
+      },
+      {
+        "id": "opt-stateful-dispensa-regras",
+        "text": "O firewall stateful não utiliza nenhuma regra de filtragem, adivinhando o comportamento dos pacotes por inteligência artificial local."
+      },
+      {
+        "id": "opt-stateless-mais-seguro",
+        "text": "O firewall stateless é mais seguro porque inspeciona o conteúdo criptografado de conexões HTTPS em tempo real."
+      },
+      {
+        "id": "opt-stateful-funciona-apenas-cabo",
+        "text": "O firewall stateful funciona exclusivamente em conexões por cabo coaxial de TV a cabo."
+      }
+    ],
+    "correctOptionId": "opt-stateful-rastreia-conexoes-ativas",
+    "explanation": "Firewalls com inspeção de estados (stateful) compreendem o ciclo de vida das conexões TCP e o contexto das mensagens UDP/ICMP. Eles criam entradas transitórias na tabela de conexão (conntrack) para autorizar apenas respostas esperadas a requisições internas, mitigando tentativas de conexão forjadas vindas da rede externa desprotegida.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["seguranca-em-redes", "firewall", "stateful", "iptables", "filtragem-de-pacotes"]
+  },
+  {
+    "id": "q-net-052-tipos-backup-completo-incremental-diferencial",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No planejamento de rotinas de backup corporativo de servidores, qual modalidade de cópia de segurança copia apenas os arquivos criados ou modificados desde o último backup (seja ele Completo ou Incremental) e desmarca o atributo de arquivamento (Archive bit)?",
+    "options": [
+      {
+        "id": "opt-backup-incremental",
+        "text": "Backup Incremental."
+      },
+      {
+        "id": "opt-backup-diferencial",
+        "text": "Backup Diferencial."
+      },
+      {
+        "id": "opt-backup-completo-full",
+        "text": "Backup Completo (Full)."
+      },
+      {
+        "id": "opt-backup-espelho-mirror",
+        "text": "Backup em Espelho (Mirror)."
+      }
+    ],
+    "correctOptionId": "opt-backup-incremental",
+    "explanation": "O Backup Incremental grava exclusivamente os dados alterados desde o backup anterior mais recente (qualquer que tenha sido o tipo) e desmarca o bit de arquivamento. Ele consome o menor volume de armazenamento diário, embora sua restauração completa exija a fita do último Full e todos os Incrementais sequenciais até o ponto de falha.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": [
+      "seguranca-da-informacao",
+      "backup",
+      "backup-incremental",
+      "continuidade",
+      "gestao-de-dados"
+    ]
+  },
+  {
+    "id": "q-net-053-vpn-openvpn-portas-protocolos",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na implantação de uma solução de rede privada virtual (VPN) corporativa baseada em OpenVPN, qual protocolo de transporte e porta padrão são recomendados para garantir menor latência e evitar problemas de sobrecarga por retransmissão aninhada (TCP-over-TCP)?",
+    "options": [
+      {
+        "id": "opt-udp-porta-1194",
+        "text": "Protocolo UDP na porta padrão 1194."
+      },
+      {
+        "id": "opt-tcp-porta-80",
+        "text": "Protocolo TCP na porta padrão 80."
+      },
+      {
+        "id": "opt-icmp-porta-0",
+        "text": "Protocolo ICMP tipo 8 sem porta lógica."
+      },
+      {
+        "id": "opt-ftp-porta-21",
+        "text": "Protocolo FTP na porta de controle 21."
+      }
+    ],
+    "correctOptionId": "opt-udp-porta-1194",
+    "explanation": "A especificação padrão do OpenVPN utiliza UDP na porta 1194. A escolha de UDP é tecnicamente preferível porque encapsular conexões TCP dos clientes dentro de um túnel de transporte também baseado em TCP cria o chamado 'TCP Meltdown' (dupla sobrecarga de janelamento e retransmissões concorrentes em caso de perda de pacotes).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["redes", "vpn", "openvpn", "udp", "seguranca-da-informacao"]
+  },
+  {
+    "id": "q-net-054-mitigacao-ransomware-segmentacao-backup-imutavel",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Para proteger a infraestrutura de rede corporativa contra o avanço de ataques destrutivos por Ransomware, qual combinação de medidas de arquitetura preventiva e armazenamento de backup deve ser adotada?",
+    "options": [
+      {
+        "id": "opt-segmentacao-backup-imutavel-desconectado",
+        "text": "Segmentação de rede com isolamento de sub-redes críticas, controle rígido de privilégios de acesso e adoção de backups imutáveis ou desconectados da rede (air-gapped)."
+      },
+      {
+        "id": "opt-desativar-antivirus-usar-hub",
+        "text": "Desativação de sistemas de monitoramento e substituição de switches por hubs para acelerar o tráfego."
+      },
+      {
+        "id": "opt-compartilhamento-total-sem-senha",
+        "text": "Compartilhamento de todos os volumes em rede com permissão total a convidados sem autenticação."
+      },
+      {
+        "id": "opt-apenas-aumento-de-link",
+        "text": "Apenas contratação de maior largura de banda de download junto ao provedor de Internet."
+      }
+    ],
+    "correctOptionId": "opt-segmentacao-backup-imutavel-desconectado",
+    "explanation": "A contenção de ransomware exige defesa em profundidade: segmentar a rede evita a propagação lateral (movimento lateral via SMB/RPC); restringir privilégios minimiza a superfície de ataque; e backups imutáveis (WORM) ou mantidos fisicamente desconectados da rede (air-gap) impedem que o malware criptografe ou elimine os pontos de recuperação.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["seguranca-da-informacao", "ransomware", "backup-imutavel", "segmentacao", "mitigacao"]
+  },
+  {
+    "id": "q-net-055-nftables-sucessor-moderno-iptables",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No ecossistema Linux moderno, qual subsistema de filtragem de pacotes e classificação de tráfego no kernel foi desenvolvido para substituir as ferramentas legadas `iptables`, `ip6tables`, `arptables` e `ebtables`, unificando a sintaxe e acelerando a execução das regras de firewall?",
+    "options": [
+      {
+        "id": "opt-nftables",
+        "text": "nftables (utilitário nft)."
+      },
+      {
+        "id": "opt-ipchains-legado",
+        "text": "ipchains legado."
+      },
+      {
+        "id": "opt-route-ctl",
+        "text": "routectl."
+      },
+      {
+        "id": "opt-netsh-firewall",
+        "text": "Netsh Firewall."
+      }
+    ],
+    "correctOptionId": "opt-nftables",
+    "explanation": "O nftables é o subsistema moderno de filtragem de pacotes do kernel Linux projetado para suceder o iptables. Ele unifica o tratamento de IPv4, IPv6, ARP e Ethernet bridging sob uma única máquina virtual no kernel, com sintaxe concisa e operações atômicas de atualização de regras sem reinicialização completa da tabela.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["seguranca-em-redes", "firewall", "nftables", "linux", "filtragem-de-pacotes"]
+  },
+  {
+    "id": "q-net-056-dmz-zona-desmilitarizada-topologia",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em topologias de segurança de rede corporativa, qual é a função primordial de uma Zona Desmilitarizada (DMZ - Demilitarized Zone) isolada por firewalls?",
+    "options": [
+      {
+        "id": "opt-dmz-servicos-externos-isolando-lan",
+        "text": "Hospedar serviços acessíveis publicamente pela Internet (servidores web, correio, DNS público), isolando-os para evitar que uma invasão a esses servidores dê acesso direto à rede interna (LAN)."
+      },
+      {
+        "id": "opt-dmz-area-de-jogos-usuarios",
+        "text": "Servir como rede de entretenimento para jogos eletrônicos sem filtros de acesso dos funcionários."
+      },
+      {
+        "id": "opt-dmz-apenas-backup-off-line",
+        "text": "Armazenar exclusivamente fitas magnéticas de backup fora de uso."
+      },
+      {
+        "id": "opt-dmz-substituicao-de-roteadores",
+        "text": "Substituir todos os switches e roteadores da empresa por repetidores de sinal Wi-Fi."
+      }
+    ],
+    "correctOptionId": "opt-dmz-servicos-externos-isolando-lan",
+    "explanation": "A DMZ cria uma sub-rede intermediária controlada por firewalls entre a rede pública (Internet desprotegida) e a rede privada (LAN corporativa interna). Caso um servidor público da DMZ seja comprometido por vulnerabilidade de software, o firewall impede conexões não autorizadas originadas da DMZ em direção à rede interna dos computadores da empresa.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["seguranca-em-redes", "dmz", "firewall", "arquitetura-de-rede", "topologia"]
+  },
+  {
+    "id": "q-net-057-ids-ips-snort-suricata-deteccao-prevencao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Um Sistema de Detecção de Intrusão (IDS) opera passivamente analisando cópias do tráfego para alertar sobre atividades suspeitas, enquanto um Sistema de Prevenção de Intrusão (IPS) é posicionado em linha (in-line) no fluxo da rede com capacidade de bloquear e descartar pacotes maliciosos em tempo real.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O IDS (como Snort em modo passivo via port mirroring) monitora o tráfego e gera notificações para os analistas sem interferir no fluxo de dados. Já o IPS é inserido diretamente no caminho dos pacotes (modo inline), permitindo que ele tome ações reativas automáticas imediatas, como derrubar conexões TCP (TCP RST) e criar bloqueios instantâneos de firewall.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["seguranca-em-redes", "ids", "ips", "snort", "monitoramento"]
+  },
+  {
+    "id": "q-net-058-autenticacao-dois-fatores-2fa-mfa",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "A autenticação multifator (MFA / 2FA) implementada para acesso a VPNs e serviços corporativos baseia-se na exigência de pelo menos dois fatores de autenticação de categorias distintas (algo que você sabe, algo que você tem ou algo que você é).",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O MFA fortalece drasticamente a segurança do controle de acesso: se um atacante descobrir a senha do usuário (fator 'algo que você sabe'), ele ainda não conseguirá autenticar a sessão sem possuir o código gerado pelo aplicativo autenticador/token físico (fator 'algo que você tem') ou a validação biométrica (fator 'algo que você é').",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["seguranca-da-informacao", "mfa", "2fa", "autenticacao", "vpn"]
+  },
+  {
+    "id": "q-net-059-ataque-phishing-engenharia-social",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em auditorias de segurança da informação em redes corporativas, qual método de ataque de engenharia social caracteriza-se pelo envio de e-mails falsificados fingindo ser de autoridades, parceiros comerciais ou da equipe interna de TI para induzir colaboradores a clicar em links maliciosos ou revelar suas credenciais de acesso à rede?",
+    "options": [
+      {
+        "id": "opt-phishing-engenharia-social",
+        "text": "Phishing."
+      },
+      {
+        "id": "opt-sql-injection-banco",
+        "text": "SQL Injection."
+      },
+      {
+        "id": "opt-cross-site-scripting",
+        "text": "Cross-Site Scripting (XSS)."
+      },
+      {
+        "id": "opt-buffer-overflow-stack",
+        "text": "Buffer Overflow."
+      }
+    ],
+    "correctOptionId": "opt-phishing-engenharia-social",
+    "explanation": "O phishing é uma das técnicas mais comuns e perigosas de engenharia social: invasores criam mensagens fraudulentas com forte apelo de urgência ou autoridade, direcionando as vítimas a páginas falsas clonadas para roubar credenciais de login ou instigar a execução de malwares que concedem acesso inicial à rede interna.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": [
+      "seguranca-da-informacao",
+      "phishing",
+      "engenharia-social",
+      "conscientizacao",
+      "ameacas"
+    ]
+  },
+  {
+    "id": "q-net-060-sigla-rede-privada-virtual-vpn",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "networks",
+    "unitIds": ["UC08"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "Qual é a sigla consagrada mundialmente para a tecnologia que estabelece conexões lógicas privadas e criptografadas sobre redes públicas como a Internet, permitindo a comunicação segura entre matriz e filiais ou trabalho remoto seguro?",
+    "acceptedAnswers": ["vpn"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "A sigla VPN significa Virtual Private Network (Rede Privada Virtual). Trata-se de uma tecnologia de tunelamento e criptografia na camada de rede ou transporte que permite estender uma rede local privada com segurança através de redes de transmissão públicas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC08"
+    },
+    "tags": ["redes", "vpn", "seguranca-da-informacao", "criptografia"]
   }
 ]

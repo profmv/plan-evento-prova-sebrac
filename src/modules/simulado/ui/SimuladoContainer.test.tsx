@@ -109,7 +109,7 @@ describe("SimuladoContainer", () => {
     if (secondQuestion) {
       await user.click(secondQuestion);
     }
-    expect(screen.getByRole("progressbar", { name: /questão 2 de 65/i })).toBeInTheDocument();
+    expect(screen.getByRole("progressbar", { name: /questão 2 de \d+/i })).toBeInTheDocument();
   });
 
   it("renders countdown timer and handles time limit configuration", async () => {

@@ -586,5 +586,1217 @@
       "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
     },
     "tags": ["ordem-de-servico", "atendimento", "documentacao", "suporte"]
+  },
+  {
+    "id": "q-sup-021-arquitetura-socket-lga-pga",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na montagem de computadores desktop, os soquetes de processador mais comuns são os padrões LGA (Land Grid Array) e PGA (Pin Grid Array). Qual é a principal diferença física estrutural entre esses dois padrões?",
+    "options": [
+      {
+        "id": "opt-lga-pinos-placa-pga-cpu",
+        "text": "No padrão LGA, os pinos de contato metálicos ficam localizados no soquete da placa-mãe; no padrão PGA, os pinos ficam fixos na parte inferior do próprio processador."
+      },
+      {
+        "id": "opt-lga-soldado-pga-removivel",
+        "text": "No padrão LGA, o processador é soldado permanentemente à placa-mãe; no padrão PGA, o processador é sempre instalado em módulo removível."
+      },
+      {
+        "id": "opt-lga-apenas-memoria-ram",
+        "text": "O padrão LGA é exclusivo para placas controladoras de memória RAM; o padrão PGA é utilizado apenas para placas de vídeo dedicadas."
+      },
+      {
+        "id": "opt-lga-pinos-processador-pga-placa",
+        "text": "No padrão LGA, os pinos estão no processador e a placa-mãe possui apenas superfícies planas de contato banhadas a ouro."
+      }
+    ],
+    "correctOptionId": "opt-lga-pinos-placa-pga-cpu",
+    "explanation": "No soquete LGA (Land Grid Array), os pinos flexíveis situam-se na placa-mãe e a CPU possui apenas superfícies de contato douradas planas (pads). No padrão PGA (Pin Grid Array), os pinos ficam no encapsulamento da CPU e se encaixam nos orifícios do soquete da placa-mãe.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "processador", "soquete", "lga", "pga", "montagem"]
+  },
+  {
+    "id": "q-sup-022-circuito-vrm-fases-alimentacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao selecionar uma placa-mãe para suportar um processador topo de linha de alta potência, o técnico analisa a quantidade de fases do circuito regulador de tensão (VRM). Qual é a função primordial do VRM e por que placas com mais fases são recomendadas para CPUs de alto TDP?",
+    "options": [
+      {
+        "id": "opt-converter-tensao-distribuir-corrente",
+        "text": "Converter a tensão de +12V da fonte para a tensão Vcore da CPU (~1,0V a 1,4V), distribuindo a corrente entre as fases para reduzir o aquecimento e manter a tensão estável."
+      },
+      {
+        "id": "opt-converter-corrente-continua-em-alternada",
+        "text": "Converter a corrente contínua da fonte em corrente alternada de alta frequência para sincronizar o clock da memória RAM."
+      },
+      {
+        "id": "opt-armazenar-bios-firmware",
+        "text": "Armazenar o código binário do firmware UEFI em capacitores eletrolíticos blindados contra interferência eletromagnética."
+      },
+      {
+        "id": "opt-amplificar-sinal-video",
+        "text": "Amplificar o sinal de vídeo digital enviado ao monitor para compensar a perda de atenuação em cabos HDMI longos."
+      }
+    ],
+    "correctOptionId": "opt-converter-tensao-distribuir-corrente",
+    "explanation": "O VRM (Voltage Regulator Module) é um conversor CC-CC do tipo buck que rebaixa os +12V fornecidos pela fonte para as baixas tensões requeridas pela CPU (Vcore, geralmente entre 1,0V e 1,4V) fornecendo altíssimas correntes. Mais fases dividem a carga elétrica, resultando em menor estresse térmico por componente, menor oscilação (ripple) e maior estabilidade.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "vrm", "placa-mae", "processador", "tdp"]
+  },
+  {
+    "id": "q-sup-023-certificacao-fonte-80-plus-niveis",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "O selo 80 Plus é uma certificação voluntária amplamente reconhecida na indústria de fontes de alimentação para computadores. Qual requisito técnico uma fonte ATX precisa comprovar para obter qualquer nível dessa certificação?",
+    "options": [
+      {
+        "id": "opt-eficiencia-minima-80-porcento",
+        "text": "Apresentar eficiência energética de pelo menos 80% em diferentes faixas de carga (20%, 50% e 100%) e fator de potência de pelo menos 0,9 em carga plena."
+      },
+      {
+        "id": "opt-operar-acima-80-graus",
+        "text": "Capacidade de operar ininterruptamente em temperaturas ambiente acima de 80 graus Celsius sem desligamento térmico."
+      },
+      {
+        "id": "opt-garantia-80-meses",
+        "text": "Compromisso do fabricante de oferecer garantia técnica estendida de 80 meses contra defeitos mecânicos da ventoinha."
+      },
+      {
+        "id": "opt-fornecer-80-watts-adicionais",
+        "text": "Fornecer 80 Watts adicionais acima da potência rotulada sempre que a placa de vídeo atingir carga máxima."
+      }
+    ],
+    "correctOptionId": "opt-eficiencia-minima-80-porcento",
+    "explanation": "A certificação 80 Plus atesta que a fonte converte pelo menos 80% da energia elétrica extraída da tomada (AC) em energia contínua utilizável (DC) nas cargas de 20%, 50% e 100%, dissipando no máximo 20% sob a forma de calor residual, além de exigir circuito PFC ativo.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "fonte-de-alimentacao", "80-plus", "eficiencia-energetica"]
+  },
+  {
+    "id": "q-sup-024-pfc-ativo-chave-seletora-bivolt",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Fontes de alimentação para computadores equipadas com circuito de PFC Ativo (Correção do Fator de Potência) dispensam chave seletora manual de voltagem (115V/230V), operando automaticamente em faixa contínua de tensão de entrada (Full Range) de 90V a 264V.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O circuito de PFC Ativo controla dinamicamente o chaveamento da corrente de entrada para alinhar as formas de onda de tensão e corrente, ajustando-se automaticamente a qualquer tensão entre aproximadamente 90V e 264V AC e eliminando a chave seletora manual.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "fonte-de-alimentacao", "pfc-ativo", "eletricidade"]
+  },
+  {
+    "id": "q-sup-025-padrao-formato-gabinetes-placas-mae",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante a seleção das peças de um computador, o técnico optou por um gabinete do tipo Mid Tower padrão ATX. Quais fatores de forma de placa-mãe são mecanicamente compatíveis para instalação nesse gabinete utilizando a furação padrão de espaçadores?",
+    "options": [
+      {
+        "id": "opt-atx-microatx-miniitx",
+        "text": "Placas padrão ATX, Micro-ATX (mATX) e Mini-ITX."
+      },
+      {
+        "id": "opt-apenas-eatx",
+        "text": "Exclusivamente placas padrão Extended ATX (E-ATX)."
+      },
+      {
+        "id": "opt-apenas-miniitx",
+        "text": "Exclusivamente placas padrão Mini-ITX, devido ao espaço interno reduzido."
+      },
+      {
+        "id": "opt-apenas-btx-proprietario",
+        "text": "Apenas placas de formato BTX com fluxo de ar invertido."
+      }
+    ],
+    "correctOptionId": "opt-atx-microatx-miniitx",
+    "explanation": "O padrão ATX possui compatibilidade mecânica retroativa com placas de menor porte. Gabinetes Mid Tower ATX contam com furação padronizada na bandeja metálica para acomodar placas Standard ATX (305x244 mm), Micro-ATX (244x244 mm) e Mini-ITX (170x170 mm).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "fator-de-forma", "atx", "gabinete", "montagem"]
+  },
+  {
+    "id": "q-sup-026-conector-energia-atx12v-eps12v",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na montagem de uma placa-mãe desktop, além do conector ATX principal de 24 pinos, há um conector auxiliar de 8 pinos (ou 4+4 pinos) posicionado próximo ao soquete do processador. Qual é o nome desse conector e qual linha de tensão ele fornece?",
+    "options": [
+      {
+        "id": "opt-eps12v-linha-12v-cpu",
+        "text": "Conector EPS12V / ATX12V, fornecendo linhas exclusivas de +12V para o circuito regulador de tensão (VRM) da CPU."
+      },
+      {
+        "id": "opt-molex-linha-5v-disco",
+        "text": "Conector Molex legado, fornecendo exclusivamente linhas de +5V para unidades ópticas."
+      },
+      {
+        "id": "opt-pcie-8pinos-video-gpu",
+        "text": "Conector PCIe de 8 pinos, fornecendo +3,3V diretamente para o slot PCIe da placa de vídeo."
+      },
+      {
+        "id": "opt-sata-power-linha-negativa",
+        "text": "Conector SATA Power, fornecendo corrente alternada negativa para resfriamento de bobinas."
+      }
+    ],
+    "correctOptionId": "opt-eps12v-linha-12v-cpu",
+    "explanation": "O conector EPS12V (8 pinos) ou ATX12V (4 pinos ou 4+4 pinos) destina-se exclusivamente a entregar corrente estável de +12V ao VRM do processador. Não deve ser confundido com o conector PCI Express (PCIe 6+2 pinos) destinado a placas de vídeo, pois as polaridades e chanfros físicos são distintos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "fonte-de-alimentacao", "eps12v", "conectores", "montagem"]
+  },
+  {
+    "id": "q-sup-027-barramento-pcie-geracoes-taxa-transferencia",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em relação à largura de banda teórica máxima por pista (lane) do barramento PCI Express em cada sentido, qual é a taxa de transferência aproximada oferecida pelas gerações PCIe 3.0, PCIe 4.0 e PCIe 5.0, respectivamente?",
+    "options": [
+      {
+        "id": "opt-pcie-taxas-1-2-4-gbps",
+        "text": "Aproximadamente 1 GB/s (PCIe 3.0), 2 GB/s (PCIe 4.0) e 4 GB/s (PCIe 5.0) por pista (lane)."
+      },
+      {
+        "id": "opt-pcie-taxas-iguais-todas",
+        "text": "Todas as gerações operam na mesma velocidade fixa de 500 MB/s, alterando apenas a voltagem do conector."
+      },
+      {
+        "id": "opt-pcie-taxas-10-20-40-gbps",
+        "text": "Aproximadamente 10 GB/s (PCIe 3.0), 20 GB/s (PCIe 4.0) e 40 GB/s (PCIe 5.0) por pista."
+      },
+      {
+        "id": "opt-pcie-taxas-decrescentes",
+        "text": "Aproximadamente 8 GB/s (PCIe 3.0), 4 GB/s (PCIe 4.0) e 2 GB/s (PCIe 5.0) devido ao aumento da latência."
+      }
+    ],
+    "correctOptionId": "opt-pcie-taxas-1-2-4-gbps",
+    "explanation": "A cada geração, o padrão PCI Express praticamente dobra a largura de banda efetiva por pista (lane): o PCIe 3.0 entrega cerca de 985 MB/s (~1 GB/s por lane), o PCIe 4.0 atinge cerca de 1.970 MB/s (~2 GB/s por lane) e o PCIe 5.0 atinge cerca de 3.940 MB/s (~4 GB/s por lane). Um slot x16 PCIe 4.0 alcança assim cerca de 32 GB/s unidirecional.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "pcie", "barramento", "arquitetura"]
+  },
+  {
+    "id": "q-sup-028-espacadores-fixacao-placa-mae-curto",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Instalar a placa-mãe diretamente parafusada contra a chapa de metal do gabinete sem utilizar os espaçadores metálicos (standoffs) nos orifícios corretos provoca curto-circuito imediato nos contatos de solda traseiros, podendo danificar a placa-mãe e a fonte de alimentação.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Os espaçadores (standoffs) mantêm uma distância física de segurança entre a traseira da placa-mãe (onde há dezenas de pontos de solda condutivos) e a chapa metálica condutora do chassi, prevenindo curto-circuitos e alinhando as portas traseiras ao espelho I/O.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "montagem", "gabinete", "seguranca"]
+  },
+  {
+    "id": "q-sup-029-padrao-conector-painel-frontal",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao conectar os fios do painel frontal do gabinete (F_PANEL) na placa-mãe, quais conectores exigem atenção obrigatória à polaridade positiva (+) e negativa (-)?",
+    "options": [
+      {
+        "id": "opt-leds-polarizados-botoes-nao",
+        "text": "Os conectores de LEDs (Power LED e HDD LED) são polarizados e não acendem se invertidos; os botões de pulso (Power SW e Reset SW) fecham contato mecânico em qualquer orientação."
+      },
+      {
+        "id": "opt-todos-sao-polarizados",
+        "text": "Todos os quatro conectores são estritamente polarizados e queimarão o circuito se invertidos."
+      },
+      {
+        "id": "opt-nenhum-e-polarizado",
+        "text": "Nenhum conector do painel frontal tem polaridade, pois todos operam em corrente alternada de alta frequência."
+      },
+      {
+        "id": "opt-apenas-reset-sw-polarizado",
+        "text": "Apenas o Reset SW é polarizado para evitar reinicialização acidental com sobretensão."
+      }
+    ],
+    "correctOptionId": "opt-leds-polarizados-botoes-nao",
+    "explanation": "LEDs (diodos emissores de luz) conduzem eletricidade em apenas um sentido; assim, os conectores de Power LED e HDD LED exigem que o pino positivo (+) coincida com o anodo e o negativo (-) com o catodo. As chaves de pulso (Power SW e Reset SW) são contatos momentâneos secos que apenas fecham o circuito momentaneamente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "painel-frontal", "montagem", "polaridade"]
+  },
+  {
+    "id": "q-sup-030-sigla-unidade-tdp-processador",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC01"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "A especificação TDP (Thermal Design Power) indica a potência térmica máxima dissipada por um processador sob carga nominal de trabalho, sendo essencial para dimensionar o cooler. Qual é a unidade de medida padrão da grandeza física expressa no TDP?",
+    "acceptedAnswers": ["watt", "watts", "w"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O TDP (Thermal Design Power) é quantificado em Watts (W). Essa especificação define a potência térmica que o dissipador de calor e a ventoinha do processador devem ser capazes de dissipar continuamente para evitar superaquecimento.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC01"
+    },
+    "tags": ["hardware", "tdp", "refrigeracao", "processador"]
+  },
+  {
+    "id": "q-sup-031-particao-sistema-efi-esp",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma instalação de sistema operacional moderna utilizando particionamento GPT e inicialização UEFI nativa, qual é a função e o sistema de arquivos obrigatório da partição de sistema EFI (ESP - EFI System Partition)?",
+    "options": [
+      {
+        "id": "opt-esp-fat32-bootloaders",
+        "text": "Armazenar os arquivos de bootloaders (.efi) e drivers necessários ao firmware UEFI, formatada obrigatoriamente em FAT32 (ou FAT16)."
+      },
+      {
+        "id": "opt-esp-ntfs-backup",
+        "text": "Armazenar cópias de restauração completas do Windows em formato NTFS compactado com criptografia BitLocker."
+      },
+      {
+        "id": "opt-esp-ext4-kernel",
+        "text": "Hospedar os binários do kernel do Linux formatada obrigatoriamente no sistema de arquivos Ext4."
+      },
+      {
+        "id": "opt-esp-exfat-swap",
+        "text": "Servir como área de paginação de memória virtual temporária formatada no padrão exFAT."
+      }
+    ],
+    "correctOptionId": "opt-esp-fat32-bootloaders",
+    "explanation": "A partição EFI System Partition (ESP) é identificada por um GUID específico na tabela GPT e deve ser formatada em FAT32. O firmware UEFI acessa essa partição diretamente para carregar os binários de inicialização (como bootx64.efi, bootmgfw.efi ou GRUB) antes do carregamento do kernel do SO.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["uefi", "gpt", "sistemas-operacionais", "esp", "instalacao"]
+  },
+  {
+    "id": "q-sup-032-ferramenta-diskpart-conversao-gpt",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante a instalação do Windows, o instalador exibe o erro: 'O Windows não pode ser instalado neste disco. O disco selecionado tem uma tabela de partição MBR. Nos sistemas EFI, o Windows só pode ser instalado em discos GPT'. Qual sequência de comandos do utilitário DISKPART no prompt (Shift+F10) converte o disco 0 para GPT limpando suas estruturas?",
+    "options": [
+      {
+        "id": "opt-select-clean-convert-gpt",
+        "text": "select disk 0 -> clean -> convert gpt"
+      },
+      {
+        "id": "opt-format-fs-gpt",
+        "text": "format disk 0 -> assign letter=c -> fs=gpt"
+      },
+      {
+        "id": "opt-mbr-repair-fixboot",
+        "text": "bootrec /fixmbr -> bootrec /rebuildbcd"
+      },
+      {
+        "id": "opt-convert-ntfs-to-gpt",
+        "text": "convert c: /fs:gpt /force"
+      }
+    ],
+    "correctOptionId": "opt-select-clean-convert-gpt",
+    "explanation": "No utilitário DISKPART, a sequência correta é selecionar o disco de destino (`select disk 0`), apagar todas as partições e tabelas existentes com o comando (`clean`) e aplicar a nova tabela de particionamento com (`convert gpt`). Após isso, o assistente gráfico reconhece o disco no padrão GPT.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "diskpart", "gpt", "mbr", "instalacao"]
+  },
+  {
+    "id": "q-sup-033-arquivo-respostas-instalacao-desatendida",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na automação da implantação de sistemas operacionais Windows em estações de trabalho de uma grande corporação, como se chama o arquivo de respostas em formato XML colocado na raiz da mídia de instalação para automatizar opções como idioma, particionamento e criação de contas de usuário?",
+    "options": [
+      {
+        "id": "opt-autounattend-xml",
+        "text": "autounattend.xml"
+      },
+      {
+        "id": "opt-boot-ini",
+        "text": "boot.ini"
+      },
+      {
+        "id": "opt-sysconfig-json",
+        "text": "sysconfig.json"
+      },
+      {
+        "id": "opt-setup-cfg",
+        "text": "setup.cfg"
+      }
+    ],
+    "correctOptionId": "opt-autounattend-xml",
+    "explanation": "O arquivo autounattend.xml (ou unattend.xml) é o arquivo de respostas XML padrão processado pelo Windows Setup durante a instalação desatendida. Ele permite configurar automaticamente passos como windowsPE, specialize e oobeSystem sem intervenção humana.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "instalacao-desatendida", "autounattend", "windows"]
+  },
+  {
+    "id": "q-sup-034-gerenciador-dispositivos-codigo-28",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Após finalizar a formatação de um computador, o técnico abre o Gerenciador de Dispositivos e observa um item com triângulo amarelo de aviso em 'Outros dispositivos' indicando 'Código 28'. Qual é o significado desse código e a ação técnica necessária para saná-lo?",
+    "options": [
+      {
+        "id": "opt-driver-nao-instalado-instalar",
+        "text": "Os drivers do dispositivo não estão instalados; o técnico deve identificar o ID de hardware (VEN/DEV) e instalar o pacote de drivers correto do fabricante."
+      },
+      {
+        "id": "opt-falha-fisica-irrecuperavel",
+        "text": "O componente sofreu queima física e deve ser descartado imediatamente por segurança."
+      },
+      {
+        "id": "opt-conflito-porta-usb",
+        "text": "A porta USB está sobrecarregada eletricamente exigindo desconexão do cabo de energia."
+      },
+      {
+        "id": "opt-licenca-windows-expirada",
+        "text": "A licença do sistema operacional expirou e bloqueou os recursos de áudio e rede."
+      }
+    ],
+    "correctOptionId": "opt-driver-nao-instalado-instalar",
+    "explanation": "No Gerenciador de Dispositivos do Windows, o Código 28 significa 'Os drivers para este dispositivo não estão instalados'. A solução consiste em verificar os identificadores de hardware (VEN para fabricante e DEV para modelo) nas propriedades do dispositivo e instalar o driver apropriado.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["drivers", "gerenciador-de-dispositivos", "windows", "suporte"]
+  },
+  {
+    "id": "q-sup-035-rollback-reversao-driver-dispositivo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "O recurso 'Reverter Driver' (Roll Back Driver) disponível nas propriedades de um dispositivo no Windows permite desinstalar um driver recentemente atualizado que causou instabilidade ou tela azul e restaurar automaticamente a versão anterior funcional.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A opção 'Reverter Driver' armazena o pacote de driver anterior antes de aplicar uma nova versão. Em caso de instabilidade, incompatibilidade ou falhas de sistema, o técnico pode rapidamente restaurar a versão funcional prévia.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["drivers", "gerenciador-de-dispositivos", "windows", "manutencao"]
+  },
+  {
+    "id": "q-sup-036-sistema-arquivos-ntfs-vs-ext4",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao particionar e formatar unidades de armazenamento para diferentes sistemas operacionais, quais são respectivamente os sistemas de arquivos padrão e recomendados para instalações modernas do Microsoft Windows e da maioria das distribuições Linux?",
+    "options": [
+      {
+        "id": "opt-ntfs-para-windows-ext4-linux",
+        "text": "NTFS para Windows e Ext4 para Linux."
+      },
+      {
+        "id": "opt-fat32-windows-btrfs-linux",
+        "text": "FAT32 para Windows e HFS+ para Linux."
+      },
+      {
+        "id": "opt-apfs-windows-ntfs-linux",
+        "text": "APFS para Windows e NTFS para Linux."
+      },
+      {
+        "id": "opt-exfat-windows-zfs-linux",
+        "text": "exFAT para Windows e FAT16 para Linux."
+      }
+    ],
+    "correctOptionId": "opt-ntfs-para-windows-ext4-linux",
+    "explanation": "O NTFS (New Technology File System) é o sistema de arquivos padrão do Windows, fornecendo suporte a journaling, controle de acesso (ACLs), cotas de disco e compressão. O Ext4 (Fourth Extended Filesystem) é o sistema padrão adotado na maioria das distribuições Linux para volumes de sistema e dados.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "ntfs", "ext4", "sistemas-de-arquivos"]
+  },
+  {
+    "id": "q-sup-037-dism-captura-aplicacao-imagem-wim",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em procedimentos de implantação em lote de estações de trabalho utilizando imagens de disco no Windows, qual ferramenta de linha de comando integrada da Microsoft é utilizada para capturar, montar e aplicar arquivos de imagem no formato WIM (Windows Imaging Format)?",
+    "options": [
+      {
+        "id": "opt-dism-ferramenta-wim",
+        "text": "DISM (Deployment Image Servicing and Management / Gerenciamento e Manutenção de Imagens de Implantação)."
+      },
+      {
+        "id": "opt-robocopy-wim",
+        "text": "Robocopy (Robust File Copy Utility)."
+      },
+      {
+        "id": "opt-bcdedit-wim",
+        "text": "BCDEdit (Boot Configuration Data Editor)."
+      },
+      {
+        "id": "opt-fsutil-wim",
+        "text": "FSUtil (File System Utility)."
+      }
+    ],
+    "correctOptionId": "opt-dism-ferramenta-wim",
+    "explanation": "O utilitário DISM.exe é a ferramenta padrão do Windows para gerenciamento de imagens. Com opções como `dism /Capture-Image` e `dism /Apply-Image`, técnicos podem capturar partições preparadas com Sysprep para arquivos .wim e restaurá-las com rapidez em múltiplos computadores.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "dism", "wim", "clonagem", "implantacao"]
+  },
+  {
+    "id": "q-sup-038-particao-swap-linux-memoria-virtual",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao instalar uma distribuição Linux em um computador desktop, o técnico configura um espaço de armazenamento denominado Swap (em partição dedicada ou arquivo swapfile). Qual é a finalidade técnica desse espaço?",
+    "options": [
+      {
+        "id": "opt-memoria-virtual-paginacao",
+        "text": "Atuar como extensão de memória virtual em disco quando a memória RAM física estiver sob forte demanda e permitir a hibernação do sistema."
+      },
+      {
+        "id": "opt-armazenar-drivers-video",
+        "text": "Armazenar exclusivamente os arquivos de drivers proprietários de placas aceleradoras de vídeo."
+      },
+      {
+        "id": "opt-tabela-dns-estatica",
+        "text": "Manter uma cópia em cache das tabelas de roteamento e resolução de nomes estáticos da rede local."
+      },
+      {
+        "id": "opt-antivirus-quarentena",
+        "text": "Servir como partição criptografada de quarentena automática para arquivos infectados por vírus."
+      }
+    ],
+    "correctOptionId": "opt-memoria-virtual-paginacao",
+    "explanation": "A área de Swap no Linux é usada pelo kernel para alocar páginas de memória inativas quando a RAM física está próxima da saturação, evitando interrupções por falta de memória (OOM Killer) e permitindo gravar a memória em disco para hibernação (suspend to disk).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "linux", "swap", "memoria-virtual", "instalacao"]
+  },
+  {
+    "id": "q-sup-039-modo-sata-ahci-vs-ide-raid",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Na configuração do firmware UEFI/BIOS, definir a controladora de armazenamento SATA em modo AHCI (Advanced Host Controller Interface) em vez do modo IDE legado habilita recursos modernos essenciais para o desempenho de SSDs e HDDs, como o NCQ (Native Command Queuing) e hot-plugging.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O modo AHCI substitui a emulação IDE legada, permitindo que o sistema operacional explore os recursos avançados da interface SATA, como a ordenação inteligente de comandos (NCQ) e a remoção a quente de unidades (hot-plugging).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "ahci", "sata", "armazenamento", "uefi"]
+  },
+  {
+    "id": "q-sup-040-comando-verificacao-integridade-sfc",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC02"],
+    "difficulty": "INTERMEDIATE",
+    "type": "SHORT_ANSWER",
+    "prompt": "No Windows, qual comando completo executado no Prompt de Comando como Administrador verifica a integridade de todos os arquivos protegidos do sistema operacional e substitui arquivos corrompidos por versões limpas armazenadas no repositório de componentes?",
+    "acceptedAnswers": ["sfc /scannow", "sfc.exe /scannow"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O comando `sfc /scannow` (System File Checker) realiza uma varredura completa nos arquivos essenciais do Windows e restaura versões originais danificadas ou alteradas a partir do repositório local protegido WinSxS.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC02"
+    },
+    "tags": ["sistemas-operacionais", "sfc", "windows", "diagnostico", "comandos"]
+  },
+  {
+    "id": "q-sup-041-teste-bancada-diagnostico-minimo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao receber um computador que não inicializa e não dá sinais de vídeo nem bipes, o técnico decide montar um teste de bancada com configuração mínima. Quais componentes essenciais devem compor essa montagem sobre uma superfície isolante para diagnosticar a causa do problema?",
+    "options": [
+      {
+        "id": "opt-bancada-cpu-cooler-placa-fonte-ram",
+        "text": "Placa-mãe, processador com cooler conectado, um módulo de memória RAM, fonte de alimentação e alto-falante buzzer (ou saída de vídeo)."
+      },
+      {
+        "id": "opt-bancada-todos-discos-perifericos",
+        "text": "Todos os discos rígidos, leitor de cartão, placa de captura, placa de som e ventoinhas adicionais do gabinete."
+      },
+      {
+        "id": "opt-bancada-apenas-gabinete-fonte",
+        "text": "Apenas o chassi metálico do gabinete conectado à fonte de alimentação sem placa-mãe."
+      },
+      {
+        "id": "opt-bancada-somente-monitor-teclado",
+        "text": "Monitor e teclado conectados diretamente à tomada sem unidade central de processamento."
+      }
+    ],
+    "correctOptionId": "opt-bancada-cpu-cooler-placa-fonte-ram",
+    "explanation": "O teste de bancada com configuração mínima isola a placa-mãe fora do gabinete sobre manta antiestática ou bancada de madeira, usando apenas os itens indispensáveis para o POST: placa-mãe, CPU + cooler, um pente de RAM, fonte e dispositivo de aviso (buzzer ou vídeo), eliminando curtos com o chassi e periféricos defeituosos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "diagnostico", "teste-de-bancada", "post", "hardware"]
+  },
+  {
+    "id": "q-sup-042-diagnostico-superaquecimento-thermal-throttling",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um usuário relata que seu computador para edição de vídeo começa trabalhando rápido, mas após 10 minutos de renderização o desempenho cai vertiginosamente e o sistema fica extremamente lento. Ao monitorar o sistema com ferramentas de telemetria, o técnico nota temperaturas da CPU próximas a 100 °C acompanhadas de queda expressiva na frequência dos núcleos. Como se denomina esse mecanismo de proteção térmica?",
+    "options": [
+      {
+        "id": "opt-thermal-throttling",
+        "text": "Thermal Throttling (Estrangulamento Térmico)."
+      },
+      {
+        "id": "opt-overclocking-dinamico",
+        "text": "Overclocking Dinâmico Forçado."
+      },
+      {
+        "id": "opt-buffer-overflow",
+        "text": "Buffer Overflow de Memória Cache."
+      },
+      {
+        "id": "opt-deadlock-multithread",
+        "text": "Deadlock de Processamento Concorrente."
+      }
+    ],
+    "correctOptionId": "opt-thermal-throttling",
+    "explanation": "Thermal Throttling é o recurso de segurança integrado aos processadores modernos: quando a temperatura atinge o limite máximo seguro (Tjunction), a CPU reduz intencionalmente sua frequência de clock e tensão para baixar a dissipação de calor e evitar danos irreversíveis ao silício, causando perda acentuada de desempenho.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "superaquecimento", "thermal-throttling", "processador", "refrigeracao"]
+  },
+  {
+    "id": "q-sup-043-multimetro-teste-continuidade-fusivel",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Para verificar se o fusível de proteção de entrada de uma fonte ou filtro de linha está intacto (queimado ou são), qual escala do multímetro digital o técnico deve selecionar e qual é o resultado esperado em um fusível em bom estado?",
+    "options": [
+      {
+        "id": "opt-escala-continuidade-beep",
+        "text": "Escala de Continuidade (ou menor escala de resistência em ohms); o multímetro deve emitir sinal sonoro (beep) ou indicar resistência próxima de 0 ohm."
+      },
+      {
+        "id": "opt-escala-tensao-alternada",
+        "text": "Escala de Tensão Alternada (750 VAC); o multímetro deve marcar 220V em ambas as extremidades sem bipar."
+      },
+      {
+        "id": "opt-escala-corrente-continua",
+        "text": "Escala de Amperagem CC (10A); o multímetro deve apresentar leitura infinita (OL) indicando passagem total."
+      },
+      {
+        "id": "opt-escala-frequencimetro",
+        "text": "Escala de Frequencímetro (Hz); o multímetro deve acusar 60 Hz no terminal central."
+      }
+    ],
+    "correctOptionId": "opt-escala-continuidade-beep",
+    "explanation": "Um fusível em perfeito estado é um condutor contínuo de baixa resistência. Ao utilizar a escala de continuidade ou teste de diodo/resistência do multímetro, o aparelho emite sinal sonoro e exibe valor próximo de 0 ohm. Se o fusível estiver aberto (queimado), o multímetro exibe 'OL' (Open Loop / resistência infinita).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "multimetro", "diagnostico", "eletricidade", "fusivel"]
+  },
+  {
+    "id": "q-sup-044-bateria-cmos-cr2032-tensao-nominal",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um computador desktop perde a data e a hora do sistema sempre que é desconectado da tomada da rede elétrica, exibindo avisos de erro de CMOS no boot. O técnico decide aferir a bateria tipo moeda CR2032 com um multímetro. Qual é a tensão nominal de uma bateria nova e abaixo de qual valor ela deve ser substituída?",
+    "options": [
+      {
+        "id": "opt-nominal-3v-trocar-abaixo-2-8v",
+        "text": "Tensão nominal de 3,0V; deve ser substituída quando apresentar leitura inferior a aproximadamente 2,8V."
+      },
+      {
+        "id": "opt-nominal-1-5v-trocar-abaixo-0-5v",
+        "text": "Tensão nominal de 1,5V; deve ser substituída quando marcar menos de 0,5V."
+      },
+      {
+        "id": "opt-nominal-5v-trocar-abaixo-4v",
+        "text": "Tensão nominal de 5,0V; deve ser substituída quando a carga cair abaixo de 4,0V."
+      },
+      {
+        "id": "opt-nominal-12v-trocar-abaixo-10v",
+        "text": "Tensão nominal de 12,0V; deve ser trocada quando descer para 10,0V."
+      }
+    ],
+    "correctOptionId": "opt-nominal-3v-trocar-abaixo-2-8v",
+    "explanation": "A bateria CR2032 de lítio possui tensão nominal de 3,0 Volts (muitas vezes medindo cerca de 3,2V a 3,3V quando nova). Se a medição no multímetro DC indicar valor igual ou inferior a 2,8V, a bateria não sustenta confiavelmente o circuito RTC (Real-Time Clock) e a memória volátil de configurações do CMOS.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "cmos", "bateria", "cr2032", "diagnostico"]
+  },
+  {
+    "id": "q-sup-045-limpeza-contatos-alcool-isopropilico",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Na manutenção preventiva e limpeza de contatos metálicos de placas-mãe, memórias RAM e conectores eletrônicos, o álcool isopropílico com pureza mínima de 99,8% é o produto técnico recomendado porque possui teor de umidade desprezível e evapora rapidamente sem oxidar os circuitos.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O álcool isopropílico (isopropanol) a 99,8% não possui quase água em sua composição, diferentemente do álcool etílico comercial 70% ou 96%, evaporando com muita rapidez e dissolvendo óleos e poeira sem provocar corrosão ou curto-circuito em componentes eletrônicos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "limpeza", "alcool-isopropilico", "seguranca"]
+  },
+  {
+    "id": "q-sup-046-smart-pending-sectors-count",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na análise preventiva dos atributos S.M.A.R.T. de uma unidade de disco rígido, qual é a diferença técnica entre os atributos 'Current Pending Sector Count' e 'Reallocated Sectors Count'?",
+    "options": [
+      {
+        "id": "opt-pending-aguarda-escrita-reallocated-ja-trocado",
+        "text": "'Current Pending Sector Count' indica setores com erro de leitura aguardando nova tentativa de escrita para serem remapeados; 'Reallocated Sectors Count' indica setores permanentemente substituídos por setores da área de reserva."
+      },
+      {
+        "id": "opt-pending-memoria-ram-reallocated-disco",
+        "text": "'Current Pending Sector Count' mede falhas na memória RAM do computador, enquanto 'Reallocated Sectors Count' monitora setores do disco rígido."
+      },
+      {
+        "id": "opt-pending-apenas-ssd-reallocated-apenas-hdd",
+        "text": "'Current Pending Sector Count' é um atributo exclusivo de SSDs NVMe; 'Reallocated Sectors Count' aplica-se somente a discos mecânicos SAS."
+      },
+      {
+        "id": "opt-pending-temperatura-reallocated-horas",
+        "text": "'Current Pending Sector Count' registra picos de temperatura do motor, enquanto 'Reallocated Sectors Count' conta as horas de uso contínuo."
+      }
+    ],
+    "correctOptionId": "opt-pending-aguarda-escrita-reallocated-ja-trocado",
+    "explanation": "Current Pending Sector Count (ID 197) contabiliza setores instáveis que falharam na leitura e aguardam uma operação de escrita para serem testados: se a escrita for bem-sucedida, o setor é restaurado; se falhar, o firmware o aposenta e transfere o endereço para a área de reserva, incrementando o Reallocated Sectors Count (ID 05).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "smart", "diagnostico", "armazenamento", "disco-rigido"]
+  },
+  {
+    "id": "q-sup-047-placa-diagnostico-post-pci-qcode",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Durante a investigação de placas-mãe que não completam a inicialização, muitos técnicos utilizam placas de diagnóstico POST (POST Card) ou observam o visor de dois dígitos integrado (Q-Code / Debug LED). Qual informação é exibida nesse mostrador digital?",
+    "options": [
+      {
+        "id": "opt-codigos-hexadecimais-etapas-post",
+        "text": "Códigos hexadecimais correspondentes às etapas de teste de hardware transmitidas pelo firmware à porta de depuração de E/S (Porta 80h)."
+      },
+      {
+        "id": "opt-porcentagem-temperatura-ambiente",
+        "text": "A porcentagem de umidade do ar e a temperatura ambiente do laboratório de manutenção."
+      },
+      {
+        "id": "opt-ip-concedido-roteador",
+        "text": "O endereço IP dinâmico atribuído pelo servidor DHCP da rede local."
+      },
+      {
+        "id": "opt-consumo-amperagem-fonte",
+        "text": "A amperagem exata consumida pela tomada no padrão ABNT 10A/20A."
+      }
+    ],
+    "correctOptionId": "opt-codigos-hexadecimais-etapas-post",
+    "explanation": "Durante o POST, o firmware da placa-mãe envia códigos hexadecimais para a porta I/O 80h antes de iniciar o teste de cada subsistema (CPU, chipset, memória, vídeo, discos). Se o POST travar, o código que permanecer congelado no display identifica exatamente o componente ou barramento causador da interrupção.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "diagnostico", "post", "qcode", "placa-mae"]
+  },
+  {
+    "id": "q-sup-048-manutencao-preventiva-pressao-positiva",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "Em manutenção preventiva e refrigeração de computadores, configurar o fluxo de ar do gabinete com pressão de ar positiva (volume de ar injetado com filtros de poeira maior que o volume de ar exaurido) auxilia a reduzir a entrada de poeira por frestas e orifícios não filtrados do chassi.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Com pressão positiva, o excesso de ar força a saída pelas frestas e aberturas não vedadas do gabinete, impedindo que a poeira ambiente seja aspirada para o interior por essas frestas. Desde que as entradas de ar possuam filtros limpos regularmente, a sujeira interna diminui substancialmente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "preventiva", "refrigeracao", "gabinete", "poeira"]
+  },
+  {
+    "id": "q-sup-049-capacitores-eletroliticos-estufados-vrm",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na inspeção visual preventiva de uma placa-mãe antiga que apresenta congelamentos aleatórios e telas azuis frequentes, qual anomalia física em capacitores eletrolíticos de alumínio indica falha iminente ou esgotamento de sua vida útil?",
+    "options": [
+      {
+        "id": "opt-estufamento-topo-vazamento",
+        "text": "Topo metálico estufado (abaulado), rachadura nas ranhuras de segurança ou resíduos secos de eletrólito vazado na base."
+      },
+      {
+        "id": "opt-coloracao-dourada-nos-terminais",
+        "text": "Coloração dourada nos terminais indicando banho de ouro de alta pureza."
+      },
+      {
+        "id": "opt-superficie-completamente-plana",
+        "text": "Superfície superior perfeitamente plana e cilíndro metálico alinhado verticalmente."
+      },
+      {
+        "id": "opt-temperatura-fria-ao-toque",
+        "text": "Temperatura fria ao toque durante a operação do equipamento."
+      }
+    ],
+    "correctOptionId": "opt-estufamento-topo-vazamento",
+    "explanation": "Capacitores eletrolíticos degradados por sobretensão, calor excessivo ou tempo de uso perdem suas propriedades elétricas (aumento de ESR e perda de capacitância). A pressão interna do gás acumulado faz com que o topo estufe ou rompa na válvula de alívio, muitas vezes liberando crostas marrons ou amareladas de eletrólito.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "capacitores", "placa-mae", "diagnostico", "hardware"]
+  },
+  {
+    "id": "q-sup-050-comando-linux-temperatura-sensores",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC03"],
+    "difficulty": "INTERMEDIATE",
+    "type": "SHORT_ANSWER",
+    "prompt": "Em distribuições Linux, após a configuração do pacote lm-sensors, qual comando de linha de comando é executado no terminal para exibir a temperatura atual dos núcleos do processador, velocidades das ventoinhas (RPM) e tensões das linhas da placa-mãe?",
+    "acceptedAnswers": ["sensors"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "O comando `sensors` (parte do utilitário lm-sensors no Linux) lê os chips de monitoramento de hardware onboard e exibe dados em tempo real sobre temperaturas de CPU e GPU, rotações de coolers e tensões das linhas de alimentação.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC03"
+    },
+    "tags": ["manutencao", "linux", "sensores", "temperatura", "diagnostico"]
+  },
+  {
+    "id": "q-sup-051-itil-matriz-priorizacao-urgencia-impacto",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Nas boas práticas da biblioteca ITIL para central de serviços (Service Desk), como é calculada a PRIORIDADE de atendimento de um chamado ou incidente técnico?",
+    "options": [
+      {
+        "id": "opt-cruzamento-impacto-urgencia",
+        "text": "Pelo cruzamento entre o Impacto (efeito do problema no negócio/usuários) e a Urgência (rapidez com que a solução é exigida)."
+      },
+      {
+        "id": "opt-ordem-chegada-simples",
+        "text": "Exclusivamente pela ordem de chegada do e-mail na fila (FIFO), independentemente da gravidade."
+      },
+      {
+        "id": "opt-cargo-solicitante-apenas",
+        "text": "Exclusivamente pelo nível hierárquico do solicitante na empresa."
+      },
+      {
+        "id": "opt-tempo-de-fabricacao-maquina",
+        "text": "Pela idade cronológica do computador que apresentou a falha."
+      }
+    ],
+    "correctOptionId": "opt-cruzamento-impacto-urgencia",
+    "explanation": "No modelo ITIL, a Prioridade de um incidente resulta da combinação entre Impacto (dimensão da perda, número de usuários ou processos de negócio afetados) e Urgência (quão rapidamente o negócio precisa que o serviço seja restabelecido antes que ocorram danos severos).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["itil", "service-desk", "priorizacao", "gestao-de-incidentes", "suporte"]
+  },
+  {
+    "id": "q-sup-052-itil-diferenca-incidente-problema",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No âmbito do gerenciamento de serviços de TI (ITIL), qual é a distinção conceitual exata entre um INCIDENTE e um PROBLEMA?",
+    "options": [
+      {
+        "id": "opt-incidente-interrupcao-problema-causa-raiz",
+        "text": "Incidente é uma interrupção não planejada ou degradação de um serviço; Problema é a causa subjacente ou causa raiz de um ou múltiplos incidentes."
+      },
+      {
+        "id": "opt-incidente-software-problema-hardware",
+        "text": "Incidente refere-se estritamente a falhas em softwares; Problema diz respeito somente a defeitos físicos em hardware."
+      },
+      {
+        "id": "opt-incidente-cliente-problema-tecnico",
+        "text": "Incidente é registrado pelo cliente; Problema é registrado unicamente pelo fabricante do computador."
+      },
+      {
+        "id": "opt-incidente-sem-gravidade-problema-grave",
+        "text": "Incidente é uma dúvida simples de usuário; Problema é qualquer chamado que demande mais de 24 horas de análise."
+      }
+    ],
+    "correctOptionId": "opt-incidente-interrupcao-problema-causa-raiz",
+    "explanation": "O Gerenciamento de Incidentes foca em restaurar a operação normal do serviço no menor tempo possível (mesmo com solução paliativa). O Gerenciamento de Problemas visa identificar e analisar a causa raiz profunda para eliminar a repetição estrutural dos incidentes.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["itil", "gestao-de-incidentes", "gestao-de-problemas", "suporte", "governanca"]
+  },
+  {
+    "id": "q-sup-053-sla-tempo-resposta-ola-uc",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em contratos de governança de TI, qual é a distinção entre SLA (Service Level Agreement), OLA (Operational Level Agreement) e UC (Underpinning Contract)?",
+    "options": [
+      {
+        "id": "opt-sla-cliente-ola-interno-uc-fornecedor",
+        "text": "O SLA é firmado entre a TI e o cliente/negócio; o OLA é o acordo firmado entre diferentes equipes internas de TI; e o UC é o contrato firmado com fornecedores externos."
+      },
+      {
+        "id": "opt-sla-hardware-ola-software-uc-rede",
+        "text": "O SLA rege o hardware; o OLA rege o software de rede; e o UC é o termo de descarte ambiental de equipamentos."
+      },
+      {
+        "id": "opt-sla-governo-ola-empresa-uc-estagiario",
+        "text": "O SLA aplica-se a órgãos públicos; o OLA a empresas privadas; e o UC aos contratos de estágio técnico."
+      },
+      {
+        "id": "opt-sla-curto-prazo-ola-anual-uc-vitalicio",
+        "text": "O SLA possui validade de 24 horas; o OLA tem validade mensal; e o UC é um acordo vitalício sem revisão."
+      }
+    ],
+    "correctOptionId": "opt-sla-cliente-ola-interno-uc-fornecedor",
+    "explanation": "SLA (Acordo de Nível de Serviço) estabelece metas entre o provedor de TI e os clientes. OLA (Acordo de Nível Operacional) define compromissos entre áreas internas da TI (ex: Suporte N1 e Redes) para viabilizar o SLA. UC (Contrato de Apoio / Underpinning Contract) vincula formalmente fornecedores externos (ex: link de telecom ou garantia de hardware).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["itil", "sla", "ola", "contratos", "suporte", "governanca"]
+  },
+  {
+    "id": "q-sup-054-gestao-base-conhecimento-kcs",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Alimentar continuamente uma Base de Conhecimento (Knowledge Base / KCS) com procedimentos validados de diagnóstico e soluções de contorno acelera o tempo de resolução de chamados técnicos e possibilita maior taxa de resolução no primeiro contato (FCR).",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O compartilhamento do conhecimento adquirido em uma base centralizada evita que técnicos reinventem soluções para problemas recorrentes, reduz o tempo de treinamento de novos atendentes e padroniza o suporte oferecido aos usuários.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["base-de-conhecimento", "help-desk", "itil", "fcr", "suporte"]
+  },
+  {
+    "id": "q-sup-055-atendimento-usuario-escuta-ativa-empatia",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao atender um usuário que se encontra frustrado e agitado porque um relatório financeiro urgente foi interrompido por travamento do computador, qual postura profissional o técnico de suporte deve demonstrar inicialmente?",
+    "options": [
+      {
+        "id": "opt-escuta-ativa-empatia-clareza",
+        "text": "Praticar escuta ativa sem interromper bruscamente, demonstrar empatia com a urgência do usuário, manter tom profissional calmo e fazer perguntas objetivas para coletar evidências."
+      },
+      {
+        "id": "opt-culpar-usuario-falta-backup",
+        "text": "Repreender o usuário imediatamente afirmando que ele é culpado por não ter feito backup e encerrar a ligação."
+      },
+      {
+        "id": "opt-ironia-jargoes-tecnicos",
+        "text": "Utilizar jargões técnicos complexos e termos em inglês para desestimular novas perguntas do usuário."
+      },
+      {
+        "id": "opt-ignorar-e-pedir-para-esperar",
+        "text": "Deixar o usuário em espera muda por 30 minutos até que ele desista ou encontre outra alternativa."
+      }
+    ],
+    "correctOptionId": "opt-escuta-ativa-empatia-clareza",
+    "explanation": "A escuta ativa e a empatia são competências interpessoais (soft skills) primordiais no suporte ao usuário. Ouvir com atenção sem interrupções reativas acalma a tensão, valoriza a relação humana e permite identificar com precisão o contexto do problema técnico relatado.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["atendimento", "comunicacao", "escuta-ativa", "help-desk", "suporte"]
+  },
+  {
+    "id": "q-sup-056-metricas-suporte-first-contact-resolution-fcr",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma operação de Service Desk, a métrica FCR (First Contact Resolution / Resolução no Primeiro Contato) é acompanhada de perto pela coordenação. O que essa métrica mensura?",
+    "options": [
+      {
+        "id": "opt-percentual-resolvido-primeiro-atendimento",
+        "text": "A porcentagem de chamados e incidentes resolvidos inteiramente durante a primeira interação com o usuário, sem repasse para outros níveis ou retorno posterior."
+      },
+      {
+        "id": "opt-tempo-duracao-chamada-telefone",
+        "text": "A quantidade de segundos que o telefone tocou antes do primeiro atendente atender a chamada."
+      },
+      {
+        "id": "opt-total-computadores-formatados",
+        "text": "O total consolidado de máquinas formatadas e reinstaladas em um período fiscal de um ano."
+      },
+      {
+        "id": "opt-percentual-descarte-equipamentos",
+        "text": "A taxa percentual de equipamentos que foram condenados tecnicamente e enviados a leilão."
+      }
+    ],
+    "correctOptionId": "opt-percentual-resolvido-primeiro-atendimento",
+    "explanation": "O FCR (First Contact Resolution) é um indicador fundamental de eficiência e satisfação do cliente no suporte: mede a capacidade da equipe de Nível 1 em acolher, diagnosticar e resolver o problema do usuário logo na primeira interação, sem necessidade de escalonamento ou reaberturas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["metricas", "fcr", "help-desk", "itil", "service-desk"]
+  },
+  {
+    "id": "q-sup-057-solucao-de-contorno-workaround",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Quando uma falha impede os computadores de um setor de emitir notas fiscais e a causa técnica definitiva ainda demandará dias de investigação do fornecedor de software, o suporte técnico ativa um procedimento provisório que permite a emissão manual via portal web contingencial. No ITIL, como é chamado esse tipo de intervenção?",
+    "options": [
+      {
+        "id": "opt-workaround-solucao-contorno",
+        "text": "Solução de Contorno (Workaround)."
+      },
+      {
+        "id": "opt-mudanca-emergencial-estrutural",
+        "text": "Auditoria Contábil Forense."
+      },
+      {
+        "id": "opt-rollback-legado",
+        "text": "Descarte Patrimonial Antecipado."
+      },
+      {
+        "id": "opt-rejeicao-chamado",
+        "text": "Cancelamento por Inviabilidade Técnica."
+      }
+    ],
+    "correctOptionId": "opt-workaround-solucao-contorno",
+    "explanation": "Uma solução de contorno (workaround) é uma intervenção temporária que reduz ou elimina o impacto de um incidente sobre a atividade de negócio, permitindo que os usuários continuem trabalhando enquanto uma solução permanente para a causa raiz ainda é investigada e desenvolvida.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["itil", "workaround", "solucao-de-contorno", "incidentes", "suporte"]
+  },
+  {
+    "id": "q-sup-058-termo-responsabilidade-devolucao-backup",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Antes de efetuar intervenções corretivas profundas no disco ou formatação de um computador em atendimento presencial de suporte, o técnico deve certificar-se da existência de backup prévio dos dados críticos do usuário ou obter consentimento e termo de ciência formal para resguardar a integridade das informações.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O alinhamento preventivo e a confirmação formal de backup antes de manutenções destrutivas evitam a perda irreparável de dados corporativos ou pessoais e resguardam juridicamente a equipe técnica contra alegações de negligência.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["backup", "atendimento", "termo-de-responsabilidade", "suporte", "governanca"]
+  },
+  {
+    "id": "q-sup-059-pesquisa-satisfacao-csat-nps",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Para avaliar a percepção do usuário quanto ao atendimento técnico recebido imediatamente após o encerramento de um tíquete, qual indicador de desempenho (KPI) é tipicamente apurado por meio de pesquisas rápidas com escala de satisfação?",
+    "options": [
+      {
+        "id": "opt-csat-customer-satisfaction",
+        "text": "CSAT (Customer Satisfaction Score / Índice de Satisfação do Cliente)."
+      },
+      {
+        "id": "opt-mtbf-mean-time",
+        "text": "MTBF (Mean Time Between Failures / Tempo Médio Entre Falhas de Hardware)."
+      },
+      {
+        "id": "opt-tco-total-cost",
+        "text": "TCO (Total Cost of Ownership / Custo Total de Propriedade)."
+      },
+      {
+        "id": "opt-pdu-power-distribution",
+        "text": "PDU (Power Distribution Unit Efficiency)."
+      }
+    ],
+    "correctOptionId": "opt-csat-customer-satisfaction",
+    "explanation": "O CSAT (Customer Satisfaction Score) afere a satisfação imediata do usuário com o serviço pontual prestado pelo analista de suporte. Os dados coletados alimentam a gestão da qualidade e identificam gargalos de atendimento ou oportunidades de capacitação técnica da equipe.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["csat", "metricas", "qualidade", "help-desk", "atendimento"]
+  },
+  {
+    "id": "q-sup-060-sigla-acordo-nivel-servico-sla",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "support",
+    "unitIds": ["UC04"],
+    "difficulty": "FOUNDATION",
+    "type": "SHORT_ANSWER",
+    "prompt": "Qual é a sigla em inglês do contrato formalmente acordado entre a área de tecnologia e os usuários ou departamentos que estipula prazos máximos para tempo de resposta e tempo de resolução de chamados de suporte?",
+    "acceptedAnswers": ["sla"],
+    "normalization": {
+      "trimWhitespace": true,
+      "collapseWhitespace": true,
+      "ignoreCase": true,
+      "ignoreDiacritics": true,
+      "ignorePunctuation": true
+    },
+    "explanation": "A sigla SLA significa Service Level Agreement (Acordo de Nível de Serviço). É o instrumento contratual que formaliza as expectativas e garantias de atendimento entre o setor de TI e seus clientes.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC04"
+    },
+    "tags": ["sla", "itil", "help-desk", "suporte", "metricas"]
   }
 ]

@@ -772,5 +772,2607 @@
       "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
     },
     "tags": ["git", "commits-semanticos", "engenharia-de-software", "boas-praticas"]
+  },
+  {
+    "id": "q-dev-026-algoritmos-vetor-acesso-indexado",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em estruturas de dados lineares fundamentais, qual é a complexidade temporal de acesso direto a um elemento em um vetor (array contíguo na memória) a partir de seu índice numérico?",
+    "options": [
+      {
+        "id": "opt-o-1",
+        "text": "O(1) - tempo constante, pois a posição de memória é calculada diretamente pelo índice."
+      },
+      {
+        "id": "opt-o-n",
+        "text": "O(N) - tempo linear, exigindo percorrer todos os elementos anteriores."
+      },
+      {
+        "id": "opt-o-log-n",
+        "text": "O(log N) - tempo logarítmico, dependente da partição binária da memória."
+      },
+      {
+        "id": "opt-o-n-2",
+        "text": "O(N²) - tempo quadrático devido à necessidade de realocação contínua."
+      }
+    ],
+    "correctOptionId": "opt-o-1",
+    "explanation": "Em um vetor armazenado de forma contígua na memória, o endereço de qualquer elemento é obtido pela fórmula: EndereçoBase + (índice * tamanhoDoElemento). Esse cálculo matemático direto resulta em complexidade temporal O(1).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "estruturas-de-dados", "vetores", "complexidade"]
+  },
+  {
+    "id": "q-dev-027-algoritmos-matriz-bidimensional-iteracao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao percorrer e inicializar todos os elementos de uma matriz bidimensional quadrada de ordem N x N utilizando dois laços de repetição 'for' aninhados, qual é o número total de iterações executadas?",
+    "options": [
+      {
+        "id": "opt-n-ao-quadrado",
+        "text": "N² iterações, pois para cada uma das N linhas o laço interno percorre N colunas."
+      },
+      {
+        "id": "opt-2-n",
+        "text": "2N iterações, somando a quantidade de linhas e colunas."
+      },
+      {
+        "id": "opt-n-fatorial",
+        "text": "N! iterações, decorrente da combinação permutativa das células."
+      },
+      {
+        "id": "opt-log-n",
+        "text": "log2(N) iterações, decorrente da divisão bidimensional."
+      }
+    ],
+    "correctOptionId": "opt-n-ao-quadrado",
+    "explanation": "Uma matriz quadrada de ordem N possui N linhas e N colunas, totalizando N * N = N² elementos. Percorrer cada célula com laços aninhados executa exatamente N² iterações, resultando em complexidade O(N²).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "matrizes", "lacos-de-repeticao", "complexidade"]
+  },
+  {
+    "id": "q-dev-028-algoritmos-pilha-stack-overflow",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Em uma estrutura de dados do tipo Pilha (LIFO) de tamanho estático, a tentativa de inserir um novo elemento quando a capacidade máxima já foi atingida resulta no erro clássico denominado Stack Overflow (estouro de pilha).",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O erro de Stack Overflow ocorre quando uma operação de inserção (push) é executada sobre uma pilha que já se encontra em sua capacidade limite de armazenamento de memória.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "pilhas", "stack-overflow", "estruturas-de-dados"]
+  },
+  {
+    "id": "q-dev-029-algoritmos-fila-circular-ponteiros",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma Fila implementada sobre um vetor de tamanho estático, qual técnica é empregada para reaproveitar os espaços liberados no início do vetor após sucessivas remoções (dequeue), sem exigir o deslocamento manual de todos os elementos?",
+    "options": [
+      {
+        "id": "opt-fila-circular",
+        "text": "Fila circular, utilizando a operação matemática de módulo (%) para reiniciar os índices no início do vetor."
+      },
+      {
+        "id": "opt-recursao-cauda",
+        "text": "Recursão em cauda com inversão periódica dos ponteiros de topo."
+      },
+      {
+        "id": "opt-bubble-deslocamento",
+        "text": "Algoritmo de bolha executado a cada remoção para compactar o vetor."
+      },
+      {
+        "id": "opt-alocacao-hash",
+        "text": "Tabela hash encadeada com resolução linear de colisões."
+      }
+    ],
+    "correctOptionId": "opt-fila-circular",
+    "explanation": "A fila circular utiliza o operador de resto da divisão inteira (módulo) para calcular as posições dos ponteiros: inicio = (inicio + 1) % capacidade e fim = (fim + 1) % capacidade. Isso permite reutilizar o espaço inicial do vetor em O(1) sem deslocar elementos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "filas", "fila-circular", "estruturas-de-dados"]
+  },
+  {
+    "id": "q-dev-030-algoritmos-arvore-binaria-busca-propriedade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma Árvore Binária de Busca (Binary Search Tree - BST), qual regra estrutural governa o posicionamento dos nós filhos em relação à chave de um nó raiz N?",
+    "options": [
+      {
+        "id": "opt-bst-esq-menor-dir-maior",
+        "text": "Nós da subárvore esquerda possuem chaves menores que N, e nós da subárvore direita possuem chaves maiores."
+      },
+      {
+        "id": "opt-bst-esq-maior-dir-menor",
+        "text": "Nós da subárvore esquerda possuem chaves maiores que N, e nós da subárvore direita possuem chaves menores."
+      },
+      {
+        "id": "opt-bst-ordem-chegada",
+        "text": "Os nós são posicionados estritamente pela ordem de chegada cronológica, sem correlação de valor."
+      },
+      {
+        "id": "opt-bst-profundidade-paridade",
+        "text": "Nós com valores pares são obrigatoriamente alocados à direita e ímpares à esquerda."
+      }
+    ],
+    "correctOptionId": "opt-bst-esq-menor-dir-maior",
+    "explanation": "A propriedade fundamental da BST estipula que, para qualquer nó com chave K, todos os nós em sua subárvore esquerda têm chaves menores que K e todos os nós em sua subárvore direita têm chaves maiores que K, permitindo buscas em média O(log N).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "arvores", "bst", "estruturas-de-dados"]
+  },
+  {
+    "id": "q-dev-031-algoritmos-arvore-percurso-em-ordem",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao realizar uma travessia em uma Árvore Binária de Busca (BST), qual tipo de percurso visita os nós de forma que suas chaves sejam processadas em ordem rigorosamente crescente?",
+    "options": [
+      {
+        "id": "opt-percurso-em-ordem",
+        "text": "Percurso Em-ordem (In-order: subárvore esquerda, nó atual, subárvore direita)."
+      },
+      {
+        "id": "opt-percurso-pre-ordem",
+        "text": "Percurso Pré-ordem (Pre-order: nó atual, subárvore esquerda, subárvore direita)."
+      },
+      {
+        "id": "opt-percurso-pos-ordem",
+        "text": "Percurso Pós-ordem (Post-order: subárvore esquerda, subárvore direita, nó atual)."
+      },
+      {
+        "id": "opt-percurso-nivel",
+        "text": "Percurso em largura por níveis (Breadth-first search)."
+      }
+    ],
+    "correctOptionId": "opt-percurso-em-ordem",
+    "explanation": "O percurso Em-ordem (In-order traversal) visita recursivamente a subárvore esquerda (valores menores), depois o nó corrente, e por fim a subárvore direita (valores maiores). Em uma BST, essa sequência gera a ordenação estritamente crescente das chaves.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "arvores", "percurso-em-ordem", "bst"]
+  },
+  {
+    "id": "q-dev-032-algoritmos-ordenacao-merge-sort-divisao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "O algoritmo Merge Sort adota o paradigma de divisão e conquista para ordenar um conjunto de dados. Qual é a complexidade assintótica de tempo do Merge Sort no seu pior caso?",
+    "options": [
+      {
+        "id": "opt-o-n-log-n",
+        "text": "O(N log N), pois a árvore de recursão possui profundidade log N e cada nível executa intercalação em O(N)."
+      },
+      {
+        "id": "opt-o-n-quadrado",
+        "text": "O(N²), pois no pior caso a divisão gera subproblemas degenerados de tamanho 1 e N-1."
+      },
+      {
+        "id": "opt-o-n",
+        "text": "O(N), operando em tempo puramente linear independente da desordem inicial."
+      },
+      {
+        "id": "opt-o-log-n",
+        "text": "O(log N), necessitando apenas de comparações nos nós de partição."
+      }
+    ],
+    "correctOptionId": "opt-o-n-log-n",
+    "explanation": "O Merge Sort divide sucessivamente o vetor ao meio em O(log N) níveis e intercala os subvetores ordenados em O(N) operações por nível. Sua complexidade temporal permanece estritamente O(N log N) em todos os casos (melhor, médio e pior).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "ordenacao", "merge-sort", "complexidade"]
+  },
+  {
+    "id": "q-dev-033-algoritmos-ordenacao-bubble-sort-quadratica",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "O algoritmo de ordenação por bolha (Bubble Sort) simples possui complexidade assintótica de pior caso O(N²), tornando-o ineficiente para ordenar coleções extensas de dados em comparação a algoritmos O(N log N).",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O Bubble Sort compara repetidamente elementos adjacentes e os troca se estiverem fora de ordem. No pior caso (vetor em ordem inversa), realiza aproximadamente N*(N-1)/2 comparações e trocas, caracterizando complexidade quadrática O(N²).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "ordenacao", "bubble-sort", "complexidade"]
+  },
+  {
+    "id": "q-dev-034-algoritmos-complexidade-big-o-comparacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Considere a análise de complexidade temporal assintótica (Notação Big-O). Qual das seguintes opções apresenta as classes de complexidade dispostas em ordem crescente de taxa de crescimento conforme o tamanho da entrada N aumenta para o infinito?",
+    "options": [
+      {
+        "id": "opt-ordem-correta-big-o",
+        "text": "O(1) < O(log N) < O(N) < O(N log N) < O(N²) < O(2^N)"
+      },
+      {
+        "id": "opt-ordem-errada-1",
+        "text": "O(1) < O(N) < O(log N) < O(N²) < O(N log N) < O(2^N)"
+      },
+      {
+        "id": "opt-ordem-errada-2",
+        "text": "O(log N) < O(1) < O(N log N) < O(N) < O(2^N) < O(N²)"
+      },
+      {
+        "id": "opt-ordem-errada-3",
+        "text": "O(N) < O(log N) < O(1) < O(N²) < O(N log N) < O(N!)"
+      }
+    ],
+    "correctOptionId": "opt-ordem-correta-big-o",
+    "explanation": "A hierarquia correta de taxas assintóticas de crescimento é: Constante O(1) < Logarítmica O(log N) < Linear O(N) < Linearítmica O(N log N) < Quadrática O(N²) < Exponencial O(2^N) < Fatorial O(N!).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "complexidade", "big-o", "analise-assintotica"]
+  },
+  {
+    "id": "q-dev-035-algoritmos-recursao-caso-base-pilha",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC09"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um algoritmo recursivo, qual é a função essencial do 'caso base' (ou condição de parada)?",
+    "options": [
+      {
+        "id": "opt-caso-base-interrupcao",
+        "text": "Interromper as chamadas recursivas, retornando um valor direto e permitindo o desempilhamento dos quadros da pilha de execução."
+      },
+      {
+        "id": "opt-caso-base-duplicacao",
+        "text": "Duplicar o espaço em memória do heap para acomodar os parâmetros adicionais de cada chamada."
+      },
+      {
+        "id": "opt-caso-base-conversao",
+        "text": "Converter a execução para threads concorrentes gerenciadas pelo sistema operacional."
+      },
+      {
+        "id": "opt-caso-base-reset",
+        "text": "Zerar as variáveis globais do programa antes de executar a próxima iteração."
+      }
+    ],
+    "correctOptionId": "opt-caso-base-interrupcao",
+    "explanation": "O caso base é a condição terminal que interrompe o encadeamento de chamadas recursivas. Sem ele, a função chamaria a si mesma indefinidamente até esgotar a memória reservada para a pilha de chamadas (call stack), resultando em Stack Overflow.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC09"
+    },
+    "tags": ["algoritmos", "recursao", "caso-base", "pilha-de-chamadas"]
+  },
+  {
+    "id": "q-dev-036-sql-sublinguagens-ddl-dml-dql",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na linguagem SQL padrão, qual comando pertence à categoria DDL (Data Definition Language) e tem por finalidade alterar a estrutura de uma tabela já existente no banco de dados?",
+    "options": [
+      {
+        "id": "opt-alter-table",
+        "text": "ALTER TABLE"
+      },
+      {
+        "id": "opt-update",
+        "text": "UPDATE"
+      },
+      {
+        "id": "opt-modify-rows",
+        "text": "MODIFY ROWS"
+      },
+      {
+        "id": "opt-insert-into",
+        "text": "INSERT INTO"
+      }
+    ],
+    "correctOptionId": "opt-alter-table",
+    "explanation": "DDL (Data Definition Language) lida com a estrutura dos objetos no banco (esquema). ALTER TABLE é o comando DDL para modificar a estrutura de tabelas. Comandos como UPDATE e INSERT INTO pertencem à DML (Data Manipulation Language), que manipula os dados.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "sql", "ddl", "dml"]
+  },
+  {
+    "id": "q-dev-037-sql-dql-like-padroes-coringas",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma consulta SQL utilizando a cláusula WHERE com o operador LIKE, qual caractere coringa representa qualquer sequência de zero ou mais caracteres arbitrários?",
+    "options": [
+      {
+        "id": "opt-porcentagem",
+        "text": "O símbolo de porcentagem (%)"
+      },
+      {
+        "id": "opt-sublinhado",
+        "text": "O símbolo de sublinhado (_), que representa exatamente um único caractere."
+      },
+      {
+        "id": "opt-asterisco",
+        "text": "O asterisco (*)"
+      },
+      {
+        "id": "opt-interrogacao",
+        "text": "O ponto de interrogação (?)"
+      }
+    ],
+    "correctOptionId": "opt-porcentagem",
+    "explanation": "No SQL padrão, no operador LIKE: o símbolo '%' casa com qualquer sequência de zero ou mais caracteres, enquanto o sublinhado '_' casa com exatamente um único caractere.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "sql", "dql", "like"]
+  },
+  {
+    "id": "q-dev-038-sql-juncao-right-join-comportamento",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao executar uma consulta SQL com a cláusula 'tabela_a RIGHT JOIN tabela_b ON tabela_a.id = tabela_b.a_id', qual é o comportamento do conjunto de resultados retornado?",
+    "options": [
+      {
+        "id": "opt-right-join-todos-b",
+        "text": "Retorna todos os registros de tabela_b, combinados com os dados correspondentes de tabela_a ou com NULL onde não houver correspondência."
+      },
+      {
+        "id": "opt-right-join-todos-a",
+        "text": "Retorna todos os registros de tabela_a, preenchendo com NULL quando tabela_b não possuir paridade."
+      },
+      {
+        "id": "opt-right-join-apenas-iguais",
+        "text": "Retorna unicamente as linhas que possuem correspondência estrita e simultânea em ambas as tabelas."
+      },
+      {
+        "id": "opt-right-join-produto-cartesiano",
+        "text": "Gera o produto cartesiano completo entre todos os registros das duas tabelas sem avaliar o predicado ON."
+      }
+    ],
+    "correctOptionId": "opt-right-join-todos-b",
+    "explanation": "O RIGHT OUTER JOIN preserva todos os registros da tabela da direita (tabela_b). Se houver correspondência na tabela da esquerda (tabela_a), os dados são unidos; se não houver, as colunas da tabela_a vêm preenchidas com NULL.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "sql", "right-join", "joins"]
+  },
+  {
+    "id": "q-dev-039-sql-normalizacao-primeira-forma-1fn",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No processo de normalização de bancos de dados relacionais, qual é a exigência primordial para que uma tabela esteja em conformidade com a Primeira Forma Normal (1FN)?",
+    "options": [
+      {
+        "id": "opt-1fn-atomicidade-atributos",
+        "text": "Todos os atributos devem conter apenas valores atômicos (indivisíveis) e não conter grupos repetitivos ou campos multivalorados."
+      },
+      {
+        "id": "opt-1fn-chave-estrangeira",
+        "text": "Todas as tabelas devem possuir obrigatoriamente pelo menos duas chaves estrangeiras vinculadas."
+      },
+      {
+        "id": "opt-1fn-sem-dependencia-transitiva",
+        "text": "Todos os atributos não-chave devem depender diretamente de outras colunas não-chave."
+      },
+      {
+        "id": "opt-1fn-indices-compostos",
+        "text": "A tabela deve possuir um índice clusterizado composto em todas as colunas de texto."
+      }
+    ],
+    "correctOptionId": "opt-1fn-atomicidade-atributos",
+    "explanation": "A 1FN exige que cada coluna contenha apenas valores atômicos (monovalorados e indivisíveis) e que não existam grupos de repetição (como múltiplos telefones separados por vírgula em uma única coluna ou colunas fone1, fone2, fone3).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "normalizacao", "1fn", "modelagem"]
+  },
+  {
+    "id": "q-dev-040-sql-normalizacao-segunda-forma-2fn",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Uma tabela relacional já se encontra na 1FN e possui uma chave primária composta (formada por duas colunas: AlunoID e CursoID). Para atender aos critérios da Segunda Forma Normal (2FN), o que ela deve garantir?",
+    "options": [
+      {
+        "id": "opt-2fn-sem-dependencia-parcial",
+        "text": "Nenhum atributo não-chave pode depender funcionalmente de apenas uma parte da chave primária composta (ausência de dependência parcial)."
+      },
+      {
+        "id": "opt-2fn-sem-valores-nulos",
+        "text": "Nenhum campo da tabela pode aceitar valores nulos (NULL), devendo todos conter valores padrão estáticos."
+      },
+      {
+        "id": "opt-2fn-auto-incremento",
+        "text": "A chave primária composta deve ser obrigatoriamente substituída por uma chave substituta (surrogate key) auto-incremental."
+      },
+      {
+        "id": "opt-2fn-sem-chaves-estrangeiras",
+        "text": "A tabela não pode conter referências externas a entidades de apoio."
+      }
+    ],
+    "correctOptionId": "opt-2fn-sem-dependencia-parcial",
+    "explanation": "A 2FN exige que a tabela esteja na 1FN e que todo atributo não-chave seja totalmente dependente de toda a chave primária. Se um atributo depende apenas de parte de uma chave primária composta, essa dependência parcial viola a 2FN e deve ser movida para outra tabela.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "normalizacao", "2fn", "dependencia-funcional"]
+  },
+  {
+    "id": "q-dev-041-sql-normalizacao-terceira-forma-3fn",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Considere uma tabela de 'Funcionarios' que contenha as colunas: FuncionarioID (chave primária), Nome, DepartamentoID e NomeDepartamento. Sabendo que NomeDepartamento depende diretamente de DepartamentoID (um atributo não-chave), qual forma normal essa estrutura viola?",
+    "options": [
+      {
+        "id": "opt-viola-3fn",
+        "text": "Viola a 3FN (Terceira Forma Normal), devido à presença de uma dependência transitiva entre atributos não-chave."
+      },
+      {
+        "id": "opt-viola-1fn",
+        "text": "Viola a 1FN, pois DepartamentoID e NomeDepartamento violam a atomicidade de domínio."
+      },
+      {
+        "id": "opt-viola-2fn-unicamente",
+        "text": "Viola apenas a 2FN, pois chaves simples não comportam dados categóricos."
+      },
+      {
+        "id": "opt-nao-viola",
+        "text": "Não viola nenhuma forma normal, pois atributos descritivos podem residir em qualquer entidade."
+      }
+    ],
+    "correctOptionId": "opt-viola-3fn",
+    "explanation": "A 3FN exige que a tabela esteja na 2FN e que não contenha dependências transitivas, isto é, nenhum atributo não-chave pode depender de outro atributo não-chave. Como NomeDepartamento depende de DepartamentoID (e não apenas de FuncionarioID), a tabela viola a 3FN.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "normalizacao", "3fn", "dependencia-transitiva"]
+  },
+  {
+    "id": "q-dev-042-sql-transacoes-acid-atomicidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No modelo transacional de bancos de dados relacionais (propriedades ACID), qual propriedade assegura que todas as operações de uma transação sejam executadas com êxito (COMMIT) ou, em caso de qualquer falha, revertidas integralmente (ROLLBACK), não permitindo estados parciais?",
+    "options": [
+      {
+        "id": "opt-atomicidade",
+        "text": "Atomicidade (Atomicity)"
+      },
+      {
+        "id": "opt-consistencia",
+        "text": "Consistência (Consistency)"
+      },
+      {
+        "id": "opt-isolamento",
+        "text": "Isolamento (Isolation)"
+      },
+      {
+        "id": "opt-durabilidade",
+        "text": "Durabilidade (Durability)"
+      }
+    ],
+    "correctOptionId": "opt-atomicidade",
+    "explanation": "A Atomicidade estabelece a regra do 'tudo ou nada'. Uma transação é tratada como uma unidade atômica indivisível de trabalho: ou todas as suas alterações persistem no banco, ou nenhuma delas tem efeito caso ocorra erro.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "transacoes", "acid", "atomicidade"]
+  },
+  {
+    "id": "q-dev-043-sql-transacoes-acid-isolamento",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "A propriedade de Isolamento em transações ACID garante que a execução simultânea de múltiplas transações produza o mesmo estado no banco de dados que seria obtido caso as transações tivessem sido executadas de maneira sequencial.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O isolamento assegura que modificações intermediárias não confirmadas de uma transação fiquem invisíveis a outras transações concorrentes (conforme o nível de isolamento configurado), prevenindo anomalias como leituras sujas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "transacoes", "acid", "isolamento"]
+  },
+  {
+    "id": "q-dev-044-sql-indices-b-tree-trade-off",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Embora a criação de índices (como índices B-Tree) acelere consideravelmente a execução de consultas de busca (SELECT) em tabelas volumosas, qual é o principal impacto adverso (trade-off) de seu uso excessivo?",
+    "options": [
+      {
+        "id": "opt-impacto-escrita-armazenamento",
+        "text": "Aumento do consumo de disco e degradação de desempenho em operações de escrita (INSERT, UPDATE, DELETE), pois cada índice precisa ser mantido."
+      },
+      {
+        "id": "opt-impacto-bloqueio-ddl",
+        "text": "Impossibilidade definitiva de utilizar transações ACID na tabela indexada."
+      },
+      {
+        "id": "opt-impacto-conversao-nulos",
+        "text": "Conversão automática de todos os valores nulos para strings vazias nas colunas vinculadas."
+      },
+      {
+        "id": "opt-impacto-perda-integridade",
+        "text": "Desativação compulsória das restrições de chave estrangeira."
+      }
+    ],
+    "correctOptionId": "opt-impacto-escrita-armazenamento",
+    "explanation": "Cada índice criado em uma tabela ocupa espaço adicional em disco e impõe sobrecarga computacional durante operações de escrita (INSERT, UPDATE, DELETE), pois o SGBD é obrigado a atualizar a árvore do índice a cada modificação nos dados.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "indices", "performance", "b-tree"]
+  },
+  {
+    "id": "q-dev-045-sql-integridade-referencial-on-delete-cascade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC10"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma definição de Chave Estrangeira (FOREIGN KEY) no SQL, qual é o efeito prático da cláusula 'ON DELETE CASCADE' configurada na tabela filha?",
+    "options": [
+      {
+        "id": "opt-exclui-filhos-automaticamente",
+        "text": "Ao excluir um registro pai da tabela referenciada, todos os registros filhos correspondentes na tabela filha são excluídos automaticamente."
+      },
+      {
+        "id": "opt-impede-exclusao-pai",
+        "text": "Impede a exclusão do registro pai enquanto existirem registros filhos dependentes na tabela filha."
+      },
+      {
+        "id": "opt-atribui-null-filhos",
+        "text": "Mantém os registros filhos, mas converte suas chaves estrangeiras para NULL automaticamente."
+      },
+      {
+        "id": "opt-gera-tabela-backup",
+        "text": "Move os registros filhos para uma tabela temporária de arquivamento no banco de dados."
+      }
+    ],
+    "correctOptionId": "opt-exclui-filhos-automaticamente",
+    "explanation": "A regra 'ON DELETE CASCADE' propaga a exclusão: quando uma linha na tabela pai referenciada é deletada, o SGBD apaga automaticamente todas as linhas correspondentes na tabela filha, mantendo a integridade referencial sem gerar registros órfãos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC10"
+    },
+    "tags": ["banco-de-dados", "sql", "integridade-referencial", "cascade"]
+  },
+  {
+    "id": "q-dev-046-testes-unitarios-assercoes-tobe-toequal",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em frameworks modernos de teste em JavaScript/TypeScript como Vitest ou Jest, qual é a diferença fundamental entre as asserções expect(a).toBe(b) e expect(a).toEqual(b)?",
+    "options": [
+      {
+        "id": "opt-tobe-referencia-toequal-profunda",
+        "text": "toBe verifica igualdade estrita de valores primitivos ou referência de memória (===), enquanto toEqual compara a igualdade estrutural profunda de objetos e arrays."
+      },
+      {
+        "id": "opt-toequal-tipagem-tobe-regex",
+        "text": "toEqual aceita apenas strings e números, enquanto toBe compara estruturas através de expressões regulares."
+      },
+      {
+        "id": "opt-tobe-assincrono-toequal-sincrono",
+        "text": "toBe é obrigatório em métodos assíncronos e toEqual só pode ser utilizado em código síncrono."
+      },
+      {
+        "id": "opt-sinonimos-perfeitos",
+        "text": "Ambos são sinônimos idênticos e intercambiáveis sem qualquer diferença interna de execução."
+      }
+    ],
+    "correctOptionId": "opt-tobe-referencia-toequal-profunda",
+    "explanation": "O matcher toBe() compara identidade por referência usando Object.is() / ===. Para dois objetos com as mesmas propriedades em endereços de memória distintos, toBe() falha, enquanto toEqual() realiza checagem recursiva profunda de propriedades e passa com sucesso.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["testes", "vitest", "jest", "assercoes"]
+  },
+  {
+    "id": "q-dev-047-testes-piramide-de-testes-camadas",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No conceito tradicional da Pirâmide de Testes (Test Pyramid) proposto na engenharia de software, qual é a distribuição recomendada de tipos de testes em termos de velocidade, custo e quantidade?",
+    "options": [
+      {
+        "id": "opt-base-unitarios-topo-e2e",
+        "text": "Base volumosa e rápida de testes unitários; camada intermediária de testes de integração; topo restrito e mais lento de testes ponta a ponta (E2E)."
+      },
+      {
+        "id": "opt-base-e2e-topo-unitarios",
+        "text": "Base maciça de testes ponta a ponta (E2E); camada intermediária de testes manuais; topo com poucos testes unitários."
+      },
+      {
+        "id": "opt-apenas-integracao",
+        "text": "Eliminação de testes unitários em favor exclusivo de testes de integração com banco de dados real."
+      },
+      {
+        "id": "opt-distribuicao-uniforme",
+        "text": "Exatamente 33% do tempo e quantidade alocados de forma idêntica para unitários, integração e E2E."
+      }
+    ],
+    "correctOptionId": "opt-base-unitarios-topo-e2e",
+    "explanation": "A Pirâmide de Testes recomenda que a maior parte da suíte seja composta por testes unitários (execução em milissegundos, baixo custo de manutenção e isolamento), intermediada por testes de integração de subsistemas, reservando o topo para testes E2E (mais lentos e frágeis).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["testes", "piramide-de-testes", "qualidade", "arquitetura"]
+  },
+  {
+    "id": "q-dev-048-testes-integracao-escopo-validacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual é o principal objetivo pedagógico e técnico de um Teste de Integração em uma aplicação computacional?",
+    "options": [
+      {
+        "id": "opt-integracao-comunicacao-modulos",
+        "text": "Verificar se duas ou mais unidades/módulos distintos funcionam corretamente quando combinados e comunicando-se entre si."
+      },
+      {
+        "id": "opt-integracao-desempenho-hardware",
+        "text": "Medir a temperatura de operação dos processadores durante a compilação do código fonte."
+      },
+      {
+        "id": "opt-integracao-layout-estilos",
+        "text": "Confirmar que a paleta de cores CSS foi renderizada de acordo com o guia de estilo visual."
+      },
+      {
+        "id": "opt-integracao-compilador",
+        "text": "Garantir unicamente que o código compila sem erros sintáticos de tipagem estática."
+      }
+    ],
+    "correctOptionId": "opt-integracao-comunicacao-modulos",
+    "explanation": "Diferente do teste unitário (que isola uma função ou classe individual), o teste de integração valida a interação coordenada entre componentes — como a comunicação entre um serviço e o banco de dados ou a troca de mensagens entre repositórios e controladores.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["testes", "testes-de-integracao", "qualidade", "software"]
+  },
+  {
+    "id": "q-dev-049-testes-cobertura-codigo-nao-garante-ausencia-bugs",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Atingir uma métrica de 100% de cobertura de código (code coverage) em testes automatizados é garantia absoluta de que a aplicação está livre de erros de regra de negócio, falhas lógicas ou cenários de exceção imprevistos.",
+    "correctAnswer": false,
+    "explanation": "Falso. Cobertura de código mede apenas quais linhas ou branches foram executadas durante a suíte de testes. Ela não garante que as asserções estão corretas, que requisitos de negócio foram integralmente atendidos ou que entradas anômalas foram testadas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["testes", "cobertura-de-codigo", "metricas", "qualidade"]
+  },
+  {
+    "id": "q-dev-050-testes-dubles-stub-vs-mock-diferenca",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No jargão de dublês de teste (Test Doubles), qual é a diferença técnica conceitual entre um 'Stub' e um 'Mock'?",
+    "options": [
+      {
+        "id": "opt-stub-retorna-dados-mock-verifica-comportamento",
+        "text": "Um Stub fornece respostas prontas e predeterminadas para chamadas feitas durante o teste, enquanto um Mock também registra e verifica se métodos específicos foram invocados com parâmetros esperados."
+      },
+      {
+        "id": "opt-mock-banco-stub-arquivo",
+        "text": "Um Mock é utilizado apenas para simular bancos relacionais, enquanto um Stub simula exclusivamente arquivos do sistema operacional."
+      },
+      {
+        "id": "opt-stub-producao-mock-teste",
+        "text": "Stubs são compilados para o artefato final de produção, enquanto Mocks são descartados em tempo de execução."
+      },
+      {
+        "id": "opt-mock-aleatorio-stub-fixo",
+        "text": "Um Stub gera respostas pseudoaleatórias com IA, e um Mock devolve apenas exceções intencionais."
+      }
+    ],
+    "correctOptionId": "opt-stub-retorna-dados-mock-verifica-comportamento",
+    "explanation": "Stubs são dublês voltados para fornecer dados enlatados (state verification). Mocks são dublês voltados para verificação de comportamento (behavior verification), permitindo asserções como expect(mailer.send).toHaveBeenCalledWith(userEmail).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["testes", "mocks", "stubs", "test-doubles"]
+  },
+  {
+    "id": "q-dev-051-cicd-pipeline-estagios-padrao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma esteira automatizada de Integração e Entrega Contínua (CI/CD), qual é a ordem cronológica mais recomendada de execução dos estágios para maximizar o feedback rápido de falhas (fail-fast)?",
+    "options": [
+      {
+        "id": "opt-lint-typecheck-test-build-deploy",
+        "text": "Linting/Formatação -> Checagem de Tipos (Typecheck) -> Testes Automatizados -> Build de Produção -> Implantação (Deploy)."
+      },
+      {
+        "id": "opt-deploy-primeiro",
+        "text": "Deploy em Produção -> Testes em Produção -> Build -> Linting."
+      },
+      {
+        "id": "opt-build-antes-de-tudo",
+        "text": "Build de Produção -> Deploy -> Linting -> Testes Unitários se houver tempo."
+      },
+      {
+        "id": "opt-apenas-deploy",
+        "text": "Implantação direta de arquivos fonte sem etapas prévias de validação ou compilação."
+      }
+    ],
+    "correctOptionId": "opt-lint-typecheck-test-build-deploy",
+    "explanation": "O princípio de fail-fast orienta executar primeiro as etapas mais rápidas e leves (lint e typecheck). Se aprovadas, rodam-se os testes unitários e de integração; em seguida constrói-se o artefato de build e, por fim, realiza-se o deploy.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["cicd", "pipeline", "automacao", "devops"]
+  },
+  {
+    "id": "q-dev-052-cicd-declarativo-github-actions-yaml",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em plataformas amplamente utilizadas como GitHub Actions e GitLab CI, qual formato de arquivo estruturado é padronizado para a declaração de pipelines, jobs e passos de automação?",
+    "options": [
+      {
+        "id": "opt-yaml",
+        "text": "YAML (.yml ou .yaml)"
+      },
+      {
+        "id": "opt-xml",
+        "text": "XML (.xml)"
+      },
+      {
+        "id": "opt-ini",
+        "text": "INI (.ini)"
+      },
+      {
+        "id": "opt-csv",
+        "text": "CSV (.csv)"
+      }
+    ],
+    "correctOptionId": "opt-yaml",
+    "explanation": "O formato YAML (YAML Ain't Markup Language) tornou-se o padrão da indústria para especificação declarativa de workflows de CI/CD (como em .github/workflows/*.yml), devido à sua sintaxe limpa baseada em indentação.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["cicd", "yaml", "github-actions", "devops"]
+  },
+  {
+    "id": "q-dev-053-semver-minor-retrocompatibilidade-regra",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Uma biblioteca de software segue rigorosamente a especificação SemVer 2.0.0 (MAJOR.MINOR.PATCH). Ao lançar uma nova versão que adiciona novas funções públicas, porém preserva total retrocompatibilidade com o código anterior, qual componente numérico deve ser incrementado?",
+    "options": [
+      {
+        "id": "opt-incrementa-minor",
+        "text": "MINOR (exemplo: de 1.4.2 para 1.5.0)."
+      },
+      {
+        "id": "opt-incrementa-major",
+        "text": "MAJOR (exemplo: de 1.4.2 para 2.0.0)."
+      },
+      {
+        "id": "opt-incrementa-patch",
+        "text": "PATCH (exemplo: de 1.4.2 para 1.4.3)."
+      },
+      {
+        "id": "opt-nenhum-incremento",
+        "text": "Nenhum número é alterado, adicionando-se apenas um sufixo alfanumérico."
+      }
+    ],
+    "correctOptionId": "opt-incrementa-minor",
+    "explanation": "Na especificação SemVer: MAJOR é incrementado para mudanças incompatíveis de API; MINOR para adição de funcionalidade com retrocompatibilidade; e PATCH para correções de bugs retrocompatíveis.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["semver", "versionamento", "deploy", "software"]
+  },
+  {
+    "id": "q-dev-054-semver-patch-correcao-de-bugs",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "No Versionamento Semântico (SemVer 2.0.0), a versão PATCH (terceiro dígito) deve ser incrementada prioritariamente quando são implementadas correções de falhas (bug fixes) que mantêm a compatibilidade com versões anteriores.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O segmento PATCH é reservado estritamente para correções de defeitos internos que não quebram o contrato da API pública e não introduzem novas funcionalidades externas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["semver", "versionamento", "software", "qualidade"]
+  },
+  {
+    "id": "q-dev-055-deploy-blue-green-estrategia-downtime",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC11"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em práticas de implantação contínua em ambientes produtivos, o que caracteriza a estratégia de implantação Blue-Green (Azul-Verde)?",
+    "options": [
+      {
+        "id": "opt-blue-green-dois-ambientes-roteamento",
+        "text": "Manter dois ambientes de produção idênticos (Blue e Green); o novo release é implantado no ambiente ocioso e, após testes de fumaça, o tráfego do roteador é redirecionado instantaneamente, reduzindo o downtime a quase zero."
+      },
+      {
+        "id": "opt-blue-green-cores-css",
+        "text": "Dividir a interface de usuário em duas paletas cromáticas contrastantes para testes de usabilidade com usuários daltônicos."
+      },
+      {
+        "id": "opt-blue-green-parada-agendada",
+        "text": "Interromper o servidor principal durante a madrugada e recriar o banco de dados do zero a cada nova versão."
+      },
+      {
+        "id": "opt-blue-green-deploy-manual",
+        "text": "Distribuir pendrives físicos contendo instaladores atualizados aos computadores da organização."
+      }
+    ],
+    "correctOptionId": "opt-blue-green-dois-ambientes-roteamento",
+    "explanation": "A implantação Blue-Green mitiga riscos e elimina tempo de inatividade: um ambiente atende o tráfego ativo (ex.: Blue), enquanto a nova versão é instalada e validada no ambiente espelho (Green). Uma vez confirmada a estabilidade, o roteador/load balancer chaveia o tráfego.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC11"
+    },
+    "tags": ["deploy", "blue-green", "devops", "implantacao"]
+  },
+  {
+    "id": "q-dev-056-desktop-mvc-camada-model-responsabilidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No desenvolvimento de sistemas desktop utilizando o padrão arquitetural MVC (Model-View-Controller), qual é a responsabilidade central da camada Model?",
+    "options": [
+      {
+        "id": "opt-model-regras-e-dados",
+        "text": "Encapsular os dados, regras de negócio e a lógica de validação/persistência, sem referências diretas a componentes de interface gráfica."
+      },
+      {
+        "id": "opt-model-desenhar-botoes",
+        "text": "Renderizar janelas, botões, caixas de diálogo e gerenciar o tema visual da área de trabalho."
+      },
+      {
+        "id": "opt-model-capturar-cliques",
+        "text": "Interceptar diretamente as mensagens do driver do mouse e teclado do sistema operacional."
+      },
+      {
+        "id": "opt-model-gerenciar-rede",
+        "text": "Executar o balanceamento de carga das requisições DNS da placa de rede."
+      }
+    ],
+    "correctOptionId": "opt-model-regras-e-dados",
+    "explanation": "O Model representa o núcleo do domínio: gerencia o estado da aplicação, regras de negócio e operações de dados. Ele deve ser estritamente desacoplado da interface visual (View), viabilizando testes automatizados e reutilização.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "mvc", "arquitetura", "model"]
+  },
+  {
+    "id": "q-dev-057-desktop-mvc-controller-papel-mediador",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No padrão MVC para aplicações desktop, qual é o papel desempenhado pelo componente Controller quando um usuário clica em um botão 'Salvar' na tela?",
+    "options": [
+      {
+        "id": "opt-controller-recebe-acao-atualiza-model",
+        "text": "Recebe o evento disparado pela View, processa a intenção do usuário, invoca os métodos pertinentes do Model e comanda a atualização da View."
+      },
+      {
+        "id": "opt-controller-recompila-codigo",
+        "text": "Recompila o arquivo executável binário da aplicação para gravar os novos campos no disco."
+      },
+      {
+        "id": "opt-controller-acessa-banco-diretamente",
+        "text": "Executa instruções SQL diretas sem consultar as entidades de negócio."
+      },
+      {
+        "id": "opt-controller-bloqueia-tela",
+        "text": "Impede permanentemente qualquer nova interação do usuário até que o sistema seja reiniciado."
+      }
+    ],
+    "correctOptionId": "opt-controller-recebe-acao-atualiza-model",
+    "explanation": "O Controller atua como intermediário: ele interpreta as ações e eventos oriundos da View (ex.: clique em Salvar), solicita ao Model as alterações de estado ou regras necessárias e orienta a View a refletir as mudanças.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "mvc", "controller", "arquitetura"]
+  },
+  {
+    "id": "q-dev-058-desktop-ui-event-loop-mecanismo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Aplicações desktop com interface gráfica operam com base em um mecanismo denominado Event Loop (laço de mensagens/eventos da UI). Qual é o propósito desse mecanismo?",
+    "options": [
+      {
+        "id": "opt-event-loop-despacho-mensagens",
+        "text": "Capturar continuamente mensagens do sistema operacional (cliques, movimentos, teclado, solicitações de redesenho) e despachá-las aos respectivos tratadores na thread de interface."
+      },
+      {
+        "id": "opt-event-loop-limpeza-ram",
+        "text": "Efetuar a desfragmentação periódica dos pentes de memória RAM do computador hospedeiro."
+      },
+      {
+        "id": "opt-event-loop-sincronizar-relogio",
+        "text": "Sincronizar os relógios de rede NTP a cada segundo de execução do programa."
+      },
+      {
+        "id": "opt-event-loop-criptografia-disco",
+        "text": "Criptografar os arquivos executáveis em segundo plano."
+      }
+    ],
+    "correctOptionId": "opt-event-loop-despacho-mensagens",
+    "explanation": "O Event Loop da UI é uma estrutura fundamental que fica em laço contínuo retirando eventos da fila do sistema operacional e despachando-os para os componentes visuais para pintura de tela e resposta a interações de usuário.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "event-loop", "ui-thread", "eventos"]
+  },
+  {
+    "id": "q-dev-059-desktop-background-worker-concorrencia",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Para evitar o congelamento (bloqueio de UI) de uma aplicação desktop durante a geração de um relatório em PDF de 500 páginas, qual técnica de programação multithreading deve ser implementada?",
+    "options": [
+      {
+        "id": "opt-thread-secundaria-background-worker",
+        "text": "Executar a tarefa pesada em uma thread secundária (como BackgroundWorker ou Task assíncrona) e atualizar a barra de progresso na thread da UI via despachante."
+      },
+      {
+        "id": "opt-laco-while-true-ui",
+        "text": "Inserir um laço 'while (true)' vazio na thread principal para aguardar o término da impressora."
+      },
+      {
+        "id": "opt-aumentar-prioridade-processo",
+        "text": "Elevar a prioridade do processo desktop para tempo real no Gerenciador de Tarefas do Windows."
+      },
+      {
+        "id": "opt-desativar-antivirus",
+        "text": "Desativar o serviço de notificações do sistema operacional."
+      }
+    ],
+    "correctOptionId": "opt-thread-secundaria-background-worker",
+    "explanation": "Processamentos computacionalmente intensivos ou I/O demorados devem ser delegados a threads em background (Worker Threads). A thread de interface (UI Thread) permanece livre para responder ao usuário e processar eventos gráficos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "multithreading", "background-worker", "concorrencia"]
+  },
+  {
+    "id": "q-dev-060-desktop-event-listener-padrao-observer",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Nas bibliotecas gráficas desktop (como Java Swing, WPF, WinForms ou Electron), qual padrão de projeto comportamental serve de base para o mecanismo de 'Event Handlers' / 'Event Listeners' vinculados a componentes visuais?",
+    "options": [
+      {
+        "id": "opt-observer",
+        "text": "Observer (Observador), permitindo que objetos ouvintes sejam notificados automaticamente quando um evento de clique ou digitação ocorre."
+      },
+      {
+        "id": "opt-singleton",
+        "text": "Singleton, forçando a existência de apenas uma única janela no aplicativo inteiro."
+      },
+      {
+        "id": "opt-factory-method",
+        "text": "Factory Method, focado unicamente na instanciação polimórfica de conexões de banco."
+      },
+      {
+        "id": "opt-adapter",
+        "text": "Adapter, focado em converter protocolos de rede incompatíveis."
+      }
+    ],
+    "correctOptionId": "opt-observer",
+    "explanation": "O tratamento de eventos em UI desktop é uma aplicação direta do padrão Observer: o botão ou componente atua como sujeito publicador (Subject/Observable) e os métodos registrados atuam como observadores (Listeners/Observers) executados no disparo do evento.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "observer", "event-listener", "design-patterns"]
+  },
+  {
+    "id": "q-dev-061-desktop-validacao-formularios-momento",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um formulário de cadastro desktop, qual é a prática recomendada de validação de dados para fornecer uma boa experiência de usuário e proteger a consistência do sistema?",
+    "options": [
+      {
+        "id": "opt-validacao-imediata-e-antes-submit",
+        "text": "Validar formatos em tempo de entrada ou perda de foco (ex.: máscara de CPF/data) e revalidar integralmente todas as regras de negócio no envio antes da persistência."
+      },
+      {
+        "id": "opt-validar-somente-no-sgbd",
+        "text": "Permitir o preenchimento arbitrário sem qualquer checagem visual e delegar todos os erros para estouro de exceção do banco de dados."
+      },
+      {
+        "id": "opt-limpar-todos-campos",
+        "text": "Apagar todos os campos digitados pelo usuário assim que um único caractere inválido for digitado."
+      },
+      {
+        "id": "opt-fechar-formulario",
+        "text": "Encerrar a aplicação imediatamente se o usuário esquecer de preencher um campo opcional."
+      }
+    ],
+    "correctOptionId": "opt-validacao-imediata-e-antes-submit",
+    "explanation": "A validação em aplicações desktop deve combinar feedback visual ágil (máscaras de entrada, indicação de campos obrigatórios) com validação formal completa antes do disparo da ação de persistência, evitando chamadas desnecessárias e prevenindo estados corrompidos.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "validacao", "formularios", "usabilidade"]
+  },
+  {
+    "id": "q-dev-062-desktop-excecoes-customizadas-dominio",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Por que se recomenda criar classes de exceções customizadas (como 'SaldoInsuficienteException' ou 'ClienteNaoEncontradoException') que herdam da classe base de exceção da plataforma em vez de lançar apenas instâncias de 'Exception' genéricas?",
+    "options": [
+      {
+        "id": "opt-excecao-especifica-captura-e-clareza",
+        "text": "Permite tratamento específico e granular em blocos catch diferenciados, além de enriquecer a semântica de regras de negócio e facilitar a depuração."
+      },
+      {
+        "id": "opt-excecao-evita-compilacao",
+        "text": "Impede que o sistema operacional encerre o processo mesmo em caso de falha física de hardware."
+      },
+      {
+        "id": "opt-excecao-aumenta-velocidade",
+        "text": "Elimina o uso de memória da pilha de chamadas (call stack) do sistema."
+      },
+      {
+        "id": "opt-excecao-obrigatoria-sql",
+        "text": "É uma imposição sintática obrigatória para permitir comandos SELECT em bancos desktop."
+      }
+    ],
+    "correctOptionId": "opt-excecao-especifica-captura-e-clareza",
+    "explanation": "Exceções customizadas tipificam falhas de negócio específicas. Isso viabiliza capturá-las seletivamente (ex.: catch (SaldoInsuficienteException ex)), exibindo uma mensagem orientativa ao usuário, sem mascarar falhas de sistema graves não tratadas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "excecoes", "tratamento-de-erros", "programacao"]
+  },
+  {
+    "id": "q-dev-063-desktop-try-catch-ordem-captura",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Em estruturas de tratamento de exceções com múltiplos blocos 'catch', os blocos que capturam exceções mais específicas (derivadas) devem obrigatoriamente preceder os blocos que capturam exceções mais genéricas (como a classe base Exception).",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A avaliação dos blocos catch ocorre de cima para baixo. Se a exceção genérica for posicionada primeiro, ela capturará todas as exceções derivadas, tornando os blocos específicos inalcançáveis (código morto, gerando erro de compilação em várias linguagens).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "excecoes", "try-catch", "sintaxe"]
+  },
+  {
+    "id": "q-dev-064-desktop-documentacao-tecnica-padroes-comentarios",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Padrões formais de documentação em nível de código (como JSDoc no ecossistema TypeScript/JavaScript, Javadoc em Java e XML Documentation Comments no C#) têm como principal finalidade:",
+    "options": [
+      {
+        "id": "opt-documentacao-intelli-sense-e-geradores",
+        "text": "Descrever propósitos, tipos de parâmetros, valores de retorno e exceções de métodos, alimentando o IntelliSense da IDE e permitindo gerar manuais técnicos automáticos."
+      },
+      {
+        "id": "opt-documentacao-substituir-testes",
+        "text": "Substituir a necessidade de testes automatizados e eliminar a necessidade de compilação."
+      },
+      {
+        "id": "opt-documentacao-aumentar-binario",
+        "text": "Aumentar o tamanho do arquivo executável final para garantir mais segurança criptográfica."
+      },
+      {
+        "id": "opt-documentacao-impedir-commits",
+        "text": "Bloquear o controle de versões Git caso o código contenha mais de dez métodos."
+      }
+    ],
+    "correctOptionId": "opt-documentacao-intelli-sense-e-geradores",
+    "explanation": "Ferramentas como JSDoc, Javadoc e XML Comments padronizam a documentação de APIs internas: fornecem autocompletar e dicas de contexto durante a codificação na IDE e possibilitam a geração automática de sites e relatórios de documentação técnica.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "documentacao", "jsdoc", "boas-praticas"]
+  },
+  {
+    "id": "q-dev-065-desktop-empacotamento-instaladores-autocontidos",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC12"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No ciclo de implantação de um aplicativo computacional desktop para o ambiente Windows, qual é a principal vantagem de gerar um pacote de distribuição autocontido (Self-Contained / Portable / MSI)?",
+    "options": [
+      {
+        "id": "opt-empacotamento-dependencias-embutidas",
+        "text": "Embutir o runtime necessário e todas as dependências do software, garantindo que o aplicativo execute no computador do usuário final mesmo sem pré-instalação manual de frameworks externos."
+      },
+      {
+        "id": "opt-empacotamento-remover-necessidade-ram",
+        "text": "Eliminar a necessidade de memória RAM durante o uso do software."
+      },
+      {
+        "id": "opt-empacotamento-ignorar-permissao",
+        "text": "Burlar as diretivas de segurança do Controle de Conta de Usuário (UAC) e firewall."
+      },
+      {
+        "id": "opt-empacotamento-converter-para-site",
+        "text": "Transformar automaticamente o software desktop em uma página estática HTML sem código nativo."
+      }
+    ],
+    "correctOptionId": "opt-empacotamento-dependencias-embutidas",
+    "explanation": "Aplicativos autocontidos incluem os binários do executável, suas bibliotecas e o runtime específico da linguagem. Isso evita problemas de compatibilidade e falhas decorrentes da ausência de runtimes ou bibliotecas compartilhadas na máquina de destino.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC12"
+    },
+    "tags": ["desktop", "empacotamento", "distribuicao", "instaladores"]
+  },
+  {
+    "id": "q-dev-066-http-verbo-put-vs-patch-diferenca",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No projeto de APIs RESTful em conformidade com as RFCs do protocolo HTTP, qual é a distinção semântica primordial entre os métodos PUT e PATCH?",
+    "options": [
+      {
+        "id": "opt-put-substituicao-total-patch-parcial",
+        "text": "PUT destina-se à substituição integral do recurso existente (ou criação), enquanto PATCH destina-se à modificação parcial de atributos específicos."
+      },
+      {
+        "id": "opt-put-somente-arquivos-patch-texto",
+        "text": "PUT é restrito ao envio de arquivos binários, enquanto PATCH é utilizado apenas para enviar strings JSON."
+      },
+      {
+        "id": "opt-put-leitura-patch-exclusao",
+        "text": "PUT é um método de consulta não-destrutivo e PATCH exclui os dados históricos de auditoria."
+      },
+      {
+        "id": "opt-put-patch-sinonimos",
+        "text": "Não há diferença normativa; tratam-se de sinônimos com nomes alternativos criados por fornecedores de nuvem."
+      }
+    ],
+    "correctOptionId": "opt-put-substituicao-total-patch-parcial",
+    "explanation": "PUT substitui integralmente a representação do recurso pelo corpo fornecido na requisição (campos omitidos podem ser redefinidos para seus padrões ou nulos). PATCH (RFC 5789) aplica modificações delta parciais, alterando apenas os atributos informados.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "http", "rest", "api"]
+  },
+  {
+    "id": "q-dev-067-http-codigos-401-unauthorized-vs-403-forbidden",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma API Web protegida, qual é a diferença técnica normativa entre os códigos de status HTTP 401 (Unauthorized) e 403 (Forbidden)?",
+    "options": [
+      {
+        "id": "opt-401-autenticacao-403-autorizacao",
+        "text": "401 indica que o cliente não se autenticou (ou forneceu credenciais inválidas); 403 indica que o cliente está autenticado, mas seu perfil não possui autorização para acessar o recurso."
+      },
+      {
+        "id": "opt-401-servidor-fora-403-sucesso",
+        "text": "401 significa que o banco de dados caiu; 403 significa que a operação foi concluída com sucesso condicional."
+      },
+      {
+        "id": "opt-401-apenas-mobile-403-apenas-desktop",
+        "text": "401 é retornado apenas para navegadores móveis, enquanto 403 é exclusivo de clientes desktop."
+      },
+      {
+        "id": "opt-401-timeout-403-dns",
+        "text": "401 refere-se a tempo limite de resposta e 403 a erro de resolução de nome de domínio."
+      }
+    ],
+    "correctOptionId": "opt-401-autenticacao-403-autorizacao",
+    "explanation": "HTTP 401 significa falta de autenticação válida (falta de token ou token expirado, exigindo login). HTTP 403 significa falta de autorização / permissão (o servidor sabe quem é o usuário, mas proíbe terminantemente a ação com aquele papel/perfil).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "http", "codigos-de-status", "seguranca"]
+  },
+  {
+    "id": "q-dev-068-http-codigos-5xx-erros-de-servidor",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Na especificação do protocolo HTTP, códigos de resposta com status na faixa 5xx (como 500 Internal Server Error, 502 Bad Gateway e 503 Service Unavailable) indicam falhas ocorridas no lado do servidor ao processar uma requisição válida.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Respostas 5xx sinalizam problemas de infraestrutura ou erros de execução interna no backend do servidor, diferenciando-se da classe 4xx, que acusa equívocos ou invalidações causados pela requisição do cliente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "http", "codigos-de-status", "servidor"]
+  },
+  {
+    "id": "q-dev-069-cors-same-origin-policy-finalidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "O mecanismo CORS (Cross-Origin Resource Sharing) foi introduzido pelos navegadores web com qual objetivo primordial de segurança?",
+    "options": [
+      {
+        "id": "opt-cors-relaxar-same-origin-controlado",
+        "text": "Permitir que servidores especifiquem explicitamente quais origens externas têm permissão para acessar seus recursos via requisições JavaScript, flexibilizando com controle a Same-Origin Policy."
+      },
+      {
+        "id": "opt-cors-acelerar-download-css",
+        "text": "Comprimir automaticamente o tráfego HTTP transferindo arquivos CSS através de túneis UDP sem criptografia."
+      },
+      {
+        "id": "opt-cors-substituir-https",
+        "text": "Substituir a necessidade de certificados digitais SSL/TLS em conexões bancárias pela Internet."
+      },
+      {
+        "id": "opt-cors-gravar-cookies-irrestritos",
+        "text": "Autorizar que scripts de terceiros leiam qualquer cookie de qualquer domínio sem autorização do usuário."
+      }
+    ],
+    "correctOptionId": "opt-cors-relaxar-same-origin-controlado",
+    "explanation": "Por padrão, a Política de Mesma Origem (SOP) dos navegadores impede scripts de um domínio de acessarem dados de outro. O CORS utiliza cabeçalhos HTTP (como Access-Control-Allow-Origin) para que o servidor declare quais origens externas são confiáveis para ler suas respostas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "cors", "seguranca-web", "navegadores"]
+  },
+  {
+    "id": "q-dev-070-cors-preflight-options-metodo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Quando uma aplicação web no navegador precisa enviar uma requisição HTTP complexa para outra origem (ex.: com método PUT, DELETE ou cabeçalho 'Content-Type: application/json'), qual requisição prévia é enviada automaticamente pelo navegador sob o mecanismo de Preflight?",
+    "options": [
+      {
+        "id": "opt-preflight-options",
+        "text": "Uma requisição HTTP utilizando o método OPTIONS, verificando se os métodos e cabeçalhos solicitados são permitidos pelo servidor."
+      },
+      {
+        "id": "opt-preflight-head",
+        "text": "Uma requisição HEAD rápida para estimar o tamanho da carga útil do servidor."
+      },
+      {
+        "id": "opt-preflight-trace",
+        "text": "Uma requisição TRACE para auditar os proxies de rede intermediários."
+      },
+      {
+        "id": "opt-preflight-connect",
+        "text": "Uma requisição CONNECT para abrir um túnel TCP raw bidirecional."
+      }
+    ],
+    "correctOptionId": "opt-preflight-options",
+    "explanation": "A requisição de Preflight utiliza o método HTTP OPTIONS acompanhado de cabeçalhos como Origin, Access-Control-Request-Method e Access-Control-Request-Headers. O navegador só despacha a requisição real se o servidor responder autorizando os parâmetros com código 2xx.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "cors", "options", "preflight"]
+  },
+  {
+    "id": "q-dev-071-jwt-bearer-token-envio-cabecalho",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em aplicações web que utilizam autenticação baseada em tokens (Token-Based Authentication), qual cabeçalho HTTP padrão é empregado pelo cliente para enviar o JWT (JSON Web Token) ao servidor?",
+    "options": [
+      {
+        "id": "opt-authorization-bearer",
+        "text": "Authorization: Bearer <token>"
+      },
+      {
+        "id": "opt-authenticate-token",
+        "text": "Authenticate: Token <token>"
+      },
+      {
+        "id": "opt-x-jwt-header",
+        "text": "X-JWT-Payload: <token>"
+      },
+      {
+        "id": "opt-set-authorization",
+        "text": "Set-Authorization: Basic <token>"
+      }
+    ],
+    "correctOptionId": "opt-authorization-bearer",
+    "explanation": "O padrão da RFC 6750 define o envio de credenciais de acesso do tipo Bearer através do cabeçalho 'Authorization: Bearer <token>', permitindo que middlewares de autenticação extraiam e validem o token na chegada de cada requisição.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "jwt", "autenticacao", "http-headers"]
+  },
+  {
+    "id": "q-dev-072-jwt-estrutura-tres-partes-assinatura",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um token JWT padrão é composto por três partes delimitadas por pontos: Header, Payload e Signature. Qual é a finalidade técnica específica da Signature (assinatura)?",
+    "options": [
+      {
+        "id": "opt-garantir-integridade-e-autenticidade",
+        "text": "Garantir a integridade do token e autenticidade do emissor, comprovando que o conteúdo do Header e do Payload não foi alterado por terceiros após sua emissão."
+      },
+      {
+        "id": "opt-criptografar-dados-ocultar-conteudo",
+        "text": "Criptografar de forma irreversível os dados do Payload, tornando impossível para qualquer pessoa decodificar o JSON via Base64Url."
+      },
+      {
+        "id": "opt-comprimir-payload",
+        "text": "Comprimir o tamanho do token para que caiba em pacotes UDP sem fragmentação."
+      },
+      {
+        "id": "opt-registrar-log-no-banco",
+        "text": "Forçar a persistência automática do token em uma tabela física do banco de dados relacional."
+      }
+    ],
+    "correctOptionId": "opt-garantir-integridade-e-autenticidade",
+    "explanation": "A assinatura do JWT é gerada calculando um hash criptográfico (ex.: HMAC SHA-256 ou RSA) do Header + Payload codificados utilizando uma chave secreta. Ela assegura que se o payload for adulterado por um invasor, a verificação da assinatura falha imediatamente.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "jwt", "criptografia", "seguranca"]
+  },
+  {
+    "id": "q-dev-073-rest-stateless-principio-fundamental",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Em conformidade com as restrições da arquitetura REST, a comunicação entre cliente e servidor deve ser estritamente 'Stateless' (sem estado), o que significa que o servidor não deve reter o contexto da sessão do cliente em sua memória entre requisições sucessivas.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O princípio Stateless determina que toda requisição enviada pelo cliente deve conter todas as informações contextuais e credenciais necessárias para que o servidor possa processá-la isoladamente, favorecendo a escalabilidade horizontal.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "rest", "stateless", "arquitetura"]
+  },
+  {
+    "id": "q-dev-074-api-rest-paginacao-query-parameters",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao projetar uma API REST para listagem de milhares de produtos cadastrados, qual padrão técnico de requisição é consagrado pelas boas práticas para implementar paginação de resultados?",
+    "options": [
+      {
+        "id": "opt-query-params-page-limit",
+        "text": "Utilizar Query Parameters na URL da requisição GET (por exemplo: /api/produtos?page=2&limit=20 ou ?offset=20&limit=20)."
+      },
+      {
+        "id": "opt-body-json-em-get",
+        "text": "Enviar um corpo JSON volumoso dentro do método GET contendo o array completo de IDs desejados."
+      },
+      {
+        "id": "opt-criar-rota-para-cada-pagina",
+        "text": "Criar uma rota de backend estática e exclusiva para cada número de página (ex.: /api/produtos/pagina2)."
+      },
+      {
+        "id": "opt-download-total-sem-filtro",
+        "text": "Transferir todos os registros da base em lote único e forçar o cliente a paginar no navegador."
+      }
+    ],
+    "correctOptionId": "opt-query-params-page-limit",
+    "explanation": "Em APIs REST, parâmetros de filtro, ordenação e paginação pertencem semanticamente aos parâmetros de consulta (Query Parameters) da URL em requisições GET (ex.: ?page=1&limit=50), mantendo a URL descritiva e permitindo cache HTTP de páginas específicas.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "rest", "paginacao", "api-design"]
+  },
+  {
+    "id": "q-dev-075-api-documentacao-openapi-swagger-finalidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC13"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "O ecossistema OpenAPI Specification (anteriormente conhecido como Swagger) tornou-se a referência universal para desenvolvimento de APIs Web. Qual é a sua principal função?",
+    "options": [
+      {
+        "id": "opt-contrato-declarativo-maquina-e-humano",
+        "text": "Fornecer uma descrição padronizada e legível por humanos e máquinas (em JSON ou YAML) de rotas, parâmetros, corpos e respostas, permitindo documentação interativa e geração automática de código cliente."
+      },
+      {
+        "id": "opt-substituir-o-servidor-nodejs",
+        "text": "Substituir o motor de execução do Node.js por um interpretador de arquivos markdown estáticos."
+      },
+      {
+        "id": "opt-bloquear-ataques-ddos",
+        "text": "Atuar como um firewall de hardware que bloqueia tráfego malicioso em tempo real na rede da operadora."
+      },
+      {
+        "id": "opt-compilar-sql-para-c",
+        "text": "Compilar consultas relacionais SQL diretamente em código binário nativo da linguagem C."
+      }
+    ],
+    "correctOptionId": "opt-contrato-declarativo-maquina-e-humano",
+    "explanation": "A OpenAPI padroniza contratos de interfaces RESTful. Com ela, desenvolvedores documentam rotas, esquemas de entrada e saída, geram interfaces visuais de teste (Swagger UI) e criam SDKs clientes automaticamente em diversas linguagens.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC13"
+    },
+    "tags": ["internet", "openapi", "swagger", "documentacao"]
+  },
+  {
+    "id": "q-dev-076-imagem-svg-estrutura-vetorial-xml",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "O formato de imagem SVG (Scalable Vector Graphics) é amplamente recomendado para ícones e logotipos em páginas web modernas. Qual é a estrutura interna fundamental que define um arquivo SVG?",
+    "options": [
+      {
+        "id": "opt-svg-xml-vetorial",
+        "text": "É um arquivo de texto estruturado em formato XML contendo comandos geométricos (linhas, curvas, polígonos) calculados matematicamente."
+      },
+      {
+        "id": "opt-svg-matriz-pixels",
+        "text": "É um fluxo binário composto exclusivamente por uma matriz bidimensional rígida de pixels RGB comprimidos."
+      },
+      {
+        "id": "opt-svg-codigo-executavel-c",
+        "text": "É uma biblioteca dinâmica (.dll) compilada para execução direta no hardware da GPU do cliente."
+      },
+      {
+        "id": "opt-svg-tabela-css-estatica",
+        "text": "É uma folha de estilos CSS contendo unicamente variáveis tipográficas estáticas."
+      }
+    ],
+    "correctOptionId": "opt-svg-xml-vetorial",
+    "explanation": "O SVG é um padrão aberto do W3C baseado em XML. Por ser descrito através de fórmulas matemáticas de formas, caminhos e pontos, pode ser ampliado ou reduzido para qualquer escala ou resolução sem sofrer pixelização ou perda de qualidade.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web-design", "svg", "vetores", "otimizacao"]
+  },
+  {
+    "id": "q-dev-077-imagem-bitmap-rasterizacao-pixelizacao",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual é o principal comportamento gráfico indesejado que ocorre quando uma imagem matricial (bitmap/raster, como JPEG ou PNG de baixa resolução) é ampliada muito além de suas dimensões originais na tela?",
+    "options": [
+      {
+        "id": "opt-pixelizacao-e-perda-nitidez",
+        "text": "Pixelização e perda de nitidez, tornando visíveis os blocos quadrados individuais de pixels que compõem a grade da imagem."
+      },
+      {
+        "id": "opt-conversao-em-vetor",
+        "text": "Conversão automática em curvas Bézier vetoriais geradas pelo navegador."
+      },
+      {
+        "id": "opt-inversao-de-cores",
+        "text": "Inversão cromática instantânea transformando o canal RGB em tons negativos monocromáticos."
+      },
+      {
+        "id": "opt-bloqueio-de-download",
+        "text": "Corrupção irreversível do cache do navegador com desativação do motor de renderização."
+      }
+    ],
+    "correctOptionId": "opt-pixelizacao-e-perda-nitidez",
+    "explanation": "Imagens bitmaps possuem um número fixo e estático de pontos (pixels). Quando forçadas a ocupar uma área maior do que a sua densidade original, os pixels existentes são esticados ou interpolados, revelando a grade de pixels e gerando aspecto borrado.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web-design", "bitmaps", "pixelizacao", "resolucao"]
+  },
+  {
+    "id": "q-dev-078-otimizacao-compressao-lossy-vs-lossless",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na otimização de imagens para websites com foco em tempo de carregamento e Core Web Vitals, qual é a distinção conceitual entre algoritmos de compressão com perdas (Lossy) e sem perdas (Lossless)?",
+    "options": [
+      {
+        "id": "opt-lossy-descarta-imperceptivel-lossless-preserva-100",
+        "text": "Lossy descarta seletivamente dados de imagem considerados imperceptíveis ao olho humano para reduzir drasticamente o tamanho do arquivo; Lossless preserva a integridade exata dos dados originais sem perda de nenhum pixel."
+      },
+      {
+        "id": "opt-lossless-apenas-vetores",
+        "text": "Lossless só pode ser aplicado em arquivos vetoriais de texto, enquanto Lossy é exclusivo de bancos de dados relacionais."
+      },
+      {
+        "id": "opt-lossy-elimina-canal-alfa",
+        "text": "Lossy é um formato que obriga a imagem a ser preto e branco, enquanto Lossless preserva apenas a cor azul."
+      },
+      {
+        "id": "opt-lossless-aumenta-tamanho",
+        "text": "Lossless duplica o peso do arquivo em megabytes para garantir maior contraste em monitores de alta taxa de quadros."
+      }
+    ],
+    "correctOptionId": "opt-lossy-descarta-imperceptivel-lossless-preserva-100",
+    "explanation": "Compressão Lossy (como em JPEG ou WebP lossy) alcança compressões elevadas (ex.: redução de 80% do tamanho) eliminando dados redundantes ou de sensibilidade reduzida da visão humana. Lossless (como em PNG ou WebP lossless) reconstrói a imagem idêntica bit a bit.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["otimizacao", "compressao", "lossy", "lossless"]
+  },
+  {
+    "id": "q-dev-079-imagem-formato-png-canal-alfa-transparencia",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao exportar uma imagem bitmap que necessita de fundo transparente com diferentes níveis de opacidade (semitransparência) para sobrepor elementos em uma página web, qual formato tradicional oferece suporte nativo robusto a canal alfa?",
+    "options": [
+      {
+        "id": "opt-png",
+        "text": "PNG (PNG-24 / PNG-32 com canal alfa)"
+      },
+      {
+        "id": "opt-jpeg",
+        "text": "JPEG / JPG tradicional"
+      },
+      {
+        "id": "opt-bmp",
+        "text": "BMP clássico do Windows"
+      },
+      {
+        "id": "opt-txt",
+        "text": "Arquivo de texto ASCII"
+      }
+    ],
+    "correctOptionId": "opt-png",
+    "explanation": "O formato PNG (Portable Network Graphics) suporta canal alfa com até 256 níveis de transparência para cada pixel, permitindo bordas suaves e semitransparências perfeitas sobre qualquer fundo. O JPEG clássico não possui canal alfa e preenche fundos com cor sólida.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web-design", "png", "transparencia", "canal-alfa"]
+  },
+  {
+    "id": "q-dev-080-web-icones-svg-sprites-simbolo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em arquitetura de front-end, qual é o benefício técnico da técnica de SVG Sprites (utilizando elementos <svg><use href='#icone-id'></use></svg>) em comparação a carregar cada ícone individualmente como um arquivo '.svg' separado via tag <img>?",
+    "options": [
+      {
+        "id": "opt-svg-sprites-reduz-requests-e-cache",
+        "text": "Consolida múltiplos ícones em um único recurso armazenável em cache, reduzindo as requisições HTTP e permitindo estilização de cores via CSS (currentColor)."
+      },
+      {
+        "id": "opt-svg-sprites-desativa-acessibilidade",
+        "text": "Impede que o leitor de tela detecte os ícones do menu de navegação."
+      },
+      {
+        "id": "opt-svg-sprites-converte-em-raster",
+        "text": "Força o navegador a converter todos os vetores em bitmaps PNG de alta compressão."
+      },
+      {
+        "id": "opt-svg-sprites-elimina-html",
+        "text": "Elimina a necessidade de código HTML no arquivo da página principal."
+      }
+    ],
+    "correctOptionId": "opt-svg-sprites-reduz-requests-e-cache",
+    "explanation": "SVG Sprites agrupam dezenas de ícones em um único arquivo de símbolos. Isso diminui a sobrecarga de conexões HTTP (handshakes e round-trips), viabiliza cache eficiente pelo navegador e possibilita herança dinâmica de cores de texto através de 'fill: currentColor'.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web-design", "svg-sprites", "otimizacao", "iconografia"]
+  },
+  {
+    "id": "q-dev-081-web-densidade-pixels-dpr-resolucoes",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em telas modernas de smartphones e notebooks de alta densidade (conhecidas comercialmente como telas Retina ou HiDPI), o Device Pixel Ratio (DPR) costuma ser 2x ou 3x. O que isso significa para o desenvolvimento de imagens bitmap para a web?",
+    "options": [
+      {
+        "id": "opt-dpr-requer-dimensoes-dobradas",
+        "text": "Cada pixel de layout CSS é mapeado em 2x2 ou 3x3 pixels físicos do display; logo, imagens bitmap precisam ser fornecidas no dobro (2x) ou triplo (3x) da resolução para exibição nítida."
+      },
+      {
+        "id": "opt-dpr-bloqueia-imagens",
+        "text": "Telas de alta densidade recusam-se a renderizar qualquer imagem que não seja transmitida em formato vetorial."
+      },
+      {
+        "id": "opt-dpr-reduz-velocidade-clock",
+        "text": "A taxa de atualização da tela cai para metade para evitar aquecimento do display."
+      },
+      {
+        "id": "opt-dpr-ignora-css",
+        "text": "O navegador deixa de respeitar as dimensões em pixels (px) definidas na folha de estilos CSS."
+      }
+    ],
+    "correctOptionId": "opt-dpr-requer-dimensoes-dobradas",
+    "explanation": "Um DPR de 2 significa que um elemento de 100x100px CSS na tela utiliza 200x200 pixels físicos do hardware para ser desenhado. Se for fornecida uma imagem de apenas 100x100px, a imagem parecerá embaçada, exigindo o uso de atributos srcset para carregar versões 2x e 3x.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web-design", "dpr", "retina", "responsividade"]
+  },
+  {
+    "id": "q-dev-082-otimizacao-lazy-loading-nativo-html",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual atributo nativo da tag <img> do HTML5 moderno permite que o navegador adie o download de imagens que estão fora da área visível (abaixo da dobra / below-the-fold) até que o usuário role a página para perto delas?",
+    "options": [
+      {
+        "id": "opt-loading-lazy",
+        "text": "loading=\"lazy\""
+      },
+      {
+        "id": "opt-defer-true",
+        "text": "defer=\"true\""
+      },
+      {
+        "id": "opt-async-download",
+        "text": "async=\"download\""
+      },
+      {
+        "id": "opt-preload-none",
+        "text": "preload=\"none\""
+      }
+    ],
+    "correctOptionId": "opt-loading-lazy",
+    "explanation": "O atributo padronizado loading=\"lazy\" instrui o navegador a calcular a distância da imagem em relação à viewport e efetuar a requisição de rede somente quando a imagem estiver prestes a entrar na tela, economizando banda e acelerando o LCP inicial.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["otimizacao", "lazy-loading", "html5", "performance"]
+  },
+  {
+    "id": "q-dev-083-design-hierarquia-visual-leis-gestalt",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No design de interfaces visuais e navegação para a web, como a hierarquia visual é estabelecida de forma eficaz para direcionar a leitura e a tomada de decisão do usuário?",
+    "options": [
+      {
+        "id": "opt-hierarquia-escala-contraste-espacamento",
+        "text": "Através da manipulação consciente de variações de escala (tamanho), contraste de cores, peso tipográfico e espaçamento em branco (proximidade)."
+      },
+      {
+        "id": "opt-hierarquia-todos-elementos-iguais",
+        "text": "Mantendo todos os textos, botões e títulos com exatamente a mesma fonte, cor e dimensões em pixels para garantir homogeneidade neutra."
+      },
+      {
+        "id": "opt-hierarquia-animacoes-piscantes",
+        "text": "Aplicando efeitos de piscar contínuo e cores fluorescentes em todos os parágrafos secundários."
+      },
+      {
+        "id": "opt-hierarquia-remover-espacamento",
+        "text": "Eliminando completamente as margens para aglomerar o maior volume de elementos na parte superior."
+      }
+    ],
+    "correctOptionId": "opt-hierarquia-escala-contraste-espacamento",
+    "explanation": "A hierarquia visual orienta o percurso visual do usuário (escaneabilidade): elementos mais importantes ganham maior destaque através de contraste cromático, fontes maiores e mais pesadas e áreas generosas de respiro/espaçamento (espaço negativo).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web-design", "hierarquia-visual", "ui", "usabilidade"]
+  },
+  {
+    "id": "q-dev-084-imagem-formato-avif-compressao-av1",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "INTERMEDIATE",
+    "type": "TRUE_FALSE",
+    "prompt": "O formato de imagem de última geração AVIF (baseado no codec de vídeo de código aberto AV1) proporciona taxas de compressão significativamente superiores às do JPEG e WebP, preservando excelente fidelidade visual mesmo em arquivos com tamanho reduzido.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. O AVIF é um padrão moderno de alta eficiência que reduz o peso das imagens em até 50% em comparação ao JPEG e 20% a 30% em relação ao WebP na mesma qualidade visual, com suporte a canal alfa, HDR e ampla gama de cores.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["web-design", "avif", "otimizacao", "formatos"]
+  },
+  {
+    "id": "q-dev-085-acessibilidade-texto-alternativo-alt-imagem",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC14"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual é a recomendação normativa de acessibilidade web (WCAG) ao preencher o atributo 'alt' em uma imagem informativa relevante inserida em uma página web?",
+    "options": [
+      {
+        "id": "opt-alt-descricao-concisa-e-funcional",
+        "text": "Fornecer uma descrição textual concisa e funcional que transmita o mesmo significado e contexto da imagem para usuários de leitores de tela."
+      },
+      {
+        "id": "opt-alt-nome-do-arquivo-jpg",
+        "text": "Digitar o nome original do arquivo (por exemplo: alt='IMG_20260312_987.jpg')."
+      },
+      {
+        "id": "opt-alt-lista-de-tags-seo",
+        "text": "Inserir dezenas de palavras-chave repetitivas para tentar manipular os mecanismos de busca."
+      },
+      {
+        "id": "opt-alt-sempre-vazio",
+        "text": "Deixar o atributo alt sempre vazio ou omiti-lo em todas as situações sem distinção."
+      }
+    ],
+    "correctOptionId": "opt-alt-descricao-concisa-e-funcional",
+    "explanation": "O atributo alt deve descrever o propósito e a informação transmitida pela imagem de forma contextual. Se a imagem for puramente decorativa, deve-se usar alt=\"\" para que tecnologias assistivas a ignorem e não gerem ruído para o usuário.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC14"
+    },
+    "tags": ["acessibilidade", "wcag", "alt-text", "web-design"]
+  },
+  {
+    "id": "q-dev-086-html5-elementos-article-vs-section",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No HTML5 semântico, qual é a distinção conceitual e normativa entre os elementos estruturais <article> e <section>?",
+    "options": [
+      {
+        "id": "opt-article-independente-section-tematica",
+        "text": "<article> representa um bloco de conteúdo autossuficiente e independente que faria sentido isoladamente (ex.: post, notícia); <section> representa uma seção temática genérica de um documento com cabeçalho próprio."
+      },
+      {
+        "id": "opt-article-somente-jornais",
+        "text": "<article> é de uso exclusivo de portais jornalísticos registrados, enquanto <section> é para sites governamentais."
+      },
+      {
+        "id": "opt-section-apenas-formularios",
+        "text": "<section> só pode conter tags de formulário (<input>, <button>), enquanto <article> só pode conter imagens."
+      },
+      {
+        "id": "opt-sinonimos-div",
+        "text": "São sinônimos idênticos da tag <div> sem nenhuma relevância para SEO ou árvores de acessibilidade."
+      }
+    ],
+    "correctOptionId": "opt-article-independente-section-tematica",
+    "explanation": "A especificação do W3C define <article> para conteúdos completos que podem ser distribuídos ou reutilizados de forma independente (sindicados via feed, compartilhados). O elemento <section> agrupa conteúdos tematicamente relacionados, idealmente introduzidos por um cabeçalho (h1-h6).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["html5", "semantica", "article", "section"]
+  },
+  {
+    "id": "q-dev-087-html5-estruturais-header-nav-main-footer",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em uma página web estruturada com padrões modernos de HTML5, qual elemento semântico deve ser utilizado para envolver o bloco de navegação primário do site contendo menus e links principais?",
+    "options": [
+      {
+        "id": "opt-nav",
+        "text": "<nav>"
+      },
+      {
+        "id": "opt-aside",
+        "text": "<aside>"
+      },
+      {
+        "id": "opt-menuitem",
+        "text": "<menuitem>"
+      },
+      {
+        "id": "opt-footer",
+        "text": "<footer>"
+      }
+    ],
+    "correctOptionId": "opt-nav",
+    "explanation": "O elemento <nav> identifica uma seção da página dedicada à navegação, agrupando links primários do site ou da página atual. Tecnologias assistivas identificam <nav> como um marco de navegação (landmark role navigation), permitindo que usuários com leitores de tela saltem diretamente para o menu.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["html5", "semantica", "nav", "landmarks"]
+  },
+  {
+    "id": "q-dev-088-css-grid-template-areas-layout",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No CSS Grid Layout, qual propriedade aplicada no container de grade permite desenhar a estrutura visual da página nomeando visualmente as células em formato de mapa textual?",
+    "options": [
+      {
+        "id": "opt-grid-template-areas",
+        "text": "grid-template-areas"
+      },
+      {
+        "id": "opt-grid-auto-flow",
+        "text": "grid-auto-flow"
+      },
+      {
+        "id": "opt-grid-column-gap",
+        "text": "grid-column-gap"
+      },
+      {
+        "id": "opt-display-flexbox",
+        "text": "display: flexbox"
+      }
+    ],
+    "correctOptionId": "opt-grid-template-areas",
+    "explanation": "grid-template-areas define áreas nomeadas na grade através de strings contendo nomes de identificação (ex.: \"header header\" \"sidebar main\" \"footer footer\"). Os itens filhos associam-se a essas áreas utilizando a propriedade 'grid-area: header'.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["css", "css-grid", "layout", "grid-template-areas"]
+  },
+  {
+    "id": "q-dev-089-css-grid-vs-flexbox-dimensionalidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao planejar a arquitetura de layout de um website, qual é a principal distinção arquitetural entre o CSS Flexbox e o CSS Grid Layout?",
+    "options": [
+      {
+        "id": "opt-flexbox-unidimensional-grid-bidimensional",
+        "text": "Flexbox é concebido primordialmente para layouts unidimensionais (linha OU coluna), enquanto o CSS Grid é projetado para layouts bidimensionais simultâneos (linhas E colunas)."
+      },
+      {
+        "id": "opt-flexbox-apenas-tabelas",
+        "text": "Flexbox serve exclusivamente para estilizar elementos <table>, enquanto o CSS Grid estiliza apenas formulários."
+      },
+      {
+        "id": "opt-grid-nao-suporta-responsividade",
+        "text": "O CSS Grid não suporta Media Queries nem unidades dinâmicas fracionárias."
+      },
+      {
+        "id": "opt-flexbox-obsoleto",
+        "text": "O Flexbox é um padrão obsoleto descontinuado pelo W3C em favor exclusivo do CSS Float."
+      }
+    ],
+    "correctOptionId": "opt-flexbox-unidimensional-grid-bidimensional",
+    "explanation": "Flexbox gerencia a distribuição de espaço e alinhamento ao longo de um único eixo de cada vez (main axis, seja linha ou coluna). O CSS Grid Layout gerencia o alinhamento de itens simultaneamente em dois eixos ortogonais (linhas e colunas em matriz).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["css", "flexbox", "css-grid", "layout"]
+  },
+  {
+    "id": "q-dev-090-css-flexbox-justify-content-vs-align-items",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em um container CSS Flexbox com 'flex-direction: row' (comportamento padrão), quais propriedades controlam respectivamente o alinhamento dos itens ao longo do eixo horizontal (eixo principal) e do eixo vertical (eixo transversal)?",
+    "options": [
+      {
+        "id": "opt-justify-principal-align-transversal",
+        "text": "justify-content alinha ao longo do eixo principal (horizontal) e align-items alinha ao longo do eixo transversal (vertical)."
+      },
+      {
+        "id": "opt-align-principal-justify-transversal",
+        "text": "align-items alinha no eixo principal e justify-content alinha no eixo transversal."
+      },
+      {
+        "id": "opt-text-align-e-vertical-align",
+        "text": "text-align e vertical-align são as propriedades exclusivas do Flexbox para ambos os eixos."
+      },
+      {
+        "id": "opt-float-left-e-clear-both",
+        "text": "float: left para o eixo horizontal e clear: both para o eixo vertical."
+      }
+    ],
+    "correctOptionId": "opt-justify-principal-align-transversal",
+    "explanation": "No Flexbox, o alinhamento no eixo principal (main axis) é sempre governado por justify-content, e o alinhamento no eixo transversal (cross axis) é governado por align-items (e align-content em caso de múltiplas linhas com flex-wrap).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["css", "flexbox", "alinhamento", "box-model"]
+  },
+  {
+    "id": "q-dev-091-css-box-model-colapso-margens-verticais",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "ADVANCED",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No modelo de caixas do CSS (Box Model), o que caracteriza o fenômeno de 'Margin Collapse' (colapso de margens) em elementos de bloco no fluxo normal?",
+    "options": [
+      {
+        "id": "opt-colapso-margem-maior",
+        "text": "Quando as margens verticais adjacentes de dois blocos se encontram, elas não se somam; em vez disso, combinam-se em uma única margem cujo tamanho é equivalente à maior das duas margens."
+      },
+      {
+        "id": "opt-margens-somadas-sempre",
+        "text": "As margens de elementos em bloco sempre se somam multiplicadas pela largura da janela."
+      },
+      {
+        "id": "opt-margens-horizontais-colapsam",
+        "text": "O colapso ocorre exclusivamente nas margens horizontais (margin-left e margin-right)."
+      },
+      {
+        "id": "opt-margem-fica-zero",
+        "text": "As duas margens se anulam mutuamente, resultando em distância zero entre os blocos."
+      }
+    ],
+    "correctOptionId": "opt-colapso-margem-maior",
+    "explanation": "No fluxo normal de renderização de blocos, as margens verticais (top e bottom) adjacentes entram em colapso: a distância resultante entre os elementos é igual à maior das duas margens individuais, e não à soma delas. As margens horizontais nunca colapsam.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["css", "box-model", "margin-collapse", "estilizacao"]
+  },
+  {
+    "id": "q-dev-092-acessibilidade-wcag-contraste-minimo-aa",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "De acordo com as Diretrizes de Acessibilidade para Conteúdo Web (WCAG 2.1) no Nível AA, qual é a taxa mínima de contraste exigida entre o texto convencional (corpo de texto) e o plano de fundo?",
+    "options": [
+      {
+        "id": "opt-contraste-4-5-para-1",
+        "text": "Pelo menos 4.5:1 para texto normal (e 3:1 para texto grande com 18pt ou 14pt em negrito)."
+      },
+      {
+        "id": "opt-contraste-1-para-1",
+        "text": "1:1, permitindo texto e fundo com a mesma tonalidade."
+      },
+      {
+        "id": "opt-contraste-10-para-1",
+        "text": "Pelo menos 10:1 em qualquer situação sem exceções."
+      },
+      {
+        "id": "opt-contraste-2-para-1",
+        "text": "2:1 exclusivamente em telas de alta densidade."
+      }
+    ],
+    "correctOptionId": "opt-contraste-4-5-para-1",
+    "explanation": "O critério de sucesso 1.4.3 da WCAG 2.1 (Nível AA) estipula a relação de contraste visual de no mínimo 4.5:1 para texto regular e 3:1 para texto em escala ampliada (pelo menos 18pt ou 14pt em negrito), garantindo legibilidade para usuários com baixa visão.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["acessibilidade", "wcag", "contraste", "ui"]
+  },
+  {
+    "id": "q-dev-093-acessibilidade-aria-landmarks-complementar",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No desenvolvimento de interfaces acessíveis utilizando especificações WAI-ARIA (Accessible Rich Internet Applications), qual é a regra de ouro ('First Rule of ARIA') recomendada pelo W3C?",
+    "options": [
+      {
+        "id": "opt-regra-ouro-usar-html-nativo",
+        "text": "Se for possível utilizar um elemento HTML nativo que já possua a semântica e o comportamento exigidos (como <button>, <nav> ou <dialog>), use-o em vez de recriar o elemento com <div> e atributos ARIA."
+      },
+      {
+        "id": "opt-adicionar-aria-em-todas-tags",
+        "text": "Obrigatoriamente incluir 'role' e 'aria-label' em todas as tags HTML da página sem exceção."
+      },
+      {
+        "id": "opt-evitar-rotulos-textuais",
+        "text": "Omitir textos visuais e utilizar exclusivamente atributos ARIA invisíveis."
+      },
+      {
+        "id": "opt-aria-apenas-para-jogos",
+        "text": "Utilizar atributos ARIA exclusivamente em jogos desenvolvidos em Canvas 3D."
+      }
+    ],
+    "correctOptionId": "opt-regra-ouro-usar-html-nativo",
+    "explanation": "A primeira regra do ARIA (W3C) estabelece: 'Não use ARIA se você puder usar um elemento HTML nativo com a semântica ou o comportamento já incorporados'. Elementos nativos garantem foco por teclado, roles corretas e suporte a tecnologias assistivas sem custos de implementação extra.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["acessibilidade", "aria", "wcag", "html5"]
+  },
+  {
+    "id": "q-dev-094-html5-formulario-associacao-label-input",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Em formulários HTML5, associar o elemento <label> a um campo <input> utilizando o atributo 'for' com o 'id' correspondente do campo é uma exigência essencial de acessibilidade e amplia a área de clique interativa do usuário.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. A vinculação via <label for=\"campo-id\"> vincula o rótulo textual na árvore de acessibilidade (lido por screen readers ao focar o campo) e permite que o usuário clique no texto do rótulo para posicionar o cursor no input ou marcar checkboxes.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["html5", "formularios", "acessibilidade", "usabilidade"]
+  },
+  {
+    "id": "q-dev-095-css-media-queries-responsividade-mobile-first",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC15"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na metodologia de desenvolvimento responsivo orientada a 'Mobile-First' (primeiro o celular), como as Media Queries de CSS são tipicamente estruturadas na folha de estilos?",
+    "options": [
+      {
+        "id": "opt-mobile-first-min-width",
+        "text": "Os estilos base são declarados sem media queries para telas pequenas, e media queries com '@media (min-width: ...)' adicionam regras progressivas para telas maiores."
+      },
+      {
+        "id": "opt-mobile-first-max-width",
+        "text": "Os estilos base são definidos para monitores 4K, e media queries com '@media (max-width: ...)' removem regras progressivamente."
+      },
+      {
+        "id": "opt-mobile-first-apenas-user-agent",
+        "text": "O CSS é alterado dinamicamente por scripts que analisam a string do User-Agent no cabeçalho HTTP."
+      },
+      {
+        "id": "opt-mobile-first-resolucao-fixa",
+        "text": "Utiliza-se uma única largura fixa rígida em pixels congelada em 320px para todos os dispositivos."
+      }
+    ],
+    "correctOptionId": "opt-mobile-first-min-width",
+    "explanation": "Na abordagem Mobile-First, o CSS base atende aos dispositivos com menor viewport e menor poder de processamento. Media queries com 'min-width' (progressive enhancement) acrescentam complexidade de layout apenas quando a largura da tela atinge determinados breakpoints.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC15"
+    },
+    "tags": ["css", "media-queries", "responsividade", "mobile-first"]
+  },
+  {
+    "id": "q-dev-096-scrum-product-owner-responsabilidade",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No framework ágil Scrum, qual é a principal responsabilidade do papel do Product Owner (PO) em um projeto de desenvolvimento de software?",
+    "options": [
+      {
+        "id": "opt-po-valor-e-backlog",
+        "text": "Maximizar o valor do produto resultante do trabalho do Scrum Team e gerenciar de forma eficaz o Product Backlog (definição, clareza e priorização dos itens)."
+      },
+      {
+        "id": "opt-po-escrever-codigo-fonte",
+        "text": "Codificar os módulos de backend e revisar os pull requests de infraestrutura em nuvem."
+      },
+      {
+        "id": "opt-po-gerente-de-pessoal",
+        "text": "Definir os horários diários de trabalho e aplicar medidas disciplinares na equipe."
+      },
+      {
+        "id": "opt-po-escolher-frameworks",
+        "text": "Determinar unilateralmente a linguagem de programação e arquitetura de software sem consultar os desenvolvedores."
+      }
+    ],
+    "correctOptionId": "opt-po-valor-e-backlog",
+    "explanation": "O Product Owner é a pessoa responsável por maximizar o valor do produto. Ele é o proprietário e gestor único do Product Backlog, responsável por ordenar itens com base nas necessidades do negócio e esclarecer os requisitos para a equipe de desenvolvimento.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["scrum", "product-owner", "metodologias-ageis", "gestao-de-projetos"]
+  },
+  {
+    "id": "q-dev-097-scrum-scrum-master-lider-servidor",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "No framework Scrum, como o papel do Scrum Master é conceituado e qual é a sua principal função junto à equipe de desenvolvimento?",
+    "options": [
+      {
+        "id": "opt-sm-lider-servidor-impedimentos",
+        "text": "Atua como líder servidor que facilita os eventos Scrum, dissemina a teoria e práticas ágeis e atua ativamente na remoção de impedimentos que bloqueiam o progresso do time."
+      },
+      {
+        "id": "opt-sm-chefe-de-projeto-tradicional",
+        "text": "Atua como o chefe tradicional do projeto, cobrando tarefas individualmente e punindo atrasos nas entregas."
+      },
+      {
+        "id": "opt-sm-testador-manual",
+        "text": "Executa testes manuais de regressão em ambiente de homologação antes de cada release."
+      },
+      {
+        "id": "opt-sm-representante-comercial",
+        "text": "Negocia os contratos de licenciamento comercial diretamente com o departamento financeiro do cliente."
+      }
+    ],
+    "correctOptionId": "opt-sm-lider-servidor-impedimentos",
+    "explanation": "O Scrum Master não é um gerente tradicional (comando e controle). Ele é um facilitador e líder servidor (servant leader) encarregado da eficácia do Scrum Team, promovendo melhoria contínua e removendo obstáculos externos que o time não consegue sanar sozinho.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["scrum", "scrum-master", "agilidade", "gestao-de-projetos"]
+  },
+  {
+    "id": "q-dev-098-scrum-daily-scrum-duracao-objetivo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Qual é o objetivo principal e o limite de tempo (timebox) padrão recomendado pelo Guia Scrum para o evento da Reunião Diária (Daily Scrum)?",
+    "options": [
+      {
+        "id": "opt-daily-15-min-sincronizacao",
+        "text": "Timebox de 15 minutos para que os desenvolvedores inspecionem o progresso em direção à Meta da Sprint, sincronizem atividades do dia e identifiquem impedimentos."
+      },
+      {
+        "id": "opt-daily-60-min-relatorio",
+        "text": "Reunião de 60 minutos para apresentar relatórios detalhados ao cliente e recalcular os orçamentos financeiros do contrato."
+      },
+      {
+        "id": "opt-daily-concorrencia-codigo",
+        "text": "Sessão de programação em par de 4 horas sem pauta definida."
+      },
+      {
+        "id": "opt-daily-renegociar-meta",
+        "text": "Reunião para aprovar o cancelamento da sprint e dispensar o Product Backlog."
+      }
+    ],
+    "correctOptionId": "opt-daily-15-min-sincronizacao",
+    "explanation": "A Daily Scrum é um evento de no máximo 15 minutos realizado todos os dias úteis da Sprint para o time de desenvolvedores inspecionar o progresso rumo à Sprint Goal e planejar o trabalho das próximas 24 horas, identificando eventuais bloqueios.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["scrum", "daily-scrum", "cerimonias-ageis", "sprints"]
+  },
+  {
+    "id": "q-dev-099-scrum-review-vs-retrospective-diferenca",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Ao final de uma Sprint no Scrum, realizam-se a Sprint Review (Revisão da Sprint) e a Sprint Retrospective (Retrospectiva da Sprint). Qual é o foco de cada uma dessas cerimônias?",
+    "options": [
+      {
+        "id": "opt-review-produto-retro-processo",
+        "text": "A Sprint Review foca na inspeção do Incremento funcional do produto com os stakeholders; a Sprint Retrospective foca na melhoria contínua das pessoas, processos, ferramentas e relacionamentos do time."
+      },
+      {
+        "id": "opt-review-processo-retro-produto",
+        "text": "A Sprint Review analisa apenas os custos das licenças de software; a Retrospective é quando o cliente testa o produto final em produção."
+      },
+      {
+        "id": "opt-ambas-identicas",
+        "text": "São reuniões com o mesmo propósito e participantes idênticos, ocorrendo em dias consecutivos apenas por formalidade documental."
+      },
+      {
+        "id": "opt-review-planeja-retro-executa",
+        "text": "A Review planeja as tarefas da próxima Sprint e a Retrospective serve para codificar itens atrasados da Sprint anterior."
+      }
+    ],
+    "correctOptionId": "opt-review-produto-retro-processo",
+    "explanation": "A Sprint Review foca no PRODUTO (o que foi construído, demonstração do incremento funcional aos interessados e adaptação do backlog). A Sprint Retrospective foca no PROCESSO e nas PESSOAS (o que funcionou bem, o que falhou e quais planos de ação serão adotados para melhorar).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["scrum", "sprint-review", "retrospectiva", "metodologias-ageis"]
+  },
+  {
+    "id": "q-dev-100-git-branching-feature-branch-fluxo",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Em projetos de desenvolvimento colaborativo utilizando o Git, qual é a principal vantagem do modelo de trabalho baseado em 'Feature Branches' (como no Git Flow ou GitHub Flow)?",
+    "options": [
+      {
+        "id": "opt-feature-branch-isolamento",
+        "text": "Isolar o desenvolvimento de cada nova funcionalidade em uma ramificação própria, mantendo a ramificação principal (main/develop) protegida e estável enquanto o recurso está em construção."
+      },
+      {
+        "id": "opt-feature-branch-evitar-commits",
+        "text": "Evitar a realização de commits locais no repositório do desenvolvedor."
+      },
+      {
+        "id": "opt-feature-branch-bloquear-testes",
+        "text": "Impedir que a esteira de CI execute testes automatizados em funcionalidades experimentais."
+      },
+      {
+        "id": "opt-feature-branch-eliminar-conflitos",
+        "text": "Garantir matematicamente que nenhum conflito de código aconteça em nenhuma situação de merge futuro."
+      }
+    ],
+    "correctOptionId": "opt-feature-branch-isolamento",
+    "explanation": "Ao criar uma ramificação dedicada para cada funcionalidade (ex.: feature/login-jwt), o desenvolvedor trabalha de forma isolada sem desestabilizar a branch principal. A integração só acontece via Pull Request após validação e testes.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["git", "branching", "feature-branch", "controle-de-versao"]
+  },
+  {
+    "id": "q-dev-101-git-pull-request-code-review-beneficios",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Nas plataformas de hospedagem de código (como GitHub, GitLab ou Bitbucket), qual é o papel essencial de um Pull Request (ou Merge Request) acompanhado de Revisão de Código (Code Review)?",
+    "options": [
+      {
+        "id": "opt-pr-revisao-por-pares-e-qualidade",
+        "text": "Proporcionar um espaço de discussão e inspeção colaborativa por pares antes da mesclagem, identificando falhas, assegurando padrões de qualidade e compartilhando conhecimento na equipe."
+      },
+      {
+        "id": "opt-pr-cobrar-mensalidade",
+        "text": "Emitir automaticamente boletos de cobrança pelo tempo de máquina utilizado na compilação."
+      },
+      {
+        "id": "opt-pr-apagar-historico",
+        "text": "Substituir e apagar todos os commits históricos anteriores para economizar espaço de armazenamento em nuvem."
+      },
+      {
+        "id": "opt-pr-impedir-merges",
+        "text": "Travar indefinidamente o repositório impedindo que qualquer código seja integrado à ramificação principal."
+      }
+    ],
+    "correctOptionId": "opt-pr-revisao-por-pares-e-qualidade",
+    "explanation": "Pull Requests viabilizam a revisão por pares (Code Review): colegas de equipe analisam a clareza do código, verificam conformidade com requisitos e padrões arquiteturais, identificam potenciais bugs antes de autorizarem o merge na branch principal.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["git", "pull-request", "code-review", "colaboracao"]
+  },
+  {
+    "id": "q-dev-102-git-resolucao-de-conflitos-marcadores",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Quando dois desenvolvedores alteram as mesmas linhas de um mesmo arquivo em branches distintas e tentam realizar a mesclagem, o Git aponta um conflito de merge (merge conflict). Quais marcadores visuais o Git insere no arquivo para indicar o trecho em conflito?",
+    "options": [
+      {
+        "id": "opt-marcadores-git-head",
+        "text": "<<<<<<< HEAD, ======= e >>>>>>> [branch-name]"
+      },
+      {
+        "id": "opt-marcadores-html-tags",
+        "text": "<conflict-start>, <conflict-divider> e <conflict-end>"
+      },
+      {
+        "id": "opt-marcadores-chaves-duplas",
+        "text": "{{CONFLITO_INICIO}} e {{CONFLITO_FIM}}"
+      },
+      {
+        "id": "opt-marcadores-ponto-e-virgula",
+        "text": ";;;; ERRO ;;;; e ;;;; FIM ;;;;"
+      }
+    ],
+    "correctOptionId": "opt-marcadores-git-head",
+    "explanation": "O Git demarca o conflito no arquivo: entre '<<<<<<< HEAD' e '=======' está a versão da branch local atual; entre '=======' e '>>>>>>>' está o código vindo da branch mesclada. O desenvolvedor deve editar manualmente o trecho, escolher o código correto, remover os marcadores e comitar.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["git", "merge-conflict", "controle-de-versao", "trabalho-em-equipe"]
+  },
+  {
+    "id": "q-dev-103-requisitos-funcionais-vs-nao-funcionais",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Na Engenharia de Requisitos de um projeto de software, qual das opções a seguir exemplifica tipicamente um Requisito Não Funcional (RNF)?",
+    "options": [
+      {
+        "id": "opt-rnf-desempenho-e-seguranca",
+        "text": "'O sistema deve responder a todas as consultas de autenticação em menos de 300 milissegundos e criptografar senhas com algoritmo de hash seguro.'"
+      },
+      {
+        "id": "opt-rf-cadastrar-usuario",
+        "text": "'O usuário deve ser capaz de cadastrar um novo cliente fornecendo nome, CPF e e-mail.'"
+      },
+      {
+        "id": "opt-rf-emitir-relatorio-pdf",
+        "text": "'O sistema deve permitir emitir o relatório de vendas mensais em formato PDF e planilha.'"
+      },
+      {
+        "id": "opt-rf-enviar-notificacao",
+        "text": "'O sistema deve enviar um e-mail de confirmação ao cliente quando o pedido for aprovado.'"
+      }
+    ],
+    "correctOptionId": "opt-rnf-desempenho-e-seguranca",
+    "explanation": "Requisitos Funcionais (RF) descrevem o que o sistema deve fazer (ações, funcionalidades, regras). Requisitos Não Funcionais (RNF) estipulam critérios de qualidade, restrições e atributos sistêmicos, como tempo de resposta, segurança, disponibilidade, acessibilidade e escalabilidade.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["engenharia-de-software", "requisitos", "rnf", "qualidade"]
+  },
+  {
+    "id": "q-dev-104-requisitos-criterios-de-aceite-user-story",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "FOUNDATION",
+    "type": "TRUE_FALSE",
+    "prompt": "Em uma História de Usuário (User Story), os Critérios de Aceite definem as condições e limites verificáveis que devem ser estritamente atendidos para que o item seja considerado concluído e aceito pelo Product Owner.",
+    "correctAnswer": true,
+    "explanation": "Verdadeiro. Os critérios de aceite formalizam as expectativas de negócio, eliminam ambiguidades de escopo e servem como base direta para a elaboração dos testes de aceitação e cumprimento da Definição de Pronto (Definition of Done).",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["scrum", "user-stories", "criterios-de-aceite", "requisitos"]
+  },
+  {
+    "id": "q-dev-105-git-stash-salvar-trabalho-temporario",
+    "version": 1,
+    "status": "APPROVED",
+    "axisId": "development",
+    "unitIds": ["UC16"],
+    "difficulty": "INTERMEDIATE",
+    "type": "MULTIPLE_CHOICE",
+    "prompt": "Um desenvolvedor está implementando uma alteração, mas precisa pausar urgentemente o trabalho para corrigir um bug em outra branch, sem querer comitar código incompleto. Qual comando do Git guarda as alterações não comitadas em uma pilha de rascunhos e limpa o diretório de trabalho?",
+    "options": [
+      {
+        "id": "opt-git-stash",
+        "text": "git stash"
+      },
+      {
+        "id": "opt-git-reset-hard",
+        "text": "git reset --hard"
+      },
+      {
+        "id": "opt-git-clean-f",
+        "text": "git clean -f"
+      },
+      {
+        "id": "opt-git-revert",
+        "text": "git revert HEAD"
+      }
+    ],
+    "correctOptionId": "opt-git-stash",
+    "explanation": "O comando 'git stash' armazena com segurança as modificações do diretório de trabalho e da área de stage em uma pilha interna do repositório, deixando o branch limpo para trocas de branch (checkout/switch). Depois, 'git stash pop' recupera as alterações.",
+    "source": {
+      "kind": "COURSE_PLAN",
+      "reference": "Plano de Curso Técnico em Informática - MF2023 - UC16"
+    },
+    "tags": ["git", "git-stash", "produtividade", "controle-de-versao"]
   }
 ]

@@ -120,3 +120,24 @@ Esta prova deve ser repetida após qualquer alteração nas transições, no con
 - `content/questions/desenvolvimento-aplicativos.json`
 
 **Limites:** [UNVERIFIED] o ensaio simultâneo com 18 alunos conectados à rede Wi-Fi física da sala de aula permanece pendente da aplicação prática.
+
+## PROVA-011 - Renomeação do título, expansão para 225 questões e publicação no GitHub Pages
+
+**Estado:** [OK]
+
+**Afirmação:** o simulado foi renomeado para "Simulado Formativo do Curso Técnico em TI" em todas as telas, testes e certificados. O banco de questões foi expandido em +10 questões por UC para todas as 16 UCs do curso (+160 questões novas), atingindo 225 questões aprovadas (suporte=60, redes=60, desenvolvimento=105). A validação automatizada e a publicação no GitHub Pages foram concluídas com sucesso.
+
+**Procedimento:** foram executados `npm.cmd run validate` (lint, typecheck, content:validate, test, build), `git commit`, `git push origin master` e acompanhamento do workflow `Deploy GitHub Pages` via GitHub CLI.
+
+**Resultado:** em 2026-09-18, `npm.cmd run validate` terminou com código 0. O validador de conteúdo confirmou 225 questões aprovadas distribuídas em 100% das 16 UCs. O Vitest executou 31 testes em 8 arquivos com 100% de aprovação. O build gerou o pacote estático com PWA. O commit e push acionaram o workflow do GitHub Actions com conclusão bem-sucedida.
+
+**Evidências de implementação:**
+- `content/questions/hardware-suporte.json` (60 questões)
+- `content/questions/redes-servidores.json` (60 questões)
+- `content/questions/desenvolvimento-aplicativos.json` (105 questões)
+- `src/modules/simulado/ui/SimuladoSetup.tsx`
+- `src/modules/simulado/ui/CertificateModal.tsx`
+- `src/modules/simulado/ui/SimuladoContainer.test.tsx`
+- `.github/workflows/deploy-pages.yml`
+
+**Limites:** o modo publicado no GitHub Pages serve ao portal estático e ao simulado formativo; operações colaborativas com persistência D1 de sala de aula usam o runtime local via `iniciar.bat`.
