@@ -50,6 +50,18 @@ Esta prova deve ser repetida após qualquer alteração nas transições, no con
 
 **Limites:** [UNVERIFIED] ainda não foi realizado o ensaio em segundo dispositivo e com 18 participantes reais. O descarte ao final de 30 dias permanece procedimento operacional, sem expurgo automático.
 
+## PROVA-010 - Publicação estática no GitHub Pages
+
+**Estado:** [OK]
+
+**Afirmação:** o portal estático foi publicado no GitHub Pages com os assets resolvidos sob o caminho-base do repositório e sem expor credenciais.
+
+**Procedimento:** foi configurado o workflow `.github/workflows/deploy-pages.yml`, o repositório foi tornado público, o GitHub Pages foi ativado para build por workflow e o workflow `Deploy GitHub Pages` foi executado manualmente após a ativação.
+
+**Resultado:** em 2026-09-18, a execução `35388532368` terminou com `conclusion=success`. A URL `https://profmv.github.io/plan-evento-prova-sebrac/` respondeu HTTP 200, apresentou o título `Recap SENAC 2026` e contém referências a assets sob `/plan-evento-prova-sebrac/assets/`.
+
+**Limites:** o GitHub Pages não executa Cloudflare Pages Functions nem D1. O modo publicado serve ao portal estático e ao simulado; o fluxo colaborativo de sessões requer a operação local/Cloudflare.
+
 ## PROVA-007 - Fluxo HTTP local da sessão Recap
 
 **Estado:** [OK]
